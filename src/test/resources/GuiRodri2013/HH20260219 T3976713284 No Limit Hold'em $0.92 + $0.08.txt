@@ -1,0 +1,326 @@
+﻿PokerStars Hand #259795665279: Tournament #3976713284, $0.92+$0.08 USD Hold'em No Limit - Level I (10/20) - 2026/02/19 21:26:34 BRT [2026/02/19 19:26:34 ET]
+Table '3976713284 1' 3-max Seat #1 is the button
+Seat 1: villain1 (300 in chips)
+Seat 2: villain2 (300 in chips)
+Seat 3: GuiRodri2013 (300 in chips)
+villain2: posts small blind 10
+GuiRodri2013: posts big blind 20
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Qd Kd]
+villain1: raises 20 to 40
+villain2: folds
+GuiRodri2013: calls 20
+*** FLOP *** [Kc 5h Th]
+GuiRodri2013: bets 45
+villain1: calls 45
+*** TURN *** [Kc 5h Th] [7c]
+GuiRodri2013: bets 90
+villain1: folds
+Uncalled bet (90) returned to GuiRodri2013
+GuiRodri2013 collected 180 from pot
+GuiRodri2013: doesn't show hand
+*** SUMMARY ***
+Total pot 180 | Rake 0
+Board [Kc 5h Th 7c]
+Seat 1: villain1 (button) folded on the Turn
+Seat 2: villain2 (small blind) folded before Flop
+Seat 3: GuiRodri2013 (big blind) collected (180)
+
+
+
+PokerStars Hand #259795670415: Tournament #3976713284, $0.92+$0.08 USD Hold'em No Limit - Level I (10/20) - 2026/02/19 21:27:04 BRT [2026/02/19 19:27:04 ET]
+Table '3976713284 1' 3-max Seat #2 is the button
+Seat 1: villain1 (215 in chips)
+Seat 2: villain2 (290 in chips)
+Seat 3: GuiRodri2013 (395 in chips)
+GuiRodri2013: posts small blind 10
+villain1: posts big blind 20
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Jc Jh]
+villain2: calls 20
+GuiRodri2013: raises 375 to 395 and is all-in
+villain1: calls 195 and is all-in
+villain2: folds
+Uncalled bet (180) returned to GuiRodri2013
+*** FLOP *** [8c 9s 4d]
+*** TURN *** [8c 9s 4d] [3s]
+*** RIVER *** [8c 9s 4d 3s] [2d]
+*** SHOW DOWN ***
+GuiRodri2013: shows [Jc Jh] (a pair of Jacks)
+villain1: shows [As 6h] (high card Ace)
+GuiRodri2013 collected 450 from pot
+villain1 finished the tournament in 3rd place
+*** SUMMARY ***
+Total pot 450 | Rake 0
+Board [8c 9s 4d 3s 2d]
+Seat 1: villain1 (big blind) showed [As 6h] and lost with high card Ace
+Seat 2: villain2 (button) folded before Flop
+Seat 3: GuiRodri2013 (small blind) showed [Jc Jh] and won (450) with a pair of Jacks
+
+
+
+PokerStars Hand #259795674608: Tournament #3976713284, $0.92+$0.08 USD Hold'em No Limit - Level I (10/20) - 2026/02/19 21:27:29 BRT [2026/02/19 19:27:29 ET]
+Table '3976713284 1' 3-max Seat #3 is the button
+Seat 2: villain2 (270 in chips)
+Seat 3: GuiRodri2013 (630 in chips)
+GuiRodri2013: posts small blind 10
+villain2: posts big blind 20
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [9d 2d]
+GuiRodri2013: raises 20 to 40
+villain2: raises 20 to 60
+GuiRodri2013: calls 20
+*** FLOP *** [4c Ks Js]
+villain2: bets 210 and is all-in
+GuiRodri2013: folds
+Uncalled bet (210) returned to villain2
+villain2 collected 120 from pot
+*** SUMMARY ***
+Total pot 120 | Rake 0
+Board [4c Ks Js]
+Seat 2: villain2 (big blind) collected (120)
+Seat 3: GuiRodri2013 (button) (small blind) folded on the Flop
+
+
+
+PokerStars Hand #259795677176: Tournament #3976713284, $0.92+$0.08 USD Hold'em No Limit - Level I (10/20) - 2026/02/19 21:27:43 BRT [2026/02/19 19:27:43 ET]
+Table '3976713284 1' 3-max Seat #2 is the button
+Seat 2: villain2 (330 in chips)
+Seat 3: GuiRodri2013 (570 in chips)
+villain2: posts small blind 10
+GuiRodri2013: posts big blind 20
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [2d 4c]
+villain2: raises 310 to 330 and is all-in
+GuiRodri2013: folds
+Uncalled bet (310) returned to villain2
+villain2 collected 40 from pot
+*** SUMMARY ***
+Total pot 40 | Rake 0
+Seat 2: villain2 (button) (small blind) collected (40)
+Seat 3: GuiRodri2013 (big blind) folded before Flop
+
+
+
+PokerStars Hand #259795678072: Tournament #3976713284, $0.92+$0.08 USD Hold'em No Limit - Level I (10/20) - 2026/02/19 21:27:48 BRT [2026/02/19 19:27:48 ET]
+Table '3976713284 1' 3-max Seat #3 is the button
+Seat 2: villain2 (350 in chips)
+Seat 3: GuiRodri2013 (550 in chips)
+GuiRodri2013: posts small blind 10
+villain2: posts big blind 20
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [5h Ad]
+GuiRodri2013: calls 10
+villain2: checks
+*** FLOP *** [Jd 7s Qh]
+villain2: checks
+GuiRodri2013: checks
+*** TURN *** [Jd 7s Qh] [8s]
+villain2: checks
+GuiRodri2013: checks
+*** RIVER *** [Jd 7s Qh 8s] [Ts]
+villain2: checks
+GuiRodri2013: checks
+*** SHOW DOWN ***
+villain2: shows [6h 9d] (a straight, Eight to Queen)
+GuiRodri2013: mucks hand
+villain2 collected 40 from pot
+*** SUMMARY ***
+Total pot 40 | Rake 0
+Board [Jd 7s Qh 8s Ts]
+Seat 2: villain2 (big blind) showed [6h 9d] and won (40) with a straight, Eight to Queen
+Seat 3: GuiRodri2013 (button) (small blind) mucked [5h Ad]
+
+
+
+PokerStars Hand #259795681167: Tournament #3976713284, $0.92+$0.08 USD Hold'em No Limit - Level I (10/20) - 2026/02/19 21:28:06 BRT [2026/02/19 19:28:06 ET]
+Table '3976713284 1' 3-max Seat #2 is the button
+Seat 2: villain2 (370 in chips)
+Seat 3: GuiRodri2013 (530 in chips)
+villain2: posts small blind 10
+GuiRodri2013: posts big blind 20
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Tc 7d]
+villain2: folds
+Uncalled bet (10) returned to GuiRodri2013
+GuiRodri2013 collected 20 from pot
+GuiRodri2013: doesn't show hand
+*** SUMMARY ***
+Total pot 20 | Rake 0
+Seat 2: villain2 (button) (small blind) folded before Flop
+Seat 3: GuiRodri2013 (big blind) collected (20)
+
+
+
+PokerStars Hand #259795682239: Tournament #3976713284, $0.92+$0.08 USD Hold'em No Limit - Level I (10/20) - 2026/02/19 21:28:13 BRT [2026/02/19 19:28:13 ET]
+Table '3976713284 1' 3-max Seat #3 is the button
+Seat 2: villain2 (360 in chips)
+Seat 3: GuiRodri2013 (540 in chips)
+GuiRodri2013: posts small blind 10
+villain2: posts big blind 20
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [4s 4h]
+GuiRodri2013: raises 20 to 40
+villain2: calls 20
+*** FLOP *** [Ks Ts 7d]
+villain2: checks
+GuiRodri2013: checks
+*** TURN *** [Ks Ts 7d] [Td]
+villain2: checks
+GuiRodri2013: checks
+*** RIVER *** [Ks Ts 7d Td] [Ac]
+villain2: checks
+GuiRodri2013: checks
+*** SHOW DOWN ***
+villain2: shows [6d 6s] (two pair, Tens and Sixes)
+GuiRodri2013: mucks hand
+villain2 collected 80 from pot
+*** SUMMARY ***
+Total pot 80 | Rake 0
+Board [Ks Ts 7d Td Ac]
+Seat 2: villain2 (big blind) showed [6d 6s] and won (80) with two pair, Tens and Sixes
+Seat 3: GuiRodri2013 (button) (small blind) mucked [4s 4h]
+
+
+
+PokerStars Hand #259795684687: Tournament #3976713284, $0.92+$0.08 USD Hold'em No Limit - Level I (10/20) - 2026/02/19 21:28:27 BRT [2026/02/19 19:28:27 ET]
+Table '3976713284 1' 3-max Seat #2 is the button
+Seat 2: villain2 (400 in chips)
+Seat 3: GuiRodri2013 (500 in chips)
+villain2: posts small blind 10
+GuiRodri2013: posts big blind 20
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [4d 2c]
+villain2: calls 10
+GuiRodri2013: checks
+*** FLOP *** [5s 7d Qs]
+GuiRodri2013: checks
+villain2: checks
+*** TURN *** [5s 7d Qs] [Ac]
+GuiRodri2013: checks
+villain2: checks
+*** RIVER *** [5s 7d Qs Ac] [6s]
+GuiRodri2013: checks
+villain2: checks
+*** SHOW DOWN ***
+GuiRodri2013: shows [4d 2c] (high card Ace)
+villain2: shows [6d Jc] (a pair of Sixes)
+villain2 collected 40 from pot
+*** SUMMARY ***
+Total pot 40 | Rake 0
+Board [5s 7d Qs Ac 6s]
+Seat 2: villain2 (button) (small blind) showed [6d Jc] and won (40) with a pair of Sixes
+Seat 3: GuiRodri2013 (big blind) showed [4d 2c] and lost with high card Ace
+
+
+
+PokerStars Hand #259795688088: Tournament #3976713284, $0.92+$0.08 USD Hold'em No Limit - Level II (15/30) - 2026/02/19 21:28:46 BRT [2026/02/19 19:28:46 ET]
+Table '3976713284 1' 3-max Seat #3 is the button
+Seat 2: villain2 (420 in chips)
+Seat 3: GuiRodri2013 (480 in chips)
+GuiRodri2013: posts small blind 15
+villain2: posts big blind 30
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Ad 2d]
+GuiRodri2013: raises 30 to 60
+villain2: folds
+Uncalled bet (30) returned to GuiRodri2013
+GuiRodri2013 collected 60 from pot
+GuiRodri2013: doesn't show hand
+*** SUMMARY ***
+Total pot 60 | Rake 0
+Seat 2: villain2 (big blind) folded before Flop
+Seat 3: GuiRodri2013 (button) (small blind) collected (60)
+
+
+
+PokerStars Hand #259795689107: Tournament #3976713284, $0.92+$0.08 USD Hold'em No Limit - Level II (15/30) - 2026/02/19 21:28:52 BRT [2026/02/19 19:28:52 ET]
+Table '3976713284 1' 3-max Seat #2 is the button
+Seat 2: villain2 (390 in chips)
+Seat 3: GuiRodri2013 (510 in chips)
+villain2: posts small blind 15
+GuiRodri2013: posts big blind 30
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [7d 3h]
+villain2: raises 60 to 90
+GuiRodri2013: folds
+Uncalled bet (60) returned to villain2
+villain2 collected 60 from pot
+*** SUMMARY ***
+Total pot 60 | Rake 0
+Seat 2: villain2 (button) (small blind) collected (60)
+Seat 3: GuiRodri2013 (big blind) folded before Flop
+
+
+
+PokerStars Hand #259795690555: Tournament #3976713284, $0.92+$0.08 USD Hold'em No Limit - Level II (15/30) - 2026/02/19 21:29:01 BRT [2026/02/19 19:29:01 ET]
+Table '3976713284 1' 3-max Seat #3 is the button
+Seat 2: villain2 (420 in chips)
+Seat 3: GuiRodri2013 (480 in chips)
+GuiRodri2013: posts small blind 15
+villain2: posts big blind 30
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [6h Ts]
+GuiRodri2013: folds
+Uncalled bet (15) returned to villain2
+villain2 collected 30 from pot
+*** SUMMARY ***
+Total pot 30 | Rake 0
+Seat 2: villain2 (big blind) collected (30)
+Seat 3: GuiRodri2013 (button) (small blind) folded before Flop
+
+
+
+PokerStars Hand #259795691443: Tournament #3976713284, $0.92+$0.08 USD Hold'em No Limit - Level II (15/30) - 2026/02/19 21:29:06 BRT [2026/02/19 19:29:06 ET]
+Table '3976713284 1' 3-max Seat #2 is the button
+Seat 2: villain2 (435 in chips)
+Seat 3: GuiRodri2013 (465 in chips)
+villain2: posts small blind 15
+GuiRodri2013: posts big blind 30
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [5c 5h]
+villain2: calls 15
+GuiRodri2013: raises 30 to 60
+villain2: calls 30
+*** FLOP *** [6c 2d Tc]
+GuiRodri2013: bets 60
+villain2: calls 60
+*** TURN *** [6c 2d Tc] [8c]
+GuiRodri2013: bets 60
+villain2: folds
+Uncalled bet (60) returned to GuiRodri2013
+GuiRodri2013 collected 240 from pot
+GuiRodri2013: doesn't show hand
+*** SUMMARY ***
+Total pot 240 | Rake 0
+Board [6c 2d Tc 8c]
+Seat 2: villain2 (button) (small blind) folded on the Turn
+Seat 3: GuiRodri2013 (big blind) collected (240)
+
+
+
+PokerStars Hand #259795694323: Tournament #3976713284, $0.92+$0.08 USD Hold'em No Limit - Level II (15/30) - 2026/02/19 21:29:23 BRT [2026/02/19 19:29:23 ET]
+Table '3976713284 1' 3-max Seat #3 is the button
+Seat 2: villain2 (315 in chips)
+Seat 3: GuiRodri2013 (585 in chips)
+GuiRodri2013: posts small blind 15
+villain2: posts big blind 30
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Ad Jd]
+GuiRodri2013: raises 60 to 90
+villain2: raises 225 to 315 and is all-in
+GuiRodri2013: calls 225
+*** FLOP *** [2d 9h Jc]
+*** TURN *** [2d 9h Jc] [Ks]
+*** RIVER *** [2d 9h Jc Ks] [Jh]
+*** SHOW DOWN ***
+villain2: shows [5h Ac] (a pair of Jacks)
+GuiRodri2013: shows [Ad Jd] (three of a kind, Jacks)
+GuiRodri2013 collected 630 from pot
+villain2 finished the tournament in 2nd place
+GuiRodri2013 wins the tournament and receives $3.00 - congratulations!
+*** SUMMARY ***
+Total pot 630 | Rake 0
+Board [2d 9h Jc Ks Jh]
+Seat 2: villain2 (big blind) showed [5h Ac] and lost with a pair of Jacks
+Seat 3: GuiRodri2013 (button) (small blind) showed [Ad Jd] and won (630) with three of a kind, Jacks

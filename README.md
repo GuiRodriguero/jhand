@@ -1,2 +1,2 @@
 # jhand
-Poker hands analyser with Java
+Java poker hands analyser
