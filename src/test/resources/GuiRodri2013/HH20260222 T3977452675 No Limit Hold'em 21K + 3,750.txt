@@ -1,0 +1,4168 @@
+PokerStars Hand #259826767866: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level I (10/20) - 2026/02/22 11:45:18 BRT [2026/02/22 9:45:18 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (1500 in chips) 
+Seat 2: villain1 (1500 in chips) 
+Seat 3: villain2 (1500 in chips) 
+Seat 4: villain3 (1500 in chips) 
+Seat 5: villain4 (1500 in chips) 
+Seat 6: villain5 (1500 in chips) 
+Seat 7: villain6 (1500 in chips) 
+Seat 8: villain7 (1500 in chips) 
+Seat 9: villain8 (1500 in chips) is sitting out
+villain1: posts small blind 10
+villain2: posts big blind 20
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Ah Qc]
+villain3: calls 20
+villain8 is disconnected 
+villain4: raises 20 to 40
+villain5: folds 
+villain6: folds 
+villain7: folds 
+villain8: folds 
+GuiRodri2013: calls 40
+villain1: calls 30
+villain2: folds 
+villain3: calls 20
+*** FLOP *** [Ac 8s 9h]
+villain1: checks 
+villain3: checks 
+villain4: bets 20
+GuiRodri2013: raises 20 to 40
+villain1: raises 40 to 80
+villain3: folds 
+villain4: calls 60
+GuiRodri2013: calls 40
+*** TURN *** [Ac 8s 9h] [3d]
+villain1: bets 100
+villain4: folds 
+GuiRodri2013: calls 100
+*** RIVER *** [Ac 8s 9h 3d] [9s]
+villain1: bets 100
+GuiRodri2013: calls 100
+*** SHOW DOWN ***
+villain1: shows [3h Ad] (two pair, Aces and Nines)
+GuiRodri2013: shows [Ah Qc] (two pair, Aces and Nines - Queen kicker)
+GuiRodri2013 collected 820 from pot
+*** SUMMARY ***
+Total pot 820 | Rake 0 
+Board [Ac 8s 9h 3d 9s]
+Seat 1: GuiRodri2013 (button) showed [Ah Qc] and won (820) with two pair, Aces and Nines
+Seat 2: villain1 (small blind) showed [3h Ad] and lost with two pair, Aces and Nines
+Seat 3: villain2 (big blind) folded before Flop
+Seat 4: villain3 folded on the Flop
+Seat 5: villain4 folded on the Turn
+Seat 6: villain5 folded before Flop (didn't bet)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain7 folded before Flop (didn't bet)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259826787291: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level I (10/20) - 2026/02/22 11:47:11 BRT [2026/02/22 9:47:11 ET]
+Table '3977452675 1' 9-max Seat #2 is the button
+Seat 1: GuiRodri2013 (2000 in chips) 
+Seat 2: villain1 (1180 in chips) 
+Seat 3: villain2 (1480 in chips) 
+Seat 4: villain3 (1460 in chips) 
+Seat 5: villain4 (1380 in chips) 
+Seat 6: villain5 (1500 in chips) 
+Seat 7: villain6 (1500 in chips) 
+Seat 8: villain7 (1500 in chips) 
+Seat 9: villain8 (1500 in chips) 
+villain2: posts small blind 10
+villain3: posts big blind 20
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [5c 9h]
+villain4: calls 20
+villain5: calls 20
+villain6: folds 
+villain7: calls 20
+villain8: calls 20
+GuiRodri2013: folds 
+villain1: folds 
+villain2: folds 
+villain3: checks 
+*** FLOP *** [As Qd Kc]
+villain3: checks 
+villain4: checks 
+villain5: bets 40
+villain7: calls 40
+villain8: calls 40
+villain3: folds 
+villain4: folds 
+*** TURN *** [As Qd Kc] [Ks]
+villain5: checks 
+villain7: checks 
+villain8: bets 40
+villain5: calls 40
+villain7: calls 40
+*** RIVER *** [As Qd Kc Ks] [8c]
+villain5: checks 
+villain7: checks 
+villain8: checks 
+*** SHOW DOWN ***
+villain5: shows [2s Ah] (two pair, Aces and Kings)
+villain7: mucks hand 
+villain8: shows [Qc Ac] (two pair, Aces and Kings)
+villain5 collected 175 from pot
+villain8 collected 175 from pot
+*** SUMMARY ***
+Total pot 350 | Rake 0 
+Board [As Qd Kc Ks 8c]
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 2: villain1 (button) folded before Flop (didn't bet)
+Seat 3: villain2 (small blind) folded before Flop
+Seat 4: villain3 (big blind) folded on the Flop
+Seat 5: villain4 folded on the Flop
+Seat 6: villain5 showed [2s Ah] and won (175) with two pair, Aces and Kings
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain7 mucked [Qs Jh]
+Seat 9: villain8 showed [Qc Ac] and won (175) with two pair, Aces and Kings
+
+
+
+PokerStars Hand #259826802580: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level I (10/20) - 2026/02/22 11:48:39 BRT [2026/02/22 9:48:39 ET]
+Table '3977452675 1' 9-max Seat #3 is the button
+Seat 1: GuiRodri2013 (2000 in chips) 
+Seat 2: villain1 (1180 in chips) 
+Seat 3: villain2 (1470 in chips) 
+Seat 4: villain3 (1440 in chips) 
+Seat 5: villain4 (1360 in chips) 
+Seat 6: villain5 (1575 in chips) 
+Seat 7: villain6 (1500 in chips) 
+Seat 8: villain7 (1400 in chips) 
+Seat 9: villain8 (1575 in chips) 
+villain3: posts small blind 10
+villain4: posts big blind 20
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [5s Tc]
+villain5: folds 
+villain6: calls 20
+villain7: folds 
+villain8: folds 
+GuiRodri2013: folds 
+villain1: folds 
+villain2: folds 
+villain3: calls 10
+villain4: checks 
+*** FLOP *** [Ah 9c Kh]
+villain3: bets 20
+villain4: calls 20
+villain6: calls 20
+*** TURN *** [Ah 9c Kh] [6s]
+villain3: bets 120
+villain4: folds 
+villain6: calls 120
+*** RIVER *** [Ah 9c Kh 6s] [5h]
+villain3: bets 100
+villain6: calls 100
+*** SHOW DOWN ***
+villain3: shows [Jh As] (a pair of Aces)
+villain6: shows [Ac Qd] (a pair of Aces - King+Queen kicker)
+villain6 collected 560 from pot
+*** SUMMARY ***
+Total pot 560 | Rake 0 
+Board [Ah 9c Kh 6s 5h]
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 2: villain1 folded before Flop (didn't bet)
+Seat 3: villain2 (button) folded before Flop (didn't bet)
+Seat 4: villain3 (small blind) showed [Jh As] and lost with a pair of Aces
+Seat 5: villain4 (big blind) folded on the Turn
+Seat 6: villain5 folded before Flop (didn't bet)
+Seat 7: villain6 showed [Ac Qd] and won (560) with a pair of Aces
+Seat 8: villain7 folded before Flop (didn't bet)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259826815761: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level I (10/20) - 2026/02/22 11:49:54 BRT [2026/02/22 9:49:54 ET]
+Table '3977452675 1' 9-max Seat #4 is the button
+Seat 1: GuiRodri2013 (2000 in chips) 
+Seat 2: villain1 (1180 in chips) 
+Seat 3: villain2 (1470 in chips) 
+Seat 4: villain3 (1180 in chips) 
+Seat 5: villain4 (1320 in chips) 
+Seat 6: villain5 (1575 in chips) 
+Seat 7: villain6 (1800 in chips) 
+Seat 8: villain7 (1400 in chips) 
+Seat 9: villain8 (1575 in chips) 
+villain4: posts small blind 10
+villain5: posts big blind 20
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [5c 7d]
+villain6: calls 20
+villain7: calls 20
+villain8: folds 
+GuiRodri2013: folds 
+villain1: calls 20
+villain2: folds 
+villain3: calls 20
+villain4: calls 10
+villain5: checks 
+*** FLOP *** [4d 6c Ts]
+villain4: checks 
+villain5: checks 
+villain6: checks 
+villain7: bets 60
+villain1: calls 60
+villain3: calls 60
+villain4: folds 
+villain5: folds 
+villain6: folds 
+*** TURN *** [4d 6c Ts] [As]
+villain7: bets 40
+villain1: calls 40
+villain3: calls 40
+*** RIVER *** [4d 6c Ts As] [2c]
+villain7: bets 40
+villain1: calls 40
+villain3: folds 
+*** SHOW DOWN ***
+villain7: shows [Qs 6s] (a pair of Sixes)
+villain1: shows [Qh Tc] (a pair of Tens)
+villain1 collected 500 from pot
+*** SUMMARY ***
+Total pot 500 | Rake 0 
+Board [4d 6c Ts As 2c]
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 2: villain1 showed [Qh Tc] and won (500) with a pair of Tens
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 4: villain3 (button) folded on the River
+Seat 5: villain4 (small blind) folded on the Flop
+Seat 6: villain5 (big blind) folded on the Flop
+Seat 7: villain6 folded on the Flop
+Seat 8: villain7 showed [Qs 6s] and lost with a pair of Sixes
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259826829404: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level II (15/30) - 2026/02/22 11:51:12 BRT [2026/02/22 9:51:12 ET]
+Table '3977452675 1' 9-max Seat #5 is the button
+Seat 1: GuiRodri2013 (2000 in chips) 
+Seat 3: villain2 (1470 in chips) 
+Seat 4: villain3 (1060 in chips) 
+Seat 5: villain4 (1300 in chips) 
+Seat 6: villain5 (1555 in chips) 
+Seat 7: villain6 (1780 in chips) 
+Seat 8: villain7 (1240 in chips) 
+Seat 9: villain8 (1575 in chips) 
+villain5: posts small blind 15
+villain6: posts big blind 30
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [9h 7d]
+villain7: folds 
+villain8: folds 
+GuiRodri2013: folds 
+villain2: calls 30
+villain3: folds 
+villain4: folds 
+villain5: calls 15
+villain6: checks 
+*** FLOP *** [Ac Qd 2h]
+villain5: checks 
+villain6: checks 
+villain2: checks 
+*** TURN *** [Ac Qd 2h] [3c]
+villain5: checks 
+villain6: checks 
+villain2: checks 
+*** RIVER *** [Ac Qd 2h 3c] [3d]
+villain5: bets 30
+villain6: folds 
+villain2: folds [Ts]
+Uncalled bet (30) returned to villain5
+villain5 collected 90 from pot
+villain5: doesn't show hand 
+*** SUMMARY ***
+Total pot 90 | Rake 0 
+Board [Ac Qd 2h 3c 3d]
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 3: villain2 folded on the River
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 5: villain4 (button) folded before Flop (didn't bet)
+Seat 6: villain5 (small blind) collected (90)
+Seat 7: villain6 (big blind) folded on the River
+Seat 8: villain7 folded before Flop (didn't bet)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259826846351: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level II (15/30) - 2026/02/22 11:52:47 BRT [2026/02/22 9:52:47 ET]
+Table '3977452675 1' 9-max Seat #6 is the button
+Seat 1: GuiRodri2013 (2000 in chips) 
+Seat 3: villain2 (1440 in chips) 
+Seat 4: villain3 (1060 in chips) 
+Seat 5: villain4 (1300 in chips) 
+Seat 6: villain5 (1615 in chips) 
+Seat 7: villain6 (1750 in chips) 
+Seat 8: villain7 (1240 in chips) 
+Seat 9: villain8 (1575 in chips) 
+villain6: posts small blind 15
+villain7: posts big blind 30
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [6s 3h]
+villain8: calls 30
+GuiRodri2013: folds 
+villain2: calls 30
+villain3: folds 
+villain4: folds 
+villain5: folds 
+villain6: calls 15
+villain7: checks 
+*** FLOP *** [Jh 5h Th]
+villain6: checks 
+villain7: checks 
+villain8: checks 
+villain2: bets 30
+villain6: folds 
+villain7: calls 30
+villain8: folds 
+*** TURN *** [Jh 5h Th] [5s]
+villain7: checks 
+villain2: bets 30
+villain7: calls 30
+*** RIVER *** [Jh 5h Th 5s] [8h]
+villain7: bets 240
+villain2: folds [Ts]
+Uncalled bet (240) returned to villain7
+villain7 collected 240 from pot
+villain7: doesn't show hand 
+*** SUMMARY ***
+Total pot 240 | Rake 0 
+Board [Jh 5h Th 5s 8h]
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 3: villain2 folded on the River
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 5: villain4 folded before Flop (didn't bet)
+Seat 6: villain5 (button) folded before Flop (didn't bet)
+Seat 7: villain6 (small blind) folded on the Flop
+Seat 8: villain7 (big blind) collected (240)
+Seat 9: villain8 folded on the Flop
+
+
+
+PokerStars Hand #259826858012: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level II (15/30) - 2026/02/22 11:53:53 BRT [2026/02/22 9:53:53 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (2000 in chips) 
+Seat 3: villain2 (1350 in chips) 
+Seat 4: villain3 (1060 in chips) 
+Seat 5: villain4 (1300 in chips) 
+Seat 6: villain5 (1615 in chips) 
+Seat 7: villain6 (1720 in chips) 
+Seat 8: villain7 (1390 in chips) 
+Seat 9: villain8 (1545 in chips) 
+villain7: posts small blind 15
+villain8: posts big blind 30
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Jc 2s]
+GuiRodri2013: folds 
+villain2: calls 30
+villain3: folds 
+villain4: calls 30
+villain5: calls 30
+villain6: folds 
+villain7: calls 15
+villain8: checks 
+*** FLOP *** [Tc 7h 6h]
+villain7: checks 
+villain8: bets 30
+villain2: folds 
+villain4: calls 30
+villain5: calls 30
+villain7: folds 
+*** TURN *** [Tc 7h 6h] [7c]
+villain8: bets 30
+villain4: calls 30
+villain5: calls 30
+*** RIVER *** [Tc 7h 6h 7c] [6s]
+villain8: bets 30
+villain4: raises 195 to 225
+villain5: folds 
+villain8: folds 
+Uncalled bet (195) returned to villain4
+villain4 collected 390 from pot
+*** SUMMARY ***
+Total pot 390 | Rake 0 
+Board [Tc 7h 6h 7c 6s]
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 3: villain2 folded on the Flop
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 5: villain4 collected (390)
+Seat 6: villain5 folded on the River
+Seat 7: villain6 (button) folded before Flop (didn't bet)
+Seat 8: villain7 (small blind) folded on the Flop
+Seat 9: villain8 (big blind) folded on the River
+
+
+
+PokerStars Hand #259826869784: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level II (15/30) - 2026/02/22 11:55:01 BRT [2026/02/22 9:55:01 ET]
+Table '3977452675 1' 9-max Seat #8 is the button
+Seat 1: GuiRodri2013 (2000 in chips) 
+Seat 3: villain2 (1320 in chips) 
+Seat 4: villain3 (1060 in chips) 
+Seat 5: villain4 (1570 in chips) 
+Seat 6: villain5 (1525 in chips) 
+Seat 7: villain6 (1720 in chips) 
+Seat 8: villain7 (1360 in chips) 
+Seat 9: villain8 (1425 in chips) 
+villain8: posts small blind 15
+GuiRodri2013: posts big blind 30
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Qh Ac]
+villain2: calls 30
+villain3: calls 30
+villain4: calls 30
+villain5: calls 30
+villain6: calls 30
+villain7: folds 
+villain8: folds 
+GuiRodri2013: raises 60 to 90
+villain2: folds 
+villain3: calls 60
+villain4: calls 60
+villain5: calls 60
+villain6: folds 
+*** FLOP *** [6c Ah 2s]
+GuiRodri2013: bets 120
+villain3: folds 
+villain4: folds 
+villain5: folds 
+Uncalled bet (120) returned to GuiRodri2013
+GuiRodri2013 collected 435 from pot
+GuiRodri2013: doesn't show hand 
+*** SUMMARY ***
+Total pot 435 | Rake 0 
+Board [6c Ah 2s]
+Seat 1: GuiRodri2013 (big blind) collected (435)
+Seat 3: villain2 folded before Flop
+Seat 4: villain3 folded on the Flop
+Seat 5: villain4 folded on the Flop
+Seat 6: villain5 folded on the Flop
+Seat 7: villain6 folded before Flop
+Seat 8: villain7 (button) folded before Flop (didn't bet)
+Seat 9: villain8 (small blind) folded before Flop
+
+
+
+PokerStars Hand #259826877405: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level III (25/50) - 2026/02/22 11:55:59 BRT [2026/02/22 9:55:59 ET]
+Table '3977452675 1' 9-max Seat #9 is the button
+Seat 1: GuiRodri2013 (2345 in chips) 
+Seat 3: villain2 (1290 in chips) 
+Seat 4: villain3 (970 in chips) 
+Seat 5: villain4 (1480 in chips) 
+Seat 6: villain5 (1435 in chips) 
+Seat 7: villain6 (1690 in chips) 
+Seat 8: villain7 (1360 in chips) 
+Seat 9: villain8 (1410 in chips) 
+GuiRodri2013: posts small blind 25
+villain2: posts big blind 50
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Ad Qc]
+villain3: folds 
+villain4 has timed out
+villain4: folds 
+villain5: folds 
+villain6: folds 
+villain7: calls 50
+villain8: folds 
+GuiRodri2013: raises 100 to 150
+villain2: folds 
+villain7: calls 100
+*** FLOP *** [Tc As Qd]
+GuiRodri2013: bets 100
+villain7: calls 100
+*** TURN *** [Tc As Qd] [7d]
+GuiRodri2013: bets 200
+villain7: calls 200
+*** RIVER *** [Tc As Qd 7d] [Th]
+GuiRodri2013: bets 200
+villain7: folds 
+Uncalled bet (200) returned to GuiRodri2013
+GuiRodri2013 collected 950 from pot
+GuiRodri2013: doesn't show hand 
+*** SUMMARY ***
+Total pot 950 | Rake 0 
+Board [Tc As Qd 7d Th]
+Seat 1: GuiRodri2013 (small blind) collected (950)
+Seat 3: villain2 (big blind) folded before Flop
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 5: villain4 folded before Flop (didn't bet)
+Seat 6: villain5 folded before Flop (didn't bet)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain7 folded on the River
+Seat 9: villain8 (button) folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259826885911: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level III (25/50) - 2026/02/22 11:57:07 BRT [2026/02/22 9:57:07 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (2845 in chips) 
+Seat 3: villain2 (1240 in chips) 
+Seat 4: villain3 (970 in chips) 
+Seat 5: villain4 (1480 in chips) 
+Seat 6: villain5 (1435 in chips) 
+Seat 7: villain6 (1690 in chips) 
+Seat 8: villain7 (910 in chips) 
+Seat 9: villain8 (1410 in chips) 
+villain2: posts small blind 25
+villain3: posts big blind 50
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Ks 8h]
+villain4: calls 50
+villain5: calls 50
+villain6: folds 
+villain7: folds 
+villain8: folds 
+GuiRodri2013: raises 100 to 150
+villain2: folds 
+villain3: folds 
+villain4: calls 100
+villain5: calls 100
+*** FLOP *** [7c Kd Td]
+villain4: checks 
+villain5: checks 
+GuiRodri2013: bets 200
+villain4: calls 200
+villain5: folds 
+*** TURN *** [7c Kd Td] [Jd]
+villain4: checks 
+GuiRodri2013: checks 
+*** RIVER *** [7c Kd Td Jd] [2s]
+villain4: checks 
+GuiRodri2013: bets 100
+villain4: calls 100
+*** SHOW DOWN ***
+GuiRodri2013: shows [Ks 8h] (a pair of Kings)
+villain4: mucks hand 
+GuiRodri2013 collected 1125 from pot
+*** SUMMARY ***
+Total pot 1125 | Rake 0 
+Board [7c Kd Td Jd 2s]
+Seat 1: GuiRodri2013 (button) showed [Ks 8h] and won (1125) with a pair of Kings
+Seat 3: villain2 (small blind) folded before Flop
+Seat 4: villain3 (big blind) folded before Flop
+Seat 5: villain4 mucked [Js Qd]
+Seat 6: villain5 folded on the Flop
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain7 folded before Flop (didn't bet)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259826895428: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level III (25/50) - 2026/02/22 11:58:22 BRT [2026/02/22 9:58:22 ET]
+Table '3977452675 1' 9-max Seat #3 is the button
+Seat 1: GuiRodri2013 (3520 in chips) 
+Seat 3: villain2 (1215 in chips) 
+Seat 4: villain3 (920 in chips) 
+Seat 5: villain4 (1030 in chips) 
+Seat 6: villain5 (1285 in chips) 
+Seat 7: villain6 (1690 in chips) 
+Seat 8: villain7 (910 in chips) 
+Seat 9: villain8 (1410 in chips) 
+villain3: posts small blind 25
+villain4: posts big blind 50
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [5c Th]
+villain5: calls 50
+villain6: folds 
+villain7: folds 
+villain8: folds 
+GuiRodri2013: folds 
+villain2: folds 
+villain3: calls 25
+villain4: checks 
+*** FLOP *** [2c 5s Ts]
+villain3: checks 
+villain4: bets 50
+villain5: calls 50
+villain3: calls 50
+*** TURN *** [2c 5s Ts] [3c]
+villain3: checks 
+villain4: checks 
+villain5: checks 
+*** RIVER *** [2c 5s Ts 3c] [7d]
+villain3: checks 
+villain4: checks 
+villain5: checks 
+*** SHOW DOWN ***
+villain3: shows [Ah Qc] (high card Ace)
+villain4: shows [As Qd] (high card Ace)
+villain5: shows [Jh 2h] (a pair of Deuces)
+villain5 collected 300 from pot
+*** SUMMARY ***
+Total pot 300 | Rake 0 
+Board [2c 5s Ts 3c 7d]
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 3: villain2 (button) folded before Flop (didn't bet)
+Seat 4: villain3 (small blind) showed [Ah Qc] and lost with high card Ace
+Seat 5: villain4 (big blind) showed [As Qd] and lost with high card Ace
+Seat 6: villain5 showed [Jh 2h] and won (300) with a pair of Deuces
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain7 folded before Flop (didn't bet)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259826905304: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level III (25/50) - 2026/02/22 11:59:39 BRT [2026/02/22 9:59:39 ET]
+Table '3977452675 1' 9-max Seat #4 is the button
+Seat 1: GuiRodri2013 (3520 in chips) 
+Seat 3: villain2 (1215 in chips) 
+Seat 4: villain3 (820 in chips) 
+Seat 5: villain4 (930 in chips) 
+Seat 6: villain5 (1485 in chips) 
+Seat 7: villain6 (1690 in chips) 
+Seat 8: villain7 (910 in chips) 
+Seat 9: villain8 (1410 in chips) 
+villain4: posts small blind 25
+villain5: posts big blind 50
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Ah Ad]
+villain6 is disconnected 
+villain6 has timed out while disconnected
+villain6: folds 
+villain7: folds 
+villain8: calls 50
+GuiRodri2013: raises 200 to 250
+villain2: folds 
+villain3: calls 250
+villain4: folds 
+villain5: folds 
+villain8: folds 
+*** FLOP *** [7d 2h 3s]
+GuiRodri2013: bets 250
+villain3: folds 
+Uncalled bet (250) returned to GuiRodri2013
+GuiRodri2013 collected 625 from pot
+GuiRodri2013: doesn't show hand 
+*** SUMMARY ***
+Total pot 625 | Rake 0 
+Board [7d 2h 3s]
+Seat 1: GuiRodri2013 collected (625)
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 4: villain3 (button) folded on the Flop
+Seat 5: villain4 (small blind) folded before Flop
+Seat 6: villain5 (big blind) folded before Flop
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain7 folded before Flop (didn't bet)
+Seat 9: villain8 folded before Flop
+
+
+
+PokerStars Hand #259826911769: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level IV (50/100) - 2026/02/22 12:00:29 BRT [2026/02/22 10:00:29 ET]
+Table '3977452675 1' 9-max Seat #5 is the button
+Seat 1: GuiRodri2013 (3895 in chips) 
+Seat 4: villain3 (570 in chips) 
+Seat 5: villain4 (905 in chips) 
+Seat 6: villain5 (1435 in chips) 
+Seat 7: villain6 (1690 in chips) 
+Seat 8: villain7 (910 in chips) 
+Seat 9: villain8 (1360 in chips) 
+villain5: posts small blind 50
+villain6: posts big blind 100
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Tc 4h]
+villain7: folds 
+villain8: calls 100
+GuiRodri2013: folds 
+villain3: folds 
+villain4: folds 
+villain5: calls 50
+villain6: checks 
+*** FLOP *** [2c Ah Jc]
+villain5: checks 
+villain6: checks 
+villain8: bets 100
+villain5: calls 100
+villain6: folds 
+*** TURN *** [2c Ah Jc] [3h]
+villain5: checks 
+villain8: bets 100
+villain5: calls 100
+*** RIVER *** [2c Ah Jc 3h] [5d]
+villain5: checks 
+villain8: checks 
+*** SHOW DOWN ***
+villain5: shows [7s Ac] (a pair of Aces)
+villain8: shows [Jh Jd] (three of a kind, Jacks)
+villain8 collected 700 from pot
+*** SUMMARY ***
+Total pot 700 | Rake 0 
+Board [2c Ah Jc 3h 5d]
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 5: villain4 (button) folded before Flop (didn't bet)
+Seat 6: villain5 (small blind) showed [7s Ac] and lost with a pair of Aces
+Seat 7: villain6 (big blind) folded on the Flop
+Seat 8: villain7 folded before Flop (didn't bet)
+Seat 9: villain8 showed [Jh Jd] and won (700) with three of a kind, Jacks
+
+
+
+PokerStars Hand #259826918825: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level IV (50/100) - 2026/02/22 12:01:16 BRT [2026/02/22 10:01:16 ET]
+Table '3977452675 1' 9-max Seat #6 is the button
+Seat 1: GuiRodri2013 (3895 in chips) 
+Seat 4: villain3 (570 in chips) 
+Seat 5: villain4 (905 in chips) 
+Seat 6: villain5 (1135 in chips) 
+Seat 7: villain6 (1590 in chips) 
+Seat 8: villain7 (910 in chips) 
+Seat 9: villain8 (1760 in chips) 
+villain6: posts small blind 50
+villain7: posts big blind 100
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [5h 8s]
+villain8: calls 100
+GuiRodri2013: folds 
+villain3: folds 
+villain4: raises 100 to 200
+villain5: calls 200
+villain6: calls 150
+villain7: calls 100
+villain8: calls 100
+*** FLOP *** [7s 5d 4h]
+villain6: bets 100
+villain7: raises 610 to 710 and is all-in
+villain8: folds 
+villain4: folds 
+villain5: folds 
+villain6: calls 610
+*** TURN *** [7s 5d 4h] [2c]
+*** RIVER *** [7s 5d 4h 2c] [7c]
+*** SHOW DOWN ***
+villain6: shows [9d 9s] (two pair, Nines and Sevens)
+villain7: shows [6c 6d] (two pair, Sevens and Sixes)
+villain6 collected 2420 from pot
+villain7 finished the tournament in 14th place
+*** SUMMARY ***
+Total pot 2420 | Rake 0 
+Board [7s 5d 4h 2c 7c]
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 5: villain4 folded on the Flop
+Seat 6: villain5 (button) folded on the Flop
+Seat 7: villain6 (small blind) showed [9d 9s] and won (2420) with two pair, Nines and Sevens
+Seat 8: villain7 (big blind) showed [6c 6d] and lost with two pair, Sevens and Sixes
+Seat 9: villain8 folded on the Flop
+
+
+
+PokerStars Hand #259826928577: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level IV (50/100) - 2026/02/22 12:02:13 BRT [2026/02/22 10:02:13 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (3895 in chips) 
+Seat 4: villain3 (570 in chips) 
+Seat 5: villain4 (705 in chips) 
+Seat 6: villain5 (935 in chips) 
+Seat 7: villain6 (3100 in chips) 
+Seat 9: villain8 (1560 in chips) 
+villain8: posts small blind 50
+GuiRodri2013: posts big blind 100
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [7h 8c]
+villain3: folds 
+villain4: folds 
+villain5: folds 
+villain6: folds 
+villain8: calls 50
+GuiRodri2013: checks 
+*** FLOP *** [Ad 2h 2s]
+villain8: bets 100
+GuiRodri2013: folds 
+Uncalled bet (100) returned to villain8
+villain8 collected 200 from pot
+villain8: doesn't show hand 
+*** SUMMARY ***
+Total pot 200 | Rake 0 
+Board [Ad 2h 2s]
+Seat 1: GuiRodri2013 (big blind) folded on the Flop
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 5: villain4 folded before Flop (didn't bet)
+Seat 6: villain5 folded before Flop (didn't bet)
+Seat 7: villain6 (button) folded before Flop (didn't bet)
+Seat 9: villain8 (small blind) collected (200)
+
+
+
+PokerStars Hand #259826934938: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level IV (50/100) - 2026/02/22 12:02:48 BRT [2026/02/22 10:02:48 ET]
+Table '3977452675 1' 9-max Seat #9 is the button
+Seat 1: GuiRodri2013 (3795 in chips) 
+Seat 4: villain3 (570 in chips) 
+Seat 5: villain4 (705 in chips) 
+Seat 6: villain5 (935 in chips) 
+Seat 7: villain6 (3100 in chips) 
+Seat 9: villain8 (1660 in chips) 
+GuiRodri2013: posts small blind 50
+villain3: posts big blind 100
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [2h Kh]
+villain4: folds 
+villain5: folds 
+villain6: folds 
+villain8: folds 
+GuiRodri2013: calls 50
+villain3: checks 
+*** FLOP *** [Ts Ah 6d]
+GuiRodri2013: checks 
+villain3: checks 
+*** TURN *** [Ts Ah 6d] [Kd]
+GuiRodri2013: checks 
+villain3: checks 
+*** RIVER *** [Ts Ah 6d Kd] [9h]
+GuiRodri2013: bets 200
+villain3: folds 
+Uncalled bet (200) returned to GuiRodri2013
+GuiRodri2013 collected 200 from pot
+GuiRodri2013: doesn't show hand 
+*** SUMMARY ***
+Total pot 200 | Rake 0 
+Board [Ts Ah 6d Kd 9h]
+Seat 1: GuiRodri2013 (small blind) collected (200)
+Seat 4: villain3 (big blind) folded on the River
+Seat 5: villain4 folded before Flop (didn't bet)
+Seat 6: villain5 folded before Flop (didn't bet)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 9: villain8 (button) folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259826941439: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level IV (50/100) - 2026/02/22 12:03:25 BRT [2026/02/22 10:03:25 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (3895 in chips) 
+Seat 4: villain3 (470 in chips) 
+Seat 5: villain4 (705 in chips) 
+Seat 6: villain5 (935 in chips) 
+Seat 7: villain6 (3100 in chips) 
+Seat 9: villain8 (1660 in chips) 
+villain3: posts small blind 50
+villain4: posts big blind 100
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Qs 8c]
+villain5: calls 100
+villain6: folds 
+villain8: folds 
+GuiRodri2013: raises 100 to 200
+villain3: folds 
+villain4: calls 100
+villain5: raises 735 to 935 and is all-in
+GuiRodri2013: folds 
+villain4: calls 505 and is all-in
+Uncalled bet (230) returned to villain5
+*** FLOP *** [5c 5s 5d]
+*** TURN *** [5c 5s 5d] [3d]
+*** RIVER *** [5c 5s 5d 3d] [2c]
+*** SHOW DOWN ***
+villain4: shows [Qd Th] (three of a kind, Fives)
+villain5: shows [6c 6h] (a full house, Fives full of Sixes)
+villain5 collected 1660 from pot
+villain4 finished the tournament in 13th place
+*** SUMMARY ***
+Total pot 1660 | Rake 0 
+Board [5c 5s 5d 3d 2c]
+Seat 1: GuiRodri2013 (button) folded before Flop
+Seat 4: villain3 (small blind) folded before Flop
+Seat 5: villain4 (big blind) showed [Qd Th] and lost with three of a kind, Fives
+Seat 6: villain5 showed [6c 6h] and won (1660) with a full house, Fives full of Sixes
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259826950870: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level IV (50/100) - 2026/02/22 12:04:17 BRT [2026/02/22 10:04:17 ET]
+Table '3977452675 1' 9-max Seat #4 is the button
+Seat 1: GuiRodri2013 (3695 in chips) 
+Seat 4: villain3 (420 in chips) 
+Seat 6: villain5 (1890 in chips) 
+Seat 7: villain6 (3100 in chips) 
+Seat 9: villain8 (1660 in chips) 
+villain5: posts small blind 50
+villain6: posts big blind 100
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Kd 5s]
+CPS022 is disconnected 
+villain8: folds 
+GuiRodri2013: folds 
+villain3: calls 100
+villain5: calls 50
+villain6: checks 
+*** FLOP *** [7h Jh 4h]
+villain5: bets 100
+villain6: folds 
+villain3: folds 
+Uncalled bet (100) returned to villain5
+villain5 collected 300 from pot
+villain5: doesn't show hand 
+*** SUMMARY ***
+Total pot 300 | Rake 0 
+Board [7h Jh 4h]
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 4: villain3 (button) folded on the Flop
+Seat 6: villain5 (small blind) collected (300)
+Seat 7: villain6 (big blind) folded on the Flop
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259826956567: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level IV (50/100) - 2026/02/22 12:04:49 BRT [2026/02/22 10:04:49 ET]
+Table '3977452675 1' 9-max Seat #6 is the button
+Seat 1: GuiRodri2013 (3695 in chips) 
+Seat 4: villain3 (320 in chips) 
+Seat 6: villain5 (2090 in chips) 
+Seat 7: villain6 (3000 in chips) 
+Seat 8: CPS022 (4340 in chips) 
+Seat 9: villain8 (1660 in chips) 
+villain6: posts small blind 50
+CPS022: posts big blind 100
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [3s Ks]
+villain8: folds 
+GuiRodri2013: calls 100
+villain3: folds 
+villain5: folds 
+villain6: calls 50
+CPS022: checks 
+*** FLOP *** [4d 7c 3d]
+villain6: checks 
+CPS022: checks 
+GuiRodri2013: checks 
+*** TURN *** [4d 7c 3d] [9h]
+villain6: bets 100
+CPS022: calls 100
+GuiRodri2013: folds 
+*** RIVER *** [4d 7c 3d 9h] [6s]
+villain6: bets 100
+CPS022: folds 
+Uncalled bet (100) returned to villain6
+villain6 collected 500 from pot
+villain6: doesn't show hand 
+*** SUMMARY ***
+Total pot 500 | Rake 0 
+Board [4d 7c 3d 9h 6s]
+Seat 1: GuiRodri2013 folded on the Turn
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 6: villain5 (button) folded before Flop (didn't bet)
+Seat 7: villain6 (small blind) collected (500)
+Seat 8: CPS022 (big blind) folded on the River
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259826965189: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level V (75/150) - 2026/02/22 12:05:36 BRT [2026/02/22 10:05:36 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (3595 in chips) 
+Seat 4: villain3 (320 in chips) 
+Seat 6: villain5 (2090 in chips) 
+Seat 7: villain6 (3300 in chips) 
+Seat 8: CPS022 (4140 in chips) 
+Seat 9: villain8 (1660 in chips) 
+CPS022: posts small blind 75
+villain8: posts big blind 150
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [9h 5c]
+GuiRodri2013: folds 
+villain3: folds 
+villain5: raises 300 to 450
+villain6: folds 
+CPS022: folds 
+villain8: folds 
+Uncalled bet (300) returned to villain5
+villain5 collected 375 from pot
+villain5: doesn't show hand 
+*** SUMMARY ***
+Total pot 375 | Rake 0 
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 6: villain5 collected (375)
+Seat 7: villain6 (button) folded before Flop (didn't bet)
+Seat 8: CPS022 (small blind) folded before Flop
+Seat 9: villain8 (big blind) folded before Flop
+
+
+
+PokerStars Hand #259826969250: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level V (75/150) - 2026/02/22 12:05:58 BRT [2026/02/22 10:05:58 ET]
+Table '3977452675 1' 9-max Seat #8 is the button
+Seat 1: GuiRodri2013 (3595 in chips) 
+Seat 4: villain3 (320 in chips) 
+Seat 6: villain5 (2315 in chips) 
+Seat 7: villain6 (3300 in chips) 
+Seat 8: CPS022 (4065 in chips) 
+Seat 9: villain8 (1510 in chips) 
+villain8: posts small blind 75
+GuiRodri2013: posts big blind 150
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [7d 7h]
+villain3: folds 
+villain5: raises 150 to 300
+villain6: folds 
+CPS022: calls 300
+villain8: folds 
+GuiRodri2013: calls 150
+*** FLOP *** [Qh 4s 3h]
+GuiRodri2013: checks 
+villain5: bets 488
+CPS022: folds 
+GuiRodri2013: folds 
+Uncalled bet (488) returned to villain5
+villain5 collected 975 from pot
+villain5: doesn't show hand 
+*** SUMMARY ***
+Total pot 975 | Rake 0 
+Board [Qh 4s 3h]
+Seat 1: GuiRodri2013 (big blind) folded on the Flop
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 6: villain5 collected (975)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: CPS022 (button) folded on the Flop
+Seat 9: villain8 (small blind) folded before Flop
+
+
+
+PokerStars Hand #259826973901: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level V (75/150) - 2026/02/22 12:06:24 BRT [2026/02/22 10:06:24 ET]
+Table '3977452675 1' 9-max Seat #9 is the button
+Seat 1: GuiRodri2013 (3295 in chips) 
+Seat 4: villain3 (320 in chips) 
+Seat 6: villain5 (2990 in chips) 
+Seat 7: villain6 (3300 in chips) 
+Seat 8: CPS022 (3765 in chips) 
+Seat 9: villain8 (1435 in chips) 
+GuiRodri2013: posts small blind 75
+villain3: posts big blind 150
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Jh Qd]
+villain5: folds 
+villain6: calls 150
+CPS022: raises 525 to 675
+villain8: folds 
+GuiRodri2013: folds 
+villain3: calls 170 and is all-in
+villain6: folds 
+Uncalled bet (355) returned to CPS022
+*** FLOP *** [3c 7h Kc]
+*** TURN *** [3c 7h Kc] [3d]
+*** RIVER *** [3c 7h Kc 3d] [5s]
+*** SHOW DOWN ***
+villain3: shows [Kh Td] (two pair, Kings and Threes)
+CPS022: shows [Ah Jc] (a pair of Threes)
+villain3 collected 865 from pot
+*** SUMMARY ***
+Total pot 865 | Rake 0 
+Board [3c 7h Kc 3d 5s]
+Seat 1: GuiRodri2013 (small blind) folded before Flop
+Seat 4: villain3 (big blind) showed [Kh Td] and won (865) with two pair, Kings and Threes
+Seat 6: villain5 folded before Flop (didn't bet)
+Seat 7: villain6 folded before Flop
+Seat 8: CPS022 showed [Ah Jc] and lost with a pair of Threes
+Seat 9: villain8 (button) folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259826978850: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level V (75/150) - 2026/02/22 12:06:52 BRT [2026/02/22 10:06:52 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (3220 in chips) 
+Seat 4: villain3 (865 in chips) 
+Seat 6: villain5 (2990 in chips) 
+Seat 7: villain6 (3150 in chips) 
+Seat 8: CPS022 (3445 in chips) 
+Seat 9: villain8 (1435 in chips) 
+villain3: posts small blind 75
+villain5: posts big blind 150
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [6h Js]
+villain6: calls 150
+CPS022: raises 525 to 675
+villain8: folds 
+GuiRodri2013: folds 
+villain3: folds 
+villain5: folds 
+villain6: raises 1575 to 2250
+CPS022: raises 1195 to 3445 and is all-in
+villain6: calls 900 and is all-in
+Uncalled bet (295) returned to CPS022
+*** FLOP *** [Qs 9d 5s]
+*** TURN *** [Qs 9d 5s] [9h]
+*** RIVER *** [Qs 9d 5s 9h] [8c]
+*** SHOW DOWN ***
+villain6: shows [Jc Jh] (two pair, Jacks and Nines)
+CPS022: shows [As Kh] (a pair of Nines)
+villain6 collected 6525 from pot
+*** SUMMARY ***
+Total pot 6525 | Rake 0 
+Board [Qs 9d 5s 9h 8c]
+Seat 1: GuiRodri2013 (button) folded before Flop (didn't bet)
+Seat 4: villain3 (small blind) folded before Flop
+Seat 6: villain5 (big blind) folded before Flop
+Seat 7: villain6 showed [Jc Jh] and won (6525) with two pair, Jacks and Nines
+Seat 8: CPS022 showed [As Kh] and lost with a pair of Nines
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259826984775: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level V (75/150) - 2026/02/22 12:07:24 BRT [2026/02/22 10:07:24 ET]
+Table '3977452675 1' 9-max Seat #4 is the button
+Seat 1: GuiRodri2013 (3220 in chips) 
+Seat 4: villain3 (790 in chips) 
+Seat 6: villain5 (2840 in chips) 
+Seat 7: villain6 (6525 in chips) 
+Seat 8: CPS022 (295 in chips) 
+Seat 9: villain8 (1435 in chips) 
+villain5: posts small blind 75
+villain6: posts big blind 150
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [3h Ah]
+CPS022: raises 145 to 295 and is all-in
+villain8: folds 
+GuiRodri2013: calls 295
+villain3: folds 
+villain5: folds 
+villain6: folds 
+*** FLOP *** [2h 9s 3c]
+*** TURN *** [2h 9s 3c] [Ts]
+*** RIVER *** [2h 9s 3c Ts] [8c]
+*** SHOW DOWN ***
+CPS022: shows [Kc Qd] (high card King)
+GuiRodri2013: shows [3h Ah] (a pair of Threes)
+GuiRodri2013 collected 815 from pot
+CPS022 finished the tournament in 12th place
+*** SUMMARY ***
+Total pot 815 | Rake 0 
+Board [2h 9s 3c Ts 8c]
+Seat 1: GuiRodri2013 showed [3h Ah] and won (815) with a pair of Threes
+Seat 4: villain3 (button) folded before Flop (didn't bet)
+Seat 6: villain5 (small blind) folded before Flop
+Seat 7: villain6 (big blind) folded before Flop
+Seat 8: CPS022 showed [Kc Qd] and lost with high card King
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259826992379: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level V (75/150) - 2026/02/22 12:08:07 BRT [2026/02/22 10:08:07 ET]
+Table '3977452675 1' 9-max Seat #6 is the button
+Seat 1: GuiRodri2013 (3740 in chips) 
+Seat 4: villain3 (790 in chips) 
+Seat 6: villain5 (2765 in chips) 
+Seat 7: villain6 (6375 in chips) 
+Seat 9: villain8 (1435 in chips) 
+villain6: posts small blind 75
+villain8: posts big blind 150
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [2d Ah]
+GuiRodri2013: folds 
+villain3: folds 
+villain5: folds 
+villain6: folds 
+Uncalled bet (75) returned to villain8
+villain8 collected 150 from pot
+villain8: doesn't show hand 
+*** SUMMARY ***
+Total pot 150 | Rake 0 
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 6: villain5 (button) folded before Flop (didn't bet)
+Seat 7: villain6 (small blind) folded before Flop
+Seat 9: villain8 (big blind) collected (150)
+
+
+
+PokerStars Hand #259826994909: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level V (75/150) - 2026/02/22 12:08:21 BRT [2026/02/22 10:08:21 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (3740 in chips) 
+Seat 4: villain3 (790 in chips) 
+Seat 6: villain5 (2765 in chips) 
+Seat 7: villain6 (6300 in chips) 
+Seat 9: villain8 (1510 in chips) 
+villain8: posts small blind 75
+GuiRodri2013: posts big blind 150
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [3s Ks]
+villain3: calls 150
+villain5: folds 
+villain6: folds 
+villain8: folds 
+GuiRodri2013: checks 
+*** FLOP *** [As 4h 2d]
+GuiRodri2013: checks 
+villain3: bets 640 and is all-in
+GuiRodri2013: folds 
+Uncalled bet (640) returned to villain3
+villain3 collected 375 from pot
+*** SUMMARY ***
+Total pot 375 | Rake 0 
+Board [As 4h 2d]
+Seat 1: GuiRodri2013 (big blind) folded on the Flop
+Seat 4: villain3 collected (375)
+Seat 6: villain5 folded before Flop (didn't bet)
+Seat 7: villain6 (button) folded before Flop (didn't bet)
+Seat 9: villain8 (small blind) folded before Flop
+
+
+
+PokerStars Hand #259826999299: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level V (75/150) - 2026/02/22 12:08:45 BRT [2026/02/22 10:08:45 ET]
+Table '3977452675 1' 9-max Seat #9 is the button
+Seat 1: GuiRodri2013 (3590 in chips) 
+Seat 4: villain3 (1015 in chips) 
+Seat 6: villain5 (2765 in chips) 
+Seat 7: villain6 (6300 in chips) 
+Seat 9: villain8 (1435 in chips) 
+GuiRodri2013: posts small blind 75
+villain3: posts big blind 150
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Tc 2d]
+villain5: calls 150
+villain6: folds 
+villain8: folds 
+GuiRodri2013: folds 
+villain3: checks 
+*** FLOP *** [6d 8c 7h]
+villain3: bets 150
+villain5: calls 150
+*** TURN *** [6d 8c 7h] [9c]
+villain3: bets 150
+villain5: calls 150
+*** RIVER *** [6d 8c 7h 9c] [5d]
+villain3: bets 150
+villain5: calls 150
+*** SHOW DOWN ***
+villain3: shows [9d Qd] (a straight, Five to Nine)
+villain5: shows [Qh Jd] (a straight, Five to Nine)
+villain3 collected 638 from pot
+villain5 collected 637 from pot
+*** SUMMARY ***
+Total pot 1275 | Rake 0 
+Board [6d 8c 7h 9c 5d]
+Seat 1: GuiRodri2013 (small blind) folded before Flop
+Seat 4: villain3 (big blind) showed [9d Qd] and won (638) with a straight, Five to Nine
+Seat 6: villain5 showed [Qh Jd] and won (637) with a straight, Five to Nine
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 9: villain8 (button) folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827004893: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level V (75/150) - 2026/02/22 12:09:17 BRT [2026/02/22 10:09:17 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (3515 in chips) 
+Seat 4: villain3 (1053 in chips) 
+Seat 6: villain5 (2802 in chips) 
+Seat 7: villain6 (6300 in chips) 
+Seat 9: villain8 (1435 in chips) 
+villain3: posts small blind 75
+villain5: posts big blind 150
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [8s 8c]
+villain6: folds 
+villain8: folds 
+GuiRodri2013: raises 150 to 300
+villain3: folds 
+villain5: calls 150
+*** FLOP *** [Tc Qs 6c]
+villain5: checks 
+GuiRodri2013: checks 
+*** TURN *** [Tc Qs 6c] [5h]
+villain5: checks 
+GuiRodri2013: checks 
+*** RIVER *** [Tc Qs 6c 5h] [4d]
+villain5: checks 
+GuiRodri2013: checks 
+*** SHOW DOWN ***
+villain5: shows [7h Ks] (high card King)
+GuiRodri2013: shows [8s 8c] (a pair of Eights)
+GuiRodri2013 collected 675 from pot
+*** SUMMARY ***
+Total pot 675 | Rake 0 
+Board [Tc Qs 6c 5h 4d]
+Seat 1: GuiRodri2013 (button) showed [8s 8c] and won (675) with a pair of Eights
+Seat 4: villain3 (small blind) folded before Flop
+Seat 6: villain5 (big blind) showed [7h Ks] and lost with high card King
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827010941: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level V (75/150) - 2026/02/22 12:09:51 BRT [2026/02/22 10:09:51 ET]
+Table '3977452675 1' 9-max Seat #4 is the button
+Seat 1: GuiRodri2013 (3890 in chips) 
+Seat 4: villain3 (978 in chips) 
+Seat 6: villain5 (2502 in chips) 
+Seat 7: villain6 (6300 in chips) 
+Seat 9: villain8 (1435 in chips) 
+villain5: posts small blind 75
+villain6: posts big blind 150
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Kd Jc]
+villain8: folds 
+GuiRodri2013: raises 300 to 450
+villain3: folds 
+villain5: folds 
+villain6: folds 
+Uncalled bet (300) returned to GuiRodri2013
+GuiRodri2013 collected 375 from pot
+GuiRodri2013: doesn't show hand 
+*** SUMMARY ***
+Total pot 375 | Rake 0 
+Seat 1: GuiRodri2013 collected (375)
+Seat 4: villain3 (button) folded before Flop (didn't bet)
+Seat 6: villain5 (small blind) folded before Flop
+Seat 7: villain6 (big blind) folded before Flop
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827014395: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level V (75/150) - 2026/02/22 12:10:10 BRT [2026/02/22 10:10:10 ET]
+Table '3977452675 1' 9-max Seat #6 is the button
+Seat 1: GuiRodri2013 (4115 in chips) 
+Seat 4: villain3 (978 in chips) 
+Seat 6: villain5 (2427 in chips) 
+Seat 7: villain6 (6150 in chips) 
+Seat 9: villain8 (1435 in chips) 
+villain6: posts small blind 75
+villain8: posts big blind 150
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [9c Td]
+GuiRodri2013: folds 
+villain3: folds 
+villain5: raises 300 to 450
+villain6: folds 
+villain8: calls 300
+*** FLOP *** [7d 5c Qd]
+villain8: checks 
+villain5: bets 450
+villain8: calls 450
+*** TURN *** [7d 5c Qd] [6s]
+villain8: checks 
+villain6 is disconnected 
+villain5: checks 
+*** RIVER *** [7d 5c Qd 6s] [7h]
+villain8: checks 
+villain5: checks 
+*** SHOW DOWN ***
+villain8: shows [Qh Js] (two pair, Queens and Sevens)
+villain5: mucks hand 
+villain8 collected 1875 from pot
+*** SUMMARY ***
+Total pot 1875 | Rake 0 
+Board [7d 5c Qd 6s 7h]
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 6: villain5 (button) mucked [Jd Ac]
+Seat 7: villain6 (small blind) folded before Flop
+Seat 9: villain8 (big blind) showed [Qh Js] and won (1875) with two pair, Queens and Sevens
+
+
+
+PokerStars Hand #259827023765: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VI (100/200) - 2026/02/22 12:11:04 BRT [2026/02/22 10:11:04 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (4115 in chips) 
+Seat 4: villain3 (978 in chips) 
+Seat 6: villain5 (1527 in chips) 
+Seat 7: villain6 (6075 in chips) 
+Seat 9: villain8 (2410 in chips) 
+villain8: posts small blind 100
+GuiRodri2013: posts big blind 200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [5h Kc]
+villain3: folds 
+villain5: folds 
+villain6: calls 200
+villain8: folds 
+GuiRodri2013: checks 
+*** FLOP *** [8s Qh 3h]
+GuiRodri2013: checks 
+villain6: bets 200
+GuiRodri2013: folds 
+Uncalled bet (200) returned to villain6
+villain6 collected 500 from pot
+villain6: doesn't show hand 
+*** SUMMARY ***
+Total pot 500 | Rake 0 
+Board [8s Qh 3h]
+Seat 1: GuiRodri2013 (big blind) folded on the Flop
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 6: villain5 folded before Flop (didn't bet)
+Seat 7: villain6 (button) collected (500)
+Seat 9: villain8 (small blind) folded before Flop
+
+
+
+PokerStars Hand #259827029576: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VI (100/200) - 2026/02/22 12:11:36 BRT [2026/02/22 10:11:36 ET]
+Table '3977452675 1' 9-max Seat #9 is the button
+Seat 1: GuiRodri2013 (3915 in chips) 
+Seat 4: villain3 (978 in chips) 
+Seat 6: villain5 (1527 in chips) 
+Seat 7: villain6 (6375 in chips) 
+Seat 9: villain8 (2310 in chips) 
+GuiRodri2013: posts small blind 100
+villain3: posts big blind 200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [9c Ks]
+villain5: raises 1327 to 1527 and is all-in
+villain6: folds 
+villain8: folds 
+GuiRodri2013: folds 
+villain3: calls 778 and is all-in
+Uncalled bet (549) returned to villain5
+*** FLOP *** [Qs 8s Js]
+*** TURN *** [Qs 8s Js] [7s]
+*** RIVER *** [Qs 8s Js 7s] [8c]
+*** SHOW DOWN ***
+villain3: shows [Ts Kh] (a flush, Queen high)
+villain5: shows [9h Ah] (a pair of Eights)
+villain3 collected 2056 from pot
+*** SUMMARY ***
+Total pot 2056 | Rake 0 
+Board [Qs 8s Js 7s 8c]
+Seat 1: GuiRodri2013 (small blind) folded before Flop
+Seat 4: villain3 (big blind) showed [Ts Kh] and won (2056) with a flush, Queen high
+Seat 6: villain5 showed [9h Ah] and lost with a pair of Eights
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 9: villain8 (button) folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827035408: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VI (100/200) - 2026/02/22 12:12:10 BRT [2026/02/22 10:12:10 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (3815 in chips) 
+Seat 4: villain3 (2056 in chips) 
+Seat 6: villain5 (549 in chips) 
+Seat 7: villain6 (6375 in chips) 
+Seat 9: villain8 (2310 in chips) 
+villain3: posts small blind 100
+villain5: posts big blind 200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Ac Kd]
+villain6: folds 
+villain8: folds 
+GuiRodri2013: raises 400 to 600
+villain3: folds 
+villain5: calls 349 and is all-in
+Uncalled bet (51) returned to GuiRodri2013
+*** FLOP *** [7c Qd 9s]
+*** TURN *** [7c Qd 9s] [8c]
+*** RIVER *** [7c Qd 9s 8c] [Ah]
+*** SHOW DOWN ***
+villain5: shows [As 6d] (a pair of Aces)
+GuiRodri2013: shows [Ac Kd] (a pair of Aces - King kicker)
+GuiRodri2013 collected 1198 from pot
+villain5 finished the tournament in 11th place
+*** SUMMARY ***
+Total pot 1198 | Rake 0 
+Board [7c Qd 9s 8c Ah]
+Seat 1: GuiRodri2013 (button) showed [Ac Kd] and won (1198) with a pair of Aces
+Seat 4: villain3 (small blind) folded before Flop
+Seat 6: villain5 (big blind) showed [As 6d] and lost with a pair of Aces
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827040370: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VI (100/200) - 2026/02/22 12:12:38 BRT [2026/02/22 10:12:38 ET]
+Table '3977452675 1' 9-max Seat #4 is the button
+Seat 1: GuiRodri2013 (4464 in chips) 
+Seat 4: villain3 (1956 in chips) 
+Seat 7: villain6 (6375 in chips) 
+Seat 9: villain8 (2310 in chips) 
+villain6: posts small blind 100
+villain8: posts big blind 200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Jh 7s]
+GuiRodri2013: folds 
+villain3: folds 
+villain6: folds 
+Uncalled bet (100) returned to villain8
+villain8 collected 200 from pot
+villain8: doesn't show hand 
+*** SUMMARY ***
+Total pot 200 | Rake 0 
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 4: villain3 (button) folded before Flop (didn't bet)
+Seat 7: villain6 (small blind) folded before Flop
+Seat 9: villain8 (big blind) collected (200)
+
+
+
+PokerStars Hand #259827042751: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VI (100/200) - 2026/02/22 12:12:51 BRT [2026/02/22 10:12:51 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (4464 in chips) 
+Seat 4: villain3 (1956 in chips) 
+Seat 7: villain6 (6275 in chips) 
+Seat 9: villain8 (2410 in chips) 
+villain8: posts small blind 100
+GuiRodri2013: posts big blind 200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [9d 4c]
+yony1953 is disconnected 
+villain3: folds 
+villain6: folds 
+villain8: folds 
+Uncalled bet (100) returned to GuiRodri2013
+GuiRodri2013 collected 200 from pot
+GuiRodri2013: doesn't show hand 
+*** SUMMARY ***
+Total pot 200 | Rake 0 
+Seat 1: GuiRodri2013 (big blind) collected (200)
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 7: villain6 (button) folded before Flop (didn't bet)
+Seat 9: villain8 (small blind) folded before Flop
+
+
+
+PokerStars Hand #259827045280: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VI (100/200) - 2026/02/22 12:13:05 BRT [2026/02/22 10:13:05 ET]
+Table '3977452675 1' 9-max Seat #9 is the button
+Seat 1: GuiRodri2013 (4564 in chips) 
+Seat 2: yony1953 (2150 in chips) 
+Seat 4: villain3 (1956 in chips) 
+Seat 7: villain6 (6275 in chips) 
+Seat 9: villain8 (2310 in chips) 
+GuiRodri2013: posts small blind 100
+yony1953: posts big blind 200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [8h 6h]
+villain3: folds 
+villain6: folds 
+villain8: folds 
+GuiRodri2013: calls 100
+yony1953: checks 
+*** FLOP *** [Ac 4s Ad]
+GuiRodri2013: checks 
+yony1953: checks 
+*** TURN *** [Ac 4s Ad] [Qs]
+GuiRodri2013: checks 
+yony1953: checks 
+*** RIVER *** [Ac 4s Ad Qs] [Qc]
+GuiRodri2013: checks 
+yony1953: checks 
+*** SHOW DOWN ***
+GuiRodri2013: shows [8h 6h] (two pair, Aces and Queens)
+yony1953: shows [4d Kd] (two pair, Aces and Queens - King kicker)
+yony1953 collected 400 from pot
+fortu54227 is disconnected 
+villain9 is disconnected 
+villain2 is disconnected 
+*** SUMMARY ***
+Total pot 400 | Rake 0 
+Board [Ac 4s Ad Qs Qc]
+Seat 1: GuiRodri2013 (small blind) showed [8h 6h] and lost with two pair, Aces and Queens
+Seat 2: yony1953 (big blind) showed [4d Kd] and won (400) with two pair, Aces and Queens
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 9: villain8 (button) folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827051890: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VI (100/200) - 2026/02/22 12:13:42 BRT [2026/02/22 10:13:42 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (4364 in chips) 
+Seat 2: yony1953 (2350 in chips) 
+Seat 3: villain2 (1140 in chips) 
+Seat 4: villain3 (1956 in chips) 
+Seat 5: fortu54227 (1570 in chips) 
+Seat 6: villain9 (2730 in chips) 
+Seat 7: villain6 (6275 in chips) 
+Seat 8: villain10 (4305 in chips) 
+Seat 9: villain8 (2310 in chips) 
+yony1953: posts small blind 100
+villain2: posts big blind 200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [7h 8h]
+villain3: folds 
+fortu54227: folds 
+villain9: folds 
+villain6: folds 
+villain10: folds 
+villain8: calls 200
+GuiRodri2013: folds 
+yony1953: folds 
+villain2: checks 
+*** FLOP *** [Tc 9s Jc]
+villain2: checks 
+villain8: checks 
+*** TURN *** [Tc 9s Jc] [8s]
+villain2: checks 
+villain8: bets 200
+villain2: folds 
+Uncalled bet (200) returned to villain8
+villain8 collected 500 from pot
+villain8: doesn't show hand 
+*** SUMMARY ***
+Total pot 500 | Rake 0 
+Board [Tc 9s Jc 8s]
+Seat 1: GuiRodri2013 (button) folded before Flop (didn't bet)
+Seat 2: yony1953 (small blind) folded before Flop
+Seat 3: villain2 (big blind) folded on the Turn
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 5: fortu54227 folded before Flop (didn't bet)
+Seat 6: villain9 folded before Flop (didn't bet)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 folded before Flop (didn't bet)
+Seat 9: villain8 collected (500)
+
+
+
+PokerStars Hand #259827060240: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VI (100/200) - 2026/02/22 12:14:29 BRT [2026/02/22 10:14:29 ET]
+Table '3977452675 1' 9-max Seat #2 is the button
+Seat 1: GuiRodri2013 (4364 in chips) 
+Seat 2: yony1953 (2250 in chips) 
+Seat 3: villain2 (940 in chips) 
+Seat 4: villain3 (1956 in chips) 
+Seat 5: fortu54227 (1570 in chips) 
+Seat 6: villain9 (2730 in chips) 
+Seat 7: villain6 (6275 in chips) 
+Seat 8: villain10 (4305 in chips) 
+Seat 9: villain8 (2610 in chips) 
+villain2: posts small blind 100
+villain3: posts big blind 200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [2h 2s]
+fortu54227: folds 
+villain9: folds 
+villain6: folds 
+villain10: calls 200
+villain8: calls 200
+GuiRodri2013: folds 
+yony1953: folds 
+villain2: folds 
+villain3: checks 
+*** FLOP *** [Jh 3d 5c]
+villain3: checks 
+villain10: checks 
+villain8: bets 200
+villain3: calls 200
+villain10: folds 
+*** TURN *** [Jh 3d 5c] [Ks]
+villain3: checks 
+villain8: bets 200
+villain3: calls 200
+*** RIVER *** [Jh 3d 5c Ks] [6d]
+villain3: checks 
+villain8: bets 200
+villain3: folds 
+Uncalled bet (200) returned to villain8
+villain8 collected 1500 from pot
+villain8: doesn't show hand 
+*** SUMMARY ***
+Total pot 1500 | Rake 0 
+Board [Jh 3d 5c Ks 6d]
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 2: yony1953 (button) folded before Flop (didn't bet)
+Seat 3: villain2 (small blind) folded before Flop
+Seat 4: villain3 (big blind) folded on the River
+Seat 5: fortu54227 folded before Flop (didn't bet)
+Seat 6: villain9 folded before Flop (didn't bet)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 folded on the Flop
+Seat 9: villain8 collected (1500)
+
+
+
+PokerStars Hand #259827071808: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VII (100/200) - 2026/02/22 12:15:34 BRT [2026/02/22 10:15:34 ET]
+Table '3977452675 1' 9-max Seat #3 is the button
+Seat 1: GuiRodri2013 (4364 in chips) 
+Seat 2: yony1953 (2250 in chips) 
+Seat 3: villain2 (840 in chips) 
+Seat 4: villain3 (1356 in chips) 
+Seat 5: fortu54227 (1570 in chips) 
+Seat 6: villain9 (2730 in chips) 
+Seat 7: villain6 (6275 in chips) 
+Seat 8: villain10 (4105 in chips) 
+Seat 9: villain8 (3510 in chips) 
+GuiRodri2013: posts the ante 25
+yony1953: posts the ante 25
+villain2: posts the ante 25
+villain3: posts the ante 25
+fortu54227: posts the ante 25
+villain9: posts the ante 25
+villain6: posts the ante 25
+villain10: posts the ante 25
+villain8: posts the ante 25
+villain3: posts small blind 100
+fortu54227: posts big blind 200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [6d Kd]
+villain9: folds 
+villain6: folds 
+villain10: folds 
+villain8: folds 
+GuiRodri2013: raises 200 to 400
+yony1953: folds 
+villain2: folds 
+villain3: folds 
+fortu54227: folds 
+Uncalled bet (200) returned to GuiRodri2013
+GuiRodri2013 collected 725 from pot
+GuiRodri2013: doesn't show hand 
+*** SUMMARY ***
+Total pot 725 | Rake 0 
+Seat 1: GuiRodri2013 collected (725)
+Seat 2: yony1953 folded before Flop (didn't bet)
+Seat 3: villain2 (button) folded before Flop (didn't bet)
+Seat 4: villain3 (small blind) folded before Flop
+Seat 5: fortu54227 (big blind) folded before Flop
+Seat 6: villain9 folded before Flop (didn't bet)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 folded before Flop (didn't bet)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827075254: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VII (100/200) - 2026/02/22 12:15:52 BRT [2026/02/22 10:15:52 ET]
+Table '3977452675 1' 9-max Seat #4 is the button
+Seat 1: GuiRodri2013 (4864 in chips) 
+Seat 2: yony1953 (2225 in chips) 
+Seat 3: villain2 (815 in chips) 
+Seat 4: villain3 (1231 in chips) 
+Seat 5: fortu54227 (1345 in chips) 
+Seat 6: villain9 (2705 in chips) 
+Seat 7: villain6 (6250 in chips) 
+Seat 8: villain10 (4080 in chips) 
+Seat 9: villain8 (3485 in chips) 
+GuiRodri2013: posts the ante 25
+yony1953: posts the ante 25
+villain2: posts the ante 25
+villain3: posts the ante 25
+fortu54227: posts the ante 25
+villain9: posts the ante 25
+villain6: posts the ante 25
+villain10: posts the ante 25
+villain8: posts the ante 25
+fortu54227: posts small blind 100
+villain9: posts big blind 200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [3h 4d]
+villain6: folds 
+villain10: folds 
+villain8: folds 
+GuiRodri2013: folds 
+yony1953: folds 
+villain2: folds 
+villain3: folds 
+fortu54227: folds 
+Uncalled bet (100) returned to villain9
+villain9 collected 425 from pot
+villain9: doesn't show hand 
+*** SUMMARY ***
+Total pot 425 | Rake 0 
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 2: yony1953 folded before Flop (didn't bet)
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 4: villain3 (button) folded before Flop (didn't bet)
+Seat 5: fortu54227 (small blind) folded before Flop
+Seat 6: villain9 (big blind) collected (425)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 folded before Flop (didn't bet)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827078570: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VII (100/200) - 2026/02/22 12:16:11 BRT [2026/02/22 10:16:11 ET]
+Table '3977452675 1' 9-max Seat #5 is the button
+Seat 1: GuiRodri2013 (4839 in chips) 
+Seat 2: yony1953 (2200 in chips) 
+Seat 3: villain2 (790 in chips) 
+Seat 4: villain3 (1206 in chips) 
+Seat 5: fortu54227 (1220 in chips) 
+Seat 6: villain9 (3005 in chips) 
+Seat 7: villain6 (6225 in chips) 
+Seat 8: villain10 (4055 in chips) 
+Seat 9: villain8 (3460 in chips) 
+GuiRodri2013: posts the ante 25
+yony1953: posts the ante 25
+villain2: posts the ante 25
+villain3: posts the ante 25
+fortu54227: posts the ante 25
+villain9: posts the ante 25
+villain6: posts the ante 25
+villain10: posts the ante 25
+villain8: posts the ante 25
+villain9: posts small blind 100
+villain6: posts big blind 200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Qs 2c]
+villain10: folds 
+villain8: folds 
+GuiRodri2013: folds 
+yony1953: calls 200
+villain2: folds 
+villain3: folds 
+fortu54227: folds 
+villain9: calls 100
+villain6: checks 
+*** FLOP *** [6s 7s 6d]
+villain9: bets 200
+villain6: calls 200
+yony1953: calls 200
+*** TURN *** [6s 7s 6d] [3c]
+villain9: checks 
+villain6: bets 400
+yony1953: calls 400
+villain9: folds 
+*** RIVER *** [6s 7s 6d 3c] [5d]
+villain6: bets 600
+yony1953: folds 
+Uncalled bet (600) returned to villain6
+villain6 collected 2225 from pot
+villain6: doesn't show hand 
+*** SUMMARY ***
+Total pot 2225 | Rake 0 
+Board [6s 7s 6d 3c 5d]
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 2: yony1953 folded on the River
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 5: fortu54227 (button) folded before Flop (didn't bet)
+Seat 6: villain9 (small blind) folded on the Turn
+Seat 7: villain6 (big blind) collected (2225)
+Seat 8: villain10 folded before Flop (didn't bet)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827087705: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VII (100/200) - 2026/02/22 12:17:01 BRT [2026/02/22 10:17:01 ET]
+Table '3977452675 1' 9-max Seat #6 is the button
+Seat 1: GuiRodri2013 (4814 in chips) 
+Seat 2: yony1953 (1375 in chips) 
+Seat 3: villain2 (765 in chips) 
+Seat 4: villain3 (1181 in chips) 
+Seat 5: fortu54227 (1195 in chips) 
+Seat 6: villain9 (2580 in chips) 
+Seat 7: villain6 (7625 in chips) 
+Seat 8: villain10 (4030 in chips) 
+Seat 9: villain8 (3435 in chips) 
+GuiRodri2013: posts the ante 25
+yony1953: posts the ante 25
+villain2: posts the ante 25
+villain3: posts the ante 25
+fortu54227: posts the ante 25
+villain9: posts the ante 25
+villain6: posts the ante 25
+villain10: posts the ante 25
+villain8: posts the ante 25
+villain6: posts small blind 100
+villain10: posts big blind 200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Jc Kc]
+villain8: folds 
+GuiRodri2013: raises 200 to 400
+yony1953: folds 
+villain2: raises 340 to 740 and is all-in
+villain3: folds 
+fortu54227: folds 
+villain9: calls 740
+villain6: folds 
+villain10: folds 
+GuiRodri2013: folds 
+*** FLOP *** [5h 9d Td]
+*** TURN *** [5h 9d Td] [6c]
+*** RIVER *** [5h 9d Td 6c] [Js]
+*** SHOW DOWN ***
+villain2: shows [Ts Th] (three of a kind, Tens)
+villain9: shows [9h 9s] (three of a kind, Nines)
+villain2 collected 2405 from pot
+*** SUMMARY ***
+Total pot 2405 | Rake 0 
+Board [5h 9d Td 6c Js]
+Seat 1: GuiRodri2013 folded before Flop
+Seat 2: yony1953 folded before Flop (didn't bet)
+Seat 3: villain2 showed [Ts Th] and won (2405) with three of a kind, Tens
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 5: fortu54227 folded before Flop (didn't bet)
+Seat 6: villain9 (button) showed [9h 9s] and lost with three of a kind, Nines
+Seat 7: villain6 (small blind) folded before Flop
+Seat 8: villain10 (big blind) folded before Flop
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827095543: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VII (100/200) - 2026/02/22 12:17:44 BRT [2026/02/22 10:17:44 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (4389 in chips) 
+Seat 2: yony1953 (1350 in chips) 
+Seat 3: villain2 (2405 in chips) 
+Seat 4: villain3 (1156 in chips) 
+Seat 5: fortu54227 (1170 in chips) 
+Seat 6: villain9 (1815 in chips) 
+Seat 7: villain6 (7500 in chips) 
+Seat 8: villain10 (3805 in chips) 
+Seat 9: villain8 (3410 in chips) 
+GuiRodri2013: posts the ante 25
+yony1953: posts the ante 25
+villain2: posts the ante 25
+villain3: posts the ante 25
+fortu54227: posts the ante 25
+villain9: posts the ante 25
+villain6: posts the ante 25
+villain10: posts the ante 25
+villain8: posts the ante 25
+villain10: posts small blind 100
+villain8: posts big blind 200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Tc 9s]
+GuiRodri2013: folds 
+yony1953: folds 
+villain2: folds 
+villain3: folds 
+fortu54227: folds 
+villain9: folds 
+villain6: folds 
+villain10: folds 
+Uncalled bet (100) returned to villain8
+villain8 collected 425 from pot
+villain8: doesn't show hand 
+*** SUMMARY ***
+Total pot 425 | Rake 0 
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 2: yony1953 folded before Flop (didn't bet)
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 5: fortu54227 folded before Flop (didn't bet)
+Seat 6: villain9 folded before Flop (didn't bet)
+Seat 7: villain6 (button) folded before Flop (didn't bet)
+Seat 8: villain10 (small blind) folded before Flop
+Seat 9: villain8 (big blind) collected (425)
+
+
+
+PokerStars Hand #259827101567: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VII (100/200) - 2026/02/22 12:18:16 BRT [2026/02/22 10:18:16 ET]
+Table '3977452675 1' 9-max Seat #8 is the button
+Seat 1: GuiRodri2013 (4364 in chips) 
+Seat 2: yony1953 (1325 in chips) 
+Seat 3: villain2 (2380 in chips) 
+Seat 4: villain3 (1131 in chips) 
+Seat 5: fortu54227 (1145 in chips) 
+Seat 6: villain9 (1790 in chips) 
+Seat 7: villain6 (7475 in chips) 
+Seat 8: villain10 (3680 in chips) 
+Seat 9: villain8 (3710 in chips) 
+GuiRodri2013: posts the ante 25
+yony1953: posts the ante 25
+villain2: posts the ante 25
+villain3: posts the ante 25
+fortu54227: posts the ante 25
+villain9: posts the ante 25
+villain6: posts the ante 25
+villain10: posts the ante 25
+villain8: posts the ante 25
+villain8: posts small blind 100
+GuiRodri2013: posts big blind 200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Ah 9h]
+yony1953: calls 200
+villain2: folds 
+villain3: folds 
+fortu54227: folds 
+villain9: folds 
+villain6: folds 
+villain10: folds 
+villain8: folds 
+GuiRodri2013: raises 200 to 400
+yony1953: calls 200
+*** FLOP *** [Js 7d Qc]
+GuiRodri2013: checks 
+yony1953: checks 
+*** TURN *** [Js 7d Qc] [Kh]
+GuiRodri2013: checks 
+yony1953: checks 
+*** RIVER *** [Js 7d Qc Kh] [Kc]
+GuiRodri2013: bets 200
+yony1953: calls 200
+*** SHOW DOWN ***
+GuiRodri2013: shows [Ah 9h] (a pair of Kings)
+yony1953: shows [8d Ac] (a pair of Kings)
+GuiRodri2013 collected 763 from pot
+yony1953 collected 762 from pot
+*** SUMMARY ***
+Total pot 1525 | Rake 0 
+Board [Js 7d Qc Kh Kc]
+Seat 1: GuiRodri2013 (big blind) showed [Ah 9h] and won (763) with a pair of Kings
+Seat 2: yony1953 showed [8d Ac] and won (762) with a pair of Kings
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 5: fortu54227 folded before Flop (didn't bet)
+Seat 6: villain9 folded before Flop (didn't bet)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 (button) folded before Flop (didn't bet)
+Seat 9: villain8 (small blind) folded before Flop
+
+
+
+PokerStars Hand #259827112916: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VII (100/200) - 2026/02/22 12:19:18 BRT [2026/02/22 10:19:18 ET]
+Table '3977452675 1' 9-max Seat #9 is the button
+Seat 1: GuiRodri2013 (4502 in chips) 
+Seat 2: yony1953 (1462 in chips) 
+Seat 3: villain2 (2355 in chips) 
+Seat 4: villain3 (1106 in chips) 
+Seat 5: fortu54227 (1120 in chips) 
+Seat 6: villain9 (1765 in chips) 
+Seat 7: villain6 (7450 in chips) 
+Seat 8: villain10 (3655 in chips) 
+Seat 9: villain8 (3585 in chips) is sitting out
+GuiRodri2013: posts the ante 25
+yony1953: posts the ante 25
+villain2: posts the ante 25
+villain3: posts the ante 25
+fortu54227: posts the ante 25
+villain9: posts the ante 25
+villain6: posts the ante 25
+villain10: posts the ante 25
+villain8: posts the ante 25
+GuiRodri2013: posts small blind 100
+yony1953: posts big blind 200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [3s 3c]
+villain2: folds 
+villain3: folds 
+fortu54227: folds 
+villain9: folds 
+villain6: folds 
+villain10: folds 
+villain8: folds 
+GuiRodri2013: calls 100
+yony1953: checks 
+*** FLOP *** [8c Qs Qd]
+GuiRodri2013: bets 200
+yony1953: calls 200
+*** TURN *** [8c Qs Qd] [3d]
+GuiRodri2013: bets 600
+yony1953: calls 600
+*** RIVER *** [8c Qs Qd 3d] [Kd]
+GuiRodri2013: bets 3477 and is all-in
+yony1953: calls 437 and is all-in
+Uncalled bet (3040) returned to GuiRodri2013
+*** SHOW DOWN ***
+GuiRodri2013: shows [3s 3c] (a full house, Threes full of Queens)
+yony1953: shows [9c 9d] (two pair, Queens and Nines)
+GuiRodri2013 collected 3099 from pot
+yony1953 finished the tournament in 9th place
+*** SUMMARY ***
+Total pot 3099 | Rake 0 
+Board [8c Qs Qd 3d Kd]
+Seat 1: GuiRodri2013 (small blind) showed [3s 3c] and won (3099) with a full house, Threes full of Queens
+Seat 2: yony1953 (big blind) showed [9c 9d] and lost with two pair, Queens and Nines
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 5: fortu54227 folded before Flop (didn't bet)
+Seat 6: villain9 folded before Flop (didn't bet)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 folded before Flop (didn't bet)
+Seat 9: villain8 (button) folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827120798: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VII (100/200) - 2026/02/22 12:20:01 BRT [2026/02/22 10:20:01 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (6139 in chips) 
+Seat 3: villain2 (2330 in chips) 
+Seat 4: villain3 (1081 in chips) 
+Seat 5: fortu54227 (1095 in chips) 
+Seat 6: villain9 (1740 in chips) 
+Seat 7: villain6 (7425 in chips) 
+Seat 8: villain10 (3630 in chips) 
+Seat 9: villain8 (3560 in chips) is sitting out
+GuiRodri2013: posts the ante 25
+villain2: posts the ante 25
+villain3: posts the ante 25
+fortu54227: posts the ante 25
+villain9: posts the ante 25
+villain6: posts the ante 25
+villain10: posts the ante 25
+villain8: posts the ante 25
+villain2: posts small blind 100
+villain3: posts big blind 200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Jh 9s]
+fortu54227: raises 870 to 1070 and is all-in
+villain9: calls 1070
+villain6: folds 
+villain10: folds 
+villain8: folds 
+GuiRodri2013: folds 
+villain2: folds 
+villain3: folds 
+*** FLOP *** [3h Tc 2d]
+*** TURN *** [3h Tc 2d] [8d]
+*** RIVER *** [3h Tc 2d 8d] [2c]
+*** SHOW DOWN ***
+fortu54227: shows [Ah 5c] (a pair of Deuces)
+villain9: shows [Ks Ad] (a pair of Deuces - Ace+King kicker)
+villain9 collected 2640 from pot
+fortu54227 finished the tournament in 8th place
+*** SUMMARY ***
+Total pot 2640 | Rake 0 
+Board [3h Tc 2d 8d 2c]
+Seat 1: GuiRodri2013 (button) folded before Flop (didn't bet)
+Seat 3: villain2 (small blind) folded before Flop
+Seat 4: villain3 (big blind) folded before Flop
+Seat 5: fortu54227 showed [Ah 5c] and lost with a pair of Deuces
+Seat 6: villain9 showed [Ks Ad] and won (2640) with a pair of Deuces
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 folded before Flop (didn't bet)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827125480: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VIII (200/400) - 2026/02/22 12:20:26 BRT [2026/02/22 10:20:26 ET]
+Table '3977452675 1' 9-max Seat #3 is the button
+Seat 1: GuiRodri2013 (6114 in chips) 
+Seat 3: villain2 (2205 in chips) 
+Seat 4: villain3 (856 in chips) 
+Seat 6: villain9 (3285 in chips) 
+Seat 7: villain6 (7400 in chips) 
+Seat 8: villain10 (3605 in chips) 
+Seat 9: villain8 (3535 in chips) is sitting out
+GuiRodri2013: posts the ante 25
+villain2: posts the ante 25
+villain3: posts the ante 25
+villain9: posts the ante 25
+villain6: posts the ante 25
+villain10: posts the ante 25
+villain8: posts the ante 25
+villain3: posts small blind 200
+villain9: posts big blind 400
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [2h 6c]
+villain6: folds 
+villain10: folds 
+villain8: folds 
+GuiRodri2013: folds 
+villain2: folds 
+villain3: folds 
+Uncalled bet (200) returned to villain9
+villain9 collected 575 from pot
+villain9: doesn't show hand 
+*** SUMMARY ***
+Total pot 575 | Rake 0 
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 3: villain2 (button) folded before Flop (didn't bet)
+Seat 4: villain3 (small blind) folded before Flop
+Seat 6: villain9 (big blind) collected (575)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 folded before Flop (didn't bet)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827129342: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VIII (200/400) - 2026/02/22 12:20:47 BRT [2026/02/22 10:20:47 ET]
+Table '3977452675 1' 9-max Seat #4 is the button
+Seat 1: GuiRodri2013 (6089 in chips) 
+Seat 3: villain2 (2180 in chips) 
+Seat 4: villain3 (631 in chips) 
+Seat 6: villain9 (3635 in chips) 
+Seat 7: villain6 (7375 in chips) 
+Seat 8: villain10 (3580 in chips) 
+Seat 9: villain8 (3510 in chips) is sitting out
+GuiRodri2013: posts the ante 25
+villain2: posts the ante 25
+villain3: posts the ante 25
+villain9: posts the ante 25
+villain6: posts the ante 25
+villain10: posts the ante 25
+villain8: posts the ante 25
+villain9: posts small blind 200
+villain6: posts big blind 400
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [8d 2h]
+villain10: folds 
+villain8: folds 
+GuiRodri2013: folds 
+villain2: folds 
+villain3: folds 
+villain9: folds 
+Uncalled bet (200) returned to villain6
+villain6 collected 575 from pot
+villain6: doesn't show hand 
+*** SUMMARY ***
+Total pot 575 | Rake 0 
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 4: villain3 (button) folded before Flop (didn't bet)
+Seat 6: villain9 (small blind) folded before Flop
+Seat 7: villain6 (big blind) collected (575)
+Seat 8: villain10 folded before Flop (didn't bet)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827132416: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VIII (200/400) - 2026/02/22 12:21:04 BRT [2026/02/22 10:21:04 ET]
+Table '3977452675 1' 9-max Seat #6 is the button
+Seat 1: GuiRodri2013 (6064 in chips) 
+Seat 3: villain2 (2155 in chips) 
+Seat 4: villain3 (606 in chips) 
+Seat 6: villain9 (3410 in chips) 
+Seat 7: villain6 (7725 in chips) 
+Seat 8: villain10 (3555 in chips) 
+Seat 9: villain8 (3485 in chips) is sitting out
+GuiRodri2013: posts the ante 25
+villain2: posts the ante 25
+villain3: posts the ante 25
+villain9: posts the ante 25
+villain6: posts the ante 25
+villain10: posts the ante 25
+villain8: posts the ante 25
+villain6: posts small blind 200
+villain10: posts big blind 400
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [8c 2c]
+villain8: folds 
+GuiRodri2013: folds 
+villain2: folds 
+villain3: raises 181 to 581 and is all-in
+villain9: folds 
+villain6: folds 
+villain10: calls 181
+*** FLOP *** [Kh 4h 8d]
+*** TURN *** [Kh 4h 8d] [9s]
+*** RIVER *** [Kh 4h 8d 9s] [Jh]
+*** SHOW DOWN ***
+villain10: shows [Td 9d] (a pair of Nines)
+villain3: shows [2h Qh] (a flush, King high)
+villain3 collected 1537 from pot
+*** SUMMARY ***
+Total pot 1537 | Rake 0 
+Board [Kh 4h 8d 9s Jh]
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 4: villain3 showed [2h Qh] and won (1537) with a flush, King high
+Seat 6: villain9 (button) folded before Flop (didn't bet)
+Seat 7: villain6 (small blind) folded before Flop
+Seat 8: villain10 (big blind) showed [Td 9d] and lost with a pair of Nines
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827137726: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VIII (200/400) - 2026/02/22 12:21:33 BRT [2026/02/22 10:21:33 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (6039 in chips) 
+Seat 3: villain2 (2130 in chips) 
+Seat 4: villain3 (1537 in chips) 
+Seat 6: villain9 (3385 in chips) 
+Seat 7: villain6 (7500 in chips) 
+Seat 8: villain10 (2949 in chips) 
+Seat 9: villain8 (3460 in chips) is sitting out
+GuiRodri2013: posts the ante 25
+villain2: posts the ante 25
+villain3: posts the ante 25
+villain9: posts the ante 25
+villain6: posts the ante 25
+villain10: posts the ante 25
+villain8: posts the ante 25
+villain10: posts small blind 200
+villain8: posts big blind 400
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [4d 8h]
+GuiRodri2013: folds 
+villain2: folds 
+villain3: folds 
+villain9: calls 400
+villain6: calls 400
+villain10: calls 200
+villain8: folds 
+*** FLOP *** [Ts Kh 8s]
+villain10: checks 
+villain9: bets 400
+villain6: calls 400
+villain10: folds 
+*** TURN *** [Ts Kh 8s] [8c]
+villain9: checks 
+villain6: checks 
+*** RIVER *** [Ts Kh 8s 8c] [7s]
+villain9: checks 
+villain6: bets 2575
+villain9: folds 
+Uncalled bet (2575) returned to villain6
+villain6 collected 2575 from pot
+villain6: doesn't show hand 
+*** SUMMARY ***
+Total pot 2575 | Rake 0 
+Board [Ts Kh 8s 8c 7s]
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 6: villain9 folded on the River
+Seat 7: villain6 (button) collected (2575)
+Seat 8: villain10 (small blind) folded on the Flop
+Seat 9: villain8 (big blind) folded before Flop
+
+
+
+PokerStars Hand #259827145191: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VIII (200/400) - 2026/02/22 12:22:14 BRT [2026/02/22 10:22:14 ET]
+Table '3977452675 1' 9-max Seat #8 is the button
+Seat 1: GuiRodri2013 (6014 in chips) 
+Seat 3: villain2 (2105 in chips) 
+Seat 4: villain3 (1512 in chips) 
+Seat 6: villain9 (2560 in chips) 
+Seat 7: villain6 (9250 in chips) 
+Seat 8: villain10 (2524 in chips) 
+Seat 9: villain8 (3035 in chips) is sitting out
+GuiRodri2013: posts the ante 25
+villain2: posts the ante 25
+villain3: posts the ante 25
+villain9: posts the ante 25
+villain6: posts the ante 25
+villain10: posts the ante 25
+villain8: posts the ante 25
+villain8: posts small blind 200
+GuiRodri2013: posts big blind 400
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [6d 8d]
+villain2: folds 
+villain3: folds 
+villain9: folds 
+villain6: folds 
+villain10: folds 
+villain8: calls 200
+GuiRodri2013: checks 
+*** FLOP *** [9h 2c 3c]
+villain8: checks 
+GuiRodri2013: checks 
+*** TURN *** [9h 2c 3c] [2d]
+villain8: bets 400
+GuiRodri2013: folds 
+Uncalled bet (400) returned to villain8
+villain8 collected 975 from pot
+villain8: doesn't show hand 
+*** SUMMARY ***
+Total pot 975 | Rake 0 
+Board [9h 2c 3c 2d]
+Seat 1: GuiRodri2013 (big blind) folded on the Turn
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 6: villain9 folded before Flop (didn't bet)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 (button) folded before Flop (didn't bet)
+Seat 9: villain8 (small blind) collected (975)
+
+
+
+PokerStars Hand #259827150770: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VIII (200/400) - 2026/02/22 12:22:45 BRT [2026/02/22 10:22:45 ET]
+Table '3977452675 1' 9-max Seat #9 is the button
+Seat 1: GuiRodri2013 (5589 in chips) 
+Seat 3: villain2 (2080 in chips) 
+Seat 4: villain3 (1487 in chips) 
+Seat 6: villain9 (2535 in chips) 
+Seat 7: villain6 (9225 in chips) 
+Seat 8: villain10 (2499 in chips) 
+Seat 9: villain8 (3585 in chips) 
+GuiRodri2013: posts the ante 25
+villain2: posts the ante 25
+villain3: posts the ante 25
+villain9: posts the ante 25
+villain6: posts the ante 25
+villain10: posts the ante 25
+villain8: posts the ante 25
+GuiRodri2013: posts small blind 200
+villain2: posts big blind 400
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [5c 9h]
+villain3: folds 
+villain9: folds 
+villain6: folds 
+villain10: folds 
+villain8: folds 
+GuiRodri2013: folds 
+Uncalled bet (200) returned to villain2
+villain2 collected 575 from pot
+villain2: doesn't show hand 
+*** SUMMARY ***
+Total pot 575 | Rake 0 
+Seat 1: GuiRodri2013 (small blind) folded before Flop
+Seat 3: villain2 (big blind) collected (575)
+Seat 4: villain3 folded before Flop (didn't bet)
+Seat 6: villain9 folded before Flop (didn't bet)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 folded before Flop (didn't bet)
+Seat 9: villain8 (button) folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827153682: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VIII (200/400) - 2026/02/22 12:23:01 BRT [2026/02/22 10:23:01 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (5364 in chips) 
+Seat 3: villain2 (2430 in chips) 
+Seat 4: villain3 (1462 in chips) 
+Seat 6: villain9 (2510 in chips) 
+Seat 7: villain6 (9200 in chips) 
+Seat 8: villain10 (2474 in chips) 
+Seat 9: villain8 (3560 in chips) 
+GuiRodri2013: posts the ante 25
+villain2: posts the ante 25
+villain3: posts the ante 25
+villain9: posts the ante 25
+villain6: posts the ante 25
+villain10: posts the ante 25
+villain8: posts the ante 25
+villain2: posts small blind 200
+villain3: posts big blind 400
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [8c 4h]
+villain9: folds 
+villain6: folds 
+villain10: raises 400 to 800
+villain8: folds 
+GuiRodri2013: folds 
+villain2: folds 
+villain3: calls 400
+*** FLOP *** [3d 5d 2d]
+villain3: bets 637 and is all-in
+villain10: calls 637
+*** TURN *** [3d 5d 2d] [5h]
+*** RIVER *** [3d 5d 2d 5h] [Td]
+*** SHOW DOWN ***
+villain3: shows [As Qh] (a pair of Fives)
+villain10: shows [Ad Ah] (a flush, Ace high)
+villain10 collected 3249 from pot
+villain3 finished the tournament in 7th place
+*** SUMMARY ***
+Total pot 3249 | Rake 0 
+Board [3d 5d 2d 5h Td]
+Seat 1: GuiRodri2013 (button) folded before Flop (didn't bet)
+Seat 3: villain2 (small blind) folded before Flop
+Seat 4: villain3 (big blind) showed [As Qh] and lost with a pair of Fives
+Seat 6: villain9 folded before Flop (didn't bet)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 showed [Ad Ah] and won (3249) with a flush, Ace high
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827162417: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VIII (200/400) - 2026/02/22 12:23:49 BRT [2026/02/22 10:23:49 ET]
+Table '3977452675 1' 9-max Seat #3 is the button
+Seat 1: GuiRodri2013 (5339 in chips) 
+Seat 3: villain2 (2205 in chips) 
+Seat 6: villain9 (2485 in chips) 
+Seat 7: villain6 (9175 in chips) 
+Seat 8: villain10 (4261 in chips) 
+Seat 9: villain8 (3535 in chips) 
+GuiRodri2013: posts the ante 25
+villain2: posts the ante 25
+villain9: posts the ante 25
+villain6: posts the ante 25
+villain10: posts the ante 25
+villain8: posts the ante 25
+villain9: posts small blind 200
+villain6: posts big blind 400
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [2h Ks]
+villain10: folds 
+villain8: calls 400
+GuiRodri2013: folds 
+villain2: folds 
+villain9: folds 
+villain6: checks 
+*** FLOP *** [Kh Ts Jc]
+villain6: checks 
+villain8: bets 400
+villain6: folds 
+Uncalled bet (400) returned to villain8
+villain8 collected 1150 from pot
+villain8: doesn't show hand 
+*** SUMMARY ***
+Total pot 1150 | Rake 0 
+Board [Kh Ts Jc]
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 3: villain2 (button) folded before Flop (didn't bet)
+Seat 6: villain9 (small blind) folded before Flop
+Seat 7: villain6 (big blind) folded on the Flop
+Seat 8: villain10 folded before Flop (didn't bet)
+Seat 9: villain8 collected (1150)
+
+
+
+PokerStars Hand #259827167234: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VIII (200/400) - 2026/02/22 12:24:15 BRT [2026/02/22 10:24:15 ET]
+Table '3977452675 1' 9-max Seat #6 is the button
+Seat 1: GuiRodri2013 (5314 in chips) 
+Seat 3: villain2 (2180 in chips) 
+Seat 6: villain9 (2260 in chips) 
+Seat 7: villain6 (8750 in chips) 
+Seat 8: villain10 (4236 in chips) 
+Seat 9: villain8 (4260 in chips) 
+GuiRodri2013: posts the ante 25
+villain2: posts the ante 25
+villain9: posts the ante 25
+villain6: posts the ante 25
+villain10: posts the ante 25
+villain8: posts the ante 25
+villain6: posts small blind 200
+villain10: posts big blind 400
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [4d Qh]
+villain8: calls 400
+GuiRodri2013: folds 
+villain2: folds 
+villain9: folds 
+villain6: calls 200
+villain10: checks 
+*** FLOP *** [5s 8h 2c]
+villain6: bets 400
+villain10: folds 
+villain8: folds 
+Uncalled bet (400) returned to villain6
+villain6 collected 1350 from pot
+villain6: doesn't show hand 
+*** SUMMARY ***
+Total pot 1350 | Rake 0 
+Board [5s 8h 2c]
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 6: villain9 (button) folded before Flop (didn't bet)
+Seat 7: villain6 (small blind) collected (1350)
+Seat 8: villain10 (big blind) folded on the Flop
+Seat 9: villain8 folded on the Flop
+
+
+
+PokerStars Hand #259827172423: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VIII (200/400) - 2026/02/22 12:24:44 BRT [2026/02/22 10:24:44 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (5289 in chips) 
+Seat 3: villain2 (2155 in chips) 
+Seat 6: villain9 (2235 in chips) 
+Seat 7: villain6 (9675 in chips) 
+Seat 8: villain10 (3811 in chips) 
+Seat 9: villain8 (3835 in chips) 
+GuiRodri2013: posts the ante 25
+villain2: posts the ante 25
+villain9: posts the ante 25
+villain6: posts the ante 25
+villain10: posts the ante 25
+villain8: posts the ante 25
+villain10: posts small blind 200
+villain8: posts big blind 400
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Qs 9h]
+GuiRodri2013: raises 400 to 800
+villain2: folds 
+villain9: folds 
+villain6: folds 
+villain10: folds 
+villain8: folds 
+Uncalled bet (400) returned to GuiRodri2013
+GuiRodri2013 collected 1150 from pot
+GuiRodri2013: doesn't show hand 
+*** SUMMARY ***
+Total pot 1150 | Rake 0 
+Seat 1: GuiRodri2013 collected (1150)
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 6: villain9 folded before Flop (didn't bet)
+Seat 7: villain6 (button) folded before Flop (didn't bet)
+Seat 8: villain10 (small blind) folded before Flop
+Seat 9: villain8 (big blind) folded before Flop
+
+
+
+PokerStars Hand #259827175267: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level VIII (200/400) - 2026/02/22 12:25:00 BRT [2026/02/22 10:25:00 ET]
+Table '3977452675 1' 9-max Seat #8 is the button
+Seat 1: GuiRodri2013 (6014 in chips) 
+Seat 3: villain2 (2130 in chips) 
+Seat 6: villain9 (2210 in chips) 
+Seat 7: villain6 (9650 in chips) 
+Seat 8: villain10 (3586 in chips) 
+Seat 9: villain8 (3410 in chips) 
+GuiRodri2013: posts the ante 25
+villain2: posts the ante 25
+villain9: posts the ante 25
+villain6: posts the ante 25
+villain10: posts the ante 25
+villain8: posts the ante 25
+villain8: posts small blind 200
+GuiRodri2013: posts big blind 400
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [7h 4d]
+villain2: folds 
+villain9: folds 
+villain6: folds 
+villain10: folds 
+villain8: calls 200
+GuiRodri2013: checks 
+*** FLOP *** [5s 7d 6c]
+villain8: checks 
+GuiRodri2013: bets 400
+villain8: folds 
+Uncalled bet (400) returned to GuiRodri2013
+GuiRodri2013 collected 950 from pot
+GuiRodri2013: doesn't show hand 
+*** SUMMARY ***
+Total pot 950 | Rake 0 
+Board [5s 7d 6c]
+Seat 1: GuiRodri2013 (big blind) collected (950)
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 6: villain9 folded before Flop (didn't bet)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 (button) folded before Flop (didn't bet)
+Seat 9: villain8 (small blind) folded on the Flop
+
+
+
+PokerStars Hand #259827180109: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level IX (300/600) - 2026/02/22 12:25:26 BRT [2026/02/22 10:25:26 ET]
+Table '3977452675 1' 9-max Seat #9 is the button
+Seat 1: GuiRodri2013 (6539 in chips) 
+Seat 3: villain2 (2105 in chips) 
+Seat 6: villain9 (2185 in chips) 
+Seat 7: villain6 (9625 in chips) 
+Seat 8: villain10 (3561 in chips) 
+Seat 9: villain8 (2985 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain9: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain8: posts the ante 50
+GuiRodri2013: posts small blind 300
+villain2: posts big blind 600
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [6s Qc]
+villain9: folds 
+villain6: folds 
+villain10: folds 
+villain8: folds 
+GuiRodri2013: calls 300
+villain2: checks 
+*** FLOP *** [6h Js 3h]
+GuiRodri2013: bets 600
+villain2: raises 855 to 1455 and is all-in
+GuiRodri2013: folds 
+Uncalled bet (855) returned to villain2
+villain2 collected 2700 from pot
+villain2: doesn't show hand 
+*** SUMMARY ***
+Total pot 2700 | Rake 0 
+Board [6h Js 3h]
+Seat 1: GuiRodri2013 (small blind) folded on the Flop
+Seat 3: villain2 (big blind) collected (2700)
+Seat 6: villain9 folded before Flop (didn't bet)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 folded before Flop (didn't bet)
+Seat 9: villain8 (button) folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827185927: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level IX (300/600) - 2026/02/22 12:25:58 BRT [2026/02/22 10:25:58 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (5289 in chips) 
+Seat 3: villain2 (3555 in chips) 
+Seat 6: villain9 (2135 in chips) 
+Seat 7: villain6 (9575 in chips) 
+Seat 8: villain10 (3511 in chips) 
+Seat 9: villain8 (2935 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain9: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain8: posts the ante 50
+villain2: posts small blind 300
+villain9: posts big blind 600
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [9s 8s]
+villain6: folds 
+villain10: folds 
+villain8: folds 
+GuiRodri2013: folds 
+villain2: folds 
+Uncalled bet (300) returned to villain9
+villain9 collected 900 from pot
+villain9: doesn't show hand 
+*** SUMMARY ***
+Total pot 900 | Rake 0 
+Seat 1: GuiRodri2013 (button) folded before Flop (didn't bet)
+Seat 3: villain2 (small blind) folded before Flop
+Seat 6: villain9 (big blind) collected (900)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 folded before Flop (didn't bet)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827189147: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level IX (300/600) - 2026/02/22 12:26:16 BRT [2026/02/22 10:26:16 ET]
+Table '3977452675 1' 9-max Seat #3 is the button
+Seat 1: GuiRodri2013 (5239 in chips) 
+Seat 3: villain2 (3205 in chips) 
+Seat 6: villain9 (2685 in chips) 
+Seat 7: villain6 (9525 in chips) 
+Seat 8: villain10 (3461 in chips) 
+Seat 9: villain8 (2885 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain9: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain8: posts the ante 50
+villain9: posts small blind 300
+villain6: posts big blind 600
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Qh 5h]
+villain10: folds 
+villain8: folds 
+GuiRodri2013: raises 600 to 1200
+villain2: folds 
+villain9: folds 
+villain6 is disconnected 
+villain6 has timed out while disconnected
+villain6: folds 
+Uncalled bet (600) returned to GuiRodri2013
+GuiRodri2013 collected 1800 from pot
+GuiRodri2013: doesn't show hand 
+*** SUMMARY ***
+Total pot 1800 | Rake 0 
+Seat 1: GuiRodri2013 collected (1800)
+Seat 3: villain2 (button) folded before Flop (didn't bet)
+Seat 6: villain9 (small blind) folded before Flop
+Seat 7: villain6 (big blind) folded before Flop
+Seat 8: villain10 folded before Flop (didn't bet)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827196331: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level IX (300/600) - 2026/02/22 12:26:57 BRT [2026/02/22 10:26:57 ET]
+Table '3977452675 1' 9-max Seat #6 is the button
+Seat 1: GuiRodri2013 (6389 in chips) 
+Seat 3: villain2 (3155 in chips) 
+Seat 6: villain9 (2335 in chips) 
+Seat 7: villain6 (8875 in chips) 
+Seat 8: villain10 (3411 in chips) 
+Seat 9: villain8 (2835 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain9: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain8: posts the ante 50
+villain6: posts small blind 300
+villain10: posts big blind 600
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [3h 4s]
+villain8: folds 
+GuiRodri2013: folds 
+villain2: folds 
+villain9: folds 
+villain6: folds 
+Uncalled bet (300) returned to villain10
+villain10 collected 900 from pot
+villain10: doesn't show hand 
+*** SUMMARY ***
+Total pot 900 | Rake 0 
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 6: villain9 (button) folded before Flop (didn't bet)
+Seat 7: villain6 (small blind) folded before Flop
+Seat 8: villain10 (big blind) collected (900)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827199380: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level IX (300/600) - 2026/02/22 12:27:14 BRT [2026/02/22 10:27:14 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (6339 in chips) 
+Seat 3: villain2 (3105 in chips) 
+Seat 6: villain9 (2285 in chips) 
+Seat 7: villain6 (8525 in chips) 
+Seat 8: villain10 (3961 in chips) 
+Seat 9: villain8 (2785 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain9: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain8: posts the ante 50
+villain10: posts small blind 300
+villain8: posts big blind 600
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [6h 5d]
+GuiRodri2013: folds 
+villain2: folds 
+villain9: folds 
+villain6: folds 
+villain10: folds 
+Uncalled bet (300) returned to villain8
+villain8 collected 900 from pot
+villain8: doesn't show hand 
+*** SUMMARY ***
+Total pot 900 | Rake 0 
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 6: villain9 folded before Flop (didn't bet)
+Seat 7: villain6 (button) folded before Flop (didn't bet)
+Seat 8: villain10 (small blind) folded before Flop
+Seat 9: villain8 (big blind) collected (900)
+
+
+
+PokerStars Hand #259827201186: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level IX (300/600) - 2026/02/22 12:27:24 BRT [2026/02/22 10:27:24 ET]
+Table '3977452675 1' 9-max Seat #8 is the button
+Seat 1: GuiRodri2013 (6289 in chips) 
+Seat 3: villain2 (3055 in chips) 
+Seat 6: villain9 (2235 in chips) 
+Seat 7: villain6 (8475 in chips) 
+Seat 8: villain10 (3611 in chips) 
+Seat 9: villain8 (3335 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain9: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain8: posts the ante 50
+villain8: posts small blind 300
+GuiRodri2013: posts big blind 600
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [7d 5h]
+villain2: folds 
+villain9: folds 
+villain6: folds 
+villain10: folds 
+villain8: calls 300
+GuiRodri2013: checks 
+*** FLOP *** [4d Ks Kc]
+villain8: checks 
+GuiRodri2013: checks 
+*** TURN *** [4d Ks Kc] [9s]
+villain8: checks 
+GuiRodri2013: checks 
+*** RIVER *** [4d Ks Kc 9s] [Qd]
+villain8: checks 
+GuiRodri2013: checks 
+*** SHOW DOWN ***
+villain8: shows [6d 3d] (a pair of Kings)
+GuiRodri2013: shows [7d 5h] (a pair of Kings - Queen+Nine+Seven kicker)
+GuiRodri2013 collected 1500 from pot
+*** SUMMARY ***
+Total pot 1500 | Rake 0 
+Board [4d Ks Kc 9s Qd]
+Seat 1: GuiRodri2013 (big blind) showed [7d 5h] and won (1500) with a pair of Kings
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 6: villain9 folded before Flop (didn't bet)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 (button) folded before Flop (didn't bet)
+Seat 9: villain8 (small blind) showed [6d 3d] and lost with a pair of Kings
+
+
+
+PokerStars Hand #259827205383: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level IX (300/600) - 2026/02/22 12:27:47 BRT [2026/02/22 10:27:47 ET]
+Table '3977452675 1' 9-max Seat #9 is the button
+Seat 1: GuiRodri2013 (7139 in chips) 
+Seat 3: villain2 (3005 in chips) 
+Seat 6: villain9 (2185 in chips) 
+Seat 7: villain6 (8425 in chips) 
+Seat 8: villain10 (3561 in chips) 
+Seat 9: villain8 (2685 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain9: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain8: posts the ante 50
+GuiRodri2013: posts small blind 300
+villain2: posts big blind 600
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [4s 5c]
+villain9: folds 
+villain6: calls 600
+villain10: folds 
+villain8: folds 
+GuiRodri2013: folds 
+villain2: checks 
+*** FLOP *** [3s 8h 7c]
+villain2: bets 600
+villain6: calls 600
+*** TURN *** [3s 8h 7c] [Qc]
+villain2: checks 
+villain6: bets 1200
+villain2: folds 
+Uncalled bet (1200) returned to villain6
+villain6 collected 3000 from pot
+villain6: doesn't show hand 
+*** SUMMARY ***
+Total pot 3000 | Rake 0 
+Board [3s 8h 7c Qc]
+Seat 1: GuiRodri2013 (small blind) folded before Flop
+Seat 3: villain2 (big blind) folded on the Turn
+Seat 6: villain9 folded before Flop (didn't bet)
+Seat 7: villain6 collected (3000)
+Seat 8: villain10 folded before Flop (didn't bet)
+Seat 9: villain8 (button) folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827211610: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level IX (300/600) - 2026/02/22 12:28:22 BRT [2026/02/22 10:28:22 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (6789 in chips) 
+Seat 3: villain2 (1755 in chips) 
+Seat 6: villain9 (2135 in chips) 
+Seat 7: villain6 (10175 in chips) 
+Seat 8: villain10 (3511 in chips) 
+Seat 9: villain8 (2635 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain9: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain8: posts the ante 50
+villain2: posts small blind 300
+villain9: posts big blind 600
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [4d 7d]
+villain6: folds 
+villain10: folds 
+villain8: folds 
+GuiRodri2013: folds 
+villain2: raises 1105 to 1705 and is all-in
+villain9: folds 
+Uncalled bet (1105) returned to villain2
+villain2 collected 1500 from pot
+villain2: doesn't show hand 
+*** SUMMARY ***
+Total pot 1500 | Rake 0 
+Seat 1: GuiRodri2013 (button) folded before Flop (didn't bet)
+Seat 3: villain2 (small blind) collected (1500)
+Seat 6: villain9 (big blind) folded before Flop
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 folded before Flop (didn't bet)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827214524: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level IX (300/600) - 2026/02/22 12:28:39 BRT [2026/02/22 10:28:39 ET]
+Table '3977452675 1' 9-max Seat #3 is the button
+Seat 1: GuiRodri2013 (6739 in chips) 
+Seat 3: villain2 (2605 in chips) 
+Seat 6: villain9 (1485 in chips) 
+Seat 7: villain6 (10125 in chips) 
+Seat 8: villain10 (3461 in chips) 
+Seat 9: villain8 (2585 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain9: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain8: posts the ante 50
+villain9: posts small blind 300
+villain6: posts big blind 600
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Th Qc]
+villain10: folds 
+villain8: folds 
+GuiRodri2013: raises 600 to 1200
+villain2: folds 
+villain9: folds 
+villain6: calls 600
+*** FLOP *** [9s 7d 4c]
+villain6: checks 
+GuiRodri2013: checks 
+*** TURN *** [9s 7d 4c] [4h]
+villain6: bets 600
+GuiRodri2013: calls 600
+*** RIVER *** [9s 7d 4c 4h] [2h]
+villain6: bets 1200
+GuiRodri2013: folds 
+Uncalled bet (1200) returned to villain6
+villain6 collected 4200 from pot
+villain6: doesn't show hand 
+*** SUMMARY ***
+Total pot 4200 | Rake 0 
+Board [9s 7d 4c 4h 2h]
+Seat 1: GuiRodri2013 folded on the River
+Seat 3: villain2 (button) folded before Flop (didn't bet)
+Seat 6: villain9 (small blind) folded before Flop
+Seat 7: villain6 (big blind) collected (4200)
+Seat 8: villain10 folded before Flop (didn't bet)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827220105: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level IX (300/600) - 2026/02/22 12:29:10 BRT [2026/02/22 10:29:10 ET]
+Table '3977452675 1' 9-max Seat #6 is the button
+Seat 1: GuiRodri2013 (4889 in chips) 
+Seat 3: villain2 (2555 in chips) 
+Seat 6: villain9 (1135 in chips) 
+Seat 7: villain6 (12475 in chips) 
+Seat 8: villain10 (3411 in chips) 
+Seat 9: villain8 (2535 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain9: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain8: posts the ante 50
+villain6: posts small blind 300
+villain10: posts big blind 600
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [2h Ac]
+villain8: folds 
+GuiRodri2013: raises 600 to 1200
+villain2: raises 1305 to 2505 and is all-in
+villain9: folds 
+villain6: folds 
+villain10: folds 
+GuiRodri2013: calls 1305
+*** FLOP *** [Qs Jd 9c]
+*** TURN *** [Qs Jd 9c] [6h]
+*** RIVER *** [Qs Jd 9c 6h] [9h]
+*** SHOW DOWN ***
+GuiRodri2013: shows [2h Ac] (a pair of Nines)
+villain2: shows [Tc Ts] (two pair, Tens and Nines)
+villain2 collected 6210 from pot
+*** SUMMARY ***
+Total pot 6210 | Rake 0 
+Board [Qs Jd 9c 6h 9h]
+Seat 1: GuiRodri2013 showed [2h Ac] and lost with a pair of Nines
+Seat 3: villain2 showed [Tc Ts] and won (6210) with two pair, Tens and Nines
+Seat 6: villain9 (button) folded before Flop (didn't bet)
+Seat 7: villain6 (small blind) folded before Flop
+Seat 8: villain10 (big blind) folded before Flop
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827224720: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level IX (300/600) - 2026/02/22 12:29:36 BRT [2026/02/22 10:29:36 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (2334 in chips) 
+Seat 3: villain2 (6210 in chips) 
+Seat 6: villain9 (1085 in chips) 
+Seat 7: villain6 (12125 in chips) 
+Seat 8: villain10 (2761 in chips) 
+Seat 9: villain8 (2485 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain9: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain8: posts the ante 50
+villain10: posts small blind 300
+villain8: posts big blind 600
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Kh 8h]
+GuiRodri2013: raises 1684 to 2284 and is all-in
+villain2: folds 
+villain9: folds 
+villain6: folds 
+villain10: folds 
+villain8: folds 
+Uncalled bet (1684) returned to GuiRodri2013
+GuiRodri2013 collected 1800 from pot
+GuiRodri2013: doesn't show hand 
+*** SUMMARY ***
+Total pot 1800 | Rake 0 
+Seat 1: GuiRodri2013 collected (1800)
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 6: villain9 folded before Flop (didn't bet)
+Seat 7: villain6 (button) folded before Flop (didn't bet)
+Seat 8: villain10 (small blind) folded before Flop
+Seat 9: villain8 (big blind) folded before Flop
+
+
+
+PokerStars Hand #259827229699: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level IX (300/600) - 2026/02/22 12:30:03 BRT [2026/02/22 10:30:03 ET]
+Table '3977452675 1' 9-max Seat #8 is the button
+Seat 1: GuiRodri2013 (3484 in chips) 
+Seat 3: villain2 (6160 in chips) 
+Seat 6: villain9 (1035 in chips) 
+Seat 7: villain6 (12075 in chips) 
+Seat 8: villain10 (2411 in chips) 
+Seat 9: villain8 (1835 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain9: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain8: posts the ante 50
+villain8: posts small blind 300
+GuiRodri2013: posts big blind 600
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [9h 9s]
+villain2: folds 
+villain9: raises 385 to 985 and is all-in
+villain6: folds 
+villain10: folds 
+villain8: folds 
+GuiRodri2013: calls 385
+*** FLOP *** [Qc 6d 7d]
+*** TURN *** [Qc 6d 7d] [7s]
+*** RIVER *** [Qc 6d 7d 7s] [6h]
+*** SHOW DOWN ***
+GuiRodri2013: shows [9h 9s] (two pair, Nines and Sevens)
+villain9: shows [2c 2d] (two pair, Sevens and Sixes)
+GuiRodri2013 collected 2570 from pot
+villain9 finished the tournament in 6th place
+*** SUMMARY ***
+Total pot 2570 | Rake 0 
+Board [Qc 6d 7d 7s 6h]
+Seat 1: GuiRodri2013 (big blind) showed [9h 9s] and won (2570) with two pair, Nines and Sevens
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 6: villain9 showed [2c 2d] and lost with two pair, Sevens and Sixes
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 (button) folded before Flop (didn't bet)
+Seat 9: villain8 (small blind) folded before Flop
+
+
+
+PokerStars Hand #259827234755: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level X (400/800) - 2026/02/22 12:30:31 BRT [2026/02/22 10:30:31 ET]
+Table '3977452675 1' 9-max Seat #9 is the button
+Seat 1: GuiRodri2013 (5019 in chips) 
+Seat 3: villain2 (6110 in chips) 
+Seat 7: villain6 (12025 in chips) 
+Seat 8: villain10 (2361 in chips) 
+Seat 9: villain8 (1485 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain8: posts the ante 50
+GuiRodri2013: posts small blind 400
+villain2: posts big blind 800
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Qc Kh]
+villain6: folds 
+villain10: folds 
+villain8: folds 
+GuiRodri2013: raises 800 to 1600
+villain2: calls 800
+*** FLOP *** [9c Jh Ac]
+GuiRodri2013: checks 
+villain2: bets 4460 and is all-in
+GuiRodri2013: folds 
+Uncalled bet (4460) returned to villain2
+villain2 collected 3450 from pot
+villain2: doesn't show hand 
+*** SUMMARY ***
+Total pot 3450 | Rake 0 
+Board [9c Jh Ac]
+Seat 1: GuiRodri2013 (small blind) folded on the Flop
+Seat 3: villain2 (big blind) collected (3450)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 folded before Flop (didn't bet)
+Seat 9: villain8 (button) folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827240956: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level X (400/800) - 2026/02/22 12:31:05 BRT [2026/02/22 10:31:05 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (3369 in chips) 
+Seat 3: villain2 (7910 in chips) 
+Seat 7: villain6 (11975 in chips) 
+Seat 8: villain10 (2311 in chips) 
+Seat 9: villain8 (1435 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain8: posts the ante 50
+villain2: posts small blind 400
+villain6: posts big blind 800
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Tc 3s]
+villain10: folds 
+villain8: folds 
+GuiRodri2013: folds 
+villain2: calls 400
+villain6: checks 
+*** FLOP *** [5d 6d Kc]
+villain2: checks 
+villain6: checks 
+*** TURN *** [5d 6d Kc] [8s]
+villain2: bets 800
+villain6: folds 
+Uncalled bet (800) returned to villain2
+villain2 collected 1850 from pot
+villain2: doesn't show hand 
+*** SUMMARY ***
+Total pot 1850 | Rake 0 
+Board [5d 6d Kc 8s]
+Seat 1: GuiRodri2013 (button) folded before Flop (didn't bet)
+Seat 3: villain2 (small blind) collected (1850)
+Seat 7: villain6 (big blind) folded on the Turn
+Seat 8: villain10 folded before Flop (didn't bet)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827244924: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level X (400/800) - 2026/02/22 12:31:27 BRT [2026/02/22 10:31:27 ET]
+Table '3977452675 1' 9-max Seat #3 is the button
+Seat 1: GuiRodri2013 (3319 in chips) 
+Seat 3: villain2 (8910 in chips) 
+Seat 7: villain6 (11125 in chips) 
+Seat 8: villain10 (2261 in chips) 
+Seat 9: villain8 (1385 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain8: posts the ante 50
+villain6: posts small blind 400
+villain10: posts big blind 800
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Jd Tc]
+villain8: folds 
+GuiRodri2013: folds 
+villain2: folds 
+villain6: folds 
+Uncalled bet (400) returned to villain10
+villain10 collected 1050 from pot
+villain10: doesn't show hand 
+*** SUMMARY ***
+Total pot 1050 | Rake 0 
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 3: villain2 (button) folded before Flop (didn't bet)
+Seat 7: villain6 (small blind) folded before Flop
+Seat 8: villain10 (big blind) collected (1050)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827247618: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level X (400/800) - 2026/02/22 12:31:42 BRT [2026/02/22 10:31:42 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (3269 in chips) 
+Seat 3: villain2 (8860 in chips) 
+Seat 7: villain6 (10675 in chips) 
+Seat 8: villain10 (2861 in chips) 
+Seat 9: villain8 (1335 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain8: posts the ante 50
+villain10: posts small blind 400
+villain8: posts big blind 800
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [8c 3s]
+GuiRodri2013: folds 
+villain2: folds 
+villain6: folds 
+villain10: raises 800 to 1600
+villain8: folds 
+Uncalled bet (800) returned to villain10
+villain10 collected 1850 from pot
+villain10: doesn't show hand 
+*** SUMMARY ***
+Total pot 1850 | Rake 0 
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 7: villain6 (button) folded before Flop (didn't bet)
+Seat 8: villain10 (small blind) collected (1850)
+Seat 9: villain8 (big blind) folded before Flop
+
+
+
+PokerStars Hand #259827250500: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level X (400/800) - 2026/02/22 12:31:58 BRT [2026/02/22 10:31:58 ET]
+Table '3977452675 1' 9-max Seat #8 is the button
+Seat 1: GuiRodri2013 (3219 in chips) 
+Seat 3: villain2 (8810 in chips) 
+Seat 7: villain6 (10625 in chips) 
+Seat 8: villain10 (3861 in chips) 
+Seat 9: villain8 (485 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain8: posts the ante 50
+villain8: posts small blind 400
+GuiRodri2013: posts big blind 800
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [7s 4d]
+villain2: folds 
+villain6: folds 
+villain10: folds 
+villain8: calls 35 and is all-in
+Uncalled bet (365) returned to GuiRodri2013
+*** FLOP *** [Kh Qc 3h]
+*** TURN *** [Kh Qc 3h] [Jd]
+*** RIVER *** [Kh Qc 3h Jd] [Ad]
+*** SHOW DOWN ***
+villain8: shows [2h As] (a pair of Aces)
+GuiRodri2013: shows [7s 4d] (high card Ace)
+villain8 collected 1120 from pot
+*** SUMMARY ***
+Total pot 1120 | Rake 0 
+Board [Kh Qc 3h Jd Ad]
+Seat 1: GuiRodri2013 (big blind) showed [7s 4d] and lost with high card Ace
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 (button) folded before Flop (didn't bet)
+Seat 9: villain8 (small blind) showed [2h As] and won (1120) with a pair of Aces
+
+
+
+PokerStars Hand #259827254456: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level X (400/800) - 2026/02/22 12:32:20 BRT [2026/02/22 10:32:20 ET]
+Table '3977452675 1' 9-max Seat #9 is the button
+Seat 1: GuiRodri2013 (2734 in chips) 
+Seat 3: villain2 (8760 in chips) 
+Seat 7: villain6 (10575 in chips) 
+Seat 8: villain10 (3811 in chips) 
+Seat 9: villain8 (1120 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain8: posts the ante 50
+GuiRodri2013: posts small blind 400
+villain2: posts big blind 800
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [3h 5d]
+villain6: folds 
+villain10: folds 
+villain8: folds 
+GuiRodri2013: folds 
+Uncalled bet (400) returned to villain2
+villain2 collected 1050 from pot
+villain2: doesn't show hand 
+*** SUMMARY ***
+Total pot 1050 | Rake 0 
+Seat 1: GuiRodri2013 (small blind) folded before Flop
+Seat 3: villain2 (big blind) collected (1050)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 folded before Flop (didn't bet)
+Seat 9: villain8 (button) folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827256515: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level X (400/800) - 2026/02/22 12:32:31 BRT [2026/02/22 10:32:31 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (2284 in chips) 
+Seat 3: villain2 (9360 in chips) 
+Seat 7: villain6 (10525 in chips) 
+Seat 8: villain10 (3761 in chips) 
+Seat 9: villain8 (1070 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain8: posts the ante 50
+villain2: posts small blind 400
+villain6: posts big blind 800
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [3s 4h]
+villain10: folds 
+villain8: folds 
+GuiRodri2013: folds 
+villain2: folds 
+Uncalled bet (400) returned to villain6
+villain6 collected 1050 from pot
+villain6: doesn't show hand 
+*** SUMMARY ***
+Total pot 1050 | Rake 0 
+Seat 1: GuiRodri2013 (button) folded before Flop (didn't bet)
+Seat 3: villain2 (small blind) folded before Flop
+Seat 7: villain6 (big blind) collected (1050)
+Seat 8: villain10 folded before Flop (didn't bet)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827258659: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level X (400/800) - 2026/02/22 12:32:43 BRT [2026/02/22 10:32:43 ET]
+Table '3977452675 1' 9-max Seat #3 is the button
+Seat 1: GuiRodri2013 (2234 in chips) 
+Seat 3: villain2 (8910 in chips) 
+Seat 7: villain6 (11125 in chips) 
+Seat 8: villain10 (3711 in chips) 
+Seat 9: villain8 (1020 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain8: posts the ante 50
+villain6: posts small blind 400
+villain10: posts big blind 800
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [7c Jh]
+villain8: folds 
+GuiRodri2013: folds 
+villain2: folds 
+villain6: folds 
+Uncalled bet (400) returned to villain10
+villain10 collected 1050 from pot
+villain10: doesn't show hand 
+*** SUMMARY ***
+Total pot 1050 | Rake 0 
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 3: villain2 (button) folded before Flop (didn't bet)
+Seat 7: villain6 (small blind) folded before Flop
+Seat 8: villain10 (big blind) collected (1050)
+Seat 9: villain8 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827261990: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level X (400/800) - 2026/02/22 12:33:01 BRT [2026/02/22 10:33:01 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (2184 in chips) 
+Seat 3: villain2 (8860 in chips) 
+Seat 7: villain6 (10675 in chips) 
+Seat 8: villain10 (4311 in chips) 
+Seat 9: villain8 (970 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain8: posts the ante 50
+villain10: posts small blind 400
+villain8: posts big blind 800
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Qd Jh]
+GuiRodri2013: raises 1334 to 2134 and is all-in
+villain2: folds 
+villain6: folds 
+villain10: folds 
+villain8: calls 120 and is all-in
+Uncalled bet (1214) returned to GuiRodri2013
+*** FLOP *** [Jc 6c 2c]
+*** TURN *** [Jc 6c 2c] [8s]
+*** RIVER *** [Jc 6c 2c 8s] [As]
+*** SHOW DOWN ***
+villain8: shows [6s 3h] (a pair of Sixes)
+GuiRodri2013: shows [Qd Jh] (a pair of Jacks)
+GuiRodri2013 collected 2490 from pot
+villain8 finished the tournament in 5th place
+*** SUMMARY ***
+Total pot 2490 | Rake 0 
+Board [Jc 6c 2c 8s As]
+Seat 1: GuiRodri2013 showed [Qd Jh] and won (2490) with a pair of Jacks
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 7: villain6 (button) folded before Flop (didn't bet)
+Seat 8: villain10 (small blind) folded before Flop
+Seat 9: villain8 (big blind) showed [6s 3h] and lost with a pair of Sixes
+
+
+
+PokerStars Hand #259827266473: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level X (400/800) - 2026/02/22 12:33:26 BRT [2026/02/22 10:33:26 ET]
+Table '3977452675 1' 9-max Seat #8 is the button
+Seat 1: GuiRodri2013 (3704 in chips) 
+Seat 3: villain2 (8810 in chips) 
+Seat 7: villain6 (10625 in chips) 
+Seat 8: villain10 (3861 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+GuiRodri2013: posts small blind 400
+villain2: posts big blind 800
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [9c Qs]
+villain6: folds 
+villain10: raises 3011 to 3811 and is all-in
+GuiRodri2013: folds 
+villain2: folds [3s]
+Uncalled bet (3011) returned to villain10
+villain10 collected 2200 from pot
+villain10: doesn't show hand 
+*** SUMMARY ***
+Total pot 2200 | Rake 0 
+Seat 1: GuiRodri2013 (small blind) folded before Flop
+Seat 3: villain2 (big blind) folded before Flop
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 (button) collected (2200)
+
+
+
+PokerStars Hand #259827269743: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level X (400/800) - 2026/02/22 12:33:44 BRT [2026/02/22 10:33:44 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (3254 in chips) 
+Seat 3: villain2 (7960 in chips) 
+Seat 7: villain6 (10575 in chips) 
+Seat 8: villain10 (5211 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain2: posts small blind 400
+villain6: posts big blind 800
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Ts Kd]
+villain10: folds 
+GuiRodri2013: folds 
+villain2: calls 400
+villain6: checks 
+*** FLOP *** [Qd 9s 5d]
+villain2: checks 
+villain6: checks 
+*** TURN *** [Qd 9s 5d] [Jc]
+villain2: checks 
+villain6: bets 800
+villain2: folds 
+Uncalled bet (800) returned to villain6
+villain6 collected 1800 from pot
+villain6: doesn't show hand 
+*** SUMMARY ***
+Total pot 1800 | Rake 0 
+Board [Qd 9s 5d Jc]
+Seat 1: GuiRodri2013 (button) folded before Flop (didn't bet)
+Seat 3: villain2 (small blind) folded on the Turn
+Seat 7: villain6 (big blind) collected (1800)
+Seat 8: villain10 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827275209: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level X (400/800) - 2026/02/22 12:34:13 BRT [2026/02/22 10:34:13 ET]
+Table '3977452675 1' 9-max Seat #3 is the button
+Seat 1: GuiRodri2013 (3204 in chips) 
+Seat 3: villain2 (7110 in chips) 
+Seat 7: villain6 (11525 in chips) 
+Seat 8: villain10 (5161 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain6: posts small blind 400
+villain10: posts big blind 800
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [2h 5c]
+GuiRodri2013: folds 
+villain2: raises 800 to 1600
+villain6: folds 
+villain10: folds 
+Uncalled bet (800) returned to villain2
+villain2 collected 2200 from pot
+villain2: doesn't show hand 
+*** SUMMARY ***
+Total pot 2200 | Rake 0 
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 3: villain2 (button) collected (2200)
+Seat 7: villain6 (small blind) folded before Flop
+Seat 8: villain10 (big blind) folded before Flop
+
+
+
+PokerStars Hand #259827277483: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level X (400/800) - 2026/02/22 12:34:25 BRT [2026/02/22 10:34:25 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (3154 in chips) 
+Seat 3: villain2 (8460 in chips) 
+Seat 7: villain6 (11075 in chips) 
+Seat 8: villain10 (4311 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain10: posts small blind 400
+GuiRodri2013: posts big blind 800
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Ad Qs]
+villain2: folds 
+villain6: folds 
+villain10: calls 400
+GuiRodri2013: checks 
+*** FLOP *** [Tc Ah Ac]
+villain10: bets 3461 and is all-in
+GuiRodri2013: calls 2304 and is all-in
+Uncalled bet (1157) returned to villain10
+*** TURN *** [Tc Ah Ac] [Qh]
+*** RIVER *** [Tc Ah Ac Qh] [9d]
+*** SHOW DOWN ***
+villain10: shows [3h Kh] (a pair of Aces)
+GuiRodri2013: shows [Ad Qs] (a full house, Aces full of Queens)
+GuiRodri2013 collected 6408 from pot
+*** SUMMARY ***
+Total pot 6408 | Rake 0 
+Board [Tc Ah Ac Qh 9d]
+Seat 1: GuiRodri2013 (big blind) showed [Ad Qs] and won (6408) with a full house, Aces full of Queens
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 7: villain6 (button) folded before Flop (didn't bet)
+Seat 8: villain10 (small blind) showed [3h Kh] and lost with a pair of Aces
+
+
+
+PokerStars Hand #259827282643: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level X (400/800) - 2026/02/22 12:34:53 BRT [2026/02/22 10:34:53 ET]
+Table '3977452675 1' 9-max Seat #8 is the button
+Seat 1: GuiRodri2013 (6408 in chips) 
+Seat 3: villain2 (8410 in chips) 
+Seat 7: villain6 (11025 in chips) 
+Seat 8: villain10 (1157 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+GuiRodri2013: posts small blind 400
+villain2: posts big blind 800
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [7c 3s]
+villain6: folds 
+villain10: raises 307 to 1107 and is all-in
+GuiRodri2013: folds 
+villain2: calls 307
+*** FLOP *** [5c 5s 3h]
+*** TURN *** [5c 5s 3h] [7d]
+*** RIVER *** [5c 5s 3h 7d] [Js]
+*** SHOW DOWN ***
+villain2: shows [Jc 6h] (two pair, Jacks and Fives)
+villain10: shows [Ad Ah] (two pair, Aces and Fives)
+villain10 collected 2814 from pot
+*** SUMMARY ***
+Total pot 2814 | Rake 0 
+Board [5c 5s 3h 7d Js]
+Seat 1: GuiRodri2013 (small blind) folded before Flop
+Seat 3: villain2 (big blind) showed [Jc 6h] and lost with two pair, Jacks and Fives
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 (button) showed [Ad Ah] and won (2814) with two pair, Aces and Fives
+
+
+
+PokerStars Hand #259827287130: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level X (400/800) - 2026/02/22 12:35:18 BRT [2026/02/22 10:35:18 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (5958 in chips) 
+Seat 3: villain2 (7253 in chips) 
+Seat 7: villain6 (10975 in chips) 
+Seat 8: villain10 (2814 in chips) 
+GuiRodri2013: posts the ante 50
+villain2: posts the ante 50
+villain6: posts the ante 50
+villain10: posts the ante 50
+villain2: posts small blind 400
+villain6: posts big blind 800
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Qc 4d]
+villain10: folds 
+GuiRodri2013: folds 
+villain2: calls 400
+villain6: checks 
+*** FLOP *** [Jh 5h 6h]
+villain2: checks 
+villain6: checks 
+*** TURN *** [Jh 5h 6h] [8h]
+villain2: checks 
+villain6: checks 
+*** RIVER *** [Jh 5h 6h 8h] [4h]
+villain2: bets 800
+villain6: folds 
+Uncalled bet (800) returned to villain2
+villain2 collected 1800 from pot
+villain2: doesn't show hand 
+*** SUMMARY ***
+Total pot 1800 | Rake 0 
+Board [Jh 5h 6h 8h 4h]
+Seat 1: GuiRodri2013 (button) folded before Flop (didn't bet)
+Seat 3: villain2 (small blind) collected (1800)
+Seat 7: villain6 (big blind) folded on the River
+Seat 8: villain10 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827292489: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XI (600/1200) - 2026/02/22 12:35:48 BRT [2026/02/22 10:35:48 ET]
+Table '3977452675 1' 9-max Seat #3 is the button
+Seat 1: GuiRodri2013 (5908 in chips) 
+Seat 3: villain2 (8203 in chips) 
+Seat 7: villain6 (10125 in chips) 
+Seat 8: villain10 (2764 in chips) 
+GuiRodri2013: posts the ante 75
+villain2: posts the ante 75
+villain6: posts the ante 75
+villain10: posts the ante 75
+villain6: posts small blind 600
+villain10: posts big blind 1200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Kh 4c]
+GuiRodri2013: folds 
+villain2: folds 
+villain6: folds 
+Uncalled bet (600) returned to villain10
+villain10 collected 1500 from pot
+villain10: doesn't show hand 
+*** SUMMARY ***
+Total pot 1500 | Rake 0 
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 3: villain2 (button) folded before Flop (didn't bet)
+Seat 7: villain6 (small blind) folded before Flop
+Seat 8: villain10 (big blind) collected (1500)
+
+
+
+PokerStars Hand #259827294637: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XI (600/1200) - 2026/02/22 12:35:59 BRT [2026/02/22 10:35:59 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (5833 in chips) 
+Seat 3: villain2 (8128 in chips) 
+Seat 7: villain6 (9450 in chips) 
+Seat 8: villain10 (3589 in chips) 
+GuiRodri2013: posts the ante 75
+villain2: posts the ante 75
+villain6: posts the ante 75
+villain10: posts the ante 75
+villain10: posts small blind 600
+GuiRodri2013: posts big blind 1200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [2c Jh]
+villain2: folds 
+villain6: folds 
+villain10: folds 
+Uncalled bet (600) returned to GuiRodri2013
+GuiRodri2013 collected 1500 from pot
+GuiRodri2013: doesn't show hand 
+*** SUMMARY ***
+Total pot 1500 | Rake 0 
+Seat 1: GuiRodri2013 (big blind) collected (1500)
+Seat 3: villain2 folded before Flop (didn't bet)
+Seat 7: villain6 (button) folded before Flop (didn't bet)
+Seat 8: villain10 (small blind) folded before Flop
+
+
+
+PokerStars Hand #259827296944: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XI (600/1200) - 2026/02/22 12:36:11 BRT [2026/02/22 10:36:11 ET]
+Table '3977452675 1' 9-max Seat #8 is the button
+Seat 1: GuiRodri2013 (6658 in chips) 
+Seat 3: villain2 (8053 in chips) 
+Seat 7: villain6 (9375 in chips) 
+Seat 8: villain10 (2914 in chips) 
+GuiRodri2013: posts the ante 75
+villain2: posts the ante 75
+villain6: posts the ante 75
+villain10: posts the ante 75
+GuiRodri2013: posts small blind 600
+villain2: posts big blind 1200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [2h 9d]
+villain6: folds 
+villain10: folds 
+GuiRodri2013: folds 
+Uncalled bet (600) returned to villain2
+villain2 collected 1500 from pot
+villain2: doesn't show hand 
+*** SUMMARY ***
+Total pot 1500 | Rake 0 
+Seat 1: GuiRodri2013 (small blind) folded before Flop
+Seat 3: villain2 (big blind) collected (1500)
+Seat 7: villain6 folded before Flop (didn't bet)
+Seat 8: villain10 (button) folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827298638: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XI (600/1200) - 2026/02/22 12:36:21 BRT [2026/02/22 10:36:21 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (5983 in chips) 
+Seat 3: villain2 (8878 in chips) 
+Seat 7: villain6 (9300 in chips) 
+Seat 8: villain10 (2839 in chips) 
+GuiRodri2013: posts the ante 75
+villain2: posts the ante 75
+villain6: posts the ante 75
+villain10: posts the ante 75
+villain2: posts small blind 600
+villain6: posts big blind 1200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [6c Ad]
+villain10: folds 
+GuiRodri2013: folds 
+villain2: calls 600
+villain6: checks 
+*** FLOP *** [Jc 2c Qc]
+villain2: checks 
+villain6: bets 1200
+villain2: folds [5s]
+Uncalled bet (1200) returned to villain6
+villain6 collected 2700 from pot
+villain6: doesn't show hand 
+*** SUMMARY ***
+Total pot 2700 | Rake 0 
+Board [Jc 2c Qc]
+Seat 1: GuiRodri2013 (button) folded before Flop (didn't bet)
+Seat 3: villain2 (small blind) folded on the Flop
+Seat 7: villain6 (big blind) collected (2700)
+Seat 8: villain10 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827302697: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XI (600/1200) - 2026/02/22 12:36:43 BRT [2026/02/22 10:36:43 ET]
+Table '3977452675 1' 9-max Seat #3 is the button
+Seat 1: GuiRodri2013 (5908 in chips) 
+Seat 3: villain2 (7603 in chips) 
+Seat 7: villain6 (10725 in chips) 
+Seat 8: villain10 (2764 in chips) 
+GuiRodri2013: posts the ante 75
+villain2: posts the ante 75
+villain6: posts the ante 75
+villain10: posts the ante 75
+villain6: posts small blind 600
+villain10: posts big blind 1200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Ts 3h]
+GuiRodri2013: folds 
+villain2: folds 
+villain6: calls 600
+villain10: raises 1489 to 2689 and is all-in
+villain6: calls 1489
+*** FLOP *** [9s Jc 9c]
+*** TURN *** [9s Jc 9c] [Kc]
+*** RIVER *** [9s Jc 9c Kc] [5h]
+*** SHOW DOWN ***
+villain6: shows [6h Qh] (a pair of Nines)
+villain10: shows [Td 4d] (a pair of Nines - lower kicker)
+villain6 collected 5678 from pot
+villain10 finished the tournament in 4th place and received 38250.00.
+*** SUMMARY ***
+Total pot 5678 | Rake 0 
+Board [9s Jc 9c Kc 5h]
+Seat 1: GuiRodri2013 folded before Flop (didn't bet)
+Seat 3: villain2 (button) folded before Flop (didn't bet)
+Seat 7: villain6 (small blind) showed [6h Qh] and won (5678) with a pair of Nines
+Seat 8: villain10 (big blind) showed [Td 4d] and lost with a pair of Nines
+
+
+
+PokerStars Hand #259827306453: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XI (600/1200) - 2026/02/22 12:37:03 BRT [2026/02/22 10:37:03 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (5833 in chips) 
+Seat 3: villain2 (7528 in chips) 
+Seat 7: villain6 (13639 in chips) 
+GuiRodri2013: posts the ante 75
+villain2: posts the ante 75
+villain6: posts the ante 75
+GuiRodri2013: posts small blind 600
+villain2: posts big blind 1200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [As 3h]
+villain6: folds 
+GuiRodri2013: raises 1200 to 2400
+villain2: folds 
+Uncalled bet (1200) returned to GuiRodri2013
+GuiRodri2013 collected 2625 from pot
+GuiRodri2013: doesn't show hand 
+*** SUMMARY ***
+Total pot 2625 | Rake 0 
+Seat 1: GuiRodri2013 (small blind) collected (2625)
+Seat 3: villain2 (big blind) folded before Flop
+Seat 7: villain6 (button) folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827308796: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XI (600/1200) - 2026/02/22 12:37:15 BRT [2026/02/22 10:37:15 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (7183 in chips) 
+Seat 3: villain2 (6253 in chips) 
+Seat 7: villain6 (13564 in chips) 
+GuiRodri2013: posts the ante 75
+villain2: posts the ante 75
+villain6: posts the ante 75
+villain2: posts small blind 600
+villain6: posts big blind 1200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [7d Kd]
+GuiRodri2013: raises 1200 to 2400
+villain2: calls 1800
+villain6: raises 1200 to 3600
+GuiRodri2013: calls 1200
+villain2: calls 1200
+*** FLOP *** [Jd Ah 8h]
+villain2: checks 
+villain6: bets 1200
+GuiRodri2013: folds 
+villain2: raises 1378 to 2578 and is all-in
+villain6: calls 1378
+*** TURN *** [Jd Ah 8h] [As]
+*** RIVER *** [Jd Ah 8h As] [2d]
+*** SHOW DOWN ***
+villain2: shows [Kc Th] (a pair of Aces)
+villain6: shows [6d 6c] (two pair, Aces and Sixes)
+villain6 collected 16181 from pot
+villain2 finished the tournament in 3rd place and received 76500.00.
+*** SUMMARY ***
+Total pot 16181 | Rake 0 
+Board [Jd Ah 8h As 2d]
+Seat 1: GuiRodri2013 (button) folded on the Flop
+Seat 3: villain2 (small blind) showed [Kc Th] and lost with a pair of Aces
+Seat 7: villain6 (big blind) showed [6d 6c] and won (16181) with two pair, Aces and Sixes
+
+
+
+PokerStars Hand #259827317520: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XI (600/1200) - 2026/02/22 12:38:02 BRT [2026/02/22 10:38:02 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (3508 in chips) 
+Seat 7: villain6 (23492 in chips) 
+GuiRodri2013: posts the ante 75
+villain6: posts the ante 75
+villain6: posts small blind 600
+GuiRodri2013: posts big blind 1200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [3d 8c]
+villain6: calls 600
+GuiRodri2013: checks 
+*** FLOP *** [8d Qd 8h]
+GuiRodri2013: bets 2233 and is all-in
+villain6: folds 
+Uncalled bet (2233) returned to GuiRodri2013
+GuiRodri2013 collected 2550 from pot
+GuiRodri2013: doesn't show hand 
+*** SUMMARY ***
+Total pot 2550 | Rake 0 
+Board [8d Qd 8h]
+Seat 1: GuiRodri2013 (big blind) collected (2550)
+Seat 7: villain6 (button) (small blind) folded on the Flop
+
+
+
+PokerStars Hand #259827320216: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XI (600/1200) - 2026/02/22 12:38:17 BRT [2026/02/22 10:38:17 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (4783 in chips) 
+Seat 7: villain6 (22217 in chips) 
+GuiRodri2013: posts the ante 75
+villain6: posts the ante 75
+GuiRodri2013: posts small blind 600
+villain6: posts big blind 1200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Ks 5h]
+GuiRodri2013: raises 3508 to 4708 and is all-in
+villain6: folds 
+Uncalled bet (3508) returned to GuiRodri2013
+GuiRodri2013 collected 2550 from pot
+GuiRodri2013: doesn't show hand 
+*** SUMMARY ***
+Total pot 2550 | Rake 0 
+Seat 1: GuiRodri2013 (button) (small blind) collected (2550)
+Seat 7: villain6 (big blind) folded before Flop
+
+
+
+PokerStars Hand #259827321929: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XI (600/1200) - 2026/02/22 12:38:26 BRT [2026/02/22 10:38:26 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (6058 in chips) 
+Seat 7: villain6 (20942 in chips) 
+GuiRodri2013: posts the ante 75
+villain6: posts the ante 75
+villain6: posts small blind 600
+GuiRodri2013: posts big blind 1200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [5d 2s]
+villain6: raises 2550 to 3750
+GuiRodri2013: folds 
+Uncalled bet (2550) returned to villain6
+villain6 collected 2550 from pot
+villain6: doesn't show hand 
+*** SUMMARY ***
+Total pot 2550 | Rake 0 
+Seat 1: GuiRodri2013 (big blind) folded before Flop
+Seat 7: villain6 (button) (small blind) collected (2550)
+
+
+
+PokerStars Hand #259827323601: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XI (600/1200) - 2026/02/22 12:38:35 BRT [2026/02/22 10:38:35 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (4783 in chips) 
+Seat 7: villain6 (22217 in chips) 
+GuiRodri2013: posts the ante 75
+villain6: posts the ante 75
+GuiRodri2013: posts small blind 600
+villain6: posts big blind 1200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Js Ah]
+GuiRodri2013: raises 3508 to 4708 and is all-in
+villain6: calls 3508
+*** FLOP *** [9s 6s 5h]
+*** TURN *** [9s 6s 5h] [8s]
+*** RIVER *** [9s 6s 5h 8s] [Td]
+*** SHOW DOWN ***
+villain6: shows [4s Kh] (high card King)
+GuiRodri2013: shows [Js Ah] (high card Ace)
+GuiRodri2013 collected 9566 from pot
+*** SUMMARY ***
+Total pot 9566 | Rake 0 
+Board [9s 6s 5h 8s Td]
+Seat 1: GuiRodri2013 (button) (small blind) showed [Js Ah] and won (9566) with high card Ace
+Seat 7: villain6 (big blind) showed [4s Kh] and lost with high card King
+
+
+
+PokerStars Hand #259827326480: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XI (600/1200) - 2026/02/22 12:38:50 BRT [2026/02/22 10:38:50 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (9566 in chips) 
+Seat 7: villain6 (17434 in chips) 
+GuiRodri2013: posts the ante 75
+villain6: posts the ante 75
+villain6: posts small blind 600
+GuiRodri2013: posts big blind 1200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Kc 2c]
+villain6: raises 16159 to 17359 and is all-in
+GuiRodri2013: folds 
+Uncalled bet (16159) returned to villain6
+villain6 collected 2550 from pot
+villain6: doesn't show hand 
+*** SUMMARY ***
+Total pot 2550 | Rake 0 
+Seat 1: GuiRodri2013 (big blind) folded before Flop
+Seat 7: villain6 (button) (small blind) collected (2550)
+
+
+
+PokerStars Hand #259827328741: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XI (600/1200) - 2026/02/22 12:39:03 BRT [2026/02/22 10:39:03 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (8291 in chips) 
+Seat 7: villain6 (18709 in chips) 
+GuiRodri2013: posts the ante 75
+villain6: posts the ante 75
+GuiRodri2013: posts small blind 600
+villain6: posts big blind 1200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [5s 8d]
+GuiRodri2013: folds 
+Uncalled bet (600) returned to villain6
+villain6 collected 1350 from pot
+villain6: doesn't show hand 
+*** SUMMARY ***
+Total pot 1350 | Rake 0 
+Seat 1: GuiRodri2013 (button) (small blind) folded before Flop
+Seat 7: villain6 (big blind) collected (1350)
+
+
+
+PokerStars Hand #259827329963: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XI (600/1200) - 2026/02/22 12:39:09 BRT [2026/02/22 10:39:09 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (7616 in chips) 
+Seat 7: villain6 (19384 in chips) 
+GuiRodri2013: posts the ante 75
+villain6: posts the ante 75
+villain6: posts small blind 600
+GuiRodri2013: posts big blind 1200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Jh 5s]
+villain6: raises 2550 to 3750
+GuiRodri2013: folds 
+Uncalled bet (2550) returned to villain6
+villain6 collected 2550 from pot
+villain6: doesn't show hand 
+*** SUMMARY ***
+Total pot 2550 | Rake 0 
+Seat 1: GuiRodri2013 (big blind) folded before Flop
+Seat 7: villain6 (button) (small blind) collected (2550)
+
+
+
+PokerStars Hand #259827331984: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XI (600/1200) - 2026/02/22 12:39:20 BRT [2026/02/22 10:39:20 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (6341 in chips) 
+Seat 7: villain6 (20659 in chips) 
+GuiRodri2013: posts the ante 75
+villain6: posts the ante 75
+GuiRodri2013: posts small blind 600
+villain6: posts big blind 1200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [9h Kc]
+GuiRodri2013: raises 5066 to 6266 and is all-in
+villain6: calls 5066
+*** FLOP *** [4s Ks 2c]
+*** TURN *** [4s Ks 2c] [Kd]
+*** RIVER *** [4s Ks 2c Kd] [3c]
+*** SHOW DOWN ***
+villain6: shows [Ah Qd] (a pair of Kings)
+GuiRodri2013: shows [9h Kc] (three of a kind, Kings)
+GuiRodri2013 collected 12682 from pot
+*** SUMMARY ***
+Total pot 12682 | Rake 0 
+Board [4s Ks 2c Kd 3c]
+Seat 1: GuiRodri2013 (button) (small blind) showed [9h Kc] and won (12682) with three of a kind, Kings
+Seat 7: villain6 (big blind) showed [Ah Qd] and lost with a pair of Kings
+
+
+
+PokerStars Hand #259827334596: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XI (600/1200) - 2026/02/22 12:39:34 BRT [2026/02/22 10:39:34 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (12682 in chips) 
+Seat 7: villain6 (14318 in chips) 
+GuiRodri2013: posts the ante 75
+villain6: posts the ante 75
+villain6: posts small blind 600
+GuiRodri2013: posts big blind 1200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [7c 9c]
+villain6: raises 13043 to 14243 and is all-in
+GuiRodri2013: folds 
+Uncalled bet (13043) returned to villain6
+villain6 collected 2550 from pot
+villain6: doesn't show hand 
+*** SUMMARY ***
+Total pot 2550 | Rake 0 
+Seat 1: GuiRodri2013 (big blind) folded before Flop
+Seat 7: villain6 (button) (small blind) collected (2550)
+
+
+
+PokerStars Hand #259827336851: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XI (600/1200) - 2026/02/22 12:39:46 BRT [2026/02/22 10:39:46 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (11407 in chips) 
+Seat 7: villain6 (15593 in chips) 
+GuiRodri2013: posts the ante 75
+villain6: posts the ante 75
+GuiRodri2013: posts small blind 600
+villain6: posts big blind 1200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [9s Kd]
+GuiRodri2013: raises 10132 to 11332 and is all-in
+villain6: calls 10132
+*** FLOP *** [4h 8h Ks]
+*** TURN *** [4h 8h Ks] [9d]
+*** RIVER *** [4h 8h Ks 9d] [3d]
+*** SHOW DOWN ***
+villain6: shows [5s 3c] (a pair of Threes)
+GuiRodri2013: shows [9s Kd] (two pair, Kings and Nines)
+GuiRodri2013 collected 22814 from pot
+*** SUMMARY ***
+Total pot 22814 | Rake 0 
+Board [4h 8h Ks 9d 3d]
+Seat 1: GuiRodri2013 (button) (small blind) showed [9s Kd] and won (22814) with two pair, Kings and Nines
+Seat 7: villain6 (big blind) showed [5s 3c] and lost with a pair of Threes
+
+
+
+PokerStars Hand #259827339821: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XI (600/1200) - 2026/02/22 12:40:02 BRT [2026/02/22 10:40:02 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (22814 in chips) 
+Seat 7: villain6 (4186 in chips) 
+GuiRodri2013: posts the ante 75
+villain6: posts the ante 75
+villain6: posts small blind 600
+GuiRodri2013: posts big blind 1200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [5s 7h]
+villain6: raises 2911 to 4111 and is all-in
+GuiRodri2013: folds 
+Uncalled bet (2911) returned to villain6
+villain6 collected 2550 from pot
+villain6: doesn't show hand 
+*** SUMMARY ***
+Total pot 2550 | Rake 0 
+Seat 1: GuiRodri2013 (big blind) folded before Flop
+Seat 7: villain6 (button) (small blind) collected (2550)
+
+
+
+PokerStars Hand #259827341629: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XI (600/1200) - 2026/02/22 12:40:12 BRT [2026/02/22 10:40:12 ET]
+Table '3977452675 1' 9-max Seat #1 is the button
+Seat 1: GuiRodri2013 (21539 in chips) 
+Seat 7: villain6 (5461 in chips) 
+GuiRodri2013: posts the ante 75
+villain6: posts the ante 75
+GuiRodri2013: posts small blind 600
+villain6: posts big blind 1200
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Kd Ts]
+GuiRodri2013: raises 20264 to 21464 and is all-in
+villain6: calls 4186 and is all-in
+Uncalled bet (16078) returned to GuiRodri2013
+*** FLOP *** [2d 2c 8d]
+*** TURN *** [2d 2c 8d] [4c]
+*** RIVER *** [2d 2c 8d 4c] [4h]
+*** SHOW DOWN ***
+villain6: shows [Ks Ad] (two pair, Fours and Deuces)
+GuiRodri2013: shows [Kd Ts] (two pair, Fours and Deuces - lower kicker)
+villain6 collected 10922 from pot
+*** SUMMARY ***
+Total pot 10922 | Rake 0 
+Board [2d 2c 8d 4c 4h]
+Seat 1: GuiRodri2013 (button) (small blind) showed [Kd Ts] and lost with two pair, Fours and Deuces
+Seat 7: villain6 (big blind) showed [Ks Ad] and won (10922) with two pair, Fours and Deuces
+
+
+
+PokerStars Hand #259827344862: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XII (800/1600) - 2026/02/22 12:40:29 BRT [2026/02/22 10:40:29 ET]
+Table '3977452675 1' 9-max Seat #7 is the button
+Seat 1: GuiRodri2013 (16078 in chips) 
+Seat 7: villain6 (10922 in chips) 
+GuiRodri2013: posts the ante 75
+villain6: posts the ante 75
+villain6: posts small blind 800
+GuiRodri2013: posts big blind 1600
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Ks Tc]
+villain6: raises 9247 to 10847 and is all-in
+GuiRodri2013: calls 9247
+*** FLOP *** [3s 6c 2c]
+*** TURN *** [3s 6c 2c] [Td]
+*** RIVER *** [3s 6c 2c Td] [5s]
+*** SHOW DOWN ***
+GuiRodri2013: shows [Ks Tc] (a pair of Tens)
+villain6: shows [Th Js] (a pair of Tens - lower kicker)
+GuiRodri2013 collected 21844 from pot
+villain6 finished the tournament in 2nd place and received 114750.00.
+GuiRodri2013 wins the tournament and receives 153000.00 - congratulations!
+*** SUMMARY ***
+Total pot 21844 | Rake 0 
+Board [3s 6c 2c Td 5s]
+Seat 1: GuiRodri2013 (big blind) showed [Ks Tc] and won (21844) with a pair of Tens
+Seat 7: villain6 (button) (small blind) showed [Th Js] and lost with a pair of Tens
+
+
+

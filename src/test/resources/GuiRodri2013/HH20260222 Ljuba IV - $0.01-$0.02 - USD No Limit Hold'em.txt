@@ -1,0 +1,452 @@
+PokerStars Hand #259827049572:  Hold'em No Limit ($0.01/$0.02 USD) - 2026/02/22 12:13:29 BRT [2026/02/22 10:13:29 ET]
+Table 'Ljuba IV' 6-max Seat #3 is the button
+Seat 1: villain1 ($2.24 in chips) 
+Seat 2: villain2 ($2.53 in chips) 
+Seat 3: villain3 ($1.97 in chips) 
+Seat 4: villain4 ($4.41 in chips) 
+Seat 5: GuiRodri2013 ($1.60 in chips) 
+Seat 6: villain5 ($2.03 in chips) 
+villain4: posts small blind $0.01
+GuiRodri2013: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [2c 3c]
+villain5: folds 
+villain1: folds 
+villain2: folds 
+villain3: folds 
+villain4: folds 
+Uncalled bet ($0.01) returned to GuiRodri2013
+GuiRodri2013 collected $0.02 from pot
+GuiRodri2013: doesn't show hand 
+*** SUMMARY ***
+Total pot $0.02 | Rake $0 
+Seat 1: villain1 folded before Flop (didn't bet)
+Seat 2: villain2 folded before Flop (didn't bet)
+Seat 3: villain3 (button) folded before Flop (didn't bet)
+Seat 4: villain4 (small blind) folded before Flop
+Seat 5: GuiRodri2013 (big blind) collected ($0.02)
+Seat 6: villain5 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827052710:  Hold'em No Limit ($0.01/$0.02 USD) - 2026/02/22 12:13:46 BRT [2026/02/22 10:13:46 ET]
+Table 'Ljuba IV' 6-max Seat #4 is the button
+Seat 1: villain1 ($2.24 in chips) 
+Seat 2: villain2 ($2.53 in chips) 
+Seat 3: villain3 ($1.97 in chips) 
+Seat 4: villain4 ($4.40 in chips) 
+Seat 5: GuiRodri2013 ($1.61 in chips) 
+Seat 6: villain5 ($2.03 in chips) 
+GuiRodri2013: posts small blind $0.01
+villain5: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Kd Kc]
+villain1: folds 
+villain2: folds 
+villain3 has timed out
+villain3: folds 
+villain4: folds 
+GuiRodri2013: raises $0.08 to $0.10
+villain5: folds 
+Uncalled bet ($0.08) returned to GuiRodri2013
+GuiRodri2013 collected $0.04 from pot
+GuiRodri2013: doesn't show hand 
+*** SUMMARY ***
+Total pot $0.04 | Rake $0 
+Seat 1: villain1 folded before Flop (didn't bet)
+Seat 2: villain2 folded before Flop (didn't bet)
+Seat 3: villain3 folded before Flop (didn't bet)
+Seat 4: villain4 (button) folded before Flop (didn't bet)
+Seat 5: GuiRodri2013 (small blind) collected ($0.04)
+Seat 6: villain5 (big blind) folded before Flop
+
+
+
+PokerStars Hand #259827062049:  Hold'em No Limit ($0.01/$0.02 USD) - 2026/02/22 12:14:39 BRT [2026/02/22 10:14:39 ET]
+Table 'Ljuba IV' 6-max Seat #5 is the button
+Seat 1: villain1 ($2.24 in chips) 
+Seat 2: villain2 ($2.53 in chips) 
+Seat 3: villain3 ($1.97 in chips) 
+Seat 4: villain4 ($4.40 in chips) 
+Seat 5: GuiRodri2013 ($1.63 in chips) 
+Seat 6: villain5 ($2.01 in chips) 
+villain5: posts small blind $0.01
+villain1: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [As Qc]
+villain2: folds 
+villain3: folds 
+villain4: raises $0.04 to $0.06
+GuiRodri2013: folds 
+villain5: calls $0.05
+villain1: calls $0.04
+*** FLOP *** [Kh Js 3h]
+villain5: checks 
+villain1: checks 
+villain4: checks 
+*** TURN *** [Kh Js 3h] [Jc]
+villain5: checks 
+villain1: checks 
+villain4: bets $0.09
+villain5: folds 
+villain1: folds 
+Uncalled bet ($0.09) returned to villain4
+villain4 collected $0.17 from pot
+villain4: doesn't show hand 
+*** SUMMARY ***
+Total pot $0.18 | Rake $0.01 
+Board [Kh Js 3h Jc]
+Seat 1: villain1 (big blind) folded on the Turn
+Seat 2: villain2 folded before Flop (didn't bet)
+Seat 3: villain3 folded before Flop (didn't bet)
+Seat 4: villain4 collected ($0.17)
+Seat 5: GuiRodri2013 (button) folded before Flop (didn't bet)
+Seat 6: villain5 (small blind) folded on the Turn
+
+
+
+PokerStars Hand #259827076399:  Hold'em No Limit ($0.01/$0.02 USD) - 2026/02/22 12:15:59 BRT [2026/02/22 10:15:59 ET]
+Table 'Ljuba IV' 6-max Seat #6 is the button
+Seat 1: villain1 ($2.18 in chips) 
+Seat 2: villain2 ($2.53 in chips) 
+Seat 3: villain3 ($1.97 in chips) 
+Seat 4: villain4 ($4.51 in chips) 
+Seat 5: GuiRodri2013 ($1.63 in chips) 
+Seat 6: villain5 ($2 in chips) 
+villain1: posts small blind $0.01
+villain2: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [7s 2c]
+villain3: raises $0.03 to $0.05
+villain4: folds 
+GuiRodri2013: folds 
+villain5: calls $0.05
+villain1: folds 
+villain2: folds 
+*** FLOP *** [Ks Qc Td]
+villain3: bets $0.04
+villain5: folds 
+Uncalled bet ($0.04) returned to villain3
+villain3 collected $0.12 from pot
+villain3: doesn't show hand 
+*** SUMMARY ***
+Total pot $0.13 | Rake $0.01 
+Board [Ks Qc Td]
+Seat 1: villain1 (small blind) folded before Flop
+Seat 2: villain2 (big blind) folded before Flop
+Seat 3: villain3 collected ($0.12)
+Seat 4: villain4 folded before Flop (didn't bet)
+Seat 5: GuiRodri2013 folded before Flop (didn't bet)
+Seat 6: villain5 (button) folded on the Flop
+
+
+
+PokerStars Hand #259827085085:  Hold'em No Limit ($0.01/$0.02 USD) - 2026/02/22 12:16:47 BRT [2026/02/22 10:16:47 ET]
+Table 'Ljuba IV' 6-max Seat #1 is the button
+Seat 1: villain1 ($2.17 in chips) 
+Seat 2: villain2 ($2.51 in chips) 
+Seat 3: villain3 ($2.04 in chips) 
+Seat 4: villain4 ($4.51 in chips) 
+Seat 5: GuiRodri2013 ($1.63 in chips) 
+Seat 6: villain5 ($2 in chips) 
+villain2: posts small blind $0.01
+villain3: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Th 4c]
+villain4: folds 
+GuiRodri2013: folds 
+villain4 leaves the table
+villain5: folds 
+villain1: raises $0.03 to $0.05
+villain2: folds 
+villain3: calls $0.03
+*** FLOP *** [Td Jd 6h]
+villain3: bets $0.03
+villain1: calls $0.03
+*** TURN *** [Td Jd 6h] [2h]
+villain3: bets $0.05
+villain1: calls $0.05
+*** RIVER *** [Td Jd 6h 2h] [Qd]
+villain3: bets $0.09
+villain1: calls $0.09
+*** SHOW DOWN ***
+villain3: shows [9c 9s] (a pair of Nines)
+villain1: shows [Js Kc] (a pair of Jacks)
+villain1 collected $0.43 from pot
+*** SUMMARY ***
+Total pot $0.45 | Rake $0.02 
+Board [Td Jd 6h 2h Qd]
+Seat 1: villain1 (button) showed [Js Kc] and won ($0.43) with a pair of Jacks
+Seat 2: villain2 (small blind) folded before Flop
+Seat 3: villain3 (big blind) showed [9c 9s] and lost with a pair of Nines
+Seat 4: villain4 folded before Flop (didn't bet)
+Seat 5: GuiRodri2013 folded before Flop (didn't bet)
+Seat 6: villain5 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827092639:  Hold'em No Limit ($0.01/$0.02 USD) - 2026/02/22 12:17:28 BRT [2026/02/22 10:17:28 ET]
+Table 'Ljuba IV' 6-max Seat #2 is the button
+Seat 1: villain1 ($2.38 in chips) 
+Seat 2: villain2 ($2.50 in chips) 
+Seat 3: villain3 ($1.82 in chips) 
+Seat 5: GuiRodri2013 ($1.63 in chips) 
+Seat 6: villain5 ($2 in chips) 
+villain3: posts small blind $0.01
+GuiRodri2013: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [3s 8c]
+villain5: raises $0.06 to $0.08
+villain1: folds 
+villain2: folds 
+villain3: folds 
+GuiRodri2013: folds 
+Uncalled bet ($0.06) returned to villain5
+villain5 collected $0.05 from pot
+villain5: doesn't show hand 
+*** SUMMARY ***
+Total pot $0.05 | Rake $0 
+Seat 1: villain1 folded before Flop (didn't bet)
+Seat 2: villain2 (button) folded before Flop (didn't bet)
+Seat 3: villain3 (small blind) folded before Flop
+Seat 5: GuiRodri2013 (big blind) folded before Flop
+Seat 6: villain5 collected ($0.05)
+
+
+
+PokerStars Hand #259827095533:  Hold'em No Limit ($0.01/$0.02 USD) - 2026/02/22 12:17:44 BRT [2026/02/22 10:17:44 ET]
+Table 'Ljuba IV' 6-max Seat #3 is the button
+Seat 1: villain1 ($2.38 in chips) 
+Seat 2: villain2 ($2.50 in chips) 
+Seat 3: villain3 ($1.81 in chips) 
+Seat 5: GuiRodri2013 ($1.61 in chips) 
+Seat 6: villain5 ($2.03 in chips) 
+GuiRodri2013: posts small blind $0.01
+villain5: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [6d 8c]
+villain1: folds 
+villain2: folds 
+villain6 joins the table at seat #4 
+villain3 has timed out
+villain3: folds 
+GuiRodri2013: folds 
+Uncalled bet ($0.01) returned to villain5
+villain5 collected $0.02 from pot
+villain5: doesn't show hand 
+*** SUMMARY ***
+Total pot $0.02 | Rake $0 
+Seat 1: villain1 folded before Flop (didn't bet)
+Seat 2: villain2 folded before Flop (didn't bet)
+Seat 3: villain3 (button) folded before Flop (didn't bet)
+Seat 5: GuiRodri2013 (small blind) folded before Flop
+Seat 6: villain5 (big blind) collected ($0.02)
+
+
+
+PokerStars Hand #259827099410:  Hold'em No Limit ($0.01/$0.02 USD) - 2026/02/22 12:18:05 BRT [2026/02/22 10:18:05 ET]
+Table 'Ljuba IV' 6-max Seat #5 is the button
+Seat 4: villain6 ($1.60 in chips) is sitting out
+Seat 1: villain1 ($2.38 in chips) 
+Seat 2: villain2 ($2.50 in chips) 
+Seat 3: villain3 ($1.81 in chips) 
+Seat 5: GuiRodri2013 ($1.60 in chips) 
+Seat 6: villain5 ($2.04 in chips) 
+villain5: posts small blind $0.01
+villain1: posts big blind $0.02
+villain6 has timed out while disconnected
+villain6: is sitting out 
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [5c 5d]
+villain2: folds 
+villain3: folds 
+GuiRodri2013: raises $0.04 to $0.06
+villain5: raises $0.04 to $0.10
+villain1: folds 
+GuiRodri2013: calls $0.04
+*** FLOP *** [4c 5h 8c]
+villain5: checks 
+GuiRodri2013: bets $0.21
+villain5: calls $0.21
+*** TURN *** [4c 5h 8c] [Ad]
+villain5: checks 
+GuiRodri2013: bets $0.20
+villain5: calls $0.20
+*** RIVER *** [4c 5h 8c Ad] [6h]
+villain5: checks 
+GuiRodri2013: checks 
+*** SHOW DOWN ***
+villain5: shows [Jc Js] (a pair of Jacks)
+GuiRodri2013: shows [5c 5d] (three of a kind, Fives)
+GuiRodri2013 collected $0.99 from pot
+*** SUMMARY ***
+Total pot $1.04 | Rake $0.05 
+Board [4c 5h 8c Ad 6h]
+Seat 4: villain6
+Seat 1: villain1 (big blind) folded before Flop
+Seat 2: villain2 folded before Flop (didn't bet)
+Seat 3: villain3 folded before Flop (didn't bet)
+Seat 5: GuiRodri2013 (button) showed [5c 5d] and won ($0.99) with three of a kind, Fives
+Seat 6: villain5 (small blind) showed [Jc Js] and lost with a pair of Jacks
+
+
+
+PokerStars Hand #259827110547:  Hold'em No Limit ($0.01/$0.02 USD) - 2026/02/22 12:19:05 BRT [2026/02/22 10:19:05 ET]
+Table 'Ljuba IV' 6-max Seat #6 is the button
+Seat 4: villain6 ($1.60 in chips) is sitting out
+Seat 1: villain1 ($2.36 in chips) 
+Seat 2: villain2 ($2.50 in chips) 
+Seat 3: villain3 ($1.81 in chips) 
+Seat 5: GuiRodri2013 ($2.08 in chips) 
+Seat 6: villain5 ($2 in chips) 
+villain1: posts small blind $0.01
+villain2: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [As Th]
+villain3: folds 
+GuiRodri2013: raises $0.02 to $0.04
+villain5: raises $0.11 to $0.15
+villain1: folds 
+villain2: folds 
+GuiRodri2013: folds 
+Uncalled bet ($0.11) returned to villain5
+villain5 collected $0.11 from pot
+villain5: doesn't show hand 
+*** SUMMARY ***
+Total pot $0.11 | Rake $0 
+Seat 4: villain6
+Seat 1: villain1 (small blind) folded before Flop
+Seat 2: villain2 (big blind) folded before Flop
+Seat 3: villain3 folded before Flop (didn't bet)
+Seat 5: GuiRodri2013 folded before Flop
+Seat 6: villain5 (button) collected ($0.11)
+
+
+
+PokerStars Hand #259827114459:  Hold'em No Limit ($0.01/$0.02 USD) - 2026/02/22 12:19:26 BRT [2026/02/22 10:19:26 ET]
+Table 'Ljuba IV' 6-max Seat #1 is the button
+Seat 4: villain6 ($1.60 in chips) is sitting out
+Seat 1: villain1 ($2.35 in chips) 
+Seat 2: villain2 ($2.48 in chips) 
+Seat 3: villain3 ($1.81 in chips) 
+Seat 5: GuiRodri2013 ($2.04 in chips) 
+Seat 6: villain5 ($2.07 in chips) 
+villain2: posts small blind $0.01
+villain3: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [3d 6d]
+GuiRodri2013: folds 
+villain5: raises $0.05 to $0.07
+villain1: folds 
+villain2: folds 
+villain3: calls $0.05
+*** FLOP *** [Jd Js Qd]
+villain3: checks 
+villain5: bets $0.14
+villain3: folds 
+Uncalled bet ($0.14) returned to villain5
+villain5 collected $0.14 from pot
+villain5: doesn't show hand 
+*** SUMMARY ***
+Total pot $0.15 | Rake $0.01 
+Board [Jd Js Qd]
+Seat 4: villain6
+Seat 1: villain1 (button) folded before Flop (didn't bet)
+Seat 2: villain2 (small blind) folded before Flop
+Seat 3: villain3 (big blind) folded on the Flop
+Seat 5: GuiRodri2013 folded before Flop (didn't bet)
+Seat 6: villain5 collected ($0.14)
+
+
+
+PokerStars Hand #259827118801:  Hold'em No Limit ($0.01/$0.02 USD) - 2026/02/22 12:19:50 BRT [2026/02/22 10:19:50 ET]
+Table 'Ljuba IV' 6-max Seat #2 is the button
+Seat 4: villain6 ($1.60 in chips) is sitting out
+Seat 1: villain1 ($2.35 in chips) 
+Seat 2: villain2 ($2.47 in chips) 
+Seat 3: villain3 ($1.74 in chips) 
+Seat 5: GuiRodri2013 ($2.04 in chips) 
+Seat 6: villain5 ($2.14 in chips) 
+villain3: posts small blind $0.01
+GuiRodri2013: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [6c Th]
+villain5: folds 
+villain1: folds 
+villain2: folds 
+villain3: folds 
+Uncalled bet ($0.01) returned to GuiRodri2013
+GuiRodri2013 collected $0.02 from pot
+GuiRodri2013: doesn't show hand 
+*** SUMMARY ***
+Total pot $0.02 | Rake $0 
+Seat 4: villain6
+Seat 1: villain1 folded before Flop (didn't bet)
+Seat 2: villain2 (button) folded before Flop (didn't bet)
+Seat 3: villain3 (small blind) folded before Flop
+Seat 5: GuiRodri2013 (big blind) collected ($0.02)
+Seat 6: villain5 folded before Flop (didn't bet)
+
+
+
+PokerStars Hand #259827121888:  Hold'em No Limit ($0.01/$0.02 USD) - 2026/02/22 12:20:07 BRT [2026/02/22 10:20:07 ET]
+Table 'Ljuba IV' 6-max Seat #3 is the button
+Seat 4: villain6 ($1.60 in chips) is sitting out
+Seat 1: villain1 ($2.35 in chips) 
+Seat 2: villain2 ($2.47 in chips) 
+Seat 3: villain3 ($1.73 in chips) 
+Seat 5: GuiRodri2013 ($2.05 in chips) 
+Seat 6: villain5 ($2.14 in chips) 
+GuiRodri2013: posts small blind $0.01
+villain5: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [5s 7c]
+villain1: folds 
+villain2: folds 
+villain3: folds 
+GuiRodri2013: folds 
+Uncalled bet ($0.01) returned to villain5
+villain5 collected $0.02 from pot
+villain5: doesn't show hand 
+*** SUMMARY ***
+Total pot $0.02 | Rake $0 
+Seat 4: villain6
+Seat 1: villain1 folded before Flop (didn't bet)
+Seat 2: villain2 folded before Flop (didn't bet)
+Seat 3: villain3 (button) folded before Flop (didn't bet)
+Seat 5: GuiRodri2013 (small blind) folded before Flop
+Seat 6: villain5 (big blind) collected ($0.02)
+
+
+
+PokerStars Hand #259827123919:  Hold'em No Limit ($0.01/$0.02 USD) - 2026/02/22 12:20:18 BRT [2026/02/22 10:20:18 ET]
+Table 'Ljuba IV' 6-max Seat #5 is the button
+Seat 4: villain6 ($1.60 in chips) is sitting out
+Seat 1: villain1 ($2.35 in chips) 
+Seat 2: villain2 ($2.47 in chips) 
+Seat 3: villain3 ($1.73 in chips) 
+Seat 5: GuiRodri2013 ($2.04 in chips) 
+Seat 6: villain5 ($2.15 in chips) 
+villain5: posts small blind $0.01
+villain1: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to GuiRodri2013 [Kc Ac]
+villain2: folds 
+villain3: folds 
+GuiRodri2013: raises $0.04 to $0.06
+villain5: folds 
+villain1: folds 
+Uncalled bet ($0.04) returned to GuiRodri2013
+GuiRodri2013 collected $0.05 from pot
+GuiRodri2013: doesn't show hand 
+*** SUMMARY ***
+Total pot $0.05 | Rake $0 
+Seat 4: villain6
+Seat 1: villain1 (big blind) folded before Flop
+Seat 2: villain2 folded before Flop (didn't bet)
+Seat 3: villain3 folded before Flop (didn't bet)
+Seat 5: GuiRodri2013 (button) collected ($0.05)
+Seat 6: villain5 (small blind) folded before Flop
+
+
+
