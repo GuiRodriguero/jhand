@@ -12,9 +12,9 @@ class HandTest {
 		String hand = validAsString();
 		String userName = "GuiRodri2013";
 
-		assertThat(Hand.of(hand, userName))
-			.isEqualTo(Hand.of(HandUtils.getHandId(hand), HandUtils.getHeroCards(hand, userName),
-					HandUtils.isVpip(hand, userName), HandUtils.isPfr(hand, userName)));
+		assertThat(Hand.of(hand, userName)).isEqualTo(Hand.of(HandUtils.getHandId(hand),
+				HandUtils.getHeroCards(hand, userName), HandUtils.isVpip(hand, userName),
+				HandUtils.isPfr(hand, userName), HandUtils.getNetProfit(hand, userName)));
 	}
 
 }

@@ -4,12 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static com.gui.jhand.hand.HandTemplateLoader.*;
-import static com.gui.jhand.hand.HandTemplateLoader.heroAtCO;
-import static com.gui.jhand.hand.HandTemplateLoader.heroAtMP;
-import static com.gui.jhand.hand.HandTemplateLoader.heroAtMPWith8Players;
-import static com.gui.jhand.hand.HandTemplateLoader.heroAtUTG;
 import static com.gui.jhand.hand.Position.*;
-import static com.gui.jhand.hand.Position.UTG;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class HandUtilsTest {
@@ -75,6 +70,14 @@ class HandUtilsTest {
 	@Test
 	void should_get_position_utg() {
 		assertThat(HandUtils.getPosition(heroAtUTG(), heroName)).isEqualTo(UTG);
+	}
+
+	@Test
+	void should_get_net_profit() {
+		assertThat(HandUtils.getNetProfit(validWonWithShowdown(), heroName)).isEqualTo(1520);
+		assertThat(HandUtils.getNetProfit(validWonWithoutShowdown(), heroName)).isEqualTo(1275);
+		assertThat(HandUtils.getNetProfit(validWithSidePot(), heroName)).isEqualTo(769);
+		assertThat(HandUtils.getNetProfit(validWithSidePotAndMultipleWinners(), heroName)).isEqualTo(1900);
 	}
 
 }
