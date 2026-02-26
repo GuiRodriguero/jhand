@@ -11,7 +11,7 @@ import static com.gui.jhand.hand.Action.*;
 import static lombok.AccessLevel.PRIVATE;
 
 @NoArgsConstructor(access = PRIVATE)
-class PlayUtils {
+public class PlayUtils {
 
 	private static final Pattern ACTION_PATTERN = Pattern.compile(
 			"^(raises|calls|posts|bets|folds|checks)(?:.*? to \\$?([\\d.]+)|[^\\d]+([\\d.]+))?",
@@ -68,6 +68,39 @@ class PlayUtils {
 		}
 
 		return plays;
+	}
+
+	public static double getAmountInvestedForLine(String line, String playerName, double currentStreetInvested) {
+		String heroPrefix = playerName + ": ";
+
+		Matcher matcher = ACTION_PATTERN.matcher(line.substring(heroPrefix.length()));
+		if (matcher.find()) {
+			String actionStr = matcher.group(1).toUpperCase();
+
+			if (actionStr.equals(FOLDS.name()) || actionStr.equals(CHECKS.name())) {
+				return 0.0;
+			}
+
+			double amount = 0.0;
+			if (matcher.group(2) != null) {
+				amount = getRaisesToAmount(matcher);
+			}
+			else if (matcher.group(3) != null) {
+				amount = getCallsPostsAndBetsAmount(matcher);
+			}
+
+			if (actionStr.equals(BETS.name()) || actionStr.equals(CALLS.name())) {
+				return amount;
+			}
+			else if (actionStr.equals(RAISES.name())) {
+				return amount - currentStreetInvested;
+			}
+			else {
+				return amount;
+			}
+		}
+
+		return 0.0;
 	}
 
 	private static double getRaisesToAmount(Matcher matcher) {
