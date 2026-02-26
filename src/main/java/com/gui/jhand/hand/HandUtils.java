@@ -69,9 +69,11 @@ class HandUtils {
 		String summary = getSummary(hand);
 		if (summary.contains(playerName + " (button)")) {
 			return BTN;
-		} else if (summary.contains(playerName + " (small blind)")) {
+		}
+		else if (summary.contains(playerName + " (small blind)")) {
 			return SB;
-		} else if (summary.contains(playerName + " (big blind)")) {
+		}
+		else if (summary.contains(playerName + " (big blind)")) {
 			return BB;
 		}
 
@@ -80,7 +82,8 @@ class HandUtils {
 
 		if (distanceFromBtn == 3) {
 			return UTG;
-		} else if (distanceFromBtn == activePlayers.size() - 1) {
+		}
+		else if (distanceFromBtn == activePlayers.size() - 1) {
 			return CO;
 		}
 

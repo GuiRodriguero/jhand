@@ -22,10 +22,7 @@ class HandTemplateLoader {
 
 		String[] handsAsString = content.split("(\\R){3,}");
 
-		List<String> hands = Arrays.stream(handsAsString)
-				.map(String::trim)
-				.filter(block -> !block.isEmpty())
-				.toList();
+		List<String> hands = Arrays.stream(handsAsString).map(String::trim).filter(block -> !block.isEmpty()).toList();
 
 		return hands.get((int) (Math.random() * hands.size()));
 	}
@@ -37,7 +34,8 @@ class HandTemplateLoader {
 		List<Path> files;
 		try (Stream<Path> paths = Files.list(userPath)) {
 			files = paths.filter(Files::isRegularFile).toList();
-		} catch (IOException e) {
+		}
+		catch (IOException e) {
 			throw new RuntimeException("Error listing files in directory: " + userPath, e);
 		}
 
@@ -365,7 +363,7 @@ class HandTemplateLoader {
 				Seat 9: villain8 folded before Flop (didn't bet)
 				""";
 	}
-	
+
 	static String validWonWithShowdown() {
 		return """
 				PokerStars Hand #259827261990: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level X (400/800) - 2026/02/22 12:33:01 BRT [2026/02/22 10:33:01 ET]
@@ -436,7 +434,7 @@ class HandTemplateLoader {
 				Seat 7: villain6 (button) (small blind) folded on the Flop
 				""";
 	}
-	
+
 	static String validWithSidePot() {
 		return """
 				PokerStars Hand #259859276702: Tournament #3978149984, 21250+3750 Hold'em No Limit - Level I (10/20) - 2026/02/24 20:17:19 BRT [2026/02/24 18:17:19 ET]
@@ -497,7 +495,7 @@ class HandTemplateLoader {
 				Seat 9: villain7 folded before Flop (didn't bet)
 				""";
 	}
-	
+
 	static String validWithSidePotAndMultipleWinners() {
 		return """
 				PokerStars Hand #259859212603: Tournament #3978149677,  Hold'em No Limit - Level I (25/50) - 2026/02/24 20:12:19 BRT [2026/02/24 18:12:19 ET]
