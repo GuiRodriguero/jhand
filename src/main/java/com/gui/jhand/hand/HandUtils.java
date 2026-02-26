@@ -7,12 +7,19 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.gui.jhand.hand.PlayUtils.getPlaysOnHand;
 import static com.gui.jhand.hand.Position.*;
 import static java.util.regex.Pattern.DOTALL;
 import static lombok.AccessLevel.PRIVATE;
 
 @NoArgsConstructor(access = PRIVATE)
 class HandUtils {
+
+	private static final Pattern HAND_ID_PATTERN = Pattern.compile("Hand #(\\d+):");
+
+	private static final Pattern PRE_FLOP_PATTERN = Pattern.compile(
+			"\\*\\*\\* HOLE CARDS \\*\\*\\*(.*?)(?=\\*\\*\\* FLOP \\*\\*\\*|\\*\\*\\* SUMMARY \\*\\*\\*)",
+			Pattern.DOTALL);
 
 	private static final Pattern SUMMARY_PATTERN = Pattern.compile("\\*\\*\\* SUMMARY \\*\\*\\*(.*)", DOTALL);
 
@@ -21,7 +28,7 @@ class HandUtils {
 	static String getHandId(String hand) {
 		String handId = "";
 
-		Matcher idMatcher = Pattern.compile("Hand #(\\d+):").matcher(hand);
+		Matcher idMatcher = HAND_ID_PATTERN.matcher(hand);
 		if (idMatcher.find()) {
 			handId = idMatcher.group(1);
 		}
@@ -29,7 +36,8 @@ class HandUtils {
 		return handId;
 	}
 
-	static String getHeroCards(String hand, String heroName) {
+	static String getHeroCards(String hand, String heroName) {// TODO: Return List<Card>
+																// or similar
 		String heroCards = "";
 
 		Matcher cardsMatcher = Pattern.compile("Dealt to " + heroName + " \\[(.*?)]").matcher(hand);
@@ -40,29 +48,19 @@ class HandUtils {
 		return heroCards;
 	}
 
-	static boolean isVpip(String hand, String heroName) {
+	static boolean isVpip(String hand, String playerName) {
 		String preFlopActions = getPreFlopActions(hand);
 
-		return preFlopActions.contains(heroName + ": raises") || preFlopActions.contains(heroName + ": calls");
+		return preFlopActions.contains(playerName + ": raises") || preFlopActions.contains(playerName + ": calls");
 	}
 
-	static boolean isPfr(String hand, String heroName) {
-		String preFlopActions = getPreFlopActions(hand);
-
-		return preFlopActions.contains(heroName + ": raises");
+	static boolean isPfr(String hand, String playerName) {
+		return getPreFlopActions(hand).contains(playerName + ": raises");
 	}
 
 	private static String getPreFlopActions(String hand) {
-		String preFlopActions = "";
-		Pattern preFlopPattern = Pattern.compile(
-				"\\*\\*\\* HOLE CARDS \\*\\*\\*(.*?)(?:\\*\\*\\* FLOP \\*\\*\\*|\\*\\*\\* SUMMARY \\*\\*\\*)", DOTALL);
-		Matcher preFlopMatcher = preFlopPattern.matcher(hand);
-
-		if (preFlopMatcher.find()) {
-			preFlopActions = preFlopMatcher.group(1);
-		}
-
-		return preFlopActions;
+		Matcher matcher = PRE_FLOP_PATTERN.matcher(hand);
+		return matcher.find() ? matcher.group(1) : "";
 	}
 
 	static Position getPosition(String hand, String playerName) {
@@ -125,6 +123,41 @@ class HandUtils {
 		}
 
 		return (playerIndex - btnIndex + activePlayersSize) % activePlayersSize;
+	}
+
+	static double getNetProfit(String hand, String heroName) {
+		return getCollectedBet(hand, heroName) - getInvestedNet(hand, heroName);
+	}
+
+	static double getCollectedBet(String hand, String heroName) {
+		String summary = getSummary(hand);
+		String safeHeroName = Pattern.quote(heroName);
+
+		Matcher showdownMatcher = Pattern.compile(safeHeroName + ".*showed.*\\[.*].*won \\(\\$?([\\d.]+)\\)")
+			.matcher(summary);
+		if (showdownMatcher.find()) {
+			return Double.parseDouble(showdownMatcher.group(1));
+		}
+
+		Matcher collectedMatcher = Pattern.compile(safeHeroName + ".*collected \\(\\$?([\\d.]+)\\)").matcher(summary);
+		if (collectedMatcher.find()) {
+			return Double.parseDouble(collectedMatcher.group(1));
+		}
+
+		return 0.0;
+	}
+
+	static double getInvestedNet(String hand, String heroName) {
+		double invested = getPlaysOnHand(hand, heroName).stream().mapToDouble(Play::getAmount).sum();
+
+		String safeHeroName = Pattern.quote(heroName);
+		Matcher returnedMatcher = Pattern.compile("Uncalled bet \\(\\$?([\\d.]+)\\) returned to " + safeHeroName)
+			.matcher(hand);
+		if (returnedMatcher.find()) {
+			invested -= Double.parseDouble(returnedMatcher.group(1));
+		}
+
+		return invested;
 	}
 
 }
