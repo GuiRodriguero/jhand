@@ -1,50 +1,6 @@
 package com.gui.jhand.hand;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Stream;
-
 class HandTemplateLoader {
-
-	static String validAsString() {
-		String content;
-		Path filePath = getRandomGame();
-		try {
-			content = Files.readString(filePath);
-		}
-		catch (IOException e) {
-			throw new RuntimeException("Error reading file: " + filePath, e);
-		}
-
-		String[] handsAsString = content.split("(\\R){3,}");
-
-		List<String> hands = Arrays.stream(handsAsString).map(String::trim).filter(block -> !block.isEmpty()).toList();
-
-		return hands.get((int) (Math.random() * hands.size()));
-	}
-
-	private static Path getRandomGame() {
-		String userName = "GuiRodri2013";
-		Path userPath = Paths.get("src", "test", "resources", userName).toAbsolutePath();
-
-		List<Path> files;
-		try (Stream<Path> paths = Files.list(userPath)) {
-			files = paths.filter(Files::isRegularFile).toList();
-		}
-		catch (IOException e) {
-			throw new RuntimeException("Error listing files in directory: " + userPath, e);
-		}
-
-		if (files.isEmpty()) {
-			throw new RuntimeException("No files found in directory: " + userPath);
-		}
-
-		return files.get((int) (Math.random() * files.size()));
-	}
 
 	static String heroAtBtn() {
 		return """
