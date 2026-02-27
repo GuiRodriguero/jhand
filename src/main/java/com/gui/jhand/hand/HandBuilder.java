@@ -106,6 +106,9 @@ class HandBuilder {
 
 			if (rawLine.contains("(button)")) {
 				btnIndex = i;
+				if (heroName.equals(seatAction.getPlayerName())) {
+					return BTN;
+				}
 			}
 
 			if (heroName.equals(seatAction.getPlayerName())) {
@@ -116,9 +119,6 @@ class HandBuilder {
 
 		if (heroAction != null) {
 			String heroRaw = heroAction.getRawLine().toLowerCase();
-			if (heroIndex == btnIndex) {
-				return BTN;
-			}
 			if (heroRaw.contains("(small blind)")) {
 				return SB;
 			}
