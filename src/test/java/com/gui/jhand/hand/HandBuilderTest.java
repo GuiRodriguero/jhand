@@ -36,6 +36,16 @@ class HandBuilderTest {
 	}
 
 	@Test
+	void should_build_hand_result_with_showdown_lost() {
+		String hand = HandTemplateLoader.validLostWithShowdown();
+		actions = parser.parse(hand);
+
+		HandResult expected = HandResult.of("259827220105", "2h Ac", MP, true, true, 2555.0, 0.0, -2555.0);
+
+		assertThat(builder.build(actions, "GuiRodri2013")).isEqualTo(expected);
+	}
+
+	@Test
 	void should_build_hand_result_without_showdown() {
 		String hand = HandTemplateLoader.validWonWithoutShowdown();
 		actions = parser.parse(hand);

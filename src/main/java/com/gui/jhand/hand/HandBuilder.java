@@ -116,7 +116,7 @@ class HandBuilder {
 
 		if (heroAction != null) {
 			String heroRaw = heroAction.getRawLine().toLowerCase();
-			if (heroRaw.contains("(button)")) {
+			if (heroIndex == btnIndex) {
 				return BTN;
 			}
 			if (heroRaw.contains("(small blind)")) {
