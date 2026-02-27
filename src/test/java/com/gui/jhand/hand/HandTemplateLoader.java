@@ -363,6 +363,52 @@ class HandTemplateLoader {
 				""";
 	}
 
+	static String validLostWithShowdown() {
+		return """
+				PokerStars Hand #259827220105: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level IX (300/600) - 2026/02/22 12:29:10 BRT [2026/02/22 10:29:10 ET]
+				Table '3977452675 1' 9-max Seat #6 is the button
+				Seat 1: GuiRodri2013 (4889 in chips)
+				Seat 3: villain2 (2555 in chips)
+				Seat 6: villain9 (1135 in chips)
+				Seat 7: villain6 (12475 in chips)
+				Seat 8: villain10 (3411 in chips)
+				Seat 9: villain8 (2535 in chips)
+				GuiRodri2013: posts the ante 50
+				villain2: posts the ante 50
+				villain9: posts the ante 50
+				villain6: posts the ante 50
+				villain10: posts the ante 50
+				villain8: posts the ante 50
+				villain6: posts small blind 300
+				villain10: posts big blind 600
+				*** HOLE CARDS ***
+				Dealt to GuiRodri2013 [2h Ac]
+				villain8: folds
+				GuiRodri2013: raises 600 to 1200
+				villain2: raises 1305 to 2505 and is all-in
+				villain9: folds
+				villain6: folds
+				villain10: folds
+				GuiRodri2013: calls 1305
+				*** FLOP *** [Qs Jd 9c]
+				*** TURN *** [Qs Jd 9c] [6h]
+				*** RIVER *** [Qs Jd 9c 6h] [9h]
+				*** SHOW DOWN ***
+				GuiRodri2013: shows [2h Ac] (a pair of Nines)
+				villain2: shows [Tc Ts] (two pair, Tens and Nines)
+				villain2 collected 6210 from pot
+				*** SUMMARY ***
+				Total pot 6210 | Rake 0
+				Board [Qs Jd 9c 6h 9h]
+				Seat 1: GuiRodri2013 showed [2h Ac] and lost with a pair of Nines
+				Seat 3: villain2 showed [Tc Ts] and won (6210) with two pair, Tens and Nines
+				Seat 6: villain9 (button) folded before Flop (didn't bet)
+				Seat 7: villain6 (small blind) folded before Flop
+				Seat 8: villain10 (big blind) folded before Flop
+				Seat 9: villain8 folded before Flop (didn't bet)
+				""";
+	}
+
 	static String validWonWithoutShowdown() {
 		return """
 				PokerStars Hand #259827317520: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XI (600/1200) - 2026/02/22 12:38:02 BRT [2026/02/22 10:38:02 ET]
