@@ -14,43 +14,43 @@ import static org.assertj.core.api.Assertions.assertThatCode;
 
 class UncalledBetHandlerTest {
 
-    private UncalledBetHandler handler;
+	private UncalledBetHandler handler;
 
-    private Action action;
+	private Action action;
 
-    private HandState state;
+	private HandState state;
 
-    @BeforeEach
-    void setUp() {
-        handler = new UncalledBetHandler();
-        action = Instancio.of(Action.class).create();
-        state = Instancio.of(HandState.class).create();
-    }
+	@BeforeEach
+	void setUp() {
+		handler = new UncalledBetHandler();
+		action = Instancio.of(Action.class).create();
+		state = Instancio.of(HandState.class).create();
+	}
 
-    @Test
-    void should_get_supported_types() {
-        assertThat(handler.getSupportedTypes()).containsExactly(UNCALLED_BET_RETURNED);
-    }
+	@Test
+	void should_get_supported_types() {
+		assertThat(handler.getSupportedTypes()).containsExactly(UNCALLED_BET_RETURNED);
+	}
 
-    @Test
-    void should_handle() {
-        action = ActionTemplateLoader.validGui();
-        state = HandStateTemplateLoader.validGui();
+	@Test
+	void should_handle() {
+		action = ActionTemplateLoader.validGui();
+		state = HandStateTemplateLoader.validGui();
 
-        double totalInvestedBeforeHandle = state.getTotalInvested();
+		double totalInvestedBeforeHandle = state.getTotalInvested();
 
-        assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
-        assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle - action.getAmount());
-    }
+		assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
+		assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle - action.getAmount());
+	}
 
-    @Test
-    void should_not_handle_when_player_is_different() {
-        state = HandStateTemplateLoader.validHeroDifferentFromAction(action.getPlayerName());
+	@Test
+	void should_not_handle_when_player_is_different() {
+		state = HandStateTemplateLoader.validHeroDifferentFromAction(action.getPlayerName());
 
-        double totalInvestedBeforeHandle = state.getTotalCollected();
+		double totalInvestedBeforeHandle = state.getTotalCollected();
 
-        assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
-        assertThat(state.getTotalCollected()).isEqualTo(totalInvestedBeforeHandle);
-    }
+		assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
+		assertThat(state.getTotalCollected()).isEqualTo(totalInvestedBeforeHandle);
+	}
 
 }

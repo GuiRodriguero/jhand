@@ -12,14 +12,14 @@ import static com.gui.jhand.action.ActionType.HEADER;
 @Component
 public class HeaderHandler implements ActionHandler {
 
-    @Override
-    public List<ActionType> getSupportedTypes() {
-        return List.of(HEADER);
-    }
+	@Override
+	public List<ActionType> getSupportedTypes() {
+		return List.of(HEADER);
+	}
 
-    @Override
-    public void handle(Action action, HandState state) {
-        state.setHandId(action.getMainInformation());
-    }
+	@Override
+	public void handle(Action action, HandState state) {
+		state.setHandId(action.getMainInformation());
+	}
 
 }

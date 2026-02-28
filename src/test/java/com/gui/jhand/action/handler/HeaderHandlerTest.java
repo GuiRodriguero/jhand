@@ -14,31 +14,31 @@ import static org.assertj.core.api.Assertions.assertThatCode;
 
 class HeaderHandlerTest {
 
-    private HeaderHandler handler;
+	private HeaderHandler handler;
 
-    private Action action;
+	private Action action;
 
-    private HandState state;
+	private HandState state;
 
-    @BeforeEach
-    void setUp() {
-        handler = new HeaderHandler();
-        action = Instancio.of(Action.class).create();
-        state = Instancio.of(HandState.class).create();
-    }
+	@BeforeEach
+	void setUp() {
+		handler = new HeaderHandler();
+		action = Instancio.of(Action.class).create();
+		state = Instancio.of(HandState.class).create();
+	}
 
-    @Test
-    void should_get_supported_types() {
-        assertThat(handler.getSupportedTypes()).containsExactly(HEADER);
-    }
+	@Test
+	void should_get_supported_types() {
+		assertThat(handler.getSupportedTypes()).containsExactly(HEADER);
+	}
 
-    @Test
-    void should_handle() {
-        action = ActionTemplateLoader.validGui();
-        state = HandStateTemplateLoader.validGui();
+	@Test
+	void should_handle() {
+		action = ActionTemplateLoader.validGui();
+		state = HandStateTemplateLoader.validGui();
 
-        assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
-        assertThat(state.getHandId()).isEqualTo(action.getMainInformation());
-    }
+		assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
+		assertThat(state.getHandId()).isEqualTo(action.getMainInformation());
+	}
 
 }
