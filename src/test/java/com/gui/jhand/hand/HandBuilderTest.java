@@ -1,6 +1,7 @@
 package com.gui.jhand.hand;
 
 import com.gui.jhand.action.Action;
+import com.gui.jhand.action.handler.*;
 import com.gui.jhand.parser.PokerStarsParser;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,16 +14,21 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class HandBuilderTest {
 
-	private PokerStarsParser parser;
+	private HandBuilder builder;
 
 	private List<Action> actions;
 
-	private HandBuilder builder;
+	private PokerStarsParser parser;
 
 	@BeforeEach
 	void setUp() {
 		parser = new PokerStarsParser();
-		builder = new HandBuilder();
+
+		List<ActionHandler> handlers = List.of(new HeaderHandler(), new RaiseHandler(), new CollectedHandler(),
+				new DealtToHeroHandler(), new UncalledBetHandler(), new PostAnteHandler(), new SeatSummaryHandler(),
+				new InvestmentHandler());
+
+		builder = new HandBuilder(handlers);
 	}
 
 	@Test
