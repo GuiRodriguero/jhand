@@ -24,11 +24,13 @@ public class PokerStarsParser {
 		rules.add(new ParsingRule(Pattern.compile("^Seat (\\d+): (.*?) \\(.*?in chips.*?\\)"),
 				(m, ctx, line) -> Action.of(SEAT_INFO, ctx.getCurrentStreet(), m.group(2), m.group(1), 0, line)));
 
-		rules.add(new ParsingRule(Pattern.compile("^(.*?): posts the ante (\\d+)"), (m, ctx, line) -> Action
-			.of(POST_ANTE, ctx.getCurrentStreet(), m.group(1), null, Double.parseDouble(m.group(2)), line)));
+		rules.add(new ParsingRule(Pattern.compile("^(.*?): posts the ante (\\d+)"),
+				(m, ctx, line) -> Action.of(POST_ANTE, ctx.getCurrentStreet(), m.group(1),
+						"posts the ante " + m.group(2), Double.parseDouble(m.group(2)), line)));
 
-		rules.add(new ParsingRule(Pattern.compile("^(.*?): posts (?:small|big) blind (\\d+)"), (m, ctx, line) -> Action
-			.of(POST_BLIND, ctx.getCurrentStreet(), m.group(1), null, Double.parseDouble(m.group(2)), line)));
+		rules.add(new ParsingRule(Pattern.compile("^(.*?): posts (?:small|big) blind (\\d+)"),
+				(m, ctx, line) -> Action.of(POST_BLIND, ctx.getCurrentStreet(), m.group(1), "posts blind " + m.group(2),
+						Double.parseDouble(m.group(2)), line)));
 
 		rules.add(new ParsingRule(Pattern.compile("^Dealt to (.*?) \\[(.*?)]"),
 				(m, ctx, line) -> Action.of(DEALT_TO_HERO, ctx.getCurrentStreet(), m.group(1), m.group(2), 0, line)));
@@ -50,18 +52,24 @@ public class PokerStarsParser {
 			return Action.of(FLOP_CARDS, ctx.getCurrentStreet(), null, m.group(1), 0, line);
 		}));
 
-		rules.add(new ParsingRule(Pattern.compile("^\\*\\*\\* TURN \\*\\*\\* .*?\\[(.*?)]"), (m, ctx, line) -> {
+		rules.add(new ParsingRule(Pattern.compile("^\\*\\*\\* TURN \\*\\*\\* \\[.*?] \\[(.*?)]"), (m, ctx, line) -> {
 			ctx.setCurrentStreet(TURN);
 			return Action.of(TURN_CARDS, ctx.getCurrentStreet(), null, m.group(1), 0, line);
+		}));
+
+		rules.add(new ParsingRule(Pattern.compile("^\\*\\*\\* RIVER \\*\\*\\* \\[.*?] \\[(.*?)]"), (m, ctx, line) -> {
+			ctx.setCurrentStreet(RIVER);
+			return Action.of(RIVER_CARDS, ctx.getCurrentStreet(), null, m.group(1), 0, line);
 		}));
 
 		rules.add(new ParsingRule(Pattern.compile("^(.*?): shows \\[(.*?)] (.*)"), (m, ctx, line) -> Action
 			.of(CARDS_SHOWN, ctx.getCurrentStreet(), m.group(1), "shows [" + m.group(2) + "] " + m.group(3), 0, line)));
 
-		rules.add(new ParsingRule(Pattern.compile("^(.*?) collected (\\d+) from (?:(.*) )?pot"),
-				(m, ctx, line) -> Action.of(COLLECTED_POT, ctx.getCurrentStreet(), m.group(1),
-						"collected " + m.group(2) + " from " + m.group(3) + " pot", Double.parseDouble(m.group(2)),
-						line)));
+		rules.add(new ParsingRule(Pattern.compile("^(.*?) collected (\\d+) from (?:(.*) )?pot"), (m, ctx, line) -> {
+			String potType = m.group(3) == null ? "" : m.group(3) + " ";
+			return Action.of(COLLECTED_POT, ctx.getCurrentStreet(), m.group(1),
+					"collected " + m.group(2) + " from " + potType + "pot", Double.parseDouble(m.group(2)), line);
+		}));
 
 		rules.add(new ParsingRule(Pattern.compile("^\\*\\*\\* SUMMARY \\*\\*\\*"), (m, ctx, line) -> {
 			ctx.setCurrentStreet(SUMMARY);
@@ -92,13 +100,11 @@ public class PokerStarsParser {
 
 		for (String line : rawHand.split("\\r?\\n")) {
 			line = line.trim();
-			if (!line.isEmpty()) {
-				for (ParsingRule rule : rules) {
-					Optional<Action> action = rule.tryMatch(line, context);
-					if (action.isPresent()) {
-						actions.add(action.get());
-						break;
-					}
+			for (ParsingRule rule : rules) {
+				Optional<Action> action = rule.tryMatch(line, context);
+				if (action.isPresent()) {
+					actions.add(action.get());
+					break;
 				}
 			}
 		}
