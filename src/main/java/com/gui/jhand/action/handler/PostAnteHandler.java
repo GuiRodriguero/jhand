@@ -12,16 +12,16 @@ import static com.gui.jhand.action.ActionType.POST_ANTE;
 @Component
 public class PostAnteHandler implements ActionHandler {
 
-    @Override
-    public List<ActionType> getSupportedTypes() {
-        return List.of(POST_ANTE);
-    }
+	@Override
+	public List<ActionType> getSupportedTypes() {
+		return List.of(POST_ANTE);
+	}
 
-    @Override
-    public void handle(Action action, HandState state) {
-        if (action.getPlayerName().equals(state.getHeroName())) {
-            state.addTotalInvested(action.getAmount());
-        }
-    }
+	@Override
+	public void handle(Action action, HandState state) {
+		if (action.getPlayerName().equals(state.getHeroName())) {
+			state.addTotalInvested(action.getAmount());
+		}
+	}
 
 }

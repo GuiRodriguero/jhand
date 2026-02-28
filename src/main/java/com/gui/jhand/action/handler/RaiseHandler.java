@@ -13,22 +13,23 @@ import static com.gui.jhand.action.ActionType.ACTION_RAISE;
 @Component
 public class RaiseHandler implements ActionHandler {
 
-    @Override
-    public List<ActionType> getSupportedTypes() {
-        return List.of(ACTION_RAISE);
-    }
+	@Override
+	public List<ActionType> getSupportedTypes() {
+		return List.of(ACTION_RAISE);
+	}
 
-    @Override
-    public void handle(Action action, HandState state) {
-        if (state.getHeroName().equals(action.getPlayerName())) {
-            double actualCost = action.getAmount() - state.getCurrentStreetInvestment();
-            state.addTotalInvested(actualCost);
-            state.setCurrentStreetInvestment(action.getAmount());
+	@Override
+	public void handle(Action action, HandState state) {
+		if (state.getHeroName().equals(action.getPlayerName())) {
+			double actualCost = action.getAmount() - state.getCurrentStreetInvestment();
+			state.addTotalInvested(actualCost);
+			state.setCurrentStreetInvestment(action.getAmount());
 
-            if (state.getCurrentStreet() == PRE_FLOP) {
-                state.setVpip(true);
-                state.setPfr(true);
-            }
-        }
-    }
+			if (state.getCurrentStreet() == PRE_FLOP) {
+				state.setVpip(true);
+				state.setPfr(true);
+			}
+		}
+	}
+
 }

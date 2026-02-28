@@ -12,26 +12,26 @@ import static com.gui.jhand.action.ActionType.SEAT_HAND_RESULT;
 @Component
 public class SeatSummaryHandler implements ActionHandler {
 
-    @Override
-    public List<ActionType> getSupportedTypes() {
-        return List.of(SEAT_HAND_RESULT);
-    }
+	@Override
+	public List<ActionType> getSupportedTypes() {
+		return List.of(SEAT_HAND_RESULT);
+	}
 
-    @Override
-    public void handle(Action action, HandState state) {
-        int currentIndex = state.getActivePlayersCount();
-        String rawLine = action.getRawLine().toLowerCase();
+	@Override
+	public void handle(Action action, HandState state) {
+		int currentIndex = state.getActivePlayersCount();
+		String rawLine = action.getRawLine().toLowerCase();
 
-        if (rawLine.contains("(button)")) {
-            state.setBtnIndex(currentIndex);
-        }
+		if (rawLine.contains("(button)")) {
+			state.setBtnIndex(currentIndex);
+		}
 
-        if (state.getHeroName().equals(action.getPlayerName())) {
-            state.setHeroIndex(currentIndex);
-            state.setHeroSummaryLine(rawLine);
-        }
+		if (state.getHeroName().equals(action.getPlayerName())) {
+			state.setHeroIndex(currentIndex);
+			state.setHeroSummaryLine(rawLine);
+		}
 
-        state.setActivePlayersCount(currentIndex + 1);
-    }
+		state.setActivePlayersCount(currentIndex + 1);
+	}
 
 }

@@ -12,16 +12,16 @@ import static com.gui.jhand.action.ActionType.DEALT_TO_HERO;
 @Component
 public class DealtToHeroHandler implements ActionHandler {
 
-    @Override
-    public List<ActionType> getSupportedTypes() {
-        return List.of(DEALT_TO_HERO);
-    }
+	@Override
+	public List<ActionType> getSupportedTypes() {
+		return List.of(DEALT_TO_HERO);
+	}
 
-    @Override
-    public void handle(Action action, HandState state) {
-        if (state.getHeroName().equals(action.getPlayerName())) {
-            state.setHeroCards(action.getMainInformation());
-        }
-    }
+	@Override
+	public void handle(Action action, HandState state) {
+		if (state.getHeroName().equals(action.getPlayerName())) {
+			state.setHeroCards(action.getMainInformation());
+		}
+	}
 
 }

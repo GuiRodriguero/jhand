@@ -13,21 +13,21 @@ import static com.gui.jhand.action.ActionType.*;
 @Component
 public class InvestmentHandler implements ActionHandler {
 
-    @Override
-    public List<ActionType> getSupportedTypes() {
-        return List.of(POST_BLIND, ACTION_CALL, ACTION_BET);
-    }
+	@Override
+	public List<ActionType> getSupportedTypes() {
+		return List.of(POST_BLIND, ACTION_CALL, ACTION_BET);
+	}
 
-    @Override
-    public void handle(Action action, HandState state) {
-        if (state.getHeroName().equals(action.getPlayerName())) {
-            state.addTotalInvested(action.getAmount());
-            state.addCurrentStreetInvestment(action.getAmount());
+	@Override
+	public void handle(Action action, HandState state) {
+		if (state.getHeroName().equals(action.getPlayerName())) {
+			state.addTotalInvested(action.getAmount());
+			state.addCurrentStreetInvestment(action.getAmount());
 
-            if (state.getCurrentStreet() == PRE_FLOP && action.getType() == ACTION_CALL) {
-                state.setVpip(true);
-            }
-        }
-    }
+			if (state.getCurrentStreet() == PRE_FLOP && action.getType() == ACTION_CALL) {
+				state.setVpip(true);
+			}
+		}
+	}
 
 }

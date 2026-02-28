@@ -14,39 +14,39 @@ import static org.assertj.core.api.Assertions.assertThatCode;
 
 class DealtToHeroHandlerTest {
 
-    private DealtToHeroHandler handler;
+	private DealtToHeroHandler handler;
 
-    private Action action;
+	private Action action;
 
-    private HandState state;
+	private HandState state;
 
-    @BeforeEach
-    void setUp() {
-        handler = new DealtToHeroHandler();
-        action = Instancio.of(Action.class).create();
-        state = Instancio.of(HandState.class).create();
-    }
+	@BeforeEach
+	void setUp() {
+		handler = new DealtToHeroHandler();
+		action = Instancio.of(Action.class).create();
+		state = Instancio.of(HandState.class).create();
+	}
 
-    @Test
-    void should_get_supported_types() {
-        assertThat(handler.getSupportedTypes()).containsExactly(DEALT_TO_HERO);
-    }
+	@Test
+	void should_get_supported_types() {
+		assertThat(handler.getSupportedTypes()).containsExactly(DEALT_TO_HERO);
+	}
 
-    @Test
-    void should_handle() {
-        action = ActionTemplateLoader.validGui();
-        state = HandStateTemplateLoader.validGui();
+	@Test
+	void should_handle() {
+		action = ActionTemplateLoader.validGui();
+		state = HandStateTemplateLoader.validGui();
 
-        assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
-        assertThat(state.getHeroCards()).isEqualTo(action.getMainInformation());
-    }
+		assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
+		assertThat(state.getHeroCards()).isEqualTo(action.getMainInformation());
+	}
 
-    @Test
-    void should_not_handle_when_player_is_different() {
-        state = HandStateTemplateLoader.validHeroDifferentFromAction(action.getPlayerName());
+	@Test
+	void should_not_handle_when_player_is_different() {
+		state = HandStateTemplateLoader.validHeroDifferentFromAction(action.getPlayerName());
 
-        assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
-        assertThat(state.getHeroCards()).isNotEqualTo(action.getMainInformation());
-    }
+		assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
+		assertThat(state.getHeroCards()).isNotEqualTo(action.getMainInformation());
+	}
 
 }

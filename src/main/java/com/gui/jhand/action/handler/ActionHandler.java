@@ -10,8 +10,8 @@ import java.util.List;
 @Component
 public interface ActionHandler {
 
-    List<ActionType> getSupportedTypes();
+	List<ActionType> getSupportedTypes();
 
-    void handle(Action action, HandState state);
+	void handle(Action action, HandState state);
 
 }

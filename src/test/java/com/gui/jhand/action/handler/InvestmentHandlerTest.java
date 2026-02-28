@@ -14,65 +14,67 @@ import static org.assertj.core.api.Assertions.assertThatCode;
 
 class InvestmentHandlerTest {
 
-    private InvestmentHandler handler;
+	private InvestmentHandler handler;
 
-    private Action action;
+	private Action action;
 
-    private HandState state;
+	private HandState state;
 
-    @BeforeEach
-    void setUp() {
-        handler = new InvestmentHandler();
-        action = Instancio.of(Action.class).create();
-        state = Instancio.of(HandState.class).create();
-    }
+	@BeforeEach
+	void setUp() {
+		handler = new InvestmentHandler();
+		action = Instancio.of(Action.class).create();
+		state = Instancio.of(HandState.class).create();
+	}
 
-    @Test
-    void should_get_supported_types() {
-        assertThat(handler.getSupportedTypes()).containsExactly(POST_BLIND, ACTION_CALL, ACTION_BET);
-    }
+	@Test
+	void should_get_supported_types() {
+		assertThat(handler.getSupportedTypes()).containsExactly(POST_BLIND, ACTION_CALL, ACTION_BET);
+	}
 
-    @Test
-    void should_handle() {
-        action = ActionTemplateLoader.validGuiPostBlind();
-        state = HandStateTemplateLoader.validGuiPreFlop();
+	@Test
+	void should_handle() {
+		action = ActionTemplateLoader.validGuiPostBlind();
+		state = HandStateTemplateLoader.validGuiPreFlop();
 
-        boolean isVpipBeforeHandle = state.isVpip();
-        double totalInvestedBeforeHandle = state.getTotalInvested();
-        double currentStreetInvestedBeforeHandle = state.getCurrentStreetInvestment();
+		boolean isVpipBeforeHandle = state.isVpip();
+		double totalInvestedBeforeHandle = state.getTotalInvested();
+		double currentStreetInvestedBeforeHandle = state.getCurrentStreetInvestment();
 
-        assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
-        assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle + action.getAmount());
-        assertThat(state.getCurrentStreetInvestment()).isEqualTo(currentStreetInvestedBeforeHandle + action.getAmount());
-        assertThat(state.isVpip()).isEqualTo(isVpipBeforeHandle);
-    }
+		assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
+		assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle + action.getAmount());
+		assertThat(state.getCurrentStreetInvestment())
+			.isEqualTo(currentStreetInvestedBeforeHandle + action.getAmount());
+		assertThat(state.isVpip()).isEqualTo(isVpipBeforeHandle);
+	}
 
-    @Test
-    void should_handle_with_vpip() {
-        action = ActionTemplateLoader.validGuiCall();
-        state = HandStateTemplateLoader.validGuiPreFlop();
+	@Test
+	void should_handle_with_vpip() {
+		action = ActionTemplateLoader.validGuiCall();
+		state = HandStateTemplateLoader.validGuiPreFlop();
 
-        double totalInvestedBeforeHandle = state.getTotalInvested();
-        double currentStreetInvestedBeforeHandle = state.getCurrentStreetInvestment();
+		double totalInvestedBeforeHandle = state.getTotalInvested();
+		double currentStreetInvestedBeforeHandle = state.getCurrentStreetInvestment();
 
-        assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
-        assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle + action.getAmount());
-        assertThat(state.getCurrentStreetInvestment()).isEqualTo(currentStreetInvestedBeforeHandle + action.getAmount());
-        assertThat(state.isVpip()).isTrue();
-    }
+		assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
+		assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle + action.getAmount());
+		assertThat(state.getCurrentStreetInvestment())
+			.isEqualTo(currentStreetInvestedBeforeHandle + action.getAmount());
+		assertThat(state.isVpip()).isTrue();
+	}
 
-    @Test
-    void should_not_handle() {
-        state = HandStateTemplateLoader.validHeroDifferentFromAction(action.getPlayerName());
+	@Test
+	void should_not_handle() {
+		state = HandStateTemplateLoader.validHeroDifferentFromAction(action.getPlayerName());
 
-        boolean isVpipBeforeHandle = state.isVpip();
-        double totalInvestedBeforeHandle = state.getTotalInvested();
-        double currentStreetInvestedBeforeHandle = state.getCurrentStreetInvestment();
+		boolean isVpipBeforeHandle = state.isVpip();
+		double totalInvestedBeforeHandle = state.getTotalInvested();
+		double currentStreetInvestedBeforeHandle = state.getCurrentStreetInvestment();
 
-        assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
-        assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle);
-        assertThat(state.getCurrentStreetInvestment()).isEqualTo(currentStreetInvestedBeforeHandle);
-        assertThat(state.isVpip()).isEqualTo(isVpipBeforeHandle);
-    }
+		assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
+		assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle);
+		assertThat(state.getCurrentStreetInvestment()).isEqualTo(currentStreetInvestedBeforeHandle);
+		assertThat(state.isVpip()).isEqualTo(isVpipBeforeHandle);
+	}
 
 }

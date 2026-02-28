@@ -12,16 +12,16 @@ import static com.gui.jhand.action.ActionType.UNCALLED_BET_RETURNED;
 @Component
 public class UncalledBetHandler implements ActionHandler {
 
-    @Override
-    public List<ActionType> getSupportedTypes() {
-        return List.of(UNCALLED_BET_RETURNED);
-    }
+	@Override
+	public List<ActionType> getSupportedTypes() {
+		return List.of(UNCALLED_BET_RETURNED);
+	}
 
-    @Override
-    public void handle(Action action, HandState state) {
-        if (state.getHeroName().equals(action.getPlayerName())) {
-            state.subtractTotalInvested(action.getAmount());
-        }
-    }
+	@Override
+	public void handle(Action action, HandState state) {
+		if (state.getHeroName().equals(action.getPlayerName())) {
+			state.subtractTotalInvested(action.getAmount());
+		}
+	}
 
 }

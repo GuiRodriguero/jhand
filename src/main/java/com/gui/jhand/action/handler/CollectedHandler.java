@@ -12,16 +12,16 @@ import static com.gui.jhand.action.ActionType.COLLECTED_POT;
 @Component
 public class CollectedHandler implements ActionHandler {
 
-    @Override
-    public List<ActionType> getSupportedTypes() {
-        return List.of(COLLECTED_POT);
-    }
+	@Override
+	public List<ActionType> getSupportedTypes() {
+		return List.of(COLLECTED_POT);
+	}
 
-    @Override
-    public void handle(Action action, HandState state) {
-        if (state.getHeroName().equals(action.getPlayerName())) {
-            state.addTotalCollected(action.getAmount());
-        }
-    }
+	@Override
+	public void handle(Action action, HandState state) {
+		if (state.getHeroName().equals(action.getPlayerName())) {
+			state.addTotalCollected(action.getAmount());
+		}
+	}
 
 }
