@@ -12,9 +12,9 @@ import static com.gui.jhand.hand.HandTemplateLoader.*;
 import static com.gui.jhand.hand.Position.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class HandBuilderTest {
+class HandResultBuilderTest {
 
-	private HandBuilder builder;
+	private HandResultBuilder builder;
 
 	private List<Action> actions;
 
@@ -28,7 +28,7 @@ class HandBuilderTest {
 				new DealtToHeroHandler(), new UncalledBetHandler(), new PostAnteHandler(), new SeatSummaryHandler(),
 				new InvestmentHandler());
 
-		builder = new HandBuilder(handlers);
+		builder = new HandResultBuilder(new ActionHandlerRegistry(handlers));
 	}
 
 	@Test

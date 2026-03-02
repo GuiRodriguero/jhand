@@ -1,24 +1,20 @@
 package com.gui.jhand.hand;
 
 import com.gui.jhand.action.Action;
-import com.gui.jhand.action.ActionType;
 import com.gui.jhand.action.handler.ActionHandler;
+import com.gui.jhand.action.handler.ActionHandlerRegistry;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.EnumMap;
 import java.util.List;
-import java.util.Map;
 
 import static com.gui.jhand.hand.PositionUtils.resolvePosition;
 
 @Service
-class HandBuilder {
+@AllArgsConstructor
+class HandResultBuilder {
 
-	private final Map<ActionType, ActionHandler> handlers = new EnumMap<>(ActionType.class);
-
-	public HandBuilder(List<ActionHandler> availableHandlers) {
-		availableHandlers.forEach(handler -> handler.getSupportedTypes().forEach(type -> handlers.put(type, handler)));
-	}
+	private final ActionHandlerRegistry handlersChain;
 
 	HandResult build(List<Action> actions, String heroName) {
 		HandState state = new HandState(heroName);
@@ -28,7 +24,7 @@ class HandBuilder {
 				state.updateCurrentStreet(action.getStreet());
 			}
 
-			ActionHandler handler = handlers.get(action.getType());
+			ActionHandler handler = handlersChain.getHandler(action.getType());
 			if (handler != null) {
 				handler.handle(action, state);
 			}
