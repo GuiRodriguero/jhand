@@ -59,4 +59,8 @@ public class HandState {
 		this.totalInvested -= amount;
 	}
 
+	public double getNetProfit() {
+		return this.totalCollected - this.totalInvested;
+	}
+
 }
