@@ -38,7 +38,7 @@ class HandResultBuilder {
 			.pfr(state.isPfr())
 			.totalInvested(state.getTotalInvested())
 			.totalCollected(state.getTotalCollected())
-			.netProfit(state.getTotalCollected() - state.getTotalInvested())
+			.netProfit(state.getNetProfit())
 			.build();
 	}
 
