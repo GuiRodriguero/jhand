@@ -50,17 +50,17 @@ class PokerStarsParsingRuleFactory {
 						Double.parseDouble(m.group(2)), line)));
 
 		rules.add(new ParsingRule(Pattern.compile("^\\*\\*\\* FLOP \\*\\*\\* \\[(.*?)]"), (m, ctx, line) -> {
-			ctx.setCurrentStreet(FLOP);
+			ctx.changeCurrentStreetTo(FLOP);
 			return Action.of(FLOP_CARDS, ctx.getCurrentStreet(), null, m.group(1), 0, line);
 		}));
 
 		rules.add(new ParsingRule(Pattern.compile("^\\*\\*\\* TURN \\*\\*\\* \\[.*?] \\[(.*?)]"), (m, ctx, line) -> {
-			ctx.setCurrentStreet(TURN);
+			ctx.changeCurrentStreetTo(TURN);
 			return Action.of(TURN_CARDS, ctx.getCurrentStreet(), null, m.group(1), 0, line);
 		}));
 
 		rules.add(new ParsingRule(Pattern.compile("^\\*\\*\\* RIVER \\*\\*\\* \\[.*?] \\[(.*?)]"), (m, ctx, line) -> {
-			ctx.setCurrentStreet(RIVER);
+			ctx.changeCurrentStreetTo(RIVER);
 			return Action.of(RIVER_CARDS, ctx.getCurrentStreet(), null, m.group(1), 0, line);
 		}));
 
@@ -74,7 +74,7 @@ class PokerStarsParsingRuleFactory {
 		}));
 
 		rules.add(new ParsingRule(Pattern.compile("^\\*\\*\\* SUMMARY \\*\\*\\*"), (m, ctx, line) -> {
-			ctx.setCurrentStreet(SUMMARY);
+			ctx.changeCurrentStreetTo(SUMMARY);
 			return Action.of(SUMMARY_HEADER, ctx.getCurrentStreet(), null, null, 0, line);
 		}));
 

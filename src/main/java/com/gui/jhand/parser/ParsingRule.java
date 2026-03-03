@@ -14,10 +14,10 @@ class ParsingRule {
 
 	private final ActionMapper mapper;
 
-	Optional<Action> tryMatch(String line, ParserContext ctx) {
+	Optional<Action> tryMatch(String line, ParserContext context) {
 		Matcher matcher = pattern.matcher(line);
 		if (matcher.find()) {
-			return Optional.of(mapper.map(matcher, ctx, line));
+			return Optional.of(mapper.map(matcher, context, line));
 		}
 		return Optional.empty();
 	}
