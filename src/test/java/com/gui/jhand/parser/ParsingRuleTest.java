@@ -4,7 +4,7 @@ import com.gui.jhand.action.Action;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Optional;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,7 +25,7 @@ class ParsingRuleTest {
 	void setUp() {
 		context = new ParserContext();
 		pattern = Pattern.compile("^Board \\[(.*?)]");
-		mapper = (m, ctx, line) -> Action.of(BOARD, ctx.getCurrentStreet(), null, m.group(1), 0, line);
+		mapper = (m, ctx, line) -> List.of(Action.of(BOARD, ctx.getCurrentStreet(), null, m.group(1), 0, line));
 		rule = new ParsingRule(pattern, mapper);
 	}
 
@@ -36,7 +36,7 @@ class ParsingRuleTest {
 		Matcher matcher = pattern.matcher(line);
 		matcher.find();
 
-		assertThat(rule.tryMatch(line, context)).isEqualTo(Optional.of(mapper.map(matcher, context, line)));
+		assertThat(rule.tryMatch(line, context)).isEqualTo(mapper.map(matcher, context, line));
 	}
 
 	@Test
