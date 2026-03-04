@@ -6,6 +6,7 @@ import com.gui.jhand.parser.PokerStarsParser;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.Instant;
 import java.util.List;
 
 import static com.gui.jhand.hand.HandTemplateLoader.*;
@@ -26,7 +27,7 @@ class HandResultBuilderTest {
 
 		List<ActionHandler> handlers = List.of(new HeaderHandler(), new RaiseHandler(), new CollectedHandler(),
 				new DealtToHeroHandler(), new UncalledBetHandler(), new PostAnteHandler(), new SeatSummaryHandler(),
-				new InvestmentHandler());
+				new InvestmentHandler(), new TimeHandler());
 
 		builder = new HandResultBuilder(new ActionHandlerRegistry(handlers));
 	}
@@ -36,7 +37,8 @@ class HandResultBuilderTest {
 		String hand = HandTemplateLoader.validWonWithShowdown();
 		actions = parser.parse(hand);
 
-		HandResult expected = HandResult.of("259827261990", "Qd Jh", UTG, true, true, 970.0, 2490.0, 1520.0);
+		HandResult expected = HandResult.of("259827261990", Instant.ofEpochSecond(1771774381), "Qd Jh", UTG, true, true,
+				970.0, 2490.0, 1520.0);
 
 		assertThat(builder.build(actions, "GuiRodri2013")).isEqualTo(expected);
 	}
@@ -46,7 +48,8 @@ class HandResultBuilderTest {
 		String hand = HandTemplateLoader.validLostWithShowdown();
 		actions = parser.parse(hand);
 
-		HandResult expected = HandResult.of("259827220105", "2h Ac", MP, true, true, 2555.0, 0.0, -2555.0);
+		HandResult expected = HandResult.of("259827220105", Instant.ofEpochSecond(1771774150), "2h Ac", MP, true, true,
+				2555.0, 0.0, -2555.0);
 
 		assertThat(builder.build(actions, "GuiRodri2013")).isEqualTo(expected);
 	}
@@ -56,7 +59,8 @@ class HandResultBuilderTest {
 		String hand = HandTemplateLoader.validWonWithoutShowdown();
 		actions = parser.parse(hand);
 
-		HandResult expected = HandResult.of("259827317520", "3d 8c", BB, false, false, 1275.0, 2550.0, 1275.0);
+		HandResult expected = HandResult.of("259827317520", Instant.ofEpochSecond(1771774682), "3d 8c", BB, false,
+				false, 1275.0, 2550.0, 1275.0);
 
 		assertThat(builder.build(actions, "GuiRodri2013")).isEqualTo(expected);
 	}
@@ -66,7 +70,8 @@ class HandResultBuilderTest {
 		String hand = HandTemplateLoader.validWithSidePot();
 		actions = parser.parse(hand);
 
-		HandResult expected = HandResult.of("259859276702", "Ad Ac", UTG, true, true, 1494.0, 2263.0, 769.0);
+		HandResult expected = HandResult.of("259859276702", Instant.ofEpochSecond(1771975039), "Ad Ac", UTG, true, true,
+				1494.0, 2263.0, 769.0);
 
 		assertThat(builder.build(actions, "GuiRodri2013")).isEqualTo(expected);
 	}
@@ -76,7 +81,8 @@ class HandResultBuilderTest {
 		String hand = HandTemplateLoader.validWithSidePotAndMultipleWinners();
 		actions = parser.parse(hand);
 
-		HandResult expected = HandResult.of("259859212603", "Jc Qc", SB, true, false, 950.0, 2850.0, 1900.0);
+		HandResult expected = HandResult.of("259859212603", Instant.ofEpochSecond(1771974739), "Jc Qc", SB, true, false,
+				950.0, 2850.0, 1900.0);
 
 		assertThat(builder.build(actions, "GuiRodri2013")).isEqualTo(expected);
 	}

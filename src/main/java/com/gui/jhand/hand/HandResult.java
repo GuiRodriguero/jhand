@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
+import java.time.Instant;
+
 import static lombok.AccessLevel.PACKAGE;
 
 @Getter
@@ -14,6 +16,8 @@ import static lombok.AccessLevel.PACKAGE;
 class HandResult {
 
 	private String handId;
+
+	private Instant time;
 
 	private String heroCards;
 

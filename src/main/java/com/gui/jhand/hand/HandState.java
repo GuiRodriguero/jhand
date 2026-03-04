@@ -3,6 +3,8 @@ package com.gui.jhand.hand;
 import com.gui.jhand.action.ActionStreet;
 import lombok.Data;
 
+import java.time.Instant;
+
 import static com.gui.jhand.action.ActionStreet.PRE_FLOP;
 
 @Data
@@ -11,6 +13,8 @@ public class HandState {
 	private final String heroName;
 
 	private String handId;
+
+	private Instant time;
 
 	private String heroCards;
 
