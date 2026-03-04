@@ -1,9 +1,7 @@
 package com.gui.jhand.action.handler;
 
 import com.gui.jhand.action.Action;
-import com.gui.jhand.action.ActionTemplateLoader;
 import com.gui.jhand.hand.HandState;
-import com.gui.jhand.hand.HandStateTemplateLoader;
 import org.instancio.Instancio;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -34,9 +32,6 @@ class HeaderHandlerTest {
 
 	@Test
 	void should_handle() {
-		action = ActionTemplateLoader.validGui();
-		state = HandStateTemplateLoader.validGui();
-
 		assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
 		assertThat(state.getHandId()).isEqualTo(action.getMainInformation());
 	}

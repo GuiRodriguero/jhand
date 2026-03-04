@@ -48,4 +48,8 @@ public class ActionTemplateLoader {
 			.create();
 	}
 
+	public static Action validNow() {
+		return Instancio.of(Action.class).set(field(Action::getMainInformation), "2026/02/24 18:11:16").create();
+	}
+
 }

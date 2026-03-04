@@ -24,8 +24,9 @@ class PokerStarsParserTest {
 	void should_parse_hand_header() {
 		String line = "PokerStars Hand #259795694323: Tournament #3976713284, $0.92+$0.08 USD Hold'em No Limit - Level II (15/30) - 2026/02/19 21:29:23 BRT [2026/02/19 19:29:23 ET]";
 
-		assertThat(parser.parse(line))
-			.containsExactly(Action.of(HEADER, context.getCurrentStreet(), null, "259795694323", 0, line));
+		assertThat(parser.parse(line)).containsExactly(
+				Action.of(HEADER, context.getCurrentStreet(), null, "259795694323", 0, line),
+				Action.of(TIME, context.getCurrentStreet(), null, "2026/02/19 19:29:23", 0, line));
 	}
 
 	@Test

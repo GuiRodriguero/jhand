@@ -14,7 +14,7 @@ import static com.gui.jhand.hand.PositionUtils.resolvePosition;
 @AllArgsConstructor
 class HandResultBuilder {
 
-	private final ActionHandlerRegistry handlersChain;
+	private final ActionHandlerRegistry handlers;
 
 	HandResult build(List<Action> actions, String heroName) {
 		HandState state = new HandState(heroName);
@@ -24,7 +24,7 @@ class HandResultBuilder {
 				state.updateCurrentStreet(action.getStreet());
 			}
 
-			ActionHandler handler = handlersChain.getHandler(action.getType());
+			ActionHandler handler = handlers.getHandler(action.getType());
 			if (handler != null) {
 				handler.handle(action, state);
 			}
@@ -32,6 +32,7 @@ class HandResultBuilder {
 
 		return HandResult.builder()
 			.handId(state.getHandId())
+			.time(state.getTime())
 			.heroCards(state.getHeroCards())
 			.position(resolvePosition(state))
 			.vpip(state.isVpip())
