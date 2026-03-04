@@ -15,11 +15,15 @@ public class InvestmentHandler implements ActionHandler {
 
 	@Override
 	public List<ActionType> getSupportedTypes() {
-		return List.of(POST_BLIND, ACTION_CALL, ACTION_BET);
+		return List.of(POST_SMALL_BLIND, POST_BIG_BLIND, ACTION_CALL, ACTION_BET);
 	}
 
 	@Override
 	public void handle(Action action, HandState state) {
+		if (action.getType() == POST_BIG_BLIND) {
+			state.setBlindValue(action.getAmount());
+		}
+
 		if (state.getHeroName().equals(action.getPlayerName())) {
 			state.addTotalInvested(action.getAmount());
 			state.addCurrentStreetInvestment(action.getAmount());

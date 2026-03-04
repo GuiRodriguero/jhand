@@ -18,10 +18,17 @@ public class ActionTemplateLoader {
 			.create();
 	}
 
-	public static Action validGuiPostBlind() {
+	public static Action validGuiPostSmallBlind() {
 		return Instancio.of(Action.class)
 			.set(field(Action::getPlayerName), "GuiRodri2013")
-			.set(field(Action::getType), POST_BLIND)
+			.set(field(Action::getType), POST_SMALL_BLIND)
+			.create();
+	}
+
+	public static Action validGuiPostBigBlind() {
+		return Instancio.of(Action.class)
+			.set(field(Action::getPlayerName), "GuiRodri2013")
+			.set(field(Action::getType), POST_BIG_BLIND)
 			.create();
 	}
 

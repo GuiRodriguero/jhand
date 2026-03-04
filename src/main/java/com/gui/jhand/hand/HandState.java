@@ -18,6 +18,8 @@ public class HandState {
 
 	private String heroCards;
 
+	private double blindValue;
+
 	private boolean vpip;
 
 	private boolean pfr;

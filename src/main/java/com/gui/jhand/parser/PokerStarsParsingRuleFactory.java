@@ -32,9 +32,13 @@ class PokerStarsParsingRuleFactory {
 				(m, ctx, line) -> List.of(Action.of(POST_ANTE, ctx.getCurrentStreet(), m.group(1),
 						"posts the ante " + m.group(2), Double.parseDouble(m.group(2)), line))));
 
-		rules.add(new ParsingRule(Pattern.compile("^(.*?): posts (?:small|big) blind (\\d+)"),
-				(m, ctx, line) -> List.of(Action.of(POST_BLIND, ctx.getCurrentStreet(), m.group(1),
-						"posts blind " + m.group(2), Double.parseDouble(m.group(2)), line))));
+		rules.add(new ParsingRule(Pattern.compile("^(.*?): posts small blind (\\d+)"),
+				(m, ctx, line) -> List.of(Action.of(POST_SMALL_BLIND, ctx.getCurrentStreet(), m.group(1),
+						"posts small blind " + m.group(2), Double.parseDouble(m.group(2)), line))));
+
+		rules.add(new ParsingRule(Pattern.compile("^(.*?): posts big blind (\\d+)"),
+				(m, ctx, line) -> List.of(Action.of(POST_BIG_BLIND, ctx.getCurrentStreet(), m.group(1),
+						"posts big blind " + m.group(2), Double.parseDouble(m.group(2)), line))));
 
 		rules.add(new ParsingRule(Pattern.compile("^Dealt to (.*?) \\[(.*?)]"), (m, ctx, line) -> List
 			.of(Action.of(DEALT_TO_HERO, ctx.getCurrentStreet(), m.group(1), m.group(2), 0, line))));

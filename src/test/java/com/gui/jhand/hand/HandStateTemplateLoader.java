@@ -25,6 +25,14 @@ public class HandStateTemplateLoader {
 			.create();
 	}
 
+	public static HandState validGuiPreFlopVpipFalse() {
+		return Instancio.of(HandState.class)
+			.set(field(HandState::getHeroName), "GuiRodri2013")
+			.set(field(HandState::getCurrentStreet), PRE_FLOP)
+			.set(field(HandState::isVpip), false)
+			.create();
+	}
+
 	public static HandState validGuiFlop() {
 		return Instancio.of(HandState.class)
 			.set(field(HandState::getHeroName), "GuiRodri2013")
