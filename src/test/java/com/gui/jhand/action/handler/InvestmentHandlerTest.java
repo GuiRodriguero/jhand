@@ -34,7 +34,7 @@ class InvestmentHandlerTest {
 
 	@Test
 	void should_handle() {
-		action = ActionTemplateLoader.validGuiPostBigBlind();
+		action = ActionTemplateLoader.validGuiPostSmallBlind();
 		state = HandStateTemplateLoader.validGuiPreFlop();
 
 		boolean isVpipBeforeHandle = state.isVpip();
@@ -61,6 +61,22 @@ class InvestmentHandlerTest {
 		assertThat(state.getCurrentStreetInvestment())
 			.isEqualTo(currentStreetInvestedBeforeHandle + action.getAmount());
 		assertThat(state.isVpip()).isTrue();
+	}
+
+	@Test
+	void should_handle_big_blind() {
+		action = ActionTemplateLoader.validGuiPostBigBlind();
+		state = HandStateTemplateLoader.validGuiPreFlopVpipFalse();
+
+		double totalInvestedBeforeHandle = state.getTotalInvested();
+		double currentStreetInvestedBeforeHandle = state.getCurrentStreetInvestment();
+
+		assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
+		assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle + action.getAmount());
+		assertThat(state.getCurrentStreetInvestment())
+			.isEqualTo(currentStreetInvestedBeforeHandle + action.getAmount());
+		assertThat(state.getBlindValue()).isEqualTo(action.getAmount());
+		assertThat(state.isVpip()).isFalse();
 	}
 
 	@Test

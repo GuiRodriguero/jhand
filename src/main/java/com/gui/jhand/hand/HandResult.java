@@ -23,7 +23,7 @@ class HandResult {
 
 	private Position position;
 
-//	private double blindValue;
+	private double blindValue;
 
 	private boolean vpip;
 
