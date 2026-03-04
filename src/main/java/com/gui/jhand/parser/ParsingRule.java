@@ -3,7 +3,7 @@ package com.gui.jhand.parser;
 import com.gui.jhand.action.Action;
 import lombok.AllArgsConstructor;
 
-import java.util.Optional;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,12 +14,10 @@ class ParsingRule {
 
 	private final ActionMapper mapper;
 
-	Optional<Action> tryMatch(String line, ParserContext context) {
+	List<Action> tryMatch(String line, ParserContext context) {
 		Matcher matcher = pattern.matcher(line);
-		if (matcher.find()) {
-			return Optional.of(mapper.map(matcher, context, line));
-		}
-		return Optional.empty();
+
+		return matcher.find() ? mapper.map(matcher, context, line) : List.of();
 	}
 
 }
