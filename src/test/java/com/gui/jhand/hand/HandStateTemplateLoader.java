@@ -29,7 +29,7 @@ public class HandStateTemplateLoader {
 		return Instancio.of(HandState.class)
 			.set(field(HandState::getHeroName), "GuiRodri2013")
 			.set(field(HandState::getCurrentStreet), PRE_FLOP)
-            .set(field(HandState::isVpip), false)
+			.set(field(HandState::isVpip), false)
 			.create();
 	}
 

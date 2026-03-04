@@ -29,7 +29,8 @@ class InvestmentHandlerTest {
 
 	@Test
 	void should_get_supported_types() {
-		assertThat(handler.getSupportedTypes()).containsExactly(POST_SMALL_BLIND, POST_BIG_BLIND, ACTION_CALL, ACTION_BET);
+		assertThat(handler.getSupportedTypes()).containsExactly(POST_SMALL_BLIND, POST_BIG_BLIND, ACTION_CALL,
+				ACTION_BET);
 	}
 
 	@Test

@@ -57,16 +57,16 @@ class PokerStarsParserTest {
 	void should_parse_post_small_blind() {
 		String line = "GuiRodri2013: posts small blind 40";
 
-		assertThat(parser.parse(line)).containsExactly(
-				Action.of(POST_SMALL_BLIND, context.getCurrentStreet(), "GuiRodri2013", "posts small blind 40", 40.0, line));
+		assertThat(parser.parse(line)).containsExactly(Action.of(POST_SMALL_BLIND, context.getCurrentStreet(),
+				"GuiRodri2013", "posts small blind 40", 40.0, line));
 	}
 
 	@Test
 	void should_parse_post_big_blind() {
 		String line = "GuiRodri2013: posts big blind 80";
 
-		assertThat(parser.parse(line)).containsExactly(
-				Action.of(POST_BIG_BLIND, context.getCurrentStreet(), "GuiRodri2013", "posts big blind 80", 80.0, line));
+		assertThat(parser.parse(line)).containsExactly(Action.of(POST_BIG_BLIND, context.getCurrentStreet(),
+				"GuiRodri2013", "posts big blind 80", 80.0, line));
 	}
 
 	@Test
