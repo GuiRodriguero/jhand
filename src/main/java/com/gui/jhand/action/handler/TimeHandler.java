@@ -19,7 +19,7 @@ public class TimeHandler implements ActionHandler {
 
 	private static final ZoneId ET_ZONE = ZoneId.of("America/New_York");
 
-	private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+	private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy/MM/dd H:mm:ss");
 
 	@Override
 	public List<ActionType> getSupportedTypes() {

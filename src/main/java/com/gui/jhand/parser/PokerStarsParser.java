@@ -14,7 +14,7 @@ public class PokerStarsParser {
 		ParserContext context = new ParserContext();
 
 		for (String line : rawHand.split("\\r?\\n")) {
-			line = line.trim();
+			line = removeByteOrderMark(line);
 			for (ParsingRule rule : rules) {
 				List<Action> action = rule.tryMatch(line, context);
 				if (!action.isEmpty()) {
@@ -25,6 +25,10 @@ public class PokerStarsParser {
 		}
 
 		return actions;
+	}
+
+	private String removeByteOrderMark(String line) {
+		return line.replace("\uFEFF", "").trim();
 	}
 
 }
