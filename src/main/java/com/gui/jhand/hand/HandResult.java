@@ -1,12 +1,14 @@
 package com.gui.jhand.hand;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
 
 import java.time.Instant;
 
+import static jakarta.persistence.EnumType.STRING;
 import static lombok.AccessLevel.PACKAGE;
 import static lombok.AccessLevel.PRIVATE;
 
@@ -26,6 +28,7 @@ class HandResult {
 
 	private String heroCards;
 
+	@Enumerated(value = STRING)
 	private Position position;
 
 	private double blindValue;
