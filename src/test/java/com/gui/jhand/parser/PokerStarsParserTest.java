@@ -54,6 +54,14 @@ class PokerStarsParserTest {
 	}
 
 	@Test
+	void should_parse_post_ante_dollars() {
+		String line = "GuiRodri2013: posts the ante $0.5";
+
+		assertThat(parser.parse(line)).containsExactly(
+				Action.of(POST_ANTE, context.getCurrentStreet(), "GuiRodri2013", "posts the ante $0.5", 0.5, line));
+	}
+
+	@Test
 	void should_parse_post_small_blind() {
 		String line = "GuiRodri2013: posts small blind 40";
 
@@ -62,11 +70,27 @@ class PokerStarsParserTest {
 	}
 
 	@Test
+	void should_parse_post_small_blind_dollars() {
+		String line = "GuiRodri2013: posts small blind $40";
+
+		assertThat(parser.parse(line)).containsExactly(Action.of(POST_SMALL_BLIND, context.getCurrentStreet(),
+				"GuiRodri2013", "posts small blind $40", 40.0, line));
+	}
+
+	@Test
 	void should_parse_post_big_blind() {
 		String line = "GuiRodri2013: posts big blind 80";
 
 		assertThat(parser.parse(line)).containsExactly(Action.of(POST_BIG_BLIND, context.getCurrentStreet(),
 				"GuiRodri2013", "posts big blind 80", 80.0, line));
+	}
+
+	@Test
+	void should_parse_post_big_blind_dollars() {
+		String line = "GuiRodri2013: posts big blind $80";
+
+		assertThat(parser.parse(line)).containsExactly(Action.of(POST_BIG_BLIND, context.getCurrentStreet(),
+				"GuiRodri2013", "posts big blind $80", 80.0, line));
 	}
 
 	@Test
@@ -86,11 +110,27 @@ class PokerStarsParserTest {
 	}
 
 	@Test
+	void should_parse_call_dollars() {
+		String line = "GuiRodri2013: calls $0.02";
+
+		assertThat(parser.parse(line)).containsExactly(
+				Action.of(ACTION_CALL, context.getCurrentStreet(), "GuiRodri2013", "calls $0.02", 0.02, line));
+	}
+
+	@Test
 	void should_parse_call_all_in() {
 		String line = "GuiRodri2013: calls 1343 and is all-in";
 
 		assertThat(parser.parse(line)).containsExactly(
 				Action.of(ACTION_CALL, context.getCurrentStreet(), "GuiRodri2013", "calls 1343", 1343.0, line));
+	}
+
+	@Test
+	void should_parse_call_all_in_dollars() {
+		String line = "GuiRodri2013: calls $1.2 and is all-in";
+
+		assertThat(parser.parse(line)).containsExactly(
+				Action.of(ACTION_CALL, context.getCurrentStreet(), "GuiRodri2013", "calls $1.2", 1.2, line));
 	}
 
 	@Test
@@ -102,11 +142,27 @@ class PokerStarsParserTest {
 	}
 
 	@Test
+	void should_parse_raise_dollars() {
+		String line = "GuiRodri2013: raises $20 to $40";
+
+		assertThat(parser.parse(line)).containsExactly(
+				Action.of(ACTION_RAISE, context.getCurrentStreet(), "GuiRodri2013", "raises $20 to $40", 40, line));
+	}
+
+	@Test
 	void should_parse_bet() {
 		String line = "GuiRodri2013: bets 20";
 
 		assertThat(parser.parse(line))
 			.containsExactly(Action.of(ACTION_BET, context.getCurrentStreet(), "GuiRodri2013", "bets 20", 20, line));
+	}
+
+	@Test
+	void should_parse_bet_dollars() {
+		String line = "GuiRodri2013: bets $0.05";
+
+		assertThat(parser.parse(line)).containsExactly(
+				Action.of(ACTION_BET, context.getCurrentStreet(), "GuiRodri2013", "bets $0.05", 0.05, line));
 	}
 
 	@Test
@@ -147,11 +203,27 @@ class PokerStarsParserTest {
 	}
 
 	@Test
+	void should_parse_collected_pot_dollars() {
+		String line = "GuiRodri2013 collected $108 from pot";
+
+		assertThat(parser.parse(line)).containsExactly(Action.of(COLLECTED_POT, context.getCurrentStreet(),
+				"GuiRodri2013", "collected $108 from pot", 108.0, line));
+	}
+
+	@Test
 	void should_parse_collected_side_pot() {
 		String line = "GuiRodri2013 collected 40 from side pot";
 
 		assertThat(parser.parse(line)).containsExactly(Action.of(COLLECTED_POT, context.getCurrentStreet(),
 				"GuiRodri2013", "collected 40 from side pot", 40.0, line));
+	}
+
+	@Test
+	void should_parse_collected_side_pot_dollars() {
+		String line = "GuiRodri2013 collected $40 from side pot";
+
+		assertThat(parser.parse(line)).containsExactly(Action.of(COLLECTED_POT, context.getCurrentStreet(),
+				"GuiRodri2013", "collected $40 from side pot", 40.0, line));
 	}
 
 	@Test
@@ -178,6 +250,14 @@ class PokerStarsParserTest {
 	}
 
 	@Test
+	void should_parse_uncalled_bet_returned_dollars() {
+		String line = "Uncalled bet ($57) returned to GuiRodri2013";
+
+		assertThat(parser.parse(line)).containsExactly(
+				Action.of(UNCALLED_BET_RETURNED, context.getCurrentStreet(), "GuiRodri2013", "$57", 57.0, line));
+	}
+
+	@Test
 	void should_parse_total_pot() {
 		String line = "Total pot 1689 | Rake 0";
 
@@ -186,11 +266,27 @@ class PokerStarsParserTest {
 	}
 
 	@Test
+	void should_parse_total_pot_dollars() {
+		String line = "Total pot $1689 | Rake 0";
+
+		assertThat(parser.parse(line))
+			.containsExactly(Action.of(TOTAL_POT, context.getCurrentStreet(), null, "Total pot $1689", 1689.0, line));
+	}
+
+	@Test
 	void should_parse_total_pot_with_side_pot() {
 		String line = "Total pot 3050 Main pot 2850. Side pot 200. | Rake 0";
 
 		assertThat(parser.parse(line))
 			.containsExactly(Action.of(TOTAL_POT, context.getCurrentStreet(), null, "Total pot 3050", 3050.0, line));
+	}
+
+	@Test
+	void should_parse_total_pot_with_side_pot_dollars() {
+		String line = "Total pot $3050 Main pot $2850. Side pot $200. | Rake 0";
+
+		assertThat(parser.parse(line))
+			.containsExactly(Action.of(TOTAL_POT, context.getCurrentStreet(), null, "Total pot $3050", 3050.0, line));
 	}
 
 	@Test
