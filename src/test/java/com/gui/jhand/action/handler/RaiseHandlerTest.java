@@ -8,6 +8,8 @@ import org.instancio.Instancio;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
+
 import static com.gui.jhand.action.ActionType.ACTION_RAISE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
@@ -39,11 +41,11 @@ class RaiseHandlerTest {
 
 		boolean isPfrBeforeHandle = state.isPfr();
 		boolean isVpipBeforeHandle = state.isVpip();
-		double totalInvestedBeforeHandle = state.getTotalInvested();
-		double actualCost = action.getAmount() - state.getCurrentStreetInvestment();
+		BigDecimal totalInvestedBeforeHandle = state.getTotalInvested();
+		BigDecimal actualCost = action.getAmount().subtract(state.getCurrentStreetInvestment());
 
 		assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
-		assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle + actualCost);
+		assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle.add(actualCost));
 		assertThat(state.getCurrentStreetInvestment()).isEqualTo(action.getAmount());
 		assertThat(state.isPfr()).isEqualTo(isPfrBeforeHandle);
 		assertThat(state.isVpip()).isEqualTo(isVpipBeforeHandle);
@@ -54,11 +56,11 @@ class RaiseHandlerTest {
 		action = ActionTemplateLoader.validGuiRaise();
 		state = HandStateTemplateLoader.validGuiPreFlop();
 
-		double totalInvestedBeforeHandle = state.getTotalInvested();
-		double actualCost = action.getAmount() - state.getCurrentStreetInvestment();
+		BigDecimal totalInvestedBeforeHandle = state.getTotalInvested();
+		BigDecimal actualCost = action.getAmount().subtract(state.getCurrentStreetInvestment());
 
 		assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
-		assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle + actualCost);
+		assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle.add(actualCost));
 		assertThat(state.getCurrentStreetInvestment()).isEqualTo(action.getAmount());
 		assertThat(state.isPfr()).isTrue();
 		assertThat(state.isVpip()).isTrue();
@@ -70,8 +72,8 @@ class RaiseHandlerTest {
 
 		boolean isPfrBeforeHandle = state.isPfr();
 		boolean isVpipBeforeHandle = state.isVpip();
-		double totalInvestedBeforeHandle = state.getTotalInvested();
-		double currentStreetInvestedBeforeHandle = state.getCurrentStreetInvestment();
+		BigDecimal totalInvestedBeforeHandle = state.getTotalInvested();
+		BigDecimal currentStreetInvestedBeforeHandle = state.getCurrentStreetInvestment();
 
 		assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
 		assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle);

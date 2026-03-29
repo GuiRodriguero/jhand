@@ -2,6 +2,7 @@ package com.gui.jhand.hand;
 
 import com.gui.jhand.action.Action;
 import com.gui.jhand.action.handler.*;
+import com.gui.jhand.core.utils.ChipsUtils;
 import com.gui.jhand.parser.PokerStarsParser;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,6 +12,7 @@ import java.util.List;
 
 import static com.gui.jhand.hand.HandTemplateLoader.*;
 import static com.gui.jhand.hand.Position.*;
+import static java.math.BigDecimal.ZERO;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class HandResultBuilderTest {
@@ -37,8 +39,8 @@ class HandResultBuilderTest {
 		String hand = HandTemplateLoader.validWonWithShowdown();
 		actions = parser.parse(hand);
 
-		HandResult expected = HandResult.of("259827261990", Instant.ofEpochSecond(1771774381), "Qd Jh", UTG, 800.0,
-				true, true, 970.0, 2490.0, 1520.0);
+		HandResult expected = HandResult.of("259827261990", Instant.ofEpochSecond(1771774381), "Qd Jh", UTG,
+				ChipsUtils.of(800.0), true, true, ChipsUtils.of(970.0), ChipsUtils.of(2490.0), ChipsUtils.of(1520.0));
 
 		assertThat(builder.build(actions, "GuiRodri2013")).isEqualTo(expected);
 	}
@@ -48,8 +50,8 @@ class HandResultBuilderTest {
 		String hand = HandTemplateLoader.validLostWithShowdown();
 		actions = parser.parse(hand);
 
-		HandResult expected = HandResult.of("259827220105", Instant.ofEpochSecond(1771774150), "2h Ac", MP, 600.0, true,
-				true, 2555.0, 0.0, -2555.0);
+		HandResult expected = HandResult.of("259827220105", Instant.ofEpochSecond(1771774150), "2h Ac", MP,
+				ChipsUtils.of(600.0), true, true, ChipsUtils.of(2555.0), ZERO, ChipsUtils.of(-2555.0));
 
 		assertThat(builder.build(actions, "GuiRodri2013")).isEqualTo(expected);
 	}
@@ -59,8 +61,9 @@ class HandResultBuilderTest {
 		String hand = HandTemplateLoader.validWonWithoutShowdown();
 		actions = parser.parse(hand);
 
-		HandResult expected = HandResult.of("259827317520", Instant.ofEpochSecond(1771774682), "3d 8c", BB, 1200.0,
-				false, false, 1275.0, 2550.0, 1275.0);
+		HandResult expected = HandResult.of("259827317520", Instant.ofEpochSecond(1771774682), "3d 8c", BB,
+				ChipsUtils.of(1200.0), false, false, ChipsUtils.of(1275.0), ChipsUtils.of(2550.0),
+				ChipsUtils.of(1275.0));
 
 		assertThat(builder.build(actions, "GuiRodri2013")).isEqualTo(expected);
 	}
@@ -70,8 +73,8 @@ class HandResultBuilderTest {
 		String hand = HandTemplateLoader.validWithSidePot();
 		actions = parser.parse(hand);
 
-		HandResult expected = HandResult.of("259859276702", Instant.ofEpochSecond(1771975039), "Ad Ac", UTG, 20.0, true,
-				true, 1494.0, 2263.0, 769.0);
+		HandResult expected = HandResult.of("259859276702", Instant.ofEpochSecond(1771975039), "Ad Ac", UTG,
+				ChipsUtils.of(20.0), true, true, ChipsUtils.of(1494.0), ChipsUtils.of(2263.0), ChipsUtils.of(769.0));
 
 		assertThat(builder.build(actions, "GuiRodri2013")).isEqualTo(expected);
 	}
@@ -81,8 +84,8 @@ class HandResultBuilderTest {
 		String hand = HandTemplateLoader.validWithSidePotAndMultipleWinners();
 		actions = parser.parse(hand);
 
-		HandResult expected = HandResult.of("259859212603", Instant.ofEpochSecond(1771974739), "Jc Qc", SB, 50.0, true,
-				false, 950.0, 2850.0, 1900.0);
+		HandResult expected = HandResult.of("259859212603", Instant.ofEpochSecond(1771974739), "Jc Qc", SB,
+				ChipsUtils.of(50.0), true, false, ChipsUtils.of(950.0), ChipsUtils.of(2850.0), ChipsUtils.of(1900.0));
 
 		assertThat(builder.build(actions, "GuiRodri2013")).isEqualTo(expected);
 	}

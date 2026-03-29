@@ -3,9 +3,11 @@ package com.gui.jhand.hand;
 import com.gui.jhand.action.ActionStreet;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 
 import static com.gui.jhand.action.ActionStreet.PRE_FLOP;
+import static java.math.BigDecimal.ZERO;
 
 @Data
 public class HandState {
@@ -18,17 +20,17 @@ public class HandState {
 
 	private String heroCards;
 
-	private double blindValue;
+	private BigDecimal blindValue = ZERO;
 
 	private boolean vpip;
 
 	private boolean pfr;
 
-	private double totalInvested;
+	private BigDecimal totalInvested = ZERO;
 
-	private double currentStreetInvestment;
+	private BigDecimal currentStreetInvestment = ZERO;
 
-	private double totalCollected;
+	private BigDecimal totalCollected = ZERO;
 
 	private int activePlayersCount;
 
@@ -46,27 +48,27 @@ public class HandState {
 
 	public void updateCurrentStreet(ActionStreet street) {
 		this.setCurrentStreet(street);
-		this.currentStreetInvestment = 0.0;
+		this.currentStreetInvestment = ZERO;
 	}
 
-	public void addTotalInvested(double amount) {
-		this.totalInvested += amount;
+	public void addTotalInvested(BigDecimal amount) {
+		this.totalInvested = this.totalInvested.add(amount);
 	}
 
-	public void addCurrentStreetInvestment(double amount) {
-		this.currentStreetInvestment += amount;
+	public void addCurrentStreetInvestment(BigDecimal amount) {
+		this.currentStreetInvestment = this.currentStreetInvestment.add(amount);
 	}
 
-	public void addTotalCollected(double amount) {
-		this.totalCollected += amount;
+	public void addTotalCollected(BigDecimal amount) {
+		this.totalCollected = this.totalCollected.add(amount);
 	}
 
-	public void subtractTotalInvested(double amount) {
-		this.totalInvested -= amount;
+	public void subtractTotalInvested(BigDecimal amount) {
+		this.totalInvested = this.totalInvested.subtract(amount);
 	}
 
-	public double getNetProfit() {
-		return this.totalCollected - this.totalInvested;
+	public BigDecimal getNetProfit() {
+		return this.totalCollected.subtract(this.totalInvested);
 	}
 
 }
