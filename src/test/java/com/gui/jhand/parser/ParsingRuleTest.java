@@ -9,6 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static com.gui.jhand.action.ActionType.BOARD;
+import static java.math.BigDecimal.ZERO;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class ParsingRuleTest {
@@ -25,7 +26,7 @@ class ParsingRuleTest {
 	void setUp() {
 		context = new ParserContext();
 		pattern = Pattern.compile("^Board \\[(.*?)]");
-		mapper = (m, ctx, line) -> List.of(Action.of(BOARD, ctx.getCurrentStreet(), null, m.group(1), 0, line));
+		mapper = (m, ctx, line) -> List.of(Action.of(BOARD, ctx.getCurrentStreet(), null, m.group(1), ZERO, line));
 		rule = new ParsingRule(pattern, mapper);
 	}
 

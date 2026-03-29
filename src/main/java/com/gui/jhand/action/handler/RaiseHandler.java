@@ -5,6 +5,7 @@ import com.gui.jhand.action.ActionType;
 import com.gui.jhand.hand.HandState;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import static com.gui.jhand.action.ActionStreet.PRE_FLOP;
@@ -21,7 +22,7 @@ public class RaiseHandler implements ActionHandler {
 	@Override
 	public void handle(Action action, HandState state) {
 		if (state.getHeroName().equals(action.getPlayerName())) {
-			double actualCost = action.getAmount() - state.getCurrentStreetInvestment();
+			BigDecimal actualCost = action.getAmount().subtract(state.getCurrentStreetInvestment());
 			state.addTotalInvested(actualCost);
 			state.setCurrentStreetInvestment(action.getAmount());
 

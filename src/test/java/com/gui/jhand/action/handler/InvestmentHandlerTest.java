@@ -8,6 +8,8 @@ import org.instancio.Instancio;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
+
 import static com.gui.jhand.action.ActionType.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
@@ -39,13 +41,13 @@ class InvestmentHandlerTest {
 		state = HandStateTemplateLoader.validGuiPreFlop();
 
 		boolean isVpipBeforeHandle = state.isVpip();
-		double totalInvestedBeforeHandle = state.getTotalInvested();
-		double currentStreetInvestedBeforeHandle = state.getCurrentStreetInvestment();
+		BigDecimal totalInvestedBeforeHandle = state.getTotalInvested();
+		BigDecimal currentStreetInvestedBeforeHandle = state.getCurrentStreetInvestment();
 
 		assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
-		assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle + action.getAmount());
+		assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle.add(action.getAmount()));
 		assertThat(state.getCurrentStreetInvestment())
-			.isEqualTo(currentStreetInvestedBeforeHandle + action.getAmount());
+			.isEqualTo(currentStreetInvestedBeforeHandle.add(action.getAmount()));
 		assertThat(state.isVpip()).isEqualTo(isVpipBeforeHandle);
 	}
 
@@ -54,13 +56,13 @@ class InvestmentHandlerTest {
 		action = ActionTemplateLoader.validGuiCall();
 		state = HandStateTemplateLoader.validGuiPreFlop();
 
-		double totalInvestedBeforeHandle = state.getTotalInvested();
-		double currentStreetInvestedBeforeHandle = state.getCurrentStreetInvestment();
+		BigDecimal totalInvestedBeforeHandle = state.getTotalInvested();
+		BigDecimal currentStreetInvestedBeforeHandle = state.getCurrentStreetInvestment();
 
 		assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
-		assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle + action.getAmount());
+		assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle.add(action.getAmount()));
 		assertThat(state.getCurrentStreetInvestment())
-			.isEqualTo(currentStreetInvestedBeforeHandle + action.getAmount());
+			.isEqualTo(currentStreetInvestedBeforeHandle.add(action.getAmount()));
 		assertThat(state.isVpip()).isTrue();
 	}
 
@@ -69,13 +71,13 @@ class InvestmentHandlerTest {
 		action = ActionTemplateLoader.validGuiPostBigBlind();
 		state = HandStateTemplateLoader.validGuiPreFlopVpipFalse();
 
-		double totalInvestedBeforeHandle = state.getTotalInvested();
-		double currentStreetInvestedBeforeHandle = state.getCurrentStreetInvestment();
+		BigDecimal totalInvestedBeforeHandle = state.getTotalInvested();
+		BigDecimal currentStreetInvestedBeforeHandle = state.getCurrentStreetInvestment();
 
 		assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
-		assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle + action.getAmount());
+		assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle.add(action.getAmount()));
 		assertThat(state.getCurrentStreetInvestment())
-			.isEqualTo(currentStreetInvestedBeforeHandle + action.getAmount());
+			.isEqualTo(currentStreetInvestedBeforeHandle.add(action.getAmount()));
 		assertThat(state.getBlindValue()).isEqualTo(action.getAmount());
 		assertThat(state.isVpip()).isFalse();
 	}
@@ -85,8 +87,8 @@ class InvestmentHandlerTest {
 		state = HandStateTemplateLoader.validHeroDifferentFromAction(action.getPlayerName());
 
 		boolean isVpipBeforeHandle = state.isVpip();
-		double totalInvestedBeforeHandle = state.getTotalInvested();
-		double currentStreetInvestedBeforeHandle = state.getCurrentStreetInvestment();
+		BigDecimal totalInvestedBeforeHandle = state.getTotalInvested();
+		BigDecimal currentStreetInvestedBeforeHandle = state.getCurrentStreetInvestment();
 
 		assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
 		assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle);

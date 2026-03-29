@@ -1,11 +1,9 @@
 package com.gui.jhand.hand;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 
 import static jakarta.persistence.EnumType.STRING;
@@ -31,16 +29,20 @@ class HandResult {
 	@Enumerated(value = STRING)
 	private Position position;
 
-	private double blindValue;
+	@Column(precision = 12, scale = 2)
+	private BigDecimal blindValue;
 
 	private boolean vpip;
 
 	private boolean pfr;
 
-	private double totalInvested;
+	@Column(precision = 12, scale = 2)
+	private BigDecimal totalInvested;
 
-	private double totalCollected;
+	@Column(precision = 12, scale = 2)
+	private BigDecimal totalCollected;
 
-	private double netProfit;
+	@Column(precision = 12, scale = 2)
+	private BigDecimal netProfit;
 
 }

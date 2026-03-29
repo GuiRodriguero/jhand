@@ -8,6 +8,8 @@ import org.instancio.Instancio;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
+
 import static com.gui.jhand.action.ActionType.COLLECTED_POT;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
@@ -37,17 +39,17 @@ class CollectedHandlerTest {
 		action = ActionTemplateLoader.validGui();
 		state = HandStateTemplateLoader.validGui();
 
-		double collectedBeforeHandle = state.getTotalCollected();
+		BigDecimal collectedBeforeHandle = state.getTotalCollected();
 
 		assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
-		assertThat(state.getTotalCollected()).isEqualTo(collectedBeforeHandle + action.getAmount());
+		assertThat(state.getTotalCollected()).isEqualTo(collectedBeforeHandle.add(action.getAmount()));
 	}
 
 	@Test
 	void should_not_handle_when_player_is_different() {
 		state = HandStateTemplateLoader.validHeroDifferentFromAction(action.getPlayerName());
 
-		double collectedBeforeHandle = state.getTotalCollected();
+		BigDecimal collectedBeforeHandle = state.getTotalCollected();
 
 		assertThatCode(() -> handler.handle(action, state)).doesNotThrowAnyException();
 		assertThat(state.getTotalCollected()).isEqualTo(collectedBeforeHandle);
