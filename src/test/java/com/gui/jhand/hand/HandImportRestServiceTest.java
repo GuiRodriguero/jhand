@@ -29,11 +29,13 @@ class HandImportRestServiceTest {
 				validWonWithShowdown().getBytes());
 
 		String heroName = "GuiRodri2013";
+		String originalFilename = fakeFile.getOriginalFilename();
+		String fileName = originalFilename.substring(originalFilename.lastIndexOf("/") + 1);
 
 		mockMvc.perform(multipart("/v1/hands/import/batch").file(fakeFile).param("heroName", heroName))
 			.andExpect(status().isNoContent());
 
-		verify(importService).saveAllHandResultsFromFile(anyString(), eq(heroName));
+		verify(importService).saveAllHandResultsFromFile(anyString(), eq(fileName), eq(heroName));
 	}
 
 }
