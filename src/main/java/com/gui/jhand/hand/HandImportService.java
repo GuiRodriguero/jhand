@@ -20,7 +20,7 @@ class HandImportService {
 
 	private final PokerStarsParser parser = new PokerStarsParser();
 
-	public void saveAllHandResultsFromFile(String fileContent, String heroName) {
+	public void saveAllHandResultsFromFile(String fileContent, String fileName, String heroName) {
 		String[] rawHands = fileContent.split("(\\r?\\n){2,}");
 
 		List<HandResult> processedHands = new ArrayList<>();
@@ -31,7 +31,7 @@ class HandImportService {
 			}
 
 			List<Action> actions = parser.parse(rawHand);
-			HandResult result = builder.build(actions, heroName);
+			HandResult result = builder.build(actions, fileName, heroName);
 
 			processedHands.add(result);
 		}

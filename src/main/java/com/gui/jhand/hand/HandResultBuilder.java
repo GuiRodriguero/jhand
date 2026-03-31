@@ -16,8 +16,8 @@ class HandResultBuilder {
 
 	private final ActionHandlerRegistry handlers;
 
-	HandResult build(List<Action> actions, String heroName) {
-		HandState state = new HandState(heroName);
+	HandResult build(List<Action> actions, String fileName, String heroName) {
+		HandState state = new HandState(heroName, fileName);
 
 		for (Action action : actions) {
 			if (action.getStreet() != state.getCurrentStreet()) {
@@ -32,6 +32,7 @@ class HandResultBuilder {
 
 		return HandResult.builder()
 			.handId(state.getHandId())
+			.sessionId(state.getSessionId())
 			.time(state.getTime())
 			.heroCards(state.getHeroCards())
 			.position(resolvePosition(state))

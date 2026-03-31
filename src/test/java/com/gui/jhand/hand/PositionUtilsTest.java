@@ -12,7 +12,7 @@ class PositionUtilsTest {
 
 	@BeforeEach
 	void setUp() {
-		state = new HandState("hero");
+		state = new HandState("hero", "My Session");
 		state.setHeroSummaryLine("GuiRodri2013 folded before Flop (didn't bet)");
 	}
 

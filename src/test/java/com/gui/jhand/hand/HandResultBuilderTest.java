@@ -39,10 +39,11 @@ class HandResultBuilderTest {
 		String hand = HandTemplateLoader.validWonWithShowdown();
 		actions = parser.parse(hand);
 
-		HandResult expected = HandResult.of("259827261990", Instant.ofEpochSecond(1771774381), "Qd Jh", UTG,
-				ChipsUtils.of(800.0), true, true, ChipsUtils.of(970.0), ChipsUtils.of(2490.0), ChipsUtils.of(1520.0));
+		HandResult expected = HandResult.of("259827261990", "My Session", Instant.ofEpochSecond(1771774381), "Qd Jh",
+				UTG, ChipsUtils.of(800.0), true, true, ChipsUtils.of(970.0), ChipsUtils.of(2490.0),
+				ChipsUtils.of(1520.0));
 
-		assertThat(builder.build(actions, "GuiRodri2013")).isEqualTo(expected);
+		assertThat(builder.build(actions, "My Session", "GuiRodri2013")).isEqualTo(expected);
 	}
 
 	@Test
@@ -50,10 +51,10 @@ class HandResultBuilderTest {
 		String hand = HandTemplateLoader.validLostWithShowdown();
 		actions = parser.parse(hand);
 
-		HandResult expected = HandResult.of("259827220105", Instant.ofEpochSecond(1771774150), "2h Ac", MP,
-				ChipsUtils.of(600.0), true, true, ChipsUtils.of(2555.0), ZERO, ChipsUtils.of(-2555.0));
+		HandResult expected = HandResult.of("259827220105", "My Session", Instant.ofEpochSecond(1771774150), "2h Ac",
+				MP, ChipsUtils.of(600.0), true, true, ChipsUtils.of(2555.0), ZERO, ChipsUtils.of(-2555.0));
 
-		assertThat(builder.build(actions, "GuiRodri2013")).isEqualTo(expected);
+		assertThat(builder.build(actions, "My Session", "GuiRodri2013")).isEqualTo(expected);
 	}
 
 	@Test
@@ -61,11 +62,11 @@ class HandResultBuilderTest {
 		String hand = HandTemplateLoader.validWonWithoutShowdown();
 		actions = parser.parse(hand);
 
-		HandResult expected = HandResult.of("259827317520", Instant.ofEpochSecond(1771774682), "3d 8c", BB,
-				ChipsUtils.of(1200.0), false, false, ChipsUtils.of(1275.0), ChipsUtils.of(2550.0),
+		HandResult expected = HandResult.of("259827317520", "My Session", Instant.ofEpochSecond(1771774682), "3d 8c",
+				BB, ChipsUtils.of(1200.0), false, false, ChipsUtils.of(1275.0), ChipsUtils.of(2550.0),
 				ChipsUtils.of(1275.0));
 
-		assertThat(builder.build(actions, "GuiRodri2013")).isEqualTo(expected);
+		assertThat(builder.build(actions, "My Session", "GuiRodri2013")).isEqualTo(expected);
 	}
 
 	@Test
@@ -73,10 +74,11 @@ class HandResultBuilderTest {
 		String hand = HandTemplateLoader.validWithSidePot();
 		actions = parser.parse(hand);
 
-		HandResult expected = HandResult.of("259859276702", Instant.ofEpochSecond(1771975039), "Ad Ac", UTG,
-				ChipsUtils.of(20.0), true, true, ChipsUtils.of(1494.0), ChipsUtils.of(2263.0), ChipsUtils.of(769.0));
+		HandResult expected = HandResult.of("259859276702", "My Session", Instant.ofEpochSecond(1771975039), "Ad Ac",
+				UTG, ChipsUtils.of(20.0), true, true, ChipsUtils.of(1494.0), ChipsUtils.of(2263.0),
+				ChipsUtils.of(769.0));
 
-		assertThat(builder.build(actions, "GuiRodri2013")).isEqualTo(expected);
+		assertThat(builder.build(actions, "My Session", "GuiRodri2013")).isEqualTo(expected);
 	}
 
 	@Test
@@ -84,52 +86,53 @@ class HandResultBuilderTest {
 		String hand = HandTemplateLoader.validWithSidePotAndMultipleWinners();
 		actions = parser.parse(hand);
 
-		HandResult expected = HandResult.of("259859212603", Instant.ofEpochSecond(1771974739), "Jc Qc", SB,
-				ChipsUtils.of(50.0), true, false, ChipsUtils.of(950.0), ChipsUtils.of(2850.0), ChipsUtils.of(1900.0));
+		HandResult expected = HandResult.of("259859212603", "My Session", Instant.ofEpochSecond(1771974739), "Jc Qc",
+				SB, ChipsUtils.of(50.0), true, false, ChipsUtils.of(950.0), ChipsUtils.of(2850.0),
+				ChipsUtils.of(1900.0));
 
-		assertThat(builder.build(actions, "GuiRodri2013")).isEqualTo(expected);
+		assertThat(builder.build(actions, "My Session", "GuiRodri2013")).isEqualTo(expected);
 	}
 
 	@Test
 	void should_build_with_btn_position() {
 		actions = parser.parse(heroAtBtn());
 
-		assertThat(builder.build(actions, "GuiRodri2013").getPosition()).isEqualTo(BTN);
+		assertThat(builder.build(actions, "My Session", "GuiRodri2013").getPosition()).isEqualTo(BTN);
 	}
 
 	@Test
 	void should_build_with_sb_position() {
 		actions = parser.parse(heroAtSB());
 
-		assertThat(builder.build(actions, "GuiRodri2013").getPosition()).isEqualTo(SB);
+		assertThat(builder.build(actions, "My Session", "GuiRodri2013").getPosition()).isEqualTo(SB);
 	}
 
 	@Test
 	void should_build_with_bb_position() {
 		actions = parser.parse(heroAtBB());
 
-		assertThat(builder.build(actions, "GuiRodri2013").getPosition()).isEqualTo(BB);
+		assertThat(builder.build(actions, "My Session", "GuiRodri2013").getPosition()).isEqualTo(BB);
 	}
 
 	@Test
 	void should_build_with_utg_position() {
 		actions = parser.parse(heroAtUTG());
 
-		assertThat(builder.build(actions, "GuiRodri2013").getPosition()).isEqualTo(UTG);
+		assertThat(builder.build(actions, "My Session", "GuiRodri2013").getPosition()).isEqualTo(UTG);
 	}
 
 	@Test
 	void should_build_with_mp_position() {
 		actions = parser.parse(heroAtMP());
 
-		assertThat(builder.build(actions, "GuiRodri2013").getPosition()).isEqualTo(MP);
+		assertThat(builder.build(actions, "My Session", "GuiRodri2013").getPosition()).isEqualTo(MP);
 	}
 
 	@Test
 	void should_build_with_co_position() {
 		actions = parser.parse(heroAtCO());
 
-		assertThat(builder.build(actions, "GuiRodri2013").getPosition()).isEqualTo(CO);
+		assertThat(builder.build(actions, "My Session", "GuiRodri2013").getPosition()).isEqualTo(CO);
 	}
 
 }

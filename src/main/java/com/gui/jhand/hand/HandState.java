@@ -16,6 +16,8 @@ public class HandState {
 
 	private String handId;
 
+	private String sessionId;
+
 	private Instant time;
 
 	private String heroCards;
@@ -42,8 +44,9 @@ public class HandState {
 
 	private ActionStreet currentStreet = PRE_FLOP;
 
-	public HandState(String heroName) {
+	public HandState(String heroName, String sessionId) {
 		this.heroName = heroName;
+		this.sessionId = sessionId;
 	}
 
 	public void updateCurrentStreet(ActionStreet street) {

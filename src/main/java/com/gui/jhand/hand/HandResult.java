@@ -22,6 +22,8 @@ class HandResult {
 	@Id
 	private String handId;
 
+	private String sessionId;
+
 	private Instant time;
 
 	private String heroCards;

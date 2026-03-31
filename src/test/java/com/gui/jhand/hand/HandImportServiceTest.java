@@ -29,12 +29,13 @@ class HandImportServiceTest extends TestBase {
 
 	@Test
 	void should_save_all_hand_results_from_file() {
-		when(builder.build(anyList(), anyString())).thenReturn(valid(HandResult.class));
+		when(builder.build(anyList(), anyString(), anyString())).thenReturn(valid(HandResult.class));
 
-		assertThatCode(() -> service.saveAllHandResultsFromFile(rawHands, "GuiRodri2013")).doesNotThrowAnyException();
+		assertThatCode(() -> service.saveAllHandResultsFromFile(rawHands, "My Session", "GuiRodri2013"))
+			.doesNotThrowAnyException();
 
 		InOrder inOrder = inOrder(builder, repository);
-		inOrder.verify(builder, times(2)).build(anyList(), eq("GuiRodri2013"));
+		inOrder.verify(builder, times(2)).build(anyList(), eq("My Session"), eq("GuiRodri2013"));
 		inOrder.verify(repository).saveAll(anyList());
 		inOrder.verifyNoMoreInteractions();
 	}

@@ -28,7 +28,10 @@ public class HandImportRestService {
 				continue;
 			}
 
-			importService.saveAllHandResultsFromFile(new String(file.getBytes(), UTF_8), heroName);
+			String originalFilename = file.getOriginalFilename();
+			String fileName = originalFilename.substring(originalFilename.lastIndexOf("/") + 1);
+
+			importService.saveAllHandResultsFromFile(new String(file.getBytes(), UTF_8), fileName, heroName);
 		}
 
 		return noContent().build();
