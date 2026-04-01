@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.springframework.http.ResponseEntity.noContent;
@@ -22,17 +23,20 @@ public class HandImportRestService {
 
 	@PostMapping("/import/batch")
 	public ResponseEntity<?> importHandHistories(@RequestParam("files") MultipartFile[] files,
-			@RequestParam("heroName") String heroName) throws IOException {
-		for (MultipartFile file : files) {
-			if (file.isEmpty()) {
-				continue;
-			}
+			@RequestParam("heroName") String heroName) {
+
+		Arrays.stream(files).parallel().filter(file -> !file.isEmpty()).forEach(file -> {
 
 			String originalFilename = file.getOriginalFilename();
 			String fileName = originalFilename.substring(originalFilename.lastIndexOf("/") + 1);
 
-			importService.saveAllHandResultsFromFile(new String(file.getBytes(), UTF_8), fileName, heroName);
-		}
+			try {
+				importService.saveAllHandResultsFromFile(new String(file.getBytes(), UTF_8), fileName, heroName);
+			}
+			catch (IOException e) {
+				throw new RuntimeException("Error getting file content: ", e);
+			}
+		});
 
 		return noContent().build();
 	}
