@@ -307,4 +307,14 @@ class PokerStarsParserTest {
 				"GuiRodri2013", "folded before Flop (didn't bet)", ZERO, line));
 	}
 
+	@Test
+	void should_parse_hand_rank() {
+		String line = "Seat 3: GuiRodri2013 (big blind) showed [6s 4h] and won with a pair of Sixes";
+
+		assertThat(parser.parse(line)).containsExactly(
+				Action.of(SEAT_HAND_RESULT, context.getCurrentStreet(), "GuiRodri2013", "showed [6s 4h] and won", ZERO,
+						line),
+				Action.of(HAND_RANK, context.getCurrentStreet(), "GuiRodri2013", "pair of Sixes", ZERO, line));
+	}
+
 }

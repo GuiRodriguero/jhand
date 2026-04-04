@@ -104,8 +104,24 @@ class PokerStarsParsingRuleFactory {
 		rules.add(new ParsingRule(Pattern.compile("^Board \\[(.*?)]"),
 				(m, ctx, line) -> List.of(Action.of(BOARD, ctx.getCurrentStreet(), null, m.group(1), ZERO, line))));
 
-		rules.add(new ParsingRule(Pattern.compile("^Seat (\\d+): (.*?) (?:\\((.*?)\\) )?(.*)"), (m, ctx, line) -> List
-			.of(Action.of(SEAT_HAND_RESULT, ctx.getCurrentStreet(), m.group(2), m.group(4), ZERO, line))));
+		rules.add(new ParsingRule(Pattern.compile("^Seat (\\d+): (.*?) (?:\\((.*?)\\) )?(.*?)(?: with (?:a )?(.*))?$"),
+				(m, ctx, line) -> {
+					List<Action> actions = new ArrayList<>();
+
+					String playerName = m.group(2);
+					String resultDescription = m.group(4);
+
+					actions.add(Action.of(SEAT_HAND_RESULT, ctx.getCurrentStreet(), playerName,
+							resultDescription.trim(), ZERO, line));
+
+					String handRankText = m.group(5);
+					if (handRankText != null && !handRankText.isBlank()) {
+						actions.add(Action.of(HAND_RANK, ctx.getCurrentStreet(), playerName, handRankText.trim(), ZERO,
+								line));
+					}
+
+					return actions;
+				}));
 
 		return rules;
 	}
