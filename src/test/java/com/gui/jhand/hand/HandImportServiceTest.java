@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 import org.mockito.Mock;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
@@ -37,6 +39,20 @@ class HandImportServiceTest extends TestBase {
 		InOrder inOrder = inOrder(builder, repository);
 		inOrder.verify(builder, times(2)).build(anyList(), eq("My Session"), eq("GuiRodri2013"));
 		inOrder.verify(repository).saveAll(anyList());
+		inOrder.verifyNoMoreInteractions();
+	}
+
+	@Test
+	void should_do_nothing_if_no_hands_in_file() {
+		rawHands = "";
+		when(builder.build(anyList(), anyString(), anyString())).thenReturn(valid(HandResult.class));
+
+		assertThatCode(() -> service.saveAllHandResultsFromFile(rawHands, "My Session", "GuiRodri2013"))
+			.doesNotThrowAnyException();
+
+		InOrder inOrder = inOrder(builder, repository);
+		inOrder.verify(builder, never()).build(anyList(), any(), any());
+		inOrder.verify(repository).saveAll(List.of());
 		inOrder.verifyNoMoreInteractions();
 	}
 
