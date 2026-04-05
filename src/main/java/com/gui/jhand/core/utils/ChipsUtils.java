@@ -4,15 +4,12 @@ import java.math.BigDecimal;
 
 import static java.math.BigDecimal.ZERO;
 import static java.math.RoundingMode.HALF_UP;
+import static org.springframework.util.StringUtils.hasText;
 
 public class ChipsUtils {
 
 	public static BigDecimal of(String amount) {
-		if (amount == null || amount.isBlank()) {
-			return ZERO.setScale(2, HALF_UP);
-		}
-
-		return new BigDecimal(amount).setScale(2, HALF_UP);
+		return hasText(amount) ? new BigDecimal(amount).setScale(2, HALF_UP) : ZERO.setScale(2, HALF_UP);
 	}
 
 	public static BigDecimal of(double amount) {
