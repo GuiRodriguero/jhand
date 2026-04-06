@@ -1,5 +1,6 @@
 package com.gui.jhand.hand;
 
+import com.gui.jhand.core.poker.HandRank;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -46,5 +47,8 @@ class HandResult {
 
 	@Column(precision = 12, scale = 2)
 	private BigDecimal netProfit;
+
+	@Enumerated(value = STRING)
+	private HandRank handRank;
 
 }
