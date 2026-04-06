@@ -1,6 +1,7 @@
 package com.gui.jhand.hand;
 
 import com.gui.jhand.action.ActionStreet;
+import com.gui.jhand.core.poker.HandRank;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -43,6 +44,8 @@ public class HandState {
 	private String heroSummaryLine;
 
 	private ActionStreet currentStreet = PRE_FLOP;
+
+	private HandRank handRank;
 
 	public HandState(String heroName, String sessionId) {
 		this.heroName = heroName;
