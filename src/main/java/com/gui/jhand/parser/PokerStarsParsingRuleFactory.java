@@ -12,6 +12,7 @@ import static com.gui.jhand.action.ActionStreet.*;
 import static com.gui.jhand.action.ActionType.*;
 import static java.math.BigDecimal.ZERO;
 import static lombok.AccessLevel.PRIVATE;
+import static org.springframework.util.StringUtils.hasText;
 
 @NoArgsConstructor(access = PRIVATE)
 class PokerStarsParsingRuleFactory {
@@ -115,7 +116,7 @@ class PokerStarsParsingRuleFactory {
 							resultDescription.trim(), ZERO, line));
 
 					String handRankText = m.group(5);
-					if (handRankText != null && !handRankText.isBlank()) {
+					if (hasText(handRankText)) {
 						actions.add(Action.of(HAND_RANK, ctx.getCurrentStreet(), playerName, handRankText.trim(), ZERO,
 								line));
 					}
