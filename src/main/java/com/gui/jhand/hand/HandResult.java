@@ -1,6 +1,7 @@
 package com.gui.jhand.hand;
 
 import com.gui.jhand.core.poker.HandRank;
+import com.gui.jhand.core.poker.StartingHand;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,7 +28,8 @@ class HandResult {
 
 	private Instant time;
 
-	private String heroCards;
+	@Convert(converter = StartingHandConverter.class)
+	private StartingHand heroCards;
 
 	@Enumerated(value = STRING)
 	private Position position;

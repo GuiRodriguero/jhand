@@ -55,6 +55,15 @@ public class ActionTemplateLoader {
 			.create();
 	}
 
+	public static Action validGuiDealtToHero() {
+		return Instancio.of(Action.class)
+			.set(field(Action::getPlayerName), "GuiRodri2013")
+			.set(field(Action::getType), DEALT_TO_HERO)
+			.set(field(Action::getRawLine), "Dealt to GuiRodri2013 [Ah Qc]")
+			.set(field(Action::getMainInformation), "Ah Qc")
+			.create();
+	}
+
 	public static Action validNow() {
 		return Instancio.of(Action.class).set(field(Action::getMainInformation), "2026/02/24 18:11:16").create();
 	}

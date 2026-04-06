@@ -2,6 +2,7 @@ package com.gui.jhand.hand;
 
 import com.gui.jhand.action.ActionStreet;
 import com.gui.jhand.core.poker.HandRank;
+import com.gui.jhand.core.poker.StartingHand;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -21,7 +22,7 @@ public class HandState {
 
 	private Instant time;
 
-	private String heroCards;
+	private StartingHand heroCards;
 
 	private BigDecimal blindValue = ZERO;
 
