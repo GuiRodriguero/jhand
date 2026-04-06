@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 import static com.gui.jhand.action.ActionType.DEALT_TO_HERO;
+import static com.gui.jhand.core.poker.StartingHand.fromHandHistory;
 
 @Component
 @EqualsAndHashCode
@@ -22,7 +23,7 @@ public class DealtToHeroHandler implements ActionHandler {
 	@Override
 	public void handle(Action action, HandState state) {
 		if (state.getHeroName().equals(action.getPlayerName())) {
-			state.setHeroCards(action.getMainInformation());
+			state.setHeroCards(fromHandHistory(action.getMainInformation()));
 		}
 	}
 
