@@ -13,4 +13,9 @@ class CardTest {
 		assertThat(Card.fromHandHistory("As")).isEqualTo(new Card(ACE, SPADES));
 	}
 
+	@Test
+	void should_convert_to_string() {
+		assertThat(new Card(ACE, SPADES).toString()).isEqualTo(ACE.getSymbol().concat(SPADES.getSymbol()));
+	}
+
 }

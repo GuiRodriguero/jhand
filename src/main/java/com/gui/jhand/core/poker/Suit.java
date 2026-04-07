@@ -1,11 +1,13 @@
 package com.gui.jhand.core.poker;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 import java.util.Arrays;
 
 import static lombok.AccessLevel.PRIVATE;
 
+@Getter
 @AllArgsConstructor(access = PRIVATE)
 enum Suit {
 
