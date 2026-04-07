@@ -1,5 +1,6 @@
 package com.gui.jhand.hand;
 
+import com.gui.jhand.core.poker.Board;
 import com.gui.jhand.core.poker.HandRank;
 import com.gui.jhand.core.poker.StartingHand;
 import jakarta.persistence.*;
@@ -52,5 +53,8 @@ class HandResult {
 
 	@Enumerated(value = STRING)
 	private HandRank handRank;
+
+	@Convert(converter = BoardConverter.class)
+	private Board board;
 
 }

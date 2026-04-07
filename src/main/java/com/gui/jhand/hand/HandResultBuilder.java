@@ -43,6 +43,7 @@ class HandResultBuilder {
 			.totalCollected(state.getTotalCollected())
 			.netProfit(state.getNetProfit())
 			.handRank(state.getHandRank())
+			.board(state.getBoard())
 			.build();
 	}
 

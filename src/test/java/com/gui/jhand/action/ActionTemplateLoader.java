@@ -11,6 +11,10 @@ public class ActionTemplateLoader {
 		return Instancio.of(Action.class).set(field(Action::getPlayerName), "GuiRodri2013").create();
 	}
 
+	public static Action validBoard() {
+		return Instancio.of(Action.class).set(field(Action::getMainInformation), "Th Jh Qh Kh Ah").create();
+	}
+
 	public static Action validGuiCall() {
 		return Instancio.of(Action.class)
 			.set(field(Action::getPlayerName), "GuiRodri2013")

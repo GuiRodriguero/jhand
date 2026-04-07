@@ -2,6 +2,8 @@ package com.gui.jhand.hand;
 
 import com.gui.jhand.action.Action;
 import com.gui.jhand.action.handler.*;
+import com.gui.jhand.core.poker.Board;
+import com.gui.jhand.core.poker.Card;
 import com.gui.jhand.core.utils.ChipsUtils;
 import com.gui.jhand.parser.PokerStarsParser;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,7 +33,7 @@ class HandResultBuilderTest {
 
 		List<ActionHandler> handlers = List.of(new HeaderHandler(), new RaiseHandler(), new CollectedHandler(),
 				new DealtToHeroHandler(), new UncalledBetHandler(), new PostAnteHandler(), new SeatSummaryHandler(),
-				new InvestmentHandler(), new TimeHandler(), new HandRankHandler());
+				new InvestmentHandler(), new TimeHandler(), new HandRankHandler(), new BoardHandler());
 
 		builder = new HandResultBuilder(new ActionHandlerRegistry(handlers));
 	}
@@ -43,7 +45,9 @@ class HandResultBuilderTest {
 
 		HandResult expected = HandResult.of("259827261990", "My Session", Instant.ofEpochSecond(1771774381),
 				fromHandHistory("Qd Jh"), UTG, ChipsUtils.of(800.0), true, true, ChipsUtils.of(970.0),
-				ChipsUtils.of(2490.0), ChipsUtils.of(1520.0), PAIR);
+				ChipsUtils.of(2490.0), ChipsUtils.of(1520.0), PAIR,
+				new Board(Card.fromHandHistory("Jc"), Card.fromHandHistory("6c"), Card.fromHandHistory("2c"),
+						Card.fromHandHistory("8s"), Card.fromHandHistory("As")));
 
 		assertThat(builder.build(actions, "My Session", "GuiRodri2013")).isEqualTo(expected);
 	}
@@ -55,7 +59,8 @@ class HandResultBuilderTest {
 
 		HandResult expected = HandResult.of("259827220105", "My Session", Instant.ofEpochSecond(1771774150),
 				fromHandHistory("2h Ac"), MP, ChipsUtils.of(600.0), true, true, ChipsUtils.of(2555.0), ZERO,
-				ChipsUtils.of(-2555.0), TWO_PAIR);
+				ChipsUtils.of(-2555.0), TWO_PAIR, new Board(Card.fromHandHistory("Qs"), Card.fromHandHistory("Jd"),
+						Card.fromHandHistory("9c"), Card.fromHandHistory("6h"), Card.fromHandHistory("9h")));
 
 		assertThat(builder.build(actions, "My Session", "GuiRodri2013")).isEqualTo(expected);
 	}
@@ -67,7 +72,8 @@ class HandResultBuilderTest {
 
 		HandResult expected = HandResult.of("259827317520", "My Session", Instant.ofEpochSecond(1771774682),
 				fromHandHistory("3d 8c"), BB, ChipsUtils.of(1200.0), false, false, ChipsUtils.of(1275.0),
-				ChipsUtils.of(2550.0), ChipsUtils.of(1275.0), null);
+				ChipsUtils.of(2550.0), ChipsUtils.of(1275.0), null,
+				new Board(Card.fromHandHistory("8d"), Card.fromHandHistory("Qd"), Card.fromHandHistory("8h")));
 
 		assertThat(builder.build(actions, "My Session", "GuiRodri2013")).isEqualTo(expected);
 	}
@@ -79,7 +85,9 @@ class HandResultBuilderTest {
 
 		HandResult expected = HandResult.of("259859276702", "My Session", Instant.ofEpochSecond(1771975039),
 				fromHandHistory("Ad Ac"), UTG, ChipsUtils.of(20.0), true, true, ChipsUtils.of(1494.0),
-				ChipsUtils.of(2263.0), ChipsUtils.of(769.0), HIGH_CARD);
+				ChipsUtils.of(2263.0), ChipsUtils.of(769.0), HIGH_CARD,
+				new Board(Card.fromHandHistory("Td"), Card.fromHandHistory("7d"), Card.fromHandHistory("9d"),
+						Card.fromHandHistory("2c"), Card.fromHandHistory("3h")));
 
 		assertThat(builder.build(actions, "My Session", "GuiRodri2013")).isEqualTo(expected);
 	}
@@ -91,7 +99,9 @@ class HandResultBuilderTest {
 
 		HandResult expected = HandResult.of("259859212603", "My Session", Instant.ofEpochSecond(1771974739),
 				fromHandHistory("Jc Qc"), SB, ChipsUtils.of(50.0), true, false, ChipsUtils.of(950.0),
-				ChipsUtils.of(2850.0), ChipsUtils.of(1900.0), HIGH_CARD);
+				ChipsUtils.of(2850.0), ChipsUtils.of(1900.0), HIGH_CARD,
+				new Board(Card.fromHandHistory("3d"), Card.fromHandHistory("2c"), Card.fromHandHistory("As"),
+						Card.fromHandHistory("Kh"), Card.fromHandHistory("Th")));
 
 		assertThat(builder.build(actions, "My Session", "GuiRodri2013")).isEqualTo(expected);
 	}
