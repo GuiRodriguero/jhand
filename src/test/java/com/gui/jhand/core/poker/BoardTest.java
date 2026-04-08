@@ -34,4 +34,9 @@ class BoardTest {
 		assertThat(new Board()).isEqualTo(new Board());
 	}
 
+	@Test
+	void should_check_if_object_is_equal_when_object_is_null() {
+		assertThat(new Board()).isNotEqualTo(null);
+	}
+
 }
