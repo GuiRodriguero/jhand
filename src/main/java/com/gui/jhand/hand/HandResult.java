@@ -20,7 +20,7 @@ import static lombok.AccessLevel.PRIVATE;
 @EqualsAndHashCode
 @NoArgsConstructor(access = PRIVATE)
 @AllArgsConstructor(staticName = "of", access = PACKAGE)
-class HandResult {
+public class HandResult {
 
 	@Id
 	private String handId;
