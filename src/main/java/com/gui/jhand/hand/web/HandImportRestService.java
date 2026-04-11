@@ -1,5 +1,6 @@
-package com.gui.jhand.hand;
+package com.gui.jhand.hand.web;
 
+import com.gui.jhand.hand.HandImportService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
