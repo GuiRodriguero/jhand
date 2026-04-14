@@ -11,17 +11,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class HandResultSummaryResponseTest {
 
-    private HandResult entity;
+	private HandResult entity;
 
-    @BeforeEach
-    void setUp() {
-        entity = valid(HandResult.class);
-    }
+	@BeforeEach
+	void setUp() {
+		entity = valid(HandResult.class);
+	}
 
-    @Test
-    void should_instantiate() {
-        assertThat(HandResultSummaryResponse.of(entity)).isEqualTo(new HandResultSummaryResponse(entity.getHandId(), entity.getSessionId(), entity.getHeroCards().toString(),
-                entity.getHandRank().name(), entity.getNetProfit(), ofInstant(entity.getTime(), systemDefault())));
-    }
+	@Test
+	void should_instantiate() {
+		assertThat(HandResultSummaryResponse.of(entity)).isEqualTo(new HandResultSummaryResponse(entity.getHandId(),
+				entity.getSessionId(), entity.getHeroCards().toString(), entity.getHandRank().name(),
+				entity.getNetProfit(), ofInstant(entity.getTime(), systemDefault())));
+	}
 
 }
