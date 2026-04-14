@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 @Transactional(rollbackOn = Exception.class)
-class HandImportService {
+public class HandImportService {
 
 	private final HandResultBuilder builder;
 

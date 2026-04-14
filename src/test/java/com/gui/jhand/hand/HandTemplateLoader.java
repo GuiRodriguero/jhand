@@ -1,8 +1,8 @@
 package com.gui.jhand.hand;
 
-class HandTemplateLoader {
+public class HandTemplateLoader {
 
-	static String heroAtBtn() {
+	public static String heroAtBtn() {
 		return """
 				PokerStars Hand #259859224424: Tournament #3978149677,  Hold'em No Limit - Level II (30/60) - 2026/02/24 20:13:13 BRT [2026/02/24 18:13:13 ET]
 				Table '3978149677 1' 4-max Seat #1 is the button
@@ -23,7 +23,7 @@ class HandTemplateLoader {
 				""";
 	}
 
-	static String heroAtSB() {
+	public static String heroAtSB() {
 		return """
 				PokerStars Hand #259859027059: Tournament #3978140632, 10625+10625+3750 Hold'em No Limit - Level VIII (75/150) - 2026/02/24 19:56:51 BRT [2026/02/24 17:56:51 ET]
 				Table '3978140632 1' 9-max Seat #1 is the button
@@ -67,7 +67,7 @@ class HandTemplateLoader {
 				""";
 	}
 
-	static String heroAtBB() {
+	public static String heroAtBB() {
 		return """
 				PokerStars Hand #259859225434: Tournament #3978149677,  Hold'em No Limit - Level II (30/60) - 2026/02/24 20:13:18 BRT [2026/02/24 18:13:18 ET]
 				Table '3978149677 1' 4-max Seat #2 is the button
@@ -99,7 +99,7 @@ class HandTemplateLoader {
 				""";
 	}
 
-	static String heroAtUTG() {
+	public static String heroAtUTG() {
 		return """
 				PokerStars Hand #259859019151: Tournament #3978140632, 10625+10625+3750 Hold'em No Limit - Level VIII (75/150) - 2026/02/24 19:56:01 BRT [2026/02/24 17:56:01 ET]
 				Table '3978140632 1' 9-max Seat #6 is the button
@@ -135,7 +135,7 @@ class HandTemplateLoader {
 				""";
 	}
 
-	static String heroAtMP() {
+	public static String heroAtMP() {
 		return """
 				PokerStars Hand #259858883233: Tournament #3978140632, 10625+10625+3750 Hold'em No Limit - Level II (15/30) - 2026/02/24 19:45:41 BRT [2026/02/24 17:45:41 ET]
 				Table '3978140632 1' 9-max Seat #4 is the button
@@ -202,7 +202,7 @@ class HandTemplateLoader {
 				""";
 	}
 
-	static String heroAtMPWith8Players() {
+	public static String heroAtMPWith8Players() {
 		return """
 				PokerStars Hand #259858920485: Tournament #3978140632, 10625+10625+3750 Hold'em No Limit - Level IV (30/60) - 2026/02/24 19:48:24 BRT [2026/02/24 17:48:24 ET]
 				Table '3978140632 1' 9-max Seat #6 is the button
@@ -257,7 +257,7 @@ class HandTemplateLoader {
 				""";
 	}
 
-	static String heroAtCO() {
+	public static String heroAtCO() {
 		return """
 				PokerStars Hand #259858866241: Tournament #3978140632, 10625+10625+3750 Hold'em No Limit - Level II (15/30) - 2026/02/24 19:44:27 BRT [2026/02/24 17:44:27 ET]
 				Table '3978140632 1' 9-max Seat #3 is the button
@@ -320,7 +320,7 @@ class HandTemplateLoader {
 				""";
 	}
 
-	static String validWonWithShowdown() {
+	public static String validWonWithShowdown() {
 		return """
 				PokerStars Hand #259827261990: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level X (400/800) - 2026/02/22 12:33:01 BRT [2026/02/22 10:33:01 ET]
 				Table '3977452675 1' 9-max Seat #7 is the button
@@ -363,7 +363,7 @@ class HandTemplateLoader {
 				""";
 	}
 
-	static String validLostWithShowdown() {
+	public static String validLostWithShowdown() {
 		return """
 				PokerStars Hand #259827220105: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level IX (300/600) - 2026/02/22 12:29:10 BRT [2026/02/22 10:29:10 ET]
 				Table '3977452675 1' 9-max Seat #6 is the button
@@ -409,7 +409,7 @@ class HandTemplateLoader {
 				""";
 	}
 
-	static String validWonWithoutShowdown() {
+	public static String validWonWithoutShowdown() {
 		return """
 				PokerStars Hand #259827317520: Tournament #3977452675, 21250+3750 Hold'em No Limit - Level XI (600/1200) - 2026/02/22 12:38:02 BRT [2026/02/22 10:38:02 ET]
 				Table '3977452675 1' 9-max Seat #7 is the button
@@ -437,7 +437,7 @@ class HandTemplateLoader {
 				""";
 	}
 
-	static String validWithSidePot() {
+	public static String validWithSidePot() {
 		return """
 				PokerStars Hand #259859276702: Tournament #3978149984, 21250+3750 Hold'em No Limit - Level I (10/20) - 2026/02/24 20:17:19 BRT [2026/02/24 18:17:19 ET]
 				Table '3978149984 4' 9-max Seat #4 is the button
@@ -498,7 +498,7 @@ class HandTemplateLoader {
 				""";
 	}
 
-	static String validWithSidePotAndMultipleWinners() {
+	public static String validWithSidePotAndMultipleWinners() {
 		return """
 				PokerStars Hand #259859212603: Tournament #3978149677,  Hold'em No Limit - Level I (25/50) - 2026/02/24 20:12:19 BRT [2026/02/24 18:12:19 ET]
 				Table '3978149677 1' 4-max Seat #4 is the button
