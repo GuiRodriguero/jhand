@@ -9,7 +9,7 @@ import static lombok.AccessLevel.PRIVATE;
 
 @Getter
 @AllArgsConstructor(access = PRIVATE)
-enum Suit {
+public enum Suit {
 
 	CLUBS("c"), DIAMONDS("d"), HEARTS("h"), SPADES("s");
 
