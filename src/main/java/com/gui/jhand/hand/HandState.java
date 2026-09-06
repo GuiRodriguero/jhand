@@ -53,7 +53,7 @@ public class HandState {
 
 	public HandState(String heroName, String sessionId) {
 		this.heroName = heroName;
-		this.sessionId = sessionId;
+		this.sessionId = sessionId.replaceFirst("\\.txt$", "");
 	}
 
 	public void updateCurrentStreet(ActionStreet street) {
