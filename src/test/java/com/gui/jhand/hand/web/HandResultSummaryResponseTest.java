@@ -20,9 +20,11 @@ class HandResultSummaryResponseTest {
 
 	@Test
 	void should_instantiate() {
-		assertThat(HandResultSummaryResponse.of(entity)).isEqualTo(new HandResultSummaryResponse(entity.getHandId(),
-				entity.getSessionId(), entity.getHeroCards().toString(), entity.getHandRank().name(),
-				entity.getNetProfit(), ofInstant(entity.getTime(), systemDefault())));
+		assertThat(HandResultSummaryResponse.of(entity))
+			.isEqualTo(new HandResultSummaryResponse(entity.getHandId(), entity.getSessionId(),
+					entity.getHeroCards().toString(), entity.getBoard() != null ? entity.getBoard().toString() : null,
+					entity.getHandRank() != null ? entity.getHandRank().name() : null, entity.getNetProfit(),
+					ofInstant(entity.getTime(), systemDefault())));
 	}
 
 }

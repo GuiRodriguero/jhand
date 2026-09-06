@@ -6,8 +6,7 @@ public enum Position {
 
 	BTN, SB, BB, CO, MP, UTG;
 
-	@Nullable
-	public static Position getExplicitPosition(String rawAction) {
+	@Nullable public static Position getExplicitPosition(String rawAction) {
 		if (rawAction.contains("(button)")) {
 			return BTN;
 		}
