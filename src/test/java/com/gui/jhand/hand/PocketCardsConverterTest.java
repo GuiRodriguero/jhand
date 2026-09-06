@@ -1,20 +1,20 @@
 package com.gui.jhand.hand;
 
 import com.gui.jhand.core.poker.Card;
-import com.gui.jhand.core.poker.StartingHand;
+import com.gui.jhand.core.poker.PocketCards;
 import org.junit.jupiter.api.Test;
 
 import static com.gui.jhand.core.poker.Rank.*;
 import static com.gui.jhand.core.poker.Suit.SPADES;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class StartingHandConverterTest {
+class PocketCardsConverterTest {
 
-	private final StartingHandConverter converter = new StartingHandConverter();
+	private final PocketCardsConverter converter = new PocketCardsConverter();
 
 	@Test
 	void should_convert_to_database_column() {
-		StartingHand hand = new StartingHand(new Card(ACE, SPADES), new Card(EIGHT, SPADES));
+		PocketCards hand = new PocketCards(new Card(ACE, SPADES), new Card(EIGHT, SPADES));
 
 		assertThat(converter.convertToDatabaseColumn(hand)).isEqualTo(hand.toString());
 	}
@@ -29,7 +29,7 @@ class StartingHandConverterTest {
 		String hand = "As Ks";
 
 		assertThat(converter.convertToEntityAttribute(hand))
-			.isEqualTo(new StartingHand(new Card(ACE, SPADES), new Card(KING, SPADES)));
+			.isEqualTo(new PocketCards(new Card(ACE, SPADES), new Card(KING, SPADES)));
 	}
 
 	@Test

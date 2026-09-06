@@ -1,19 +1,19 @@
 package com.gui.jhand.core.poker;
 
-public record StartingHand(Card card1, Card card2) {
+public record PocketCards(Card card1, Card card2) {
 
-	public static StartingHand fromHandHistory(String cards) {
+	public static PocketCards fromHandHistory(String cards) {
 		Card card = Card.fromHandHistory(cards.substring(0, 2));
 		Card card2 = Card.fromHandHistory(cards.substring(3, 5));
 
 		if (card.rank().getValue() >= card2.rank().getValue()) {
-			return new StartingHand(card, card2);
+			return new PocketCards(card, card2);
 		}
-		return new StartingHand(card2, card);
+		return new PocketCards(card2, card);
 	}
 
-	public static StartingHand fromDb(String cards) {
-		return new StartingHand(Card.fromHandHistory(cards.substring(0, 2)),
+	public static PocketCards fromDb(String cards) {
+		return new PocketCards(Card.fromHandHistory(cards.substring(0, 2)),
 				Card.fromHandHistory(cards.substring(3, 5)));
 	}
 

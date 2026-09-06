@@ -13,7 +13,7 @@ import java.time.Instant;
 import java.util.List;
 
 import static com.gui.jhand.core.poker.HandRank.*;
-import static com.gui.jhand.core.poker.StartingHand.fromHandHistory;
+import static com.gui.jhand.core.poker.PocketCards.fromHandHistory;
 import static com.gui.jhand.hand.HandTemplateLoader.*;
 import static com.gui.jhand.hand.Position.*;
 import static java.math.BigDecimal.ZERO;

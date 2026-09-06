@@ -2,19 +2,19 @@ package com.gui.jhand.core.poker;
 
 import org.junit.jupiter.api.Test;
 
+import static com.gui.jhand.core.poker.PocketCards.fromDb;
+import static com.gui.jhand.core.poker.PocketCards.fromHandHistory;
 import static com.gui.jhand.core.poker.Rank.*;
-import static com.gui.jhand.core.poker.StartingHand.fromDb;
-import static com.gui.jhand.core.poker.StartingHand.fromHandHistory;
 import static com.gui.jhand.core.poker.Suit.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class StartingHandTest {
+class PocketCardsTest {
 
-	private final StartingHand suitedHand = new StartingHand(new Card(ACE, SPADES), new Card(EIGHT, SPADES));
+	private final PocketCards suitedHand = new PocketCards(new Card(ACE, SPADES), new Card(EIGHT, SPADES));
 
-	private final StartingHand offsuitedHand = new StartingHand(new Card(SEVEN, SPADES), new Card(FOUR, CLUBS));
+	private final PocketCards offsuitedHand = new PocketCards(new Card(SEVEN, SPADES), new Card(FOUR, CLUBS));
 
-	private final StartingHand pocketPairHand = new StartingHand(new Card(ACE, HEARTS), new Card(ACE, DIAMONDS));
+	private final PocketCards pocketPairHand = new PocketCards(new Card(ACE, HEARTS), new Card(ACE, DIAMONDS));
 
 	@Test
 	void should_instantiate_from_hand_history_string_suited() {
@@ -33,7 +33,7 @@ class StartingHandTest {
 
 	@Test
 	void should_instantiate_from_db_string_with_suits() {
-		assertThat(fromDb("As Kh")).isEqualTo(new StartingHand(new Card(ACE, SPADES), new Card(KING, HEARTS)));
+		assertThat(fromDb("As Kh")).isEqualTo(new PocketCards(new Card(ACE, SPADES), new Card(KING, HEARTS)));
 	}
 
 	@Test
