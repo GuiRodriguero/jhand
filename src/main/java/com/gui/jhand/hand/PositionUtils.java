@@ -9,22 +9,20 @@ import static lombok.AccessLevel.PRIVATE;
 public class PositionUtils {
 
 	public static Position resolvePosition(HandState state) {
-		Position position = getExplicitPosition(state.getHeroSummaryLine());
-		if (position != null) {
-			return position;
-		}
+		return getExplicitPosition(state.getHeroSummaryLine()).orElseGet(() -> {
+			int count = state.getActivePlayersCount();
+			int distanceFromBtn = (state.getHeroIndex() - state.getBtnIndex() + count) % count;
 
-		int count = state.getActivePlayersCount();
-		int distanceFromBtn = (state.getHeroIndex() - state.getBtnIndex() + count) % count;
+			if (distanceFromBtn == 3) {
+				return UTG;
+			}
 
-		if (distanceFromBtn == 3) {
-			return UTG;
-		}
-		else if (distanceFromBtn == count - 1) {
-			return CO;
-		}
+			if (distanceFromBtn == count - 1) {
+				return CO;
+			}
 
-		return MP;
+			return MP;
+		});
 	}
 
 }

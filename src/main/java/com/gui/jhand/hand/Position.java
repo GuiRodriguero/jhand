@@ -1,23 +1,26 @@
 package com.gui.jhand.hand;
 
-import org.jspecify.annotations.Nullable;
+import java.util.Optional;
+
+import static java.util.Optional.empty;
+import static java.util.Optional.of;
 
 public enum Position {
 
 	BTN, SB, BB, CO, MP, UTG;
 
-	@Nullable public static Position getExplicitPosition(String rawAction) {
+	public static Optional<Position> getExplicitPosition(String rawAction) {
 		if (rawAction.contains("(button)")) {
-			return BTN;
+			return of(BTN);
 		}
 		if (rawAction.contains("(small blind)")) {
-			return SB;
+			return of(SB);
 		}
 		if (rawAction.contains("(big blind)")) {
-			return BB;
+			return of(BB);
 		}
 
-		return null;
+		return empty();
 	}
 
 }
