@@ -1,25 +1,29 @@
 package com.gui.jhand.core.poker;
 
-public record PocketCards(Card card1, Card card2) {
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public record PocketCards(List<Card> cards) {
+
+	public PocketCards {
+		cards = cards.stream()
+			.sorted(Comparator.comparing(Card::rank, Comparator.comparingInt(Rank::getValue).reversed()))
+			.toList();
+	}
 
 	public static PocketCards fromHandHistory(String cards) {
-		Card card = Card.fromHandHistory(cards.substring(0, 2));
-		Card card2 = Card.fromHandHistory(cards.substring(3, 5));
-
-		if (card.rank().getValue() >= card2.rank().getValue()) {
-			return new PocketCards(card, card2);
-		}
-		return new PocketCards(card2, card);
+		return new PocketCards(Arrays.stream(cards.split(" ")).map(Card::fromHandHistory).toList());
 	}
 
 	public static PocketCards fromDb(String cards) {
-		return new PocketCards(Card.fromHandHistory(cards.substring(0, 2)),
-				Card.fromHandHistory(cards.substring(3, 5)));
+		return fromHandHistory(cards);
 	}
 
 	@Override
 	public String toString() {
-		return card1.toString() + " " + card2.toString();
+		return cards.stream().map(Card::toString).collect(Collectors.joining(" "));
 	}
 
 }

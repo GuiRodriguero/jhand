@@ -4,6 +4,8 @@ import com.gui.jhand.core.poker.Card;
 import com.gui.jhand.core.poker.PocketCards;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static com.gui.jhand.core.poker.Rank.*;
 import static com.gui.jhand.core.poker.Suit.SPADES;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -14,7 +16,7 @@ class PocketCardsConverterTest {
 
 	@Test
 	void should_convert_to_database_column() {
-		PocketCards hand = new PocketCards(new Card(ACE, SPADES), new Card(EIGHT, SPADES));
+		PocketCards hand = new PocketCards(List.of(new Card(ACE, SPADES), new Card(EIGHT, SPADES)));
 
 		assertThat(converter.convertToDatabaseColumn(hand)).isEqualTo(hand.toString());
 	}
@@ -29,7 +31,7 @@ class PocketCardsConverterTest {
 		String hand = "As Ks";
 
 		assertThat(converter.convertToEntityAttribute(hand))
-			.isEqualTo(new PocketCards(new Card(ACE, SPADES), new Card(KING, SPADES)));
+			.isEqualTo(new PocketCards(List.of(new Card(ACE, SPADES), new Card(KING, SPADES))));
 	}
 
 	@Test
