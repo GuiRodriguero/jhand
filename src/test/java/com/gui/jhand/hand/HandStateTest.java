@@ -22,6 +22,11 @@ class HandStateTest {
 	}
 
 	@Test
+	void should_instantiate_with_file_extension() {
+		assertThat(new HandState("hero", "My Session.txt")).isEqualTo(new HandState("hero", "My Session"));
+	}
+
+	@Test
 	void should_update_current_street() {
 		HandState expected = new HandState("hero", "My Session");
 		expected.addCurrentStreetInvestment(ZERO);

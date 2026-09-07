@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 import static com.gui.jhand.action.ActionType.DEALT_TO_HERO;
-import static com.gui.jhand.core.poker.StartingHand.fromHandHistory;
+import static com.gui.jhand.core.poker.PocketCards.fromHandHistory;
 
 @Component
 public class DealtToHeroHandler implements ActionHandler {

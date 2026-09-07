@@ -6,6 +6,7 @@ import jakarta.persistence.criteria.Predicate;
 import org.springframework.data.jpa.domain.Specification;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.springframework.util.StringUtils.hasText;
@@ -25,7 +26,8 @@ class HandResultSpecification {
 			}
 
 			if (hasText(filter.heroCards())) {
-				predicates.add(cb.equal(root.get("heroCards"), filter.heroCards()));
+				Arrays.stream(filter.heroCards().trim().split("\\s+"))
+					.forEach(card -> predicates.add(cb.like(root.get("heroCards").as(String.class), "%" + card + "%")));
 			}
 
 			if (hasText(filter.handRank())) {

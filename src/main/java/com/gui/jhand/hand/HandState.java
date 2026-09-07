@@ -3,7 +3,7 @@ package com.gui.jhand.hand;
 import com.gui.jhand.action.ActionStreet;
 import com.gui.jhand.core.poker.Board;
 import com.gui.jhand.core.poker.HandRank;
-import com.gui.jhand.core.poker.StartingHand;
+import com.gui.jhand.core.poker.PocketCards;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -23,7 +23,7 @@ public class HandState {
 
 	private Instant time;
 
-	private StartingHand heroCards;
+	private PocketCards heroCards;
 
 	private BigDecimal blindValue = ZERO;
 
@@ -53,7 +53,7 @@ public class HandState {
 
 	public HandState(String heroName, String sessionId) {
 		this.heroName = heroName;
-		this.sessionId = sessionId;
+		this.sessionId = sessionId.replaceFirst("\\.txt$", "");
 	}
 
 	public void updateCurrentStreet(ActionStreet street) {
