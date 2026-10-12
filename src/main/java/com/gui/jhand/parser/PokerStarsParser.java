@@ -16,9 +16,9 @@ public class PokerStarsParser {
 		for (String line : rawHand.split("\\r?\\n")) {
 			line = removeByteOrderMark(line);
 			for (ParsingRule rule : rules) {
-				List<Action> action = rule.tryMatch(line, context);
-				if (!action.isEmpty()) {
-					actions.addAll(action);
+				List<Action> matchedActions = rule.tryMatch(line, context);
+				if (!matchedActions.isEmpty()) {
+					actions.addAll(matchedActions);
 					break;
 				}
 			}
