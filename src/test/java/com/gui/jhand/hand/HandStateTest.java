@@ -4,6 +4,7 @@ import com.gui.jhand.core.utils.ChipsUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static com.gui.jhand.pokersession.PokerSessionUtils.normalizeSessionId;
 import static java.math.BigDecimal.ZERO;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -22,8 +23,9 @@ class HandStateTest {
 	}
 
 	@Test
-	void should_instantiate_with_file_extension() {
-		assertThat(new HandState("hero", "My Session.txt")).isEqualTo(new HandState("hero", "My Session"));
+	void should_instantiate_normalizing_file_extension() {
+		String sessionId = "My Session.txt";
+		assertThat(new HandState("hero", sessionId)).isEqualTo(new HandState("hero", normalizeSessionId(sessionId)));
 	}
 
 	@Test
