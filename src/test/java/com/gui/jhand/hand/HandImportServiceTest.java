@@ -1,17 +1,19 @@
 package com.gui.jhand.hand;
 
 import com.gui.jhand.TestBase;
+import com.gui.jhand.pokersession.PokerSessionService;
 import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 import org.mockito.Mock;
 
-import java.util.List;
-
+import static java.math.BigDecimal.ZERO;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 class HandImportServiceTest extends TestBase {
+
+	private static final String FILE_NAME = "My Session";
 
 	@Mock
 	private HandResultBuilder builder;
@@ -19,13 +21,16 @@ class HandImportServiceTest extends TestBase {
 	@Mock
 	private HandResultRepository repository;
 
+	@Mock
+	private PokerSessionService pokerSessionService;
+
 	private HandImportService service;
 
 	private String rawHands;
 
 	@Override
 	public void init() {
-		service = new HandImportService(builder, repository);
+		service = new HandImportService(builder, repository, pokerSessionService);
 		rawHands = HandTemplateLoader.heroAtBtn().concat("\n\n\n").concat(HandTemplateLoader.heroAtSB());
 	}
 
@@ -33,12 +38,13 @@ class HandImportServiceTest extends TestBase {
 	void should_save_all_hand_results_from_file() {
 		when(builder.build(anyList(), anyString(), anyString())).thenReturn(valid(HandResult.class));
 
-		assertThatCode(() -> service.saveAllHandResultsFromFile(rawHands, "My Session", "GuiRodri2013"))
+		assertThatCode(() -> service.saveAllHandResultsFromFile(rawHands, FILE_NAME, "GuiRodri2013"))
 			.doesNotThrowAnyException();
 
-		InOrder inOrder = inOrder(builder, repository);
-		inOrder.verify(builder, times(2)).build(anyList(), eq("My Session"), eq("GuiRodri2013"));
+		InOrder inOrder = inOrder(builder, repository, pokerSessionService);
+		inOrder.verify(builder, times(2)).build(anyList(), eq(FILE_NAME), eq("GuiRodri2013"));
 		inOrder.verify(repository).saveAll(anyList());
+		inOrder.verify(pokerSessionService).create(FILE_NAME, ZERO);
 		inOrder.verifyNoMoreInteractions();
 	}
 
@@ -47,12 +53,13 @@ class HandImportServiceTest extends TestBase {
 		rawHands = "";
 		when(builder.build(anyList(), anyString(), anyString())).thenReturn(valid(HandResult.class));
 
-		assertThatCode(() -> service.saveAllHandResultsFromFile(rawHands, "My Session", "GuiRodri2013"))
+		assertThatCode(() -> service.saveAllHandResultsFromFile(rawHands, FILE_NAME, "GuiRodri2013"))
 			.doesNotThrowAnyException();
 
-		InOrder inOrder = inOrder(builder, repository);
+		InOrder inOrder = inOrder(builder, repository, pokerSessionService);
 		inOrder.verify(builder, never()).build(anyList(), any(), any());
-		inOrder.verify(repository).saveAll(List.of());
+		inOrder.verify(repository, never()).saveAll(anyList());
+		inOrder.verify(pokerSessionService, never()).create(any(), any());
 		inOrder.verifyNoMoreInteractions();
 	}
 
