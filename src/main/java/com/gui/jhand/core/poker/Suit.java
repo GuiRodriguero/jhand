@@ -11,9 +11,11 @@ import static lombok.AccessLevel.PRIVATE;
 @AllArgsConstructor(access = PRIVATE)
 public enum Suit {
 
-	CLUBS("c"), DIAMONDS("d"), HEARTS("h"), SPADES("s");
+	CLUBS("c", 1), DIAMONDS("d", 2), HEARTS("h", 4), SPADES("s", 8);
 
 	private final String symbol;
+
+	private final int value;
 
 	public static Suit fromSymbol(String symbol) {
 		return Arrays.stream(values())
