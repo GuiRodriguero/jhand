@@ -59,7 +59,7 @@ class HandEvaluatorUtilsTest extends TestBase {
 	}
 
 	@Test
-	void should_get_the_prime_representation_of_a_card() {
+	void should_get_the_prime_representation_of_all_cards() {
 		assertThat(getPrimeRepresentation(convertCard(new Card(TWO, SPADES)))).isEqualTo(2);
 		assertThat(getPrimeRepresentation(convertCard(new Card(THREE, SPADES)))).isEqualTo(3);
 		assertThat(getPrimeRepresentation(convertCard(new Card(FOUR, SPADES)))).isEqualTo(5);
@@ -73,7 +73,10 @@ class HandEvaluatorUtilsTest extends TestBase {
 		assertThat(getPrimeRepresentation(convertCard(new Card(QUEEN, SPADES)))).isEqualTo(31);
 		assertThat(getPrimeRepresentation(convertCard(new Card(KING, SPADES)))).isEqualTo(37);
 		assertThat(getPrimeRepresentation(convertCard(new Card(ACE, SPADES)))).isEqualTo(41);
+	}
 
+	@Test
+	void should_get_the_prime_representation_of_a_card() {
 		Card card = valid(Card.class);
 		int primeCard = convertCard(card) & 0xFF;
 		assertThat(getPrimeRepresentation(convertCard(card))).isEqualTo(primeCard);
