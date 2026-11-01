@@ -21,11 +21,39 @@ class HandEvaluator {
 			{ 0, 2, 4, 5, 6 }, { 0, 3, 4, 5, 6 }, { 1, 2, 3, 4, 5 }, { 1, 2, 3, 4, 6 }, { 1, 2, 3, 5, 6 },
 			{ 1, 2, 4, 5, 6 }, { 1, 3, 4, 5, 6 }, { 2, 3, 4, 5, 6 } };
 
-	public static int evalFiveCards(Card c1, Card c2, Card c3, Card c4, Card c5) {
-		return evalFiveCards(convertCard(c1), convertCard(c2), convertCard(c3), convertCard(c4), convertCard(c5));
+	private static final int[][] SIX_CARDS_COMBINATIONS = { { 0, 1, 2, 3, 4 }, { 0, 1, 2, 3, 5 }, { 0, 1, 2, 4, 5 },
+			{ 0, 1, 3, 4, 5 }, { 0, 2, 3, 4, 5 }, { 1, 2, 3, 4, 5 } };
+
+	public static HandEvaluationResult eval(Card[] cardsToEval) {
+		validate(cardsToEval);
+		int[] cards = convertCardsToInt(cardsToEval);
+
+		int score = switch (cards.length) {
+			case 5 -> evalFiveCards(cards[0], cards[1], cards[2], cards[3], cards[4]);
+			case 6 -> extractBestScoreFromCards(cards, SIX_CARDS_COMBINATIONS);
+			case 7 -> extractBestScoreFromCards(cards, SEVEN_CARDS_COMBINATIONS);
+			default -> throw new IllegalArgumentException("Unexpected length: " + cards.length);
+		};
+
+		return HandEvaluationResult.of(score);
 	}
 
-	public static int evalFiveCards(int c1, int c2, int c3, int c4, int c5) {
+	private static void validate(Card[] cards) {
+		if (cards == null || (cards.length != 5 && cards.length != 6 && cards.length != 7)) {
+			throw new IllegalArgumentException("Invalid number of cards to evaluate, should be either 5, 6 or 7");
+		}
+	}
+
+	private static int[] convertCardsToInt(Card[] cardsToEval) {
+		int numberOfCards = cardsToEval.length;
+		int[] cards = new int[numberOfCards];
+		for (int i = 0; i < numberOfCards; i++) {
+			cards[i] = convertCard(cardsToEval[i]);
+		}
+		return cards;
+	}
+
+	private static int evalFiveCards(int c1, int c2, int c3, int c4, int c5) {
 		int q = (c1 | c2 | c3 | c4 | c5) >>> 16;
 
 		if (allSuitsAreEqual(c1, c2, c3, c4, c5)) {
@@ -42,37 +70,7 @@ class HandEvaluator {
 		return find(product);
 	}
 
-	public static int evalSevenCards(Card[] sevenCards) {
-		if (sevenCards == null || sevenCards.length != 7) {
-			throw new IllegalArgumentException("Invalid number of cards: expected 7");
-		}
-
-		int[] cards = new int[7];
-		for (int i = 0; i < 7; i++) {
-			cards[i] = convertCard(sevenCards[i]);
-		}
-		return evalSevenCards(cards);
-	}
-
-	public static int evalSevenCards(int[] sevenCards) {
-		if (sevenCards == null || sevenCards.length != 7) {
-			throw new IllegalArgumentException("Invalid number of cards: expected 7");
-		}
-
-		int bestScore = MAX_VALUE;
-		for (int[] combo : SEVEN_CARDS_COMBINATIONS) {
-			int score = evalFiveCards(sevenCards[combo[0]], sevenCards[combo[1]], sevenCards[combo[2]],
-					sevenCards[combo[3]], sevenCards[combo[4]]);
-
-			if (score < bestScore) {
-				bestScore = score;
-			}
-		}
-
-		return bestScore;
-	}
-
-	public static int evalSevenCards(PocketCards pocketCards, Board board) {
+	public static HandEvaluationResult evalSevenCards(PocketCards pocketCards, Board board) {
 		if (pocketCards == null || pocketCards.cards() == null || pocketCards.cards().size() != 2) {
 			throw new IllegalArgumentException("Invalid pocket cards: expected 2");
 		}
@@ -86,7 +84,22 @@ class HandEvaluator {
 		for (int i = 0; i < 5; i++) {
 			cards[i + 2] = convertCard(board.cards()[i]);
 		}
-		return evalSevenCards(cards);
+		int score = extractBestScoreFromCards(cards, SEVEN_CARDS_COMBINATIONS);
+		return HandEvaluationResult.of(score);
+	}
+
+	private static int extractBestScoreFromCards(int[] cards, int[][] combinations) {
+		int bestScore = MAX_VALUE;
+		for (int[] combo : combinations) {
+			int score = evalFiveCards(cards[combo[0]], cards[combo[1]], cards[combo[2]], cards[combo[3]],
+					cards[combo[4]]);
+
+			if (score < bestScore) {
+				bestScore = score;
+			}
+		}
+
+		return bestScore;
 	}
 
 }

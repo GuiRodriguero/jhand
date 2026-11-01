@@ -8,7 +8,6 @@ import java.util.List;
 
 import static com.gui.jhand.core.poker.CardTemplateLoader.*;
 import static com.gui.jhand.core.poker.HandRank.*;
-import static com.gui.jhand.evaluator.HandEvaluator.evalFiveCards;
 import static com.gui.jhand.evaluator.HandEvaluator.evalSevenCards;
 import static com.gui.jhand.evaluator.HandEvaluatorUtils.convertCard;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -47,12 +46,11 @@ class HandEvaluatorTest {
 					for (int c4 = c3 + 1; c4 < 51; c4++) {
 						for (int c5 = c4 + 1; c5 < 52; c5++) {
 							totalHands++;
-							int score = evalFiveCards(cardInts[c1], cardInts[c2], cardInts[c3], cardInts[c4],
-									cardInts[c5]);
-							scoresSeen[score] = true;
+							HandEvaluationResult result = HandEvaluator.eval(new Card[] { deck.get(c1), deck.get(c2),
+									deck.get(c3), deck.get(c4), deck.get(c5) });
+							scoresSeen[result.score()] = true;
 
-							HandRank rank = getHandRank(score);
-							switch (rank) {
+							switch (result.handRank()) {
 								case ROYAL_FLUSH -> royalFlushes++;
 								case STRAIGHT_FLUSH -> straightFlushes++;
 								case FOUR_OF_A_KIND -> fourOfAKinds++;
@@ -94,41 +92,30 @@ class HandEvaluatorTest {
 
 	@Test
 	void should_evaluate_specific_5_card_hands_correctly() {
-		// Royal Flush
-		int royalScore = evalFiveCards(as(), ks(), qs(), js(), ts());
-		assertThat(royalScore).isEqualTo(1);
-		assertThat(getHandRank(royalScore)).isEqualTo(ROYAL_FLUSH);
+		Card[] royalFlush = {as(), ks(), qs(), js(), ts()};
+		Card[] fourOfKind = {as(), ah(), ad(), ac(), ks()};
+		Card[] fullHouse = {as(), ah(), ad(), ks(), kh()};
+		Card[] nutFlush = {as(), ks(), qs(), js(), nineS()};
+		Card[] flush = {twoS(), sevenS(), qs(), js(), nineS()};
+		Card[] sevenHigh = {sevenS(), fiveH(), fourD(), threeC(), twoS()};
 
-		// Four of a kind (Aces with King kicker)
-		int quadsScore = evalFiveCards(as(), ah(), ad(), ac(), ks());
-		assertThat(quadsScore).isEqualTo(11);
-		assertThat(getHandRank(quadsScore)).isEqualTo(FOUR_OF_A_KIND);
+		assertThat(HandEvaluator.eval(royalFlush))
+			.isEqualTo(new HandEvaluationResult(1, ROYAL_FLUSH));
 
-		// Full House (Aces full of Kings)
-		int fullHouseScore = evalFiveCards(as(), ah(), ad(), ks(), kh());
-		assertThat(fullHouseScore).isEqualTo(167);
-		assertThat(getHandRank(fullHouseScore)).isEqualTo(FULL_HOUSE);
+		assertThat(HandEvaluator.eval(fourOfKind))
+			.isEqualTo(new HandEvaluationResult(11, FOUR_OF_A_KIND));
 
-		// Flush (Nut flush)
-		int nutFlushScore = evalFiveCards(as(), ks(), qs(), js(), nineS());
-		assertThat(nutFlushScore).isEqualTo(323);
-		assertThat(getHandRank(nutFlushScore)).isEqualTo(FLUSH);
+		assertThat(HandEvaluator.eval(fullHouse))
+			.isEqualTo(new HandEvaluationResult(167, FULL_HOUSE));
 
-		// Flush
-		int flushScore = evalFiveCards(twoS(), sevenS(), qs(), js(), nineS());
-		assertThat(flushScore).isEqualTo(1182);
-		assertThat(getHandRank(flushScore)).isEqualTo(FLUSH);
+		assertThat(HandEvaluator.eval(nutFlush))
+			.isEqualTo(new HandEvaluationResult(323, FLUSH));
 
-		// High card (Worst high card: 7-5-4-3-2 unsuited)
-		int worstHighCardScore = evalFiveCards(sevenS(), fiveH(), fourD(), threeC(), twoS());
-		assertThat(worstHighCardScore).isEqualTo(7462);
-		assertThat(getHandRank(worstHighCardScore)).isEqualTo(HIGH_CARD);
+		assertThat(HandEvaluator.eval(flush))
+			.isEqualTo(new HandEvaluationResult(1182, FLUSH));
 
-		assertThat(royalScore).isLessThan(quadsScore);
-		assertThat(quadsScore).isLessThan(fullHouseScore);
-		assertThat(fullHouseScore).isLessThan(nutFlushScore);
-		assertThat(nutFlushScore).isLessThan(flushScore);
-		assertThat(flushScore).isLessThan(worstHighCardScore);
+		assertThat(HandEvaluator.eval(sevenHigh))
+			.isEqualTo(new HandEvaluationResult(7462, HIGH_CARD));
 	}
 
 	@Test
@@ -136,60 +123,24 @@ class HandEvaluatorTest {
 		PocketCards pocket = PocketCards.fromHandHistory("ks qs");
 		Board board = Board.fromString("As js Ts 2c 3d");
 
-		int score = evalSevenCards(pocket, board);
-		assertThat(score).isEqualTo(1);
-		assertThat(getHandRank(score)).isEqualTo(ROYAL_FLUSH);
+		assertThat(evalSevenCards(pocket, board))
+			.isEqualTo(new HandEvaluationResult(1, ROYAL_FLUSH));
 	}
 
 	@Test
 	void should_evaluate_7_card_hands_with_card_array_and_list() {
-		int arrayScore = evalSevenCards(new Card[] { as(), ah(), ad(), ks(), kh(), twoS(), threeC() });
-
-		assertThat(arrayScore).isEqualTo(167); // Aces full of Kings
-		assertThat(getHandRank(arrayScore)).isEqualTo(FULL_HOUSE);
+		assertThat(HandEvaluator.eval(new Card[] { as(), ah(), ad(), ks(), kh(), twoS(), threeC() }))
+			.isEqualTo(new HandEvaluationResult(167, FULL_HOUSE)); // Aces full of Kings
 	}
 
 	@Test
 	void should_throw_exception_for_invalid_card_counts() {
-		assertThatThrownBy(() -> evalSevenCards((int[]) null)).isInstanceOf(IllegalArgumentException.class);
-		assertThatThrownBy(() -> evalSevenCards(new int[] { 1, 2, 3 })).isInstanceOf(IllegalArgumentException.class);
-		assertThatThrownBy(() -> evalSevenCards((Card[]) null)).isInstanceOf(IllegalArgumentException.class);
-		assertThatThrownBy(() -> evalSevenCards(new Card[6])).isInstanceOf(IllegalArgumentException.class);
+		assertThatThrownBy(() -> HandEvaluator.eval(null)).isInstanceOf(IllegalArgumentException.class);
+		assertThatThrownBy(() -> HandEvaluator.eval(new Card[6])).isInstanceOf(IllegalArgumentException.class);
 		assertThatThrownBy(() -> evalSevenCards(null, Board.fromString("As ks qs js Ts")))
 			.isInstanceOf(IllegalArgumentException.class);
 		assertThatThrownBy(() -> evalSevenCards(PocketCards.fromHandHistory("As ks"), null))
 			.isInstanceOf(IllegalArgumentException.class);
-	}
-
-	public static HandRank getHandRank(int score) {
-		if (score > 6185) {
-			return HIGH_CARD;
-		}
-		if (score > 3325) {
-			return PAIR;
-		}
-		if (score > 2467) {
-			return TWO_PAIR;
-		}
-		if (score > 1609) {
-			return THREE_OF_A_KIND;
-		}
-		if (score > 1599) {
-			return STRAIGHT;
-		}
-		if (score > 322) {
-			return FLUSH;
-		}
-		if (score > 166) {
-			return FULL_HOUSE;
-		}
-		if (score > 10) {
-			return FOUR_OF_A_KIND;
-		}
-		if (score > 1) {
-			return STRAIGHT_FLUSH;
-		}
-		return ROYAL_FLUSH;
 	}
 
 }
