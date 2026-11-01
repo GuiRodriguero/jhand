@@ -8,9 +8,16 @@ import com.gui.jhand.core.utils.ChipsUtils;
 import com.gui.jhand.parser.PokerStarsParser;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.boot.test.system.CapturedOutput;
+import org.springframework.boot.test.system.OutputCaptureExtension;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
+
+import static com.gui.jhand.action.ActionStreet.SUMMARY;
+import static com.gui.jhand.action.ActionType.HAND_RANK;
 
 import static com.gui.jhand.core.poker.HandRank.*;
 import static com.gui.jhand.core.poker.PocketCards.fromHandHistory;
@@ -18,7 +25,9 @@ import static com.gui.jhand.hand.HandTemplateLoader.*;
 import static com.gui.jhand.hand.Position.*;
 import static java.math.BigDecimal.ZERO;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+@ExtendWith(OutputCaptureExtension.class)
 class HandResultBuilderTest {
 
 	private HandResultBuilder builder;
@@ -33,9 +42,32 @@ class HandResultBuilderTest {
 
 		List<ActionHandler> handlers = List.of(new HeaderHandler(), new RaiseHandler(), new CollectedHandler(),
 				new DealtToHeroHandler(), new UncalledBetHandler(), new PostAnteHandler(), new SeatSummaryHandler(),
-				new InvestmentHandler(), new TimeHandler(), new HandRankHandler(), new BoardHandler());
+				new InvestmentHandler(), new TimeHandler(), new BoardHandler());
 
-		builder = new HandResultBuilder(new ActionHandlerRegistry(handlers));
+		builder = new HandResultBuilder(new ActionHandlerRegistry(handlers), new HandRankResolver());
+	}
+
+	@Test
+	void should_ignore_text_descriptions_when_calculating_rank(CapturedOutput output) {
+		List<Action> handActions = new ArrayList<>(parser.parse(validWonWithShowdown()));
+		handActions.add(Action.of(HAND_RANK, SUMMARY, "GuiRodri2013", "a flush", ZERO, "private raw text"));
+		handActions.add(Action.of(HAND_RANK, SUMMARY, "opponent", "a straight", ZERO, "opponent raw text"));
+		handActions.add(Action.of(HAND_RANK, SUMMARY, "GuiRodri2013", "unknown description", ZERO, "unknown raw text"));
+		HandResult result = builder.build(handActions, "private file", "GuiRodri2013");
+
+		assertThat(result.getHandRank()).isEqualTo(PAIR);
+		assertThat(output.getOut()).doesNotContain("Hand rank mismatch", "GuiRodri2013", "opponent", "private");
+	}
+
+	@Test
+	void should_not_compare_or_fallback_when_rank_cannot_be_calculated(CapturedOutput output) {
+		List<Action> handActions = new ArrayList<>(
+				parser.parse(validWonWithShowdown().replace("Board [Jc 6c 2c 8s As]", "Board [Jc 6c Xx 8s As]")));
+		handActions.add(Action.of(HAND_RANK, SUMMARY, "GuiRodri2013", "a flush", ZERO, "raw"));
+
+		assertThatThrownBy(() -> builder.build(handActions, "file", "GuiRodri2013"))
+			.isInstanceOf(IllegalArgumentException.class)
+			.hasMessage("Unknown card symbol: X");
 	}
 
 	@Test
@@ -59,7 +91,7 @@ class HandResultBuilderTest {
 
 		HandResult expected = HandResult.of("259827220105", "My Session", Instant.ofEpochSecond(1771774150),
 				fromHandHistory("2h Ac"), MP, ChipsUtils.of(600.0), true, true, ChipsUtils.of(2555.0), ZERO,
-				ChipsUtils.of(-2555.0), TWO_PAIR, new Board(Card.fromHandHistory("Qs"), Card.fromHandHistory("Jd"),
+				ChipsUtils.of(-2555.0), PAIR, new Board(Card.fromHandHistory("Qs"), Card.fromHandHistory("Jd"),
 						Card.fromHandHistory("9c"), Card.fromHandHistory("6h"), Card.fromHandHistory("9h")));
 
 		assertThat(builder.build(actions, "My Session", "GuiRodri2013")).isEqualTo(expected);
@@ -72,10 +104,26 @@ class HandResultBuilderTest {
 
 		HandResult expected = HandResult.of("259827317520", "My Session", Instant.ofEpochSecond(1771774682),
 				fromHandHistory("3d 8c"), BB, ChipsUtils.of(1200.0), false, false, ChipsUtils.of(1275.0),
-				ChipsUtils.of(2550.0), ChipsUtils.of(1275.0), null,
+				ChipsUtils.of(2550.0), ChipsUtils.of(1275.0), THREE_OF_A_KIND,
 				new Board(Card.fromHandHistory("8d"), Card.fromHandHistory("Qd"), Card.fromHandHistory("8h")));
 
 		assertThat(builder.build(actions, "My Session", "GuiRodri2013")).isEqualTo(expected);
+	}
+
+	@Test
+	void should_assign_hand_rank_without_board_cards() {
+		String hand = validWonWithShowdown().replace("Board [Jc 6c 2c 8s As]", "");
+		HandResult result = builder.build(parser.parse(hand), "My Session", "GuiRodri2013");
+		assertThat(result.getHandRank()).isEqualTo(HIGH_CARD);
+		assertThat(result.getBoard()).isNull();
+	}
+
+	@Test
+	void should_throw_illegal_argument_exception_when_evaluating_a_card_that_does_not_exist() {
+		String hand = validWonWithShowdown().replace("Board [Jc 6c 2c 8s As]", "Board [Jc 6c Xx 8s As]");
+		assertThatThrownBy(() -> builder.build(parser.parse(hand), "My Session", "GuiRodri2013"))
+			.isInstanceOf(IllegalArgumentException.class)
+			.hasMessage("Unknown card symbol: X");
 	}
 
 	@Test
@@ -85,7 +133,7 @@ class HandResultBuilderTest {
 
 		HandResult expected = HandResult.of("259859276702", "My Session", Instant.ofEpochSecond(1771975039),
 				fromHandHistory("Ad Ac"), UTG, ChipsUtils.of(20.0), true, true, ChipsUtils.of(1494.0),
-				ChipsUtils.of(2263.0), ChipsUtils.of(769.0), HIGH_CARD,
+				ChipsUtils.of(2263.0), ChipsUtils.of(769.0), PAIR,
 				new Board(Card.fromHandHistory("Td"), Card.fromHandHistory("7d"), Card.fromHandHistory("9d"),
 						Card.fromHandHistory("2c"), Card.fromHandHistory("3h")));
 
@@ -99,7 +147,7 @@ class HandResultBuilderTest {
 
 		HandResult expected = HandResult.of("259859212603", "My Session", Instant.ofEpochSecond(1771974739),
 				fromHandHistory("Jc Qc"), SB, ChipsUtils.of(50.0), true, false, ChipsUtils.of(950.0),
-				ChipsUtils.of(2850.0), ChipsUtils.of(1900.0), HIGH_CARD,
+				ChipsUtils.of(2850.0), ChipsUtils.of(1900.0), STRAIGHT,
 				new Board(Card.fromHandHistory("3d"), Card.fromHandHistory("2c"), Card.fromHandHistory("As"),
 						Card.fromHandHistory("Kh"), Card.fromHandHistory("Th")));
 
