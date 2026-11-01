@@ -74,6 +74,11 @@ class PokerStarsParsingRuleFactory {
 			return List.of(Action.of(RIVER_CARDS, ctx.getCurrentStreet(), null, m.group(1), ZERO, line));
 		}));
 
+		rules.add(new ParsingRule(Pattern.compile("^\\*\\*\\* SHOW DOWN \\*\\*\\*$"), (m, ctx, line) -> {
+			ctx.changeCurrentStreetTo(SHOWDOWN);
+			return List.of(Action.of(SHOWDOWN_HEADER, ctx.getCurrentStreet(), null, null, ZERO, line));
+		}));
+
 		rules.add(new ParsingRule(Pattern.compile("^(.*?): shows \\[(.*?)] (.*)"),
 				(m, ctx, line) -> List.of(Action.of(CARDS_SHOWN, ctx.getCurrentStreet(), m.group(1),
 						"shows [" + m.group(2) + "] " + m.group(3), ZERO, line))));

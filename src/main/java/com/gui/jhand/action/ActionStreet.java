@@ -2,6 +2,6 @@ package com.gui.jhand.action;
 
 public enum ActionStreet {
 
-	PRE_FLOP, FLOP, TURN, RIVER, SUMMARY
+	PRE_FLOP, FLOP, TURN, RIVER, SHOWDOWN, SUMMARY
 
 }
