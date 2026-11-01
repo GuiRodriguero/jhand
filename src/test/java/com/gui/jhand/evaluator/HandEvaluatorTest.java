@@ -1,6 +1,8 @@
 package com.gui.jhand.evaluator;
 
-import com.gui.jhand.core.poker.*;
+import com.gui.jhand.core.poker.Card;
+import com.gui.jhand.core.poker.Rank;
+import com.gui.jhand.core.poker.Suit;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -8,7 +10,6 @@ import java.util.List;
 
 import static com.gui.jhand.core.poker.CardTemplateLoader.*;
 import static com.gui.jhand.core.poker.HandRank.*;
-import static com.gui.jhand.evaluator.HandEvaluator.evalSevenCards;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -94,24 +95,11 @@ class HandEvaluatorTest {
 		Card[] sevenHigh = { sevenS(), fiveH(), fourD(), threeC(), twoS() };
 
 		assertThat(HandEvaluator.eval(royalFlush)).isEqualTo(new HandEvaluationResult(1, ROYAL_FLUSH));
-
 		assertThat(HandEvaluator.eval(fourOfKind)).isEqualTo(new HandEvaluationResult(11, FOUR_OF_A_KIND));
-
 		assertThat(HandEvaluator.eval(fullHouse)).isEqualTo(new HandEvaluationResult(167, FULL_HOUSE));
-
 		assertThat(HandEvaluator.eval(nutFlush)).isEqualTo(new HandEvaluationResult(323, FLUSH));
-
 		assertThat(HandEvaluator.eval(flush)).isEqualTo(new HandEvaluationResult(1182, FLUSH));
-
 		assertThat(HandEvaluator.eval(sevenHigh)).isEqualTo(new HandEvaluationResult(7462, HIGH_CARD));
-	}
-
-	@Test
-	void should_evaluate_7_card_hands_using_best_5_combination() {
-		PocketCards pocket = PocketCards.fromHandHistory("ks qs");
-		Board board = Board.fromString("As js Ts 2c 3d");
-
-		assertThat(evalSevenCards(pocket, board)).isEqualTo(new HandEvaluationResult(1, ROYAL_FLUSH));
 	}
 
 	@Test
@@ -124,10 +112,6 @@ class HandEvaluatorTest {
 	void should_throw_exception_for_invalid_card_counts() {
 		assertThatThrownBy(() -> HandEvaluator.eval(null)).isInstanceOf(IllegalArgumentException.class);
 		assertThatThrownBy(() -> HandEvaluator.eval(new Card[6])).isInstanceOf(IllegalArgumentException.class);
-		assertThatThrownBy(() -> evalSevenCards(null, Board.fromString("As ks qs js Ts")))
-			.isInstanceOf(IllegalArgumentException.class);
-		assertThatThrownBy(() -> evalSevenCards(PocketCards.fromHandHistory("As ks"), null))
-			.isInstanceOf(IllegalArgumentException.class);
 	}
 
 }

@@ -1,8 +1,6 @@
 package com.gui.jhand.evaluator;
 
-import com.gui.jhand.core.poker.Board;
 import com.gui.jhand.core.poker.Card;
-import com.gui.jhand.core.poker.PocketCards;
 import lombok.NoArgsConstructor;
 
 import static com.gui.jhand.evaluator.HandEvaluatorTables.FIVE_UNIQUE_CARDS_COMBINATIONS;
@@ -68,24 +66,6 @@ public class HandEvaluator {
 		int product = getPrimeRepresentation(c1) * getPrimeRepresentation(c2) * getPrimeRepresentation(c3)
 				* getPrimeRepresentation(c4) * getPrimeRepresentation(c5);
 		return find(product);
-	}
-
-	public static HandEvaluationResult evalSevenCards(PocketCards pocketCards, Board board) {
-		if (pocketCards == null || pocketCards.cards() == null || pocketCards.cards().size() != 2) {
-			throw new IllegalArgumentException("Invalid pocket cards: expected 2");
-		}
-		if (board == null || board.cards() == null || board.cards().length != 5) {
-			throw new IllegalArgumentException("Invalid board: expected 5 cards");
-		}
-
-		int[] cards = new int[7];
-		cards[0] = convertCard(pocketCards.cards().get(0));
-		cards[1] = convertCard(pocketCards.cards().get(1));
-		for (int i = 0; i < 5; i++) {
-			cards[i + 2] = convertCard(board.cards()[i]);
-		}
-		int score = extractBestScoreFromCards(cards, SEVEN_CARDS_COMBINATIONS);
-		return HandEvaluationResult.of(score);
 	}
 
 	private static int extractBestScoreFromCards(int[] cards, int[][] combinations) {
