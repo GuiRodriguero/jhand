@@ -92,30 +92,24 @@ class HandEvaluatorTest {
 
 	@Test
 	void should_evaluate_specific_5_card_hands_correctly() {
-		Card[] royalFlush = {as(), ks(), qs(), js(), ts()};
-		Card[] fourOfKind = {as(), ah(), ad(), ac(), ks()};
-		Card[] fullHouse = {as(), ah(), ad(), ks(), kh()};
-		Card[] nutFlush = {as(), ks(), qs(), js(), nineS()};
-		Card[] flush = {twoS(), sevenS(), qs(), js(), nineS()};
-		Card[] sevenHigh = {sevenS(), fiveH(), fourD(), threeC(), twoS()};
+		Card[] royalFlush = { as(), ks(), qs(), js(), ts() };
+		Card[] fourOfKind = { as(), ah(), ad(), ac(), ks() };
+		Card[] fullHouse = { as(), ah(), ad(), ks(), kh() };
+		Card[] nutFlush = { as(), ks(), qs(), js(), nineS() };
+		Card[] flush = { twoS(), sevenS(), qs(), js(), nineS() };
+		Card[] sevenHigh = { sevenS(), fiveH(), fourD(), threeC(), twoS() };
 
-		assertThat(HandEvaluator.eval(royalFlush))
-			.isEqualTo(new HandEvaluationResult(1, ROYAL_FLUSH));
+		assertThat(HandEvaluator.eval(royalFlush)).isEqualTo(new HandEvaluationResult(1, ROYAL_FLUSH));
 
-		assertThat(HandEvaluator.eval(fourOfKind))
-			.isEqualTo(new HandEvaluationResult(11, FOUR_OF_A_KIND));
+		assertThat(HandEvaluator.eval(fourOfKind)).isEqualTo(new HandEvaluationResult(11, FOUR_OF_A_KIND));
 
-		assertThat(HandEvaluator.eval(fullHouse))
-			.isEqualTo(new HandEvaluationResult(167, FULL_HOUSE));
+		assertThat(HandEvaluator.eval(fullHouse)).isEqualTo(new HandEvaluationResult(167, FULL_HOUSE));
 
-		assertThat(HandEvaluator.eval(nutFlush))
-			.isEqualTo(new HandEvaluationResult(323, FLUSH));
+		assertThat(HandEvaluator.eval(nutFlush)).isEqualTo(new HandEvaluationResult(323, FLUSH));
 
-		assertThat(HandEvaluator.eval(flush))
-			.isEqualTo(new HandEvaluationResult(1182, FLUSH));
+		assertThat(HandEvaluator.eval(flush)).isEqualTo(new HandEvaluationResult(1182, FLUSH));
 
-		assertThat(HandEvaluator.eval(sevenHigh))
-			.isEqualTo(new HandEvaluationResult(7462, HIGH_CARD));
+		assertThat(HandEvaluator.eval(sevenHigh)).isEqualTo(new HandEvaluationResult(7462, HIGH_CARD));
 	}
 
 	@Test
@@ -123,8 +117,7 @@ class HandEvaluatorTest {
 		PocketCards pocket = PocketCards.fromHandHistory("ks qs");
 		Board board = Board.fromString("As js Ts 2c 3d");
 
-		assertThat(evalSevenCards(pocket, board))
-			.isEqualTo(new HandEvaluationResult(1, ROYAL_FLUSH));
+		assertThat(evalSevenCards(pocket, board)).isEqualTo(new HandEvaluationResult(1, ROYAL_FLUSH));
 	}
 
 	@Test

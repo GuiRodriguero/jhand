@@ -13,7 +13,7 @@ import static java.lang.Integer.MAX_VALUE;
 import static lombok.AccessLevel.PRIVATE;
 
 @NoArgsConstructor(access = PRIVATE)
-class HandEvaluator {
+public class HandEvaluator {
 
 	private static final int[][] SEVEN_CARDS_COMBINATIONS = { { 0, 1, 2, 3, 4 }, { 0, 1, 2, 3, 5 }, { 0, 1, 2, 3, 6 },
 			{ 0, 1, 2, 4, 5 }, { 0, 1, 2, 4, 6 }, { 0, 1, 2, 5, 6 }, { 0, 1, 3, 4, 5 }, { 0, 1, 3, 4, 6 },
