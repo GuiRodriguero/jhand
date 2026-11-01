@@ -9,7 +9,6 @@ import java.util.List;
 import static com.gui.jhand.core.poker.CardTemplateLoader.*;
 import static com.gui.jhand.core.poker.HandRank.*;
 import static com.gui.jhand.evaluator.HandEvaluator.evalSevenCards;
-import static com.gui.jhand.evaluator.HandEvaluatorUtils.convertCard;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -20,11 +19,6 @@ class HandEvaluatorTest {
 		List<Card> deck = Arrays.stream(Suit.values())
 			.flatMap(suit -> Arrays.stream(Rank.values()).map(rank -> new Card(rank, suit)))
 			.toList();
-
-		int[] cardInts = new int[52];
-		for (int i = 0; i < 52; i++) {
-			cardInts[i] = convertCard(deck.get(i));
-		}
 
 		int totalHands = 0;
 		int royalFlushes = 0;
