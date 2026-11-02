@@ -2,11 +2,11 @@ package com.gui.jhand.equity;
 
 final class EquityCounter {
 
-	int heroWins = 0;
+	private int heroWins = 0;
 
-	int villainWins = 0;
+	private int villainWins = 0;
 
-	int ties = 0;
+	private int ties = 0;
 
 	void add(EquityEvaluationWinner winner) {
 		switch (winner) {
