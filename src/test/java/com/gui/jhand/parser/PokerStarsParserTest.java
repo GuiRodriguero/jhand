@@ -189,6 +189,41 @@ class PokerStarsParserTest {
 	}
 
 	@Test
+	void should_parse_showdown_header() {
+		String river = "*** RIVER *** [Kc 6s Qc 8h] [Js]";
+		String showdown = "*** SHOW DOWN ***";
+		String shown = "GuiRodri2013: shows [Qh 4d] (a pair of Queens)";
+
+		assertThat(parser.parse(String.join("\n", river, showdown, shown))).containsExactly(
+				Action.of(RIVER_CARDS, RIVER, null, "Js", ZERO, river),
+				Action.of(SHOWDOWN_HEADER, SHOWDOWN, null, null, ZERO, showdown),
+				Action.of(CARDS_SHOWN, SHOWDOWN, "GuiRodri2013", "shows [Qh 4d] (a pair of Queens)", ZERO, shown));
+	}
+
+	@Test
+	void should_parse_shown_cards_without_showdown_header() {
+		String shown = "GuiRodri2013: shows [Qh 4d] (a pair of Queens)";
+		String summary = "*** SUMMARY ***";
+
+		assertThat(parser.parse(String.join("\n", shown, summary))).containsExactly(
+				Action.of(CARDS_SHOWN, PRE_FLOP, "GuiRodri2013", "shows [Qh 4d] (a pair of Queens)", ZERO, shown),
+				Action.of(SUMMARY_HEADER, SUMMARY, null, null, ZERO, summary));
+	}
+
+	@Test
+	void should_parse_shown_and_mucked_summary_without_showdown_header() {
+		String summary = "*** SUMMARY ***";
+		String shown = "Seat 3: GuiRodri2013 (big blind) showed [6s 4h] and won with a pair of Sixes";
+		String mucked = "Seat 4: Villain mucked [Qh 4d]";
+
+		assertThat(parser.parse(String.join("\n", summary, shown, mucked))).containsExactly(
+				Action.of(SUMMARY_HEADER, SUMMARY, null, null, ZERO, summary),
+				Action.of(SEAT_HAND_RESULT, SUMMARY, "GuiRodri2013", "showed [6s 4h] and won", ZERO, shown),
+				Action.of(HAND_RANK, SUMMARY, "GuiRodri2013", "pair of Sixes", ZERO, shown),
+				Action.of(SEAT_HAND_RESULT, SUMMARY, "Villain", "mucked [Qh 4d]", ZERO, mucked));
+	}
+
+	@Test
 	void should_parse_cards_shown() {
 		String line = "GuiRodri2013: shows [Qh 4d] (a pair of Queens)";
 

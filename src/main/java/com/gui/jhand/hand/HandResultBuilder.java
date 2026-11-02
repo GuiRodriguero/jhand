@@ -16,6 +16,8 @@ class HandResultBuilder {
 
 	private final ActionHandlerRegistry handlers;
 
+	private final HandRankResolver handRankResolver;
+
 	HandResult build(List<Action> actions, String fileName, String heroName) {
 		HandState state = new HandState(heroName, fileName);
 
@@ -42,7 +44,7 @@ class HandResultBuilder {
 			.totalInvested(state.getTotalInvested())
 			.totalCollected(state.getTotalCollected())
 			.netProfit(state.getNetProfit())
-			.handRank(state.getHandRank())
+			.handRank(handRankResolver.calculatedRank(state.getHeroCards(), state.getBoard()))
 			.board(state.getBoard())
 			.build();
 	}
