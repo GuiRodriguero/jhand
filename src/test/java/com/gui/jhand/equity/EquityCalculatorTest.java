@@ -5,6 +5,7 @@ import com.gui.jhand.core.poker.PocketCards;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForClassTypes.within;
 
 class EquityCalculatorTest {
@@ -17,6 +18,16 @@ class EquityCalculatorTest {
 
 		assertThat(EquityCalculator.calculate(hero, villain, board))
 			.isEqualTo(new EquityResult(1.0, 0.0, 0.0, 1, 0, 0, 1));
+	}
+
+	@Test
+	void should_calculate_river_showdown_villain_win() {
+		PocketCards hero = PocketCards.fromHandHistory("7h 2c");
+		PocketCards villain = PocketCards.fromHandHistory("Ac Ad");
+		Board board = Board.fromString("As Kc 2s 4d 3h");
+
+		assertThat(EquityCalculator.calculate(hero, villain, board))
+			.isEqualTo(new EquityResult(0.0, 1.0, 0.0, 0, 1, 0, 1));
 	}
 
 	@Test
@@ -52,6 +63,27 @@ class EquityCalculatorTest {
 
 		assertThat(EquityCalculator.calculate(hero, villain, royalFlushBoard))
 			.isEqualTo(new EquityResult(0.5, 0.5, 1.0, 0, 0, 1, 1));
+	}
+
+	@Test
+	void should_handle_with_tie_possibility() {
+		PocketCards hero = PocketCards.fromHandHistory("Ah 2c");
+		PocketCards villain = PocketCards.fromHandHistory("Kd 3s");
+		Board royalFlushBoard = Board.fromString("As Ks Qs Js");
+
+		assertThat(EquityCalculator.calculate(hero, villain, royalFlushBoard))
+			.isEqualTo(new EquityResult(0.07954545454545454, 0.9204545454545454, 0.1590909090909091, 0, 37, 7, 44));
+	}
+
+	@Test
+	void should_throw_exception_for_invalid_board_size() {
+		PocketCards hero = PocketCards.fromHandHistory("Ah Kd");
+		PocketCards villain = PocketCards.fromHandHistory("Qc Qd");
+		Board board = Board.fromString("Ad Ks");
+
+		assertThatThrownBy(() -> EquityCalculator.calculate(hero, villain, board))
+			.isInstanceOf(IllegalArgumentException.class)
+			.hasMessage("Board must have 3, 4, or 5 cards");
 	}
 
 }

@@ -29,8 +29,7 @@ public class HandEvaluator {
 		int score = switch (cards.length) {
 			case 5 -> evalFiveCards(cards[0], cards[1], cards[2], cards[3], cards[4]);
 			case 6 -> extractBestScoreFromCards(cards, SIX_CARDS_COMBINATIONS);
-			case 7 -> extractBestScoreFromCards(cards, SEVEN_CARDS_COMBINATIONS);
-			default -> throw new IllegalArgumentException("Unexpected length: " + cards.length);
+			default -> extractBestScoreFromCards(cards, SEVEN_CARDS_COMBINATIONS);
 		};
 
 		return HandEvaluationResult.of(score);
