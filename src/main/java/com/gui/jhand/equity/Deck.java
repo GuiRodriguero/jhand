@@ -1,13 +1,9 @@
 package com.gui.jhand.equity;
 
-import com.gui.jhand.core.poker.Card;
-import com.gui.jhand.core.poker.Rank;
-import com.gui.jhand.core.poker.Suit;
+import com.gui.jhand.core.poker.*;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static lombok.AccessLevel.PRIVATE;
 
@@ -24,8 +20,16 @@ class Deck {
 		}
 	}
 
-	public static List<Card> remainingCards(Set<Card> deadCards) {
+	static List<Card> remainingCards(Set<Card> deadCards) {
 		return FULL_DECK.stream().filter(card -> !deadCards.contains(card)).toList();
+	}
+
+	static Set<Card> collectDeadCards(PocketCards hero, PocketCards villain, Board board) {
+		Set<Card> deadCards = new HashSet<>();
+		deadCards.addAll(hero.cards());
+		deadCards.addAll(villain.cards());
+		deadCards.addAll(Arrays.asList(board.cards()));
+		return deadCards;
 	}
 
 }
