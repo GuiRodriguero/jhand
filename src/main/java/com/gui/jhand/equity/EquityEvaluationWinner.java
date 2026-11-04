@@ -11,9 +11,7 @@ enum EquityEvaluationWinner {
 		else if (heroScore > villainScore) {
 			return VILLAIN;
 		}
-		else {
-			return TIE;
-		}
+		return TIE;
 	}
 
 }
