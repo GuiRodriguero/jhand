@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-import static com.gui.jhand.equity.EquityCalculator.evaluateScenario;
+import static com.gui.jhand.equity.ShowdownEvaluator.evaluate;
 
 @Component
 final class FlopEquityCalculation implements EquityCalculationStrategy {
@@ -25,7 +25,7 @@ final class FlopEquityCalculation implements EquityCalculationStrategy {
 			Card turnCard = remaining.get(i);
 			for (int j = i + 1; j < size; j++) {
 				Card riverCard = remaining.get(j);
-				EquityEvaluationWinner winner = evaluateScenario(hero, villain, board, turnCard, riverCard);
+				EquityEvaluationWinner winner = evaluate(hero, villain, board, turnCard, riverCard);
 				counter.add(winner);
 			}
 		}

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-import static com.gui.jhand.equity.EquityCalculator.evaluateScenario;
+import static com.gui.jhand.equity.ShowdownEvaluator.evaluate;
 
 @Component
 final class TurnEquityCalculation implements EquityCalculationStrategy {
@@ -19,7 +19,7 @@ final class TurnEquityCalculation implements EquityCalculationStrategy {
 	@Override
 	public EquityResult calculate(PocketCards hero, PocketCards villain, List<Card> board, List<Card> remaining) {
 		EquityCounter counter = new EquityCounter();
-		remaining.stream().map(riverCard -> evaluateScenario(hero, villain, board, riverCard)).forEach(counter::add);
+		remaining.stream().map(riverCard -> evaluate(hero, villain, board, riverCard)).forEach(counter::add);
 		return counter.toResult();
 	}
 

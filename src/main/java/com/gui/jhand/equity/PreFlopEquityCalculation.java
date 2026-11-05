@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static com.gui.jhand.equity.EquityCalculator.evaluateScenario;
+import static com.gui.jhand.equity.ShowdownEvaluator.evaluate;
 
 @Component
 final class PreFlopEquityCalculation implements EquityCalculationStrategy {
@@ -34,9 +34,8 @@ final class PreFlopEquityCalculation implements EquityCalculationStrategy {
 
 		for (int i = 0; i < iterations; i++) {
 			Collections.shuffle(deckCopy, random);
-			Card[] fullBoard = new Card[] { deckCopy.get(0), deckCopy.get(1), deckCopy.get(2), deckCopy.get(3),
-					deckCopy.get(4) };
-			EquityEvaluationWinner winner = evaluateScenario(hero, villain, List.of(), fullBoard);
+			EquityEvaluationWinner winner = evaluate(hero, villain, List.of(), deckCopy.get(0), deckCopy.get(1),
+					deckCopy.get(2), deckCopy.get(3), deckCopy.get(4));
 			counter.add(winner);
 		}
 
