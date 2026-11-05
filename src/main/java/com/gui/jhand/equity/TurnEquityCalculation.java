@@ -17,7 +17,7 @@ final class TurnEquityCalculation implements EquityCalculationStrategy {
 	}
 
 	@Override
-	public EquityResult calculate(PocketCards hero, PocketCards villain, Card[] board, List<Card> remaining) {
+	public EquityResult calculate(PocketCards hero, PocketCards villain, List<Card> board, List<Card> remaining) {
 		EquityCounter counter = new EquityCounter();
 		remaining.stream().map(riverCard -> evaluateScenario(hero, villain, board, riverCard)).forEach(counter::add);
 		return counter.toResult();

@@ -17,7 +17,7 @@ final class FlopEquityCalculation implements EquityCalculationStrategy {
 	}
 
 	@Override
-	public EquityResult calculate(PocketCards hero, PocketCards villain, Card[] board, List<Card> remaining) {
+	public EquityResult calculate(PocketCards hero, PocketCards villain, List<Card> board, List<Card> remaining) {
 		EquityCounter counter = new EquityCounter();
 		int size = remaining.size();
 

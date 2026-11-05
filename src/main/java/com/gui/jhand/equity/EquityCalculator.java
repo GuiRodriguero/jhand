@@ -27,8 +27,8 @@ class EquityCalculator {
 
 	EquityResult calculate(PocketCards hero, PocketCards villain, Board board) {
 		List<Card> remainingCardsOnDeck = remainingCards(collectDeadCards(hero, villain, board));
-		Card[] currentBoard = board.cards();
-		int boardLength = currentBoard.length;
+		List<Card> currentBoard = board.cards();
+		int boardLength = currentBoard.size();
 
 		EquityCalculationStrategy strategy = strategyMap.get(boardLength);
 		if (strategy == null) {
@@ -37,11 +37,13 @@ class EquityCalculator {
 		return strategy.calculate(hero, villain, currentBoard, remainingCardsOnDeck);
 	}
 
-	static EquityEvaluationWinner evaluateScenario(PocketCards hero, PocketCards villain, Card[] currentBoard,
+	static EquityEvaluationWinner evaluateScenario(PocketCards hero, PocketCards villain, List<Card> currentBoard,
 			Card... communityCardsToEvaluate) {
-		Card[] fullBoard = new Card[currentBoard.length + communityCardsToEvaluate.length];
-		System.arraycopy(currentBoard, 0, fullBoard, 0, currentBoard.length);
-		System.arraycopy(communityCardsToEvaluate, 0, fullBoard, currentBoard.length, communityCardsToEvaluate.length);
+		Card[] fullBoard = new Card[currentBoard.size() + communityCardsToEvaluate.length];
+		for (int i = 0; i < currentBoard.size(); i++) {
+			fullBoard[i] = currentBoard.get(i);
+		}
+		System.arraycopy(communityCardsToEvaluate, 0, fullBoard, currentBoard.size(), communityCardsToEvaluate.length);
 
 		Card[] heroSeven = buildSevenCardsFromBoard(hero, fullBoard);
 		Card[] villainSeven = buildSevenCardsFromBoard(villain, fullBoard);

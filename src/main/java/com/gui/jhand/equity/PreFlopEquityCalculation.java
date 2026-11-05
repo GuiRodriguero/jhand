@@ -27,7 +27,7 @@ final class PreFlopEquityCalculation implements EquityCalculationStrategy {
 	}
 
 	@Override
-	public EquityResult calculate(PocketCards hero, PocketCards villain, Card[] board, List<Card> remaining) {
+	public EquityResult calculate(PocketCards hero, PocketCards villain, List<Card> board, List<Card> remaining) {
 		EquityCounter counter = new EquityCounter();
 		List<Card> deckCopy = new ArrayList<>(remaining);
 		ThreadLocalRandom random = ThreadLocalRandom.current();
@@ -36,7 +36,7 @@ final class PreFlopEquityCalculation implements EquityCalculationStrategy {
 			Collections.shuffle(deckCopy, random);
 			Card[] fullBoard = new Card[] { deckCopy.get(0), deckCopy.get(1), deckCopy.get(2), deckCopy.get(3),
 					deckCopy.get(4) };
-			EquityEvaluationWinner winner = evaluateScenario(hero, villain, fullBoard);
+			EquityEvaluationWinner winner = evaluateScenario(hero, villain, List.of(), fullBoard);
 			counter.add(winner);
 		}
 

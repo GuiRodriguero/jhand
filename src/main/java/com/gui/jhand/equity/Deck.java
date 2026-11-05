@@ -1,9 +1,16 @@
 package com.gui.jhand.equity;
 
-import com.gui.jhand.core.poker.*;
+import com.gui.jhand.core.poker.Board;
+import com.gui.jhand.core.poker.Card;
+import com.gui.jhand.core.poker.PocketCards;
+import com.gui.jhand.core.poker.Rank;
+import com.gui.jhand.core.poker.Suit;
 import lombok.NoArgsConstructor;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import static lombok.AccessLevel.PRIVATE;
 
@@ -28,7 +35,7 @@ class Deck {
 		Set<Card> deadCards = new HashSet<>();
 		deadCards.addAll(hero.cards());
 		deadCards.addAll(villain.cards());
-		deadCards.addAll(Arrays.asList(board.cards()));
+		deadCards.addAll(board.cards());
 		return deadCards;
 	}
 

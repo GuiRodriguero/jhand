@@ -32,7 +32,7 @@ class PreFlopEquityCalculationTest extends TestBase {
 	void should_calculate() {
 		PocketCards hero = fromHandHistory("As Ad");
 		PocketCards villain = fromHandHistory("Kc Kd");
-		List<Card> remaining = remainingCards(collectDeadCards(hero, villain, new Board()));
+		List<Card> remaining = remainingCards(collectDeadCards(hero, villain, Board.of()));
 
 		EquityResult equity = preFlopEquityCalculation.calculate(hero, villain, null, remaining);
 

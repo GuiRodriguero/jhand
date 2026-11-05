@@ -18,7 +18,7 @@ final class RiverEquityCalculation implements EquityCalculationStrategy {
 	}
 
 	@Override
-	public EquityResult calculate(PocketCards hero, PocketCards villain, Card[] board, List<Card> remaining) {
+	public EquityResult calculate(PocketCards hero, PocketCards villain, List<Card> board, List<Card> remaining) {
 		EquityEvaluationWinner winner = evaluateScenario(hero, villain, board);
 		return EquityResult.of(winner == HERO ? 1 : 0, winner == VILLAIN ? 1 : 0, winner == TIE ? 1 : 0);
 	}

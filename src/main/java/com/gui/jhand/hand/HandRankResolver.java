@@ -7,7 +7,6 @@ import com.gui.jhand.core.poker.PocketCards;
 import com.gui.jhand.evaluator.HandEvaluator;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
 import java.util.stream.Stream;
 
 import static com.gui.jhand.core.poker.HandRank.HIGH_CARD;
@@ -24,7 +23,7 @@ class HandRankResolver {
 			throw new IllegalArgumentException("Invalid number of cards to calculate rank");
 		}
 
-		Card[] cards = Stream.concat(heroCards.cards().stream(), Arrays.stream(board.cards())).toArray(Card[]::new);
+		Card[] cards = Stream.concat(heroCards.cards().stream(), board.cards().stream()).toArray(Card[]::new);
 		return HandEvaluator.eval(cards).handRank();
 	}
 

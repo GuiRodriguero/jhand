@@ -10,6 +10,6 @@ sealed interface EquityCalculationStrategy
 
 	int getSupportedBoardLength();
 
-	EquityResult calculate(PocketCards hero, PocketCards villain, Card[] board, List<Card> remaining);
+	EquityResult calculate(PocketCards hero, PocketCards villain, List<Card> board, List<Card> remaining);
 
 }
