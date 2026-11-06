@@ -3,14 +3,12 @@ package com.gui.jhand.hand;
 import com.gui.jhand.TestBase;
 import com.gui.jhand.core.utils.ChipsUtils;
 import com.gui.jhand.pokersession.PokerSessionService;
-import org.instancio.Instancio;
 import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 import org.mockito.Mock;
 
 import static com.gui.jhand.hand.HandResultTemplateLoader.handWithNetProfit;
 import static org.assertj.core.api.Assertions.assertThatCode;
-import static org.instancio.Select.field;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 

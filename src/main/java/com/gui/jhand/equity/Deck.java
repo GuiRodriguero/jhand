@@ -1,10 +1,6 @@
 package com.gui.jhand.equity;
 
-import com.gui.jhand.core.poker.Board;
-import com.gui.jhand.core.poker.Card;
-import com.gui.jhand.core.poker.PocketCards;
-import com.gui.jhand.core.poker.Rank;
-import com.gui.jhand.core.poker.Suit;
+import com.gui.jhand.core.poker.*;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;

@@ -1,7 +1,6 @@
 package com.gui.jhand.equity;
 
 import com.gui.jhand.core.poker.Board;
-import com.gui.jhand.core.poker.Card;
 import com.gui.jhand.core.poker.PocketCards;
 import org.junit.jupiter.api.Test;
 
