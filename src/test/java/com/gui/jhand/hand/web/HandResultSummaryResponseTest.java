@@ -19,8 +19,8 @@ class HandResultSummaryResponseTest {
 	@Test
 	void should_instantiate() {
 		assertThat(HandResultSummaryResponse.of(entity)).isEqualTo(new HandResultSummaryResponse(entity.getHandId(),
-				entity.getSessionId(), entity.getHeroCards().toString(), entity.getBoard().toString(),
-				entity.getHandRank().name(), entity.getNetProfit(), entity.getTime()));
+				entity.getSessionId(), entity.getPosition().name(), entity.getHeroCards().toString(),
+				entity.getBoard().toString(), entity.getHandRank().name(), entity.getNetProfit(), entity.getTime()));
 	}
 
 	@Test
@@ -32,8 +32,9 @@ class HandResultSummaryResponseTest {
 			.time(entity.getTime())
 			.build();
 
-		assertThat(HandResultSummaryResponse.of(nullableValuesHandResult)).isEqualTo(new HandResultSummaryResponse(
-				entity.getHandId(), entity.getSessionId(), null, null, null, entity.getNetProfit(), entity.getTime()));
+		assertThat(HandResultSummaryResponse.of(nullableValuesHandResult))
+			.isEqualTo(new HandResultSummaryResponse(entity.getHandId(), entity.getSessionId(), null, null, null, null,
+					entity.getNetProfit(), entity.getTime()));
 	}
 
 }
