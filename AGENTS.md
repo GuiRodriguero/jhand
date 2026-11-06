@@ -25,8 +25,8 @@ The typical flow is:
 There is currently **no authentication** and a single **hero** (the tracked player) is passed explicitly on import.
 Re-importing the same file overwrites its hands and its session (ids are natural keys).
 
-An **equity calculator** (heads-up, all streets) exists in the `equity` package but is **not yet wired** to any
-use case or endpoint.
+An **equity calculator** (heads-up, exact hand vs exact hand, all streets) lives in the `equity` package and is
+exposed through `POST /v1/equity`. Villain **ranges** are not supported yet.
 
 Pending/known improvements that were analysed but not implemented are documented in
 [`docs/proposals.md`](docs/proposals.md) (hand rank semantics when the hero folds, position for 9-max tables,
@@ -181,7 +181,8 @@ com.gui.jhand
 │   ├── HandEvaluationResult    # record(score, handRank); lower score = stronger hand
 │   └── HandEvaluatorTables, HandEvaluatorUtils, SenzeeHash  # package-private internals
 │
-├── equity                      # heads-up equity calculator (not yet exposed)
+├── equity                      # heads-up equity calculator
+│   ├── web                     # EquityRestService (POST /v1/equity), EquityRequest, EquityResponse
 │   ├── EquityCalculator        # @Service; picks a strategy by board length
 │   ├── EquityCalculationStrategy (sealed) + PreFlop/Flop/Turn/River*EquityCalculation
 │   ├── ShowdownEvaluator       # evaluates one board+runout scenario (shared by all strategies)
@@ -266,6 +267,7 @@ Write and read use cases are separated:
 | `POST /v1/hands/import/batch` | multipart `files[]` + `heroName` | `204 No Content`; one transaction per file |
 | `GET /v1/hands` | paginated hands | filters: `handId`, `sessionId`, `heroCards` (space-separated cards), `handRank`; default sort `time,desc`, size 20 |
 | `GET /v1/sessions` | paginated sessions | default sort `sessionId,desc` (≈ most recent first, names start with `HHyyyyMMdd`), size 20 |
+| `POST /v1/equity` | heads-up equity | JSON `{heroCards, villainCards, board}` (space-separated cards; `board` empty/absent = pre-flop, else 3/4/5 cards). Returns `{heroEquity, villainEquity, tieProbability, totalScenarios}`. Invalid/duplicated cards → 400. Pre-flop is a Monte Carlo estimate |
 
 Dates are returned as UTC `Instant`s (ISO-8601 with `Z`); time-zone conversion is the client's job.
 

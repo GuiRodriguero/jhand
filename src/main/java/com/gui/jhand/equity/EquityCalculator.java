@@ -14,7 +14,7 @@ import static com.gui.jhand.equity.Deck.remainingCards;
 import static java.util.stream.Collectors.toMap;
 
 @Service
-class EquityCalculator {
+public class EquityCalculator {
 
 	private final Map<Integer, EquityCalculationStrategy> strategyMap;
 
@@ -23,7 +23,7 @@ class EquityCalculator {
 			.collect(toMap(EquityCalculationStrategy::getSupportedBoardLength, Function.identity()));
 	}
 
-	EquityResult calculate(PocketCards hero, PocketCards villain, Board board) {
+	public EquityResult calculate(PocketCards hero, PocketCards villain, Board board) {
 		List<Card> remainingCardsOnDeck = remainingCards(collectDeadCards(hero, villain, board));
 		int boardLength = board.cards().size();
 
