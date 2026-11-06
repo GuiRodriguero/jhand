@@ -1,9 +1,6 @@
 package com.gui.jhand.pokersession;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -28,10 +25,11 @@ public class PokerSession {
 	@Enumerated(STRING)
 	private SessionType type;
 
+	@Column(precision = 12, scale = 2)
 	private BigDecimal netProfit;
 
-	static PokerSession of(String fileName, BigDecimal netProfit) {
-		return PokerSession.of(fileName, fromFileName(fileName), netProfit);
+	static PokerSession of(String sessionId, BigDecimal netProfit) {
+		return PokerSession.of(sessionId, fromFileName(sessionId), netProfit);
 	}
 
 }

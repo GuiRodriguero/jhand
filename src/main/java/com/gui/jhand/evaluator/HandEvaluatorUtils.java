@@ -28,11 +28,11 @@ class HandEvaluatorUtils {
 		return (1 << (16 + rank)) | (rank << 8) | (suit << 12) | prime;
 	}
 
-	public static boolean allSuitsAreEqual(int c1, int c2, int c3, int c4, int c5) {
+	static boolean allSuitsAreEqual(int c1, int c2, int c3, int c4, int c5) {
 		return (c1 & c2 & c3 & c4 & c5 & 0xF000) != 0;
 	}
 
-	public static int getPrimeRepresentation(int card) {
+	static int getPrimeRepresentation(int card) {
 		return card & 0xFF;
 	}
 

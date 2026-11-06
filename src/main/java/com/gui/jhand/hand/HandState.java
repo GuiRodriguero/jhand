@@ -9,7 +9,6 @@ import java.math.BigDecimal;
 import java.time.Instant;
 
 import static com.gui.jhand.action.ActionStreet.PRE_FLOP;
-import static com.gui.jhand.pokersession.PokerSessionUtils.normalizeSessionId;
 import static java.math.BigDecimal.ZERO;
 
 @Data
@@ -19,7 +18,7 @@ public class HandState {
 
 	private String handId;
 
-	private String sessionId;
+	private final String sessionId;
 
 	private Instant time;
 
@@ -51,7 +50,7 @@ public class HandState {
 
 	public HandState(String heroName, String sessionId) {
 		this.heroName = heroName;
-		this.sessionId = normalizeSessionId(sessionId);
+		this.sessionId = sessionId;
 	}
 
 	public void updateCurrentStreet(ActionStreet street) {
