@@ -5,15 +5,16 @@ import com.gui.jhand.core.poker.PocketCards;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.random.RandomGenerator;
 
 import static com.gui.jhand.equity.ShowdownEvaluator.evaluate;
 
 @Component
 final class PreFlopEquityCalculation implements EquityCalculationStrategy {
+
+	private static final int RUNOUT_SIZE = 5;
 
 	private final int iterations;
 
@@ -29,17 +30,26 @@ final class PreFlopEquityCalculation implements EquityCalculationStrategy {
 	@Override
 	public EquityResult calculate(PocketCards hero, PocketCards villain, List<Card> board, List<Card> remaining) {
 		EquityCounter counter = new EquityCounter();
-		List<Card> deckCopy = new ArrayList<>(remaining);
+		Card[] deck = remaining.toArray(Card[]::new);
+		Card[] runout = new Card[RUNOUT_SIZE];
 		ThreadLocalRandom random = ThreadLocalRandom.current();
 
 		for (int i = 0; i < iterations; i++) {
-			Collections.shuffle(deckCopy, random);
-			EquityEvaluationWinner winner = evaluate(hero, villain, List.of(), deckCopy.get(0), deckCopy.get(1),
-					deckCopy.get(2), deckCopy.get(3), deckCopy.get(4));
-			counter.add(winner);
+			drawRunout(deck, runout, random);
+			counter.add(evaluate(hero, villain, List.of(), runout));
 		}
 
 		return counter.toResult();
+	}
+
+	static void drawRunout(Card[] deck, Card[] runout, RandomGenerator random) {
+		for (int k = 0; k < runout.length; k++) {
+			int j = k + random.nextInt(deck.length - k);
+			Card swapped = deck[k];
+			deck[k] = deck[j];
+			deck[j] = swapped;
+			runout[k] = deck[k];
+		}
 	}
 
 }
