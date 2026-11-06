@@ -18,8 +18,8 @@ class HandResultBuilder {
 
 	private final HandRankResolver handRankResolver;
 
-	HandResult build(List<Action> actions, String fileName, String heroName) {
-		HandState state = new HandState(heroName, fileName);
+	HandResult build(List<Action> actions, String sessionId, String heroName) {
+		HandState state = new HandState(heroName, sessionId);
 
 		for (Action action : actions) {
 			if (action.getStreet() != state.getCurrentStreet()) {

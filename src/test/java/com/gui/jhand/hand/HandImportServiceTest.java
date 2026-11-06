@@ -13,7 +13,9 @@ import static org.mockito.Mockito.*;
 
 class HandImportServiceTest extends TestBase {
 
-	private static final String FILE_NAME = "My Session";
+	private static final String FILE_NAME = "My Session.txt";
+
+	private static final String SESSION_ID = "My Session";
 
 	@Mock
 	private HandResultBuilder builder;
@@ -42,9 +44,9 @@ class HandImportServiceTest extends TestBase {
 			.doesNotThrowAnyException();
 
 		InOrder inOrder = inOrder(builder, repository, pokerSessionService);
-		inOrder.verify(builder, times(2)).build(anyList(), eq(FILE_NAME), eq("GuiRodri2013"));
+		inOrder.verify(builder, times(2)).build(anyList(), eq(SESSION_ID), eq("GuiRodri2013"));
 		inOrder.verify(repository).saveAll(anyList());
-		inOrder.verify(pokerSessionService).create(FILE_NAME, ZERO);
+		inOrder.verify(pokerSessionService).create(SESSION_ID, ZERO);
 		inOrder.verifyNoMoreInteractions();
 	}
 
