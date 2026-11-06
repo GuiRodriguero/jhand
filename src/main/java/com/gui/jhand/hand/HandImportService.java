@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,8 +44,12 @@ public class HandImportService {
 
 		if (!processedHands.isEmpty()) {
 			repository.saveAll(processedHands);
-			pokerSessionService.create(sessionId, ZERO);
+			pokerSessionService.create(sessionId, sumNetProfit(processedHands));
 		}
+	}
+
+	private static BigDecimal sumNetProfit(List<HandResult> hands) {
+		return hands.stream().map(HandResult::getNetProfit).reduce(ZERO, BigDecimal::add);
 	}
 
 }

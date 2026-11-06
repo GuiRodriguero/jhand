@@ -1,13 +1,16 @@
 package com.gui.jhand.hand;
 
 import com.gui.jhand.TestBase;
+import com.gui.jhand.core.utils.ChipsUtils;
 import com.gui.jhand.pokersession.PokerSessionService;
+import org.instancio.Instancio;
 import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 import org.mockito.Mock;
 
-import static java.math.BigDecimal.ZERO;
+import static com.gui.jhand.hand.HandResultTemplateLoader.handWithNetProfit;
 import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.instancio.Select.field;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
@@ -38,7 +41,9 @@ class HandImportServiceTest extends TestBase {
 
 	@Test
 	void should_save_all_hand_results_from_file() {
-		when(builder.build(anyList(), anyString(), anyString())).thenReturn(valid(HandResult.class));
+		HandResult winningHand = handWithNetProfit("150.25");
+		HandResult losingHand = handWithNetProfit("-50.10");
+		when(builder.build(anyList(), anyString(), anyString())).thenReturn(winningHand, losingHand);
 
 		assertThatCode(() -> service.saveAllHandResultsFromFile(rawHands, FILE_NAME, "GuiRodri2013"))
 			.doesNotThrowAnyException();
@@ -46,7 +51,7 @@ class HandImportServiceTest extends TestBase {
 		InOrder inOrder = inOrder(builder, repository, pokerSessionService);
 		inOrder.verify(builder, times(2)).build(anyList(), eq(SESSION_ID), eq("GuiRodri2013"));
 		inOrder.verify(repository).saveAll(anyList());
-		inOrder.verify(pokerSessionService).create(SESSION_ID, ZERO);
+		inOrder.verify(pokerSessionService).create(SESSION_ID, ChipsUtils.of("100.15"));
 		inOrder.verifyNoMoreInteractions();
 	}
 
