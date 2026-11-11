@@ -1,11 +1,15 @@
 package com.gui.jhand.hand;
 
+import com.gui.jhand.core.exception.BusinessException;
 import com.gui.jhand.core.utils.ChipsUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static java.math.BigDecimal.ZERO;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class HandStateTest {
 
@@ -105,10 +109,27 @@ class HandStateTest {
 	}
 
 	@Test
-	void should_return_null_net_profit_in_bb_when_blind_value_is_zero() {
+	void should_throw_business_exception_when_blind_value_is_null() {
+		handState.setHandId("123");
+		handState.setBlindValue(null);
+
+		assertThatThrownBy(handState::getNetProfitInBb).isInstanceOf(BusinessException.class)
+			.hasMessage("Hand 123 has no valid big blind value: null");
+	}
+
+	@Test
+	void should_throw_business_exception_when_blind_value_is_default_zero() {
 		handState.addTotalCollected(ChipsUtils.of(1000.0));
 
-		assertThat(handState.getNetProfitInBb()).isNull();
+		assertThatThrownBy(handState::getNetProfitInBb).isInstanceOf(BusinessException.class);
+	}
+
+	@ParameterizedTest
+	@ValueSource(doubles = { 0.0, -0.02 })
+	void should_throw_business_exception_when_blind_value_is_not_positive(double blindValue) {
+		handState.setBlindValue(ChipsUtils.of(blindValue));
+
+		assertThatThrownBy(handState::getNetProfitInBb).isInstanceOf(BusinessException.class);
 	}
 
 }

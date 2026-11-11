@@ -1,6 +1,7 @@
 package com.gui.jhand.hand;
 
 import com.gui.jhand.action.ActionStreet;
+import com.gui.jhand.core.exception.BusinessException;
 import com.gui.jhand.core.poker.Board;
 import com.gui.jhand.core.poker.PocketCards;
 import lombok.Data;
@@ -82,8 +83,9 @@ public class HandState {
 	}
 
 	public BigDecimal getNetProfitInBb() {
-		if (this.blindValue == null || ZERO.equals(this.blindValue)) {
-			return null;
+		if (this.blindValue == null || this.blindValue.signum() <= 0) {
+			throw new BusinessException(
+					"Hand %s has no valid big blind value: %s".formatted(this.handId, this.blindValue));
 		}
 		return getNetProfit().divide(this.blindValue, 2, HALF_UP);
 	}

@@ -1,5 +1,6 @@
 package com.gui.jhand.core.web;
 
+import com.gui.jhand.core.exception.BusinessException;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.ProblemDetail;
 
@@ -17,6 +18,15 @@ class GlobalExceptionHandlerTest {
 		assertThat(problem.getStatus()).isEqualTo(400);
 		assertThat(problem.getTitle()).isEqualTo("Bad Request");
 		assertThat(problem.getDetail()).isEqualTo("Unknown suit symbol: x");
+	}
+
+	@Test
+	void should_handle_business_exception_as_unprocessable_content() {
+		ProblemDetail problem = handler.handleBusiness(new BusinessException("Hand 123 has no valid big blind value"));
+
+		assertThat(problem.getStatus()).isEqualTo(422);
+		assertThat(problem.getTitle()).isEqualTo("Unprocessable Content");
+		assertThat(problem.getDetail()).isEqualTo("Hand 123 has no valid big blind value");
 	}
 
 	@Test
