@@ -28,7 +28,18 @@ class PokerStarsParserTest {
 
 		assertThat(parser.parse(line)).containsExactly(
 				Action.of(HEADER, context.getCurrentStreet(), null, "259795694323", ZERO, line),
-				Action.of(TIME, context.getCurrentStreet(), null, "2026/02/19 19:29:23", ZERO, line));
+				Action.of(TIME, context.getCurrentStreet(), null, "2026/02/19 19:29:23", ZERO, line),
+				Action.of(BIG_BLIND_LEVEL, context.getCurrentStreet(), null, "30", ChipsUtils.of(30.0), line));
+	}
+
+	@Test
+	void should_parse_cash_game_hand_header() {
+		String line = "PokerStars Hand #259827049572:  Hold'em No Limit ($0.01/$0.02 USD) - 2026/02/22 12:13:29 BRT [2026/02/22 10:13:29 ET]";
+
+		assertThat(parser.parse(line)).containsExactly(
+				Action.of(HEADER, context.getCurrentStreet(), null, "259827049572", ZERO, line),
+				Action.of(TIME, context.getCurrentStreet(), null, "2026/02/22 10:13:29", ZERO, line),
+				Action.of(BIG_BLIND_LEVEL, context.getCurrentStreet(), null, "0.02", ChipsUtils.of(0.02), line));
 	}
 
 	@Test

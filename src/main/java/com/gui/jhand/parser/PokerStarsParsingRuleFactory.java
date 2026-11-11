@@ -20,10 +20,16 @@ class PokerStarsParsingRuleFactory {
 	static List<ParsingRule> create() {
 		List<ParsingRule> rules = new ArrayList<>();
 
-		rules.add(new ParsingRule(
-				Pattern.compile("^PokerStars Hand #(\\d+): .*\\[(\\d{4}/\\d{2}/\\d{2} \\d{1,2}:\\d{2}:\\d{2}) ET]"),
-				(m, ctx, line) -> List.of(Action.of(HEADER, ctx.getCurrentStreet(), null, m.group(1), ZERO, line),
-						Action.of(TIME, ctx.getCurrentStreet(), null, m.group(2), ZERO, line))));
+		rules.add(new ParsingRule(Pattern.compile(
+				"^PokerStars Hand #(\\d+): (?:.*?\\(\\$?[\\d.]+/\\$?([\\d.]+)[^)]*\\))?.*\\[(\\d{4}/\\d{2}/\\d{2} \\d{1,2}:\\d{2}:\\d{2}) ET]"),
+				(m, ctx, line) -> {
+					List<Action> actions = new ArrayList<>();
+					actions.add(Action.of(HEADER, ctx.getCurrentStreet(), null, m.group(1), ZERO, line));
+					actions.add(Action.of(TIME, ctx.getCurrentStreet(), null, m.group(3), ZERO, line));
+					actions.add(Action.of(BIG_BLIND_LEVEL, ctx.getCurrentStreet(), null, m.group(2),
+							ChipsUtils.of(m.group(2)), line));
+					return actions;
+				}));
 
 		rules.add(new ParsingRule(Pattern.compile("^Table '([^']+)'"), (m, ctx, line) -> List
 			.of(Action.of(TABLE_INFO, ctx.getCurrentStreet(), null, m.group(1), ZERO, line))));

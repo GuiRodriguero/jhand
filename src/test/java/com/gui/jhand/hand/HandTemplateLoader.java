@@ -2,6 +2,32 @@ package com.gui.jhand.hand;
 
 public class HandTemplateLoader {
 
+	public static String heroWithShortBigBlind() {
+		return """
+				PokerStars Hand #259859299999: Tournament #3978149677,  Hold'em No Limit - Level II (30/60) - 2026/02/24 20:20:00 BRT [2026/02/24 18:20:00 ET]
+				Table '3978149677 1' 4-max Seat #1 is the button
+				Seat 1: GuiRodri2013 (2900 in chips, 9000 bounty)
+				Seat 2: villain1 (25 in chips, 15760 bounty)
+				GuiRodri2013: posts small blind 30
+				villain1: posts big blind 25 and is all-in
+				*** HOLE CARDS ***
+				Dealt to GuiRodri2013 [As Ad]
+				Uncalled bet (5) returned to GuiRodri2013
+				*** FLOP *** [2c 7d 9h]
+				*** TURN *** [2c 7d 9h] [Ks]
+				*** RIVER *** [2c 7d 9h Ks] [3s]
+				*** SHOW DOWN ***
+				GuiRodri2013: shows [As Ad] (a pair of Aces)
+				villain1: shows [4c 5d] (high card King)
+				GuiRodri2013 collected 50 from pot
+				*** SUMMARY ***
+				Total pot 50 | Rake 0
+				Board [2c 7d 9h Ks 3s]
+				Seat 1: GuiRodri2013 (button) (small blind) showed [As Ad] and won (50) with a pair of Aces
+				Seat 2: villain1 (big blind) showed [4c 5d] and lost with high card King
+				""";
+	}
+
 	public static String heroAtBtn() {
 		return """
 				PokerStars Hand #259859224424: Tournament #3978149677,  Hold'em No Limit - Level II (30/60) - 2026/02/24 20:13:13 BRT [2026/02/24 18:13:13 ET]

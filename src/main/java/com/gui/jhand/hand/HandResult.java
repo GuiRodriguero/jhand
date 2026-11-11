@@ -51,6 +51,12 @@ public class HandResult {
 	@Column(precision = 12, scale = 2)
 	private BigDecimal netProfit;
 
+	@Column(precision = 12, scale = 2)
+	private BigDecimal netProfitInBb;
+
+	@Column(precision = 12, scale = 2)
+	private BigDecimal totalPot;
+
 	@Enumerated(value = STRING)
 	private HandRank handRank;
 

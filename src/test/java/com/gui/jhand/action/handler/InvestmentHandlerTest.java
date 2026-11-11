@@ -78,7 +78,6 @@ class InvestmentHandlerTest {
 		assertThat(state.getTotalInvested()).isEqualTo(totalInvestedBeforeHandle.add(action.getAmount()));
 		assertThat(state.getCurrentStreetInvestment())
 			.isEqualTo(currentStreetInvestedBeforeHandle.add(action.getAmount()));
-		assertThat(state.getBlindValue()).isEqualTo(action.getAmount());
 		assertThat(state.isVpip()).isFalse();
 	}
 

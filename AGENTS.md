@@ -28,10 +28,6 @@ Re-importing the same file overwrites its hands and its session (ids are natural
 An **equity calculator** (heads-up, exact hand vs exact hand, all streets) lives in the `equity` package and is
 exposed through `POST /v1/equity`. Villain **ranges** are not supported yet.
 
-Pending/known improvements that were analysed but not implemented are documented in
-[`docs/proposals.md`](docs/proposals.md) (hand rank semantics when the hero folds, position for 9-max tables,
-performance). Read it before touching those areas.
-
 ---
 
 ## 2. Tech stack & tooling
@@ -118,7 +114,7 @@ Agents must understand the poker vocabulary to reason about the code correctly.
 - **Position** (`Position` in `com.gui.jhand.hand`) — the hero's seat relative to the button:
   `BTN, SB, BB, CO, MP, UTG`. Blinds/button positions are read explicitly from the summary line; other
   positions are inferred from the distance to the button (`PositionUtils.resolvePosition`). This inference is
-  **only accurate for 6-max**; see `docs/proposals.md` §2.
+  **only accurate for 6-max**.
 - **Session** (`PokerSession` in `com.gui.jhand.pokersession`) — one imported file. `SessionType`
   (`CASH_GAME`, `TOURNAMENT`) is inferred from the file name (cash names contain stakes like `$0.01-$0.02`,
   tournament names contain `T<number>`). A name matching neither makes the import fail with
@@ -130,7 +126,9 @@ Agents must understand the poker vocabulary to reason about the code correctly.
   off parsed `Action`s. ⚠️ Amounts are **dollars** in cash games and **tournament chips** in tournaments, and
   are stored in the same columns — never aggregate money across sessions of different types.
 - **Ante / Small Blind / Big Blind** — forced bets posted before the deal; tracked as hero investment.
-  The big blind amount is stored as `blindValue`.
+  The big blind **of the level** is stored as `blindValue`; it is read from the hand header (`Level II (30/60)` /
+  `($0.01/$0.02 USD)`, `BIG_BLIND_LEVEL` action → `BigBlindLevelHandler`), **not** from the posted BB, which can
+  be a partial all-in.
 - **Equity** — the share of the pot a hand wins on average against a known opponent hand, given the known
   board (`EquityResult`: hero/villain equity, tie probability, scenario counts).
 
@@ -143,10 +141,12 @@ Agents must understand the poker vocabulary to reason about the code correctly.
   current street investment; uncalled bets returned to the hero are subtracted via `UncalledBetHandler`).
 - **totalCollected** — chips the hero won from pots (`CollectedHandler`).
 - **netProfit** — `totalCollected - totalInvested` (computed in `HandState.getNetProfit()`).
+- **netProfitInBb** — `netProfit / blindValue` (scale 2, `HALF_UP`; `null` when the header has no stakes). It is
+  the unit comparable across cash games and tournaments.
+- **totalPot** — the `Total pot` of the summary (before rake, side pots included), `TotalPotHandler`.
 - **handRank** — computed by `HandRankResolver` with the **hero's pocket cards + the final board**, using the
   `evaluator`. Pre-flop-only hands are classified as `PAIR` or `HIGH_CARD`. It is **always set** — including
-  when the hero folded (it then means "what the hero would have made"). See `docs/proposals.md` §1 before
-  changing this semantic.
+  when the hero folded (it then means "what the hero would have made").
 - **board** — community cards (may be `null` if the hand ended pre-flop).
 
 ---
@@ -169,8 +169,8 @@ com.gui.jhand
 │   ├── Action, ActionType, ActionStreet
 │   └── handler                 # Strategy handlers that fold Actions into HandState
 │       ├── ActionHandler (interface) + ActionHandlerRegistry
-│       └── *Handler (one per concern: Header, Time, PostAnte, Investment, Raise,
-│                       DealtToHero, Board, Collected, UncalledBet, SeatSummary)
+│       └── *Handler (one per concern: Header, Time, BigBlindLevel, PostAnte, Investment, Raise,
+│                       DealtToHero, Board, Collected, UncalledBet, TotalPot, SeatSummary)
 │
 ├── parser                      # turns raw hand-history text into a List<Action>
 │   ├── PokerStarsParser, ParserContext
@@ -491,7 +491,6 @@ Tests live under `src/test/java` mirroring the main package structure. **Match t
 - Normalize inputs once at the use-case boundary.
 - Use **AssertJ** for every assertion and **Instancio**/`*TemplateLoader` for fixtures.
 - Name tests `should_...`; controllers `*RestService`; run `spring-javaformat:apply`.
-- Check `docs/proposals.md` before working on hand rank, positions or performance.
 
 **Don't**
 - ❌ Introduce assertion libraries other than AssertJ (no JUnit `assertEquals`, no Hamcrest, no bare `assert`).

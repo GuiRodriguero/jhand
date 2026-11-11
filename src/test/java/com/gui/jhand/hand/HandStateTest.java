@@ -79,4 +79,36 @@ class HandStateTest {
 		assertThat(handState.getNetProfit()).isEqualTo(ChipsUtils.of(500.0));
 	}
 
+	@Test
+	void should_get_net_profit_in_bb() {
+		handState.setBlindValue(ChipsUtils.of(20.0));
+		handState.addTotalCollected(ChipsUtils.of(1000.0));
+		handState.addTotalInvested(ChipsUtils.of(500.0));
+
+		assertThat(handState.getNetProfitInBb()).isEqualTo(ChipsUtils.of(25.0));
+	}
+
+	@Test
+	void should_round_net_profit_in_bb() {
+		handState.setBlindValue(ChipsUtils.of(0.02));
+		handState.addTotalInvested(ChipsUtils.of(0.05));
+
+		assertThat(handState.getNetProfitInBb()).isEqualTo(ChipsUtils.of(-2.5));
+	}
+
+	@Test
+	void should_round_half_up_net_profit_in_bb() {
+		handState.setBlindValue(ChipsUtils.of(600.0));
+		handState.addTotalInvested(ChipsUtils.of(2555.0));
+
+		assertThat(handState.getNetProfitInBb()).isEqualTo(ChipsUtils.of(-4.26));
+	}
+
+	@Test
+	void should_return_null_net_profit_in_bb_when_blind_value_is_zero() {
+		handState.addTotalCollected(ChipsUtils.of(1000.0));
+
+		assertThat(handState.getNetProfitInBb()).isNull();
+	}
+
 }

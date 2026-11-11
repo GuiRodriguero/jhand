@@ -10,6 +10,7 @@ import java.time.Instant;
 
 import static com.gui.jhand.action.ActionStreet.PRE_FLOP;
 import static java.math.BigDecimal.ZERO;
+import static java.math.RoundingMode.HALF_UP;
 
 @Data
 public class HandState {
@@ -35,6 +36,8 @@ public class HandState {
 	private BigDecimal currentStreetInvestment = ZERO;
 
 	private BigDecimal totalCollected = ZERO;
+
+	private BigDecimal totalPot = ZERO;
 
 	private int activePlayersCount;
 
@@ -76,6 +79,13 @@ public class HandState {
 
 	public BigDecimal getNetProfit() {
 		return this.totalCollected.subtract(this.totalInvested);
+	}
+
+	public BigDecimal getNetProfitInBb() {
+		if (this.blindValue == null || ZERO.equals(this.blindValue)) {
+			return null;
+		}
+		return getNetProfit().divide(this.blindValue, 2, HALF_UP);
 	}
 
 }
