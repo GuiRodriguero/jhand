@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 
-import static com.gui.jhand.pokersession.SessionType.fromFileName;
 import static jakarta.persistence.EnumType.STRING;
 import static lombok.AccessLevel.PACKAGE;
 import static lombok.AccessLevel.PRIVATE;
@@ -25,11 +25,11 @@ public class PokerSession {
 	@Enumerated(STRING)
 	private SessionType type;
 
+	private Integer handCount;
+
+	private Instant startTime;
+
 	@Column(precision = 12, scale = 2)
 	private BigDecimal netProfit;
-
-	static PokerSession of(String sessionId, BigDecimal netProfit) {
-		return PokerSession.of(sessionId, fromFileName(sessionId), netProfit);
-	}
 
 }

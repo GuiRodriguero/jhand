@@ -141,8 +141,9 @@ Agents must understand the poker vocabulary to reason about the code correctly.
   current street investment; uncalled bets returned to the hero are subtracted via `UncalledBetHandler`).
 - **totalCollected** — chips the hero won from pots (`CollectedHandler`).
 - **netProfit** — `totalCollected - totalInvested` (computed in `HandState.getNetProfit()`).
-- **netProfitInBb** — `netProfit / blindValue` (scale 2, `HALF_UP`; `null` when the header has no stakes). It is
-  the unit comparable across cash games and tournaments.
+- **netProfitInBb** — `netProfit / blindValue` (scale 2, `HALF_UP`). It is the unit comparable across cash games
+  and tournaments. A `null`, zero or negative `blindValue` is impossible in a real poker game, so
+  `HandState.getNetProfitInBb()` throws `BusinessException` (→ HTTP 422).
 - **totalPot** — the `Total pot` of the summary (before rake, side pots included), `TotalPotHandler`.
 - **handRank** — computed by `HandRankResolver` with the **hero's pocket cards + the final board**, using the
   `evaluator`. Pre-flop-only hands are classified as `PAIR` or `HIGH_CARD`. It is **always set** — including
@@ -162,6 +163,7 @@ com.gui.jhand
 ├── core                        # cross-cutting, domain-agnostic building blocks
 │   ├── poker                   # pure poker value objects (Card, Rank, Suit, Board, PocketCards, HandRank)
 │   ├── utils                   # ChipsUtils (money/BigDecimal helpers)
+│   ├── exception               # BusinessException (violated poker/business rule)
 │   ├── web                     # GlobalExceptionHandler (@RestControllerAdvice, ProblemDetail)
 │   └── configuration           # WebConfiguration (CORS, MVC)
 │
@@ -194,18 +196,18 @@ com.gui.jhand
 │   ├── HandResultBuilder       # orchestrates handlers to build a HandResult
 │   ├── HandRankResolver        # hero cards + board -> HandRank (uses evaluator)
 │   ├── HandImportService       # import use case (write side)
-│   ├── HandResultQuery         # read use case (read side)
+│   ├── HandResultQuery         # read use case (read side, returns Page<HandResult>)
+│   ├── HandResultFilter        # query criteria record (bound from request params)
 │   ├── HandResultRepository    # Spring Data JPA repository
 │   ├── HandResultSpecification # dynamic query predicates
 │   ├── Position, PositionUtils
 │   ├── BoardConverter, PocketCardsConverter  # JPA AttributeConverters
 │   └── web                     # REST layer for this domain
 │       ├── HandImportRestService, HandResultRestService  # @RestController(s)
-│       ├── HandResultFilter (request record)
 │       └── HandResultSummaryResponse (response record)
 │
 └── pokersession                # the "PokerSession" aggregate (one imported file)
-    ├── PokerSession            # JPA @Entity (sessionId, type, netProfit)
+    ├── PokerSession            # JPA @Entity (sessionId, type, handCount, startTime, netProfit)
     ├── SessionType             # CASH_GAME / TOURNAMENT, inferred from the file name
     ├── PokerSessionService     # write use case (create/overwrite)
     ├── PokerSessionQuery       # read use case (returns Page<PokerSession>)
@@ -225,7 +227,7 @@ com.gui.jhand
 - **`parser` depends only on `action` and `core`.** It produces `Action`s and never touches `HandState`,
   JPA, or Spring. It is a plain-Java engine (`PokerStarsParser` is instantiated with `new`, not injected).
 - **`action.handler` depends on `action`, `hand` (HandState), and `core`.** Handlers mutate `HandState`.
-- **`hand` depends on `action`, `parser`, `evaluator`, `pokersession` (service + `normalizeSessionId` only), and
+- **`hand` depends on `action`, `parser`, `evaluator`, `pokersession` (service, `SessionType` + `normalizeSessionId` only), and
   `core`.** It is the application/persistence layer for hands.
 - **`pokersession` depends on nothing but `core`.** It must not know `hand`.
 - **`*.web` (controllers) depend only on their domain's services/queries and domain objects**, never directly
@@ -234,15 +236,11 @@ com.gui.jhand
 
 **Normalize at the boundary.** Inputs are normalized once, at the entry of the use case, and passed down
 already clean. Example: `HandImportService` turns the file name into a `sessionId` with
-`PokerSessionUtils.normalizeSessionId` and passes that `sessionId` to `HandResultBuilder`/`HandState` and to
-`PokerSessionService.create`; none of those re-normalize.
+`PokerSessionUtils.normalizeSessionId`, derives the `SessionType` from it once, and passes both to
+`HandResultBuilder` and `PokerSessionService.create`; none of those re-normalize or re-derive.
 
 **Known dependency debts** (do not copy these patterns; fix them when touching the area):
 
-- `HandResultQuery` / `HandResultSpecification` (package `hand`) import `hand.web.HandResultFilter` and
-  `HandResultSummaryResponse` — the application layer depends on HTTP DTOs (cycle `hand ↔ hand.web`). New
-  queries must follow the `PokerSessionQuery` model instead (return domain objects/criteria owned by the
-  domain package; the controller maps to the response record).
 - `hand ↔ action.handler` cycle: handlers mutate `hand.HandState` while `hand.HandResultBuilder` uses the
   handler registry.
 - `HandRank.fromScore` (in `core.poker`) encodes the Cactus Kev score ranges, which are an `evaluator`
@@ -254,10 +252,11 @@ already clean. Example: `HandImportService` turns the file name into a `sessionI
 Write and read use cases are separated:
 
 - **Write side:** `HandImportRestService` → `HandImportService` (`@Transactional`) → `HandResultBuilder` →
-  `HandResultRepository.saveAll(...)` → `PokerSessionService.create(sessionId, sumOfNetProfit)`.
+  `HandResultRepository.saveAll(...)` → `PokerSessionService.create(sessionId, sessionType, handCount, startTime, sumOfNetProfit)`.
 - **Read side (hands):** `HandResultRestService` → `HandResultQuery` (`@Transactional(readOnly = true)`) →
-  `HandResultRepository.findAll(spec, pageable)` → mapped to `HandResultSummaryResponse`.
-- **Read side (sessions):** `PokerSessionRestService` → `PokerSessionQuery.getSessionsPaginated(pageable)`
+  `HandResultRepository.findAll(spec, pageable)` (returns `Page<HandResult>`) → the controller maps with
+  `HandResultSummaryResponse::of`.
+- **Read side (sessions):** `PokerSessionRestService` → `PokerSessionQuery.findAllSessions(type, pageable)`
   (returns `Page<PokerSession>`) → the controller maps with `PokerSessionResponse::of`.
 
 ### REST API
@@ -265,8 +264,8 @@ Write and read use cases are separated:
 | Method & path | Description | Notes |
 |---|---|---|
 | `POST /v1/hands/import/batch` | multipart `files[]` + `heroName` | `204 No Content`; one transaction per file |
-| `GET /v1/hands` | paginated hands | filters: `handId`, `sessionId`, `heroCards` (space-separated cards), `handRank`; default sort `time,desc`, size 20 |
-| `GET /v1/sessions` | paginated sessions | default sort `sessionId,desc` (≈ most recent first, names start with `HHyyyyMMdd`), size 20 |
+| `GET /v1/hands` | paginated hands | filters: `handId`, `sessionId`, `sessionType` (`CASH_GAME`/`TOURNAMENT`; invalid → 400), `heroCards` (space-separated cards), `handRank`; default sort `time,desc`, size 20 |
+| `GET /v1/sessions` | paginated sessions | optional filter `type` (`CASH_GAME`/`TOURNAMENT`; invalid → 400); returns `{sessionId, type, handCount, startTime, netProfit}`; default sort `startTime,desc`, size 20 |
 | `POST /v1/equity` | heads-up equity | JSON `{heroCards, villainCards, board}` (space-separated cards; `board` empty/absent = pre-flop, else 3/4/5 cards). Returns `{heroEquity, villainEquity, tieProbability, totalScenarios}`. Invalid/duplicated cards → 400. Pre-flop is a Monte Carlo estimate |
 
 Dates are returned as UTC `Instant`s (ISO-8601 with `Z`); time-zone conversion is the client's job.
@@ -279,6 +278,9 @@ Dates are returned as UTC `Instant`s (ISO-8601 with `Z`); time-zone conversion i
   4xx status (handled by the superclass).
 - `IllegalArgumentException` → **400**, with the exception message as `detail` (logged at `WARN`). Throw it
   for invalid **client input** only (bad filter value, unparseable card, unknown session file name).
+- `BusinessException` (`core.exception`) → **422 Unprocessable Content**, with the message as `detail` (logged at
+  `WARN`). Throw it when the input is well-formed but violates a poker/business invariant (e.g. a hand whose big
+  blind is missing or zero). Its message must be safe to expose.
 - Any other `Exception` → **500** with a **generic** `detail` (the message is never exposed) and the stack
   trace logged at `ERROR`.
 
@@ -462,7 +464,8 @@ Tests live under `src/test/java` mirroring the main package structure. **Match t
 ### Add a new query filter
 
 1. Add the field to the **`HandResultFilter`** record.
-2. Add the predicate in **`HandResultSpecification.withFilters(...)`** (guard optional values with `hasText`).
+2. Add the predicate in **`HandResultSpecification.withFilters(...)`** (guard optional values with `hasText` /
+   `!= null`). Typed fields (enums) are bound by Spring; an invalid value becomes a 400.
 3. Cover it in `HandResultQueryTest` / the specification test.
 
 ### Add a new endpoint

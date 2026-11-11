@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
+import static com.gui.jhand.pokersession.SessionType.CASH_GAME;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.when;
@@ -22,21 +23,36 @@ class PokerSessionQueryTest extends TestBase {
 
 	private PokerSessionQuery query;
 
+	private Pageable pageable;
+
+	private Page<PokerSession> page;
+
 	@Override
 	public void init() {
 		query = new PokerSessionQuery(repository);
+		pageable = PageRequest.of(0, 20);
+		page = new PageImpl<>(List.of(valid(PokerSession.class)), pageable, 1);
 	}
 
 	@Test
-	void should_find_all_sessions() {
-		Pageable pageable = PageRequest.of(0, 20);
-		Page<PokerSession> page = new PageImpl<>(List.of(valid(PokerSession.class)), pageable, 1);
+	void should_find_all_sessions_when_type_is_absent() {
 		when(repository.findAll(pageable)).thenReturn(page);
 
-		assertThat(query.findAllSessions(pageable)).isEqualTo(page);
+		assertThat(query.findAllSessions(null, pageable)).isEqualTo(page);
 
 		InOrder inOrder = inOrder(repository);
 		inOrder.verify(repository).findAll(pageable);
+		inOrder.verifyNoMoreInteractions();
+	}
+
+	@Test
+	void should_find_sessions_by_type() {
+		when(repository.findAllByType(CASH_GAME, pageable)).thenReturn(page);
+
+		assertThat(query.findAllSessions(CASH_GAME, pageable)).isEqualTo(page);
+
+		InOrder inOrder = inOrder(repository);
+		inOrder.verify(repository).findAllByType(CASH_GAME, pageable);
 		inOrder.verifyNoMoreInteractions();
 	}
 

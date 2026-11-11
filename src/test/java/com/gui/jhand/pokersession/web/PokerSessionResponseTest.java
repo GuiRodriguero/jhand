@@ -12,15 +12,16 @@ class PokerSessionResponseTest {
 	void should_instantiate() {
 		PokerSession entity = valid(PokerSession.class);
 
-		assertThat(PokerSessionResponse.of(entity))
-			.isEqualTo(new PokerSessionResponse(entity.getSessionId(), entity.getType().name(), entity.getNetProfit()));
+		assertThat(PokerSessionResponse.of(entity)).isEqualTo(new PokerSessionResponse(entity.getSessionId(),
+				entity.getType().name(), entity.getHandCount(), entity.getStartTime(), entity.getNetProfit()));
 	}
 
 	@Test
-	void should_instantiate_with_null_type() {
+	void should_instantiate_with_null_values() {
 		PokerSession entity = PokerSession.builder().sessionId("My Session").build();
 
-		assertThat(PokerSessionResponse.of(entity)).isEqualTo(new PokerSessionResponse("My Session", null, null));
+		assertThat(PokerSessionResponse.of(entity))
+			.isEqualTo(new PokerSessionResponse("My Session", null, null, null, null));
 	}
 
 }

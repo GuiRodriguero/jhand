@@ -13,10 +13,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.List;
 
 import static com.gui.jhand.TestBase.valid;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.argThat;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static com.gui.jhand.pokersession.SessionType.CASH_GAME;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.*;
 import static org.springframework.data.domain.Sort.Direction.DESC;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -34,15 +33,33 @@ class PokerSessionRestServiceTest {
 	@Test
 	void should_get_sessions() throws Exception {
 		PokerSession session = valid(PokerSession.class);
-		when(query.findAllSessions(any(Pageable.class))).thenReturn(new PageImpl<>(List.of(session)));
+		when(query.findAllSessions(isNull(), any(Pageable.class))).thenReturn(new PageImpl<>(List.of(session)));
 
 		mockMvc.perform(get("/v1/sessions"))
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("$.content[0].sessionId").value(session.getSessionId()))
-			.andExpect(jsonPath("$.content[0].type").value(session.getType().name()));
+			.andExpect(jsonPath("$.content[0].type").value(session.getType().name()))
+			.andExpect(jsonPath("$.content[0].handCount").value(session.getHandCount()))
+			.andExpect(jsonPath("$.content[0].startTime").exists());
 
-		verify(query).findAllSessions(argThat(pageable -> pageable.getPageSize() == 20
-				&& pageable.getSort().getOrderFor("sessionId").getDirection() == DESC));
+		verify(query).findAllSessions(isNull(), argThat(pageable -> pageable.getPageSize() == 20
+				&& pageable.getSort().getOrderFor("startTime").getDirection() == DESC));
+	}
+
+	@Test
+	void should_get_sessions_filtered_by_type() throws Exception {
+		when(query.findAllSessions(eq(CASH_GAME), any(Pageable.class))).thenReturn(new PageImpl<>(List.of()));
+
+		mockMvc.perform(get("/v1/sessions").param("type", CASH_GAME.name())).andExpect(status().isOk());
+
+		verify(query).findAllSessions(eq(CASH_GAME), any(Pageable.class));
+	}
+
+	@Test
+	void should_return_bad_request_when_type_is_invalid() throws Exception {
+		mockMvc.perform(get("/v1/sessions").param("type", "INVALID")).andExpect(status().isBadRequest());
+
+		verifyNoInteractions(query);
 	}
 
 }

@@ -13,8 +13,8 @@ public class PokerSessionQuery {
 
 	private final PokerSessionRepository repository;
 
-	public Page<PokerSession> findAllSessions(Pageable pageable) {
-		return repository.findAll(pageable);
+	public Page<PokerSession> findAllSessions(SessionType type, Pageable pageable) {
+		return type == null ? repository.findAll(pageable) : repository.findAllByType(type, pageable);
 	}
 
 }
