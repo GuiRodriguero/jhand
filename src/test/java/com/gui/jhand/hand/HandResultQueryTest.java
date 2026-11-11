@@ -2,7 +2,6 @@ package com.gui.jhand.hand;
 
 import com.gui.jhand.TestBase;
 import com.gui.jhand.hand.web.HandResultFilter;
-import com.gui.jhand.hand.web.HandResultSummaryResponse;
 import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 import org.mockito.Mock;
@@ -39,7 +38,7 @@ class HandResultQueryTest extends TestBase {
 
 		when(repository.findAll(any(Specification.class), any(Pageable.class))).thenReturn(page);
 
-		assertThat(query.getHandsPaginated(filter, pageable)).isEqualTo(page.map(HandResultSummaryResponse::of));
+		assertThat(query.getHandsPaginated(filter, pageable)).isEqualTo(page);
 
 		InOrder inOrder = inOrder(repository);
 		inOrder.verify(repository).findAll(any(Specification.class), any(Pageable.class));

@@ -3,6 +3,7 @@ package com.gui.jhand.hand;
 import com.gui.jhand.action.Action;
 import com.gui.jhand.action.handler.ActionHandler;
 import com.gui.jhand.action.handler.ActionHandlerRegistry;
+import com.gui.jhand.pokersession.SessionType;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ class HandResultBuilder {
 
 	private final HandRankResolver handRankResolver;
 
-	HandResult build(List<Action> actions, String sessionId, String heroName) {
+	HandResult build(List<Action> actions, String sessionId, SessionType sessionType, String heroName) {
 		HandState state = new HandState(heroName, sessionId);
 
 		for (Action action : actions) {
@@ -35,6 +36,7 @@ class HandResultBuilder {
 		return HandResult.builder()
 			.handId(state.getHandId())
 			.sessionId(state.getSessionId())
+			.sessionType(sessionType)
 			.time(state.getTime())
 			.heroCards(state.getHeroCards())
 			.position(resolvePosition(state))

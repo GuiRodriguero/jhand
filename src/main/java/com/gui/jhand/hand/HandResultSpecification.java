@@ -25,6 +25,10 @@ class HandResultSpecification {
 				predicates.add(cb.equal(root.get("sessionId"), filter.sessionId()));
 			}
 
+			if (filter.sessionType() != null) {
+				predicates.add(cb.equal(root.get("sessionType"), filter.sessionType()));
+			}
+
 			if (hasText(filter.heroCards())) {
 				Arrays.stream(filter.heroCards().trim().split("\\s+"))
 					.forEach(card -> predicates.add(cb.like(root.get("heroCards").as(String.class), "%" + card + "%")));

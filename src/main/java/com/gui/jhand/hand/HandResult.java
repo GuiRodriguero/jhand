@@ -3,6 +3,7 @@ package com.gui.jhand.hand;
 import com.gui.jhand.core.poker.Board;
 import com.gui.jhand.core.poker.HandRank;
 import com.gui.jhand.core.poker.PocketCards;
+import com.gui.jhand.pokersession.SessionType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,6 +27,9 @@ public class HandResult {
 	private String handId;
 
 	private String sessionId;
+
+	@Enumerated(value = STRING)
+	private SessionType sessionType;
 
 	private Instant time;
 

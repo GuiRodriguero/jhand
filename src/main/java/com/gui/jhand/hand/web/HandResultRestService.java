@@ -23,7 +23,7 @@ class HandResultRestService {
 	@GetMapping
 	public ResponseEntity<Page<HandResultSummaryResponse>> getHands(@ModelAttribute HandResultFilter filter,
 			@PageableDefault(size = 20, sort = "time", direction = DESC) Pageable pageable) {
-		return ResponseEntity.ok(query.getHandsPaginated(filter, pageable));
+		return ResponseEntity.ok(query.getHandsPaginated(filter, pageable).map(HandResultSummaryResponse::of));
 	}
 
 }
