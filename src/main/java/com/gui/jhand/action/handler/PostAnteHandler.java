@@ -19,7 +19,7 @@ public class PostAnteHandler implements ActionHandler {
 
 	@Override
 	public void handle(Action action, HandState state) {
-		if (action.getPlayerName().equals(state.getHeroName())) {
+		if (state.getHeroName().equals(action.getPlayerName())) {
 			state.addTotalInvested(action.getAmount());
 		}
 	}

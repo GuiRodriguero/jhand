@@ -43,6 +43,14 @@ class HandImportRestServiceTest {
 	}
 
 	@Test
+	void should_return_bad_request_when_hero_name_is_missing() throws Exception {
+		MockMultipartFile fakeFile = new MockMultipartFile("files", "hand_history.txt", "text/plain",
+				validWonWithShowdown().getBytes());
+
+		mockMvc.perform(multipart("/v1/hands/import/batch").file(fakeFile)).andExpect(status().isBadRequest());
+	}
+
+	@Test
 	void should_throw_runtime_exception_when_import_hand_histories() throws Exception {
 		MockMultipartFile fakeFile = new MockMultipartFile("files", "hand_history.txt", "text/plain",
 				"any content".getBytes()) {

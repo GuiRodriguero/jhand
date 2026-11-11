@@ -7,14 +7,13 @@ import org.mockito.Mock;
 
 import java.math.BigDecimal;
 
-import static com.gui.jhand.pokersession.PokerSessionUtils.normalizeSessionId;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.when;
 
 class PokerSessionServiceTest extends TestBase {
 
-	private static final String SESSION_NAME = "HH20260425 T3995173048 No Limit Hold'em $0.90 + $0.10.txt";
+	private static final String SESSION_ID = "HH20260425 T3995173048 No Limit Hold'em $0.90 + $0.10";
 
 	@Mock
 	private PokerSessionRepository repository;
@@ -31,12 +30,12 @@ class PokerSessionServiceTest extends TestBase {
 		BigDecimal netProfit = BigDecimal.valueOf(100.00);
 		PokerSession session = valid(PokerSession.class);
 
-		when(repository.save(PokerSession.of(normalizeSessionId(SESSION_NAME), netProfit))).thenReturn(session);
+		when(repository.save(PokerSession.of(SESSION_ID, netProfit))).thenReturn(session);
 
-		assertThat(service.create(SESSION_NAME, netProfit)).isEqualTo(session);
+		assertThat(service.create(SESSION_ID, netProfit)).isEqualTo(session);
 
 		InOrder inOrder = inOrder(repository);
-		inOrder.verify(repository).save(PokerSession.of(normalizeSessionId(SESSION_NAME), netProfit));
+		inOrder.verify(repository).save(PokerSession.of(SESSION_ID, netProfit));
 		inOrder.verifyNoMoreInteractions();
 	}
 

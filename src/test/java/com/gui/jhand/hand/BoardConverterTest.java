@@ -11,7 +11,7 @@ class BoardConverterTest {
 
 	private final BoardConverter converter = new BoardConverter();
 
-	private final Board defaultBoard = new Board(Card.fromHandHistory("As"), Card.fromHandHistory("2s"),
+	private final Board defaultBoard = Board.of(Card.fromHandHistory("As"), Card.fromHandHistory("2s"),
 			Card.fromHandHistory("3s"), Card.fromHandHistory("4s"));
 
 	@Test
