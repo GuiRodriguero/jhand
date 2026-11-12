@@ -43,8 +43,8 @@ class TournamentSessionCollector implements SessionCollector {
 	}
 
 	@Override
-	public PokerSession toSession(String sessionId, int handCount, Instant startTime) {
-		return TournamentPokerSession.of(sessionId, handCount, startTime, toResult());
+	public PokerSession toSession(String sessionId, int handCount, Instant startTime, Instant endTime) {
+		return TournamentPokerSession.of(sessionId, handCount, startTime, endTime, toResult());
 	}
 
 	TournamentResult toResult() {

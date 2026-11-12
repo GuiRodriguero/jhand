@@ -20,8 +20,8 @@ class CashSessionCollector implements SessionCollector {
 	}
 
 	@Override
-	public PokerSession toSession(String sessionId, int handCount, Instant startTime) {
-		return CashPokerSession.of(sessionId, handCount, startTime, netProfit);
+	public PokerSession toSession(String sessionId, int handCount, Instant startTime, Instant endTime) {
+		return CashPokerSession.of(sessionId, handCount, startTime, endTime, netProfit);
 	}
 
 }

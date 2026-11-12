@@ -34,6 +34,8 @@ public abstract class PokerSession {
 
 	private Instant startTime;
 
+	private Instant endTime;
+
 	@Column(precision = 12, scale = 2)
 	private BigDecimal netProfit;
 

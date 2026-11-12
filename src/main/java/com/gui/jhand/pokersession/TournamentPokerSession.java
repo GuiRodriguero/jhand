@@ -30,17 +30,18 @@ public class TournamentPokerSession extends PokerSession {
 
 	private Boolean realMoney;
 
-	private TournamentPokerSession(String sessionId, Integer handCount, Instant startTime, TournamentResult result) {
-		super(sessionId, TOURNAMENT, handCount, startTime, result.netProfit());
+	private TournamentPokerSession(String sessionId, Integer handCount, Instant startTime, Instant endTime,
+			TournamentResult result) {
+		super(sessionId, TOURNAMENT, handCount, startTime, endTime, result.netProfit());
 		this.buyIn = result.buyIn();
 		this.prize = result.finished() ? result.prize() : null;
 		this.finishPosition = result.finishPosition();
 		this.realMoney = result.realMoney();
 	}
 
-	public static TournamentPokerSession of(String sessionId, Integer handCount, Instant startTime,
+	public static TournamentPokerSession of(String sessionId, Integer handCount, Instant startTime, Instant endTime,
 			TournamentResult result) {
-		return new TournamentPokerSession(sessionId, handCount, startTime, result);
+		return new TournamentPokerSession(sessionId, handCount, startTime, endTime, result);
 	}
 
 }

@@ -179,7 +179,7 @@ com.gui.jhand
 ├── core                        # cross-cutting, domain-agnostic building blocks
 │   ├── poker                   # pure poker value objects (Card, Rank, Suit, Board, PocketCards, HandRank)
 │   ├── utils                   # ChipsUtils (money/BigDecimal helpers)
-│   ├── exception               # BusinessException (violated poker/business rule)
+│   ├── exception               # BusinessException (violated poker/business rule), NotFoundException
 │   ├── web                     # GlobalExceptionHandler (@RestControllerAdvice, ProblemDetail)
 │   └── configuration           # WebConfiguration (CORS, MVC)
 │
@@ -225,18 +225,19 @@ com.gui.jhand
 │       └── HandResultSummaryResponse (response record)
 │
 └── pokersession                # the "PokerSession" aggregate (one imported file)
-    ├── PokerSession            # abstract JPA @Entity (sessionId, type, handCount, startTime, netProfit);
-    │                           #   SINGLE_TABLE inheritance, discriminator = the `type` column
+    ├── PokerSession            # abstract JPA @Entity (sessionId, type, handCount, startTime, endTime,
+    │                           #   netProfit); SINGLE_TABLE inheritance, discriminator = the `type` column.
+    │                           #   startTime/endTime = time of the first/last hand of the file
     ├── CashPokerSession        # netProfit = sum of the hands (dollars)
     ├── TournamentPokerSession  # netProfit = prize - buyIn; + buyIn, prize, finishPosition, realMoney
     ├── SessionType             # CASH_GAME / TOURNAMENT, inferred from the file name
     ├── TournamentResult        # record: buy-in, prize, placement, realMoney, finished; netProfit()
     ├── PokerSessionService     # write use case (create/overwrite)
-    ├── PokerSessionQuery       # read use case (returns Page<PokerSession>)
+    ├── PokerSessionQuery       # read use case (Page<PokerSession>; findById → NotFoundException)
     ├── PokerSessionRepository
     ├── PokerSessionUtils       # normalizeSessionId (strip ".txt")
     └── web
-        ├── PokerSessionRestService  # GET /v1/sessions
+        ├── PokerSessionRestService  # GET /v1/sessions, GET /v1/sessions/{sessionId}
         └── PokerSessionResponse     # response record
 ```
 
@@ -294,7 +295,8 @@ Write and read use cases are separated:
 |---|---|---|
 | `POST /v1/hands/import/batch` | multipart `files[]` + `heroName` | `204 No Content`; one transaction per file |
 | `GET /v1/hands` | paginated hands | filters: `handId`, `sessionId`, `sessionType` (`CASH_GAME`/`TOURNAMENT`; invalid → 400), `heroCards` (space-separated cards), `handRank`; default sort `time,desc`, size 20 |
-| `GET /v1/sessions` | paginated sessions | optional filter `type` (`CASH_GAME`/`TOURNAMENT`; invalid → 400); returns `{sessionId, type, handCount, startTime, netProfit, buyIn, prize, finishPosition, realMoney}` (the last four are tournament only; `netProfit` is `null` for an unfinished tournament); default sort `startTime,desc`, size 20 |
+| `GET /v1/sessions` | paginated sessions | optional filter `type` (`CASH_GAME`/`TOURNAMENT`; invalid → 400); returns `{sessionId, type, handCount, startTime, endTime, netProfit, buyIn, prize, finishPosition, realMoney}` (the last four are tournament only; `netProfit` is `null` for an unfinished tournament; `endTime` = start of the last hand, `null` for sessions imported before it existed); default sort `startTime,desc`, size 20 |
+| `GET /v1/sessions/{sessionId}` | one session | same body as an item of `GET /v1/sessions`; unknown id → 404 (`ProblemDetail`). The id contains spaces/`$`/`'`: the client must URL-encode it |
 | `POST /v1/equity` | heads-up equity | JSON `{heroCards, villainCards, board}` (space-separated cards; `board` empty/absent = pre-flop, else 3/4/5 cards). Returns `{heroEquity, villainEquity, tieProbability, totalScenarios}`. Invalid/duplicated cards → 400. Pre-flop is a Monte Carlo estimate |
 
 Dates are returned as UTC `Instant`s (ISO-8601 with `Z`); time-zone conversion is the client's job.
@@ -310,6 +312,8 @@ Dates are returned as UTC `Instant`s (ISO-8601 with `Z`); time-zone conversion i
 - `BusinessException` (`core.exception`) → **422 Unprocessable Content**, with the message as `detail` (logged at
   `WARN`). Throw it when the input is well-formed but violates a poker/business invariant (e.g. a hand whose big
   blind is missing or zero). Its message must be safe to expose.
+- `ResourceNotFoundException` (`core.exception`) → **404 Not Found**, with the message as `detail` (logged at `WARN`).
+  Throw it from a `*Query` when a resource looked up by id does not exist. Its message must be safe to expose.
 - Any other `Exception` → **500** with a **generic** `detail` (the message is never exposed) and the stack
   trace logged at `ERROR`.
 

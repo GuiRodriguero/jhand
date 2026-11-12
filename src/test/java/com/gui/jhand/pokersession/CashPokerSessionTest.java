@@ -14,12 +14,15 @@ class CashPokerSessionTest {
 	void should_instantiate() {
 		Instant startTime = Instant.ofEpochSecond(1771774381);
 
-		CashPokerSession session = CashPokerSession.of("My Cash", 42, startTime, ChipsUtils.of(1.25));
+		Instant endTime = startTime.plusSeconds(3600);
+
+		CashPokerSession session = CashPokerSession.of("My Cash", 42, startTime, endTime, ChipsUtils.of(1.25));
 
 		assertThat(session.getSessionId()).isEqualTo("My Cash");
 		assertThat(session.getType()).isEqualTo(CASH_GAME);
 		assertThat(session.getHandCount()).isEqualTo(42);
 		assertThat(session.getStartTime()).isEqualTo(startTime);
+		assertThat(session.getEndTime()).isEqualTo(endTime);
 		assertThat(session.getNetProfit()).isEqualTo(ChipsUtils.of(1.25));
 	}
 

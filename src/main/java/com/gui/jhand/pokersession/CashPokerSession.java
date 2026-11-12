@@ -17,13 +17,14 @@ import static lombok.AccessLevel.PROTECTED;
 @NoArgsConstructor(access = PROTECTED)
 public class CashPokerSession extends PokerSession {
 
-	private CashPokerSession(String sessionId, Integer handCount, Instant startTime, BigDecimal handsNetProfit) {
-		super(sessionId, CASH_GAME, handCount, startTime, handsNetProfit);
+	private CashPokerSession(String sessionId, Integer handCount, Instant startTime, Instant endTime,
+			BigDecimal handsNetProfit) {
+		super(sessionId, CASH_GAME, handCount, startTime, endTime, handsNetProfit);
 	}
 
-	public static CashPokerSession of(String sessionId, Integer handCount, Instant startTime,
+	public static CashPokerSession of(String sessionId, Integer handCount, Instant startTime, Instant endTime,
 			BigDecimal handsNetProfit) {
-		return new CashPokerSession(sessionId, handCount, startTime, handsNetProfit);
+		return new CashPokerSession(sessionId, handCount, startTime, endTime, handsNetProfit);
 	}
 
 }

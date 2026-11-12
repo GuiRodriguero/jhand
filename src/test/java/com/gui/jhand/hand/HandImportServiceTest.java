@@ -61,7 +61,8 @@ class HandImportServiceTest extends TestBase {
 		inOrder.verify(pokerSessionService)
 			.save(argThat(
 					session -> session instanceof TournamentPokerSession && session.getSessionId().equals(SESSION_ID)
-							&& session.getHandCount() == 2 && firstHandTime.equals(session.getStartTime())));
+							&& session.getHandCount() == 2 && firstHandTime.equals(session.getStartTime())
+							&& firstHandTime.plusSeconds(60).equals(session.getEndTime())));
 		inOrder.verifyNoMoreInteractions();
 	}
 
@@ -73,7 +74,7 @@ class HandImportServiceTest extends TestBase {
 
 		service.saveAllHandResultsFromFile(HandTemplateLoader.heroWinsTournament(), FILE_NAME, "GuiRodri2013");
 
-		verify(pokerSessionService).save(TournamentPokerSession.of(SESSION_ID, 1, handTime,
+		verify(pokerSessionService).save(TournamentPokerSession.of(SESSION_ID, 1, handTime, handTime,
 				new TournamentResult(ChipsUtils.of(0.50), ChipsUtils.of(5.67), 1, true, true)));
 	}
 
@@ -88,7 +89,7 @@ class HandImportServiceTest extends TestBase {
 		service.saveAllHandResultsFromFile(rawHands, cashFileName, "GuiRodri2013");
 
 		verify(pokerSessionService).save(CashPokerSession.of("HH20260222 Ljuba IV - $0.01-$0.02 - USD No Limit Hold'em",
-				2, firstHandTime, ChipsUtils.of("0.03")));
+				2, firstHandTime, firstHandTime.plusSeconds(60), ChipsUtils.of("0.03")));
 	}
 
 	@Test

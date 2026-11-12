@@ -49,13 +49,17 @@ public class HandImportService {
 
 		if (!processedHands.isEmpty()) {
 			repository.saveAll(processedHands);
-			pokerSessionService
-				.save(sessionCollector.toSession(sessionId, processedHands.size(), firstHandTime(processedHands)));
+			pokerSessionService.save(sessionCollector.toSession(sessionId, processedHands.size(),
+					firstHandTime(processedHands), lastHandTime(processedHands)));
 		}
 	}
 
 	private static Instant firstHandTime(List<HandResult> hands) {
 		return hands.stream().map(HandResult::getTime).filter(Objects::nonNull).min(Instant::compareTo).orElse(null);
+	}
+
+	private static Instant lastHandTime(List<HandResult> hands) {
+		return hands.stream().map(HandResult::getTime).filter(Objects::nonNull).max(Instant::compareTo).orElse(null);
 	}
 
 }

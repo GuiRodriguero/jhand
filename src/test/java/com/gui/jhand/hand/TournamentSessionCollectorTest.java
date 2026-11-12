@@ -132,11 +132,12 @@ class TournamentSessionCollectorTest {
 	@Test
 	void should_build_tournament_session_with_prize_minus_buy_in() {
 		Instant startTime = Instant.ofEpochSecond(1771774381);
+		Instant endTime = startTime.plusSeconds(60);
 		acceptHand(heroWinsTournament());
 
-		PokerSession session = collector.toSession("My Tournament", 1, startTime);
+		PokerSession session = collector.toSession("My Tournament", 1, startTime, endTime);
 
-		assertThat(session).isEqualTo(TournamentPokerSession.of("My Tournament", 1, startTime,
+		assertThat(session).isEqualTo(TournamentPokerSession.of("My Tournament", 1, startTime, endTime,
 				new TournamentResult(ChipsUtils.of(0.50), ChipsUtils.of(5.67), 1, true, true)));
 		assertThat(session.getNetProfit()).isEqualTo(ChipsUtils.of(5.17));
 	}
@@ -146,7 +147,7 @@ class TournamentSessionCollectorTest {
 		acceptHand(heroWinsTournament());
 		collector.accept(List.of(), handWithNetProfitAt("16822.00", Instant.ofEpochSecond(1771774381)));
 
-		assertThat(collector.toSession("My Tournament", 2, null).getNetProfit()).isEqualTo(ChipsUtils.of(5.17));
+		assertThat(collector.toSession("My Tournament", 2, null, null).getNetProfit()).isEqualTo(ChipsUtils.of(5.17));
 	}
 
 	private void acceptHand(String rawHand) {

@@ -11,7 +11,7 @@ interface SessionCollector {
 
 	void accept(List<Action> actions, HandResult hand);
 
-	PokerSession toSession(String sessionId, int handCount, Instant startTime);
+	PokerSession toSession(String sessionId, int handCount, Instant startTime, Instant endTime);
 
 	static SessionCollector of(SessionType type, String heroName) {
 		return switch (type) {
