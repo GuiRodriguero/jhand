@@ -1,6 +1,7 @@
 package com.gui.jhand.core.web;
 
 import com.gui.jhand.core.exception.BusinessException;
+import com.gui.jhand.core.exception.ResourceNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -33,6 +34,16 @@ class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 		ProblemDetail problem = ProblemDetail.forStatusAndDetail(UNPROCESSABLE_CONTENT, ex.getMessage());
 		problem.setTitle("Unprocessable Content");
+		return problem;
+	}
+
+	@ResponseStatus(NOT_FOUND)
+	@ExceptionHandler(ResourceNotFoundException.class)
+	public ProblemDetail handleNotFound(ResourceNotFoundException ex) {
+		log.warn("Resource not found: {}", ex.getMessage());
+
+		ProblemDetail problem = ProblemDetail.forStatusAndDetail(NOT_FOUND, ex.getMessage());
+		problem.setTitle("Resource Not Found");
 		return problem;
 	}
 
