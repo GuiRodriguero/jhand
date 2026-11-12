@@ -17,6 +17,7 @@ import java.util.List;
 
 import static com.gui.jhand.TestBase.valid;
 import static com.gui.jhand.pokersession.SessionType.CASH_GAME;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 import static org.springframework.data.domain.Sort.Direction.DESC;
@@ -49,7 +50,8 @@ class PokerSessionRestServiceTest {
 			.andExpect(jsonPath("$.content[0].buyIn").exists())
 			.andExpect(jsonPath("$.content[0].prize").exists())
 			.andExpect(jsonPath("$.content[0].finishPosition").value(session.getFinishPosition()))
-			.andExpect(jsonPath("$.content[0].realMoney").value(session.getRealMoney()));
+			.andExpect(jsonPath("$.content[0].realMoney").value(session.getRealMoney()))
+			.andExpect(result -> assertThat(result.getResponse().getContentAsString()).doesNotContain("bigBlind"));
 
 		verify(query).findAllSessions(isNull(), argThat(pageable -> pageable.getPageSize() == 20
 				&& pageable.getSort().getOrderFor("startTime").getDirection() == DESC));
@@ -64,7 +66,8 @@ class PokerSessionRestServiceTest {
 		mockMvc.perform(get("/v1/sessions").param("type", CASH_GAME.name()))
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("$.content[0].bigBlind").value(0.02))
-			.andExpect(jsonPath("$.content[0].buyIn").doesNotExist());
+			.andExpect(result -> assertThat(result.getResponse().getContentAsString()).doesNotContain("buyIn", "prize",
+					"finishPosition", "realMoney"));
 
 		verify(query).findAllSessions(eq(CASH_GAME), any(Pageable.class));
 	}

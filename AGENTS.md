@@ -136,7 +136,8 @@ Agents must understand the poker vocabulary to reason about the code correctly.
   - `TournamentSessionCollector` (in `hand`) folds them per file into a `TournamentResult`, from which
     `TournamentPokerSession.of(...)` derives the result.
   - `realMoney` = the buy-in or the prize has `$`; play-money results are shown without `$`.
-  - No hero finish line (a tournament still running) → `netProfit` and `prize` are `null`.
+  - No hero finish line (a tournament still running) → `prize` and `finishPosition` are `null` and `netProfit` is
+    **−buy-in** (the buy-in is already spent; a freeroll gives 0).
   - Re-entries and bounties won are not accounted for yet.
 - **Ante / Small Blind / Big Blind** — forced bets posted before the deal; tracked as hero investment.
   The big blind **of the level** is stored as `blindValue`; it is read from the hand header (`Level II (30/60)` /
@@ -238,7 +239,8 @@ com.gui.jhand
     ├── PokerSessionUtils       # normalizeSessionId (strip ".txt")
     └── web
         ├── PokerSessionRestService  # GET /v1/sessions, GET /v1/sessions/{sessionId}
-        └── PokerSessionResponse     # response record
+        ├── PokerSessionResponse     # sealed response interface; of(entity) picks the per-type record
+        └── CashSessionResponse, TournamentSessionResponse  # one response record per SessionType
 ```
 
 ### Dependency rules (who knows whom)
@@ -295,7 +297,7 @@ Write and read use cases are separated:
 |---|---|---|
 | `POST /v1/hands/import/batch` | multipart `files[]` + `heroName` | `204 No Content`; one transaction per file |
 | `GET /v1/hands` | paginated hands | filters: `handId`, `sessionId`, `sessionType` (`CASH_GAME`/`TOURNAMENT`; invalid → 400), `heroCards` (space-separated cards), `handRank`; default sort `time,desc`, size 20 |
-| `GET /v1/sessions` | paginated sessions | optional filter `type` (`CASH_GAME`/`TOURNAMENT`; invalid → 400); returns `{sessionId, type, handCount, startTime, endTime, netProfit, bigBlind, buyIn, prize, finishPosition, realMoney}` (`bigBlind` is cash only, `null` for sessions imported before it existed; the last four are tournament only; `netProfit` is `null` for an unfinished tournament; `endTime` = start of the last hand, `null` for sessions imported before it existed); default sort `startTime,desc`, size 20 |
+| `GET /v1/sessions` | paginated sessions | optional filter `type` (`CASH_GAME`/`TOURNAMENT`; invalid → 400); each item has the common fields `{sessionId, type, handCount, startTime, endTime, netProfit}` plus its type's own: cash `{bigBlind}` (`null` for sessions imported before it existed), tournament `{buyIn, prize, finishPosition, realMoney}` — `type` is the discriminator, a cash item never carries tournament fields and vice versa (`netProfit` is −buy-in and `prize` `null` for an unfinished tournament; `endTime` = start of the last hand, `null` for sessions imported before it existed); default sort `startTime,desc`, size 20 |
 | `GET /v1/sessions/{sessionId}` | one session | same body as an item of `GET /v1/sessions`; unknown id → 404 (`ProblemDetail`). The id contains spaces/`$`/`'`: the client must URL-encode it |
 | `POST /v1/equity` | heads-up equity | JSON `{heroCards, villainCards, board}` (space-separated cards; `board` empty/absent = pre-flop, else 3/4/5 cards). Returns `{heroEquity, villainEquity, tieProbability, totalScenarios}`. Invalid/duplicated cards → 400. Pre-flop is a Monte Carlo estimate |
 
@@ -464,6 +466,12 @@ Tests live under `src/test/java` mirroring the main package structure. **Match t
 - Test method names use **`snake_case` starting with `should_`**:
   `should_save_all_hand_results_from_file`, `should_sort_cards_by_rank_descending`,
   `should_handle_with_vpip`.
+- **One test per real scenario, as simple as possible — no filler.** A scenario is a distinct path through the code
+  under test (a branch, a rule, an error), not a different input to the same path. Do not write a second test that
+  only feeds different values (explicit values, nulls, an "unfinished" case) into the same plain mapping: a mapper
+  like `CashSessionResponse.of` is one test — `valid(Entity.class)` + `isEqualTo(new Response(entity.getX(), ...))`.
+  Business rules belong to the test of the class that owns them (e.g. the unfinished-tournament result is
+  `TournamentResultTest`, not the response test). Do cover every branch, including the `default`/error one.
 - Follow the **Arrange / Act / Assert** structure seen in existing tests. Use `InOrder` to assert interaction
   ordering when relevant (`HandImportServiceTest`).
 - Controller tests use `@WebMvcTest` with `MockMvc.perform(...)` and `@MockitoBean` collaborators, asserting
@@ -513,7 +521,8 @@ Tests live under `src/test/java` mirroring the main package structure. **Match t
    `HandResult`s (like `CashSessionCollector`) or from the parsed `Action`s (like `TournamentSessionCollector`),
    and hand it to the session factory in `toSession(...)`; or compute it on read in `PokerSessionQuery`.
 2. Add the column to `PokerSession` if it applies to every type, or to the subclass if it is type-specific; add
-   the field to `PokerSessionResponse` (read it with `instanceof` when it is type-specific).
+   the field to the response record of its type (`CashSessionResponse` / `TournamentSessionResponse`), or to both
+   when it is common. A new `SessionType` also needs its own record in the `permits` of `PokerSessionResponse`.
 3. Remember that cash sessions are in dollars, tournament sessions in the buy-in currency, and tournament hands
    in chips.
 4. A new `SessionType` needs a `PokerSession` subclass (`@DiscriminatorValue`) and a `SessionCollector`; the
