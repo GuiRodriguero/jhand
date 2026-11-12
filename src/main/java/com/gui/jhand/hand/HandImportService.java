@@ -8,7 +8,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +15,6 @@ import java.util.Objects;
 
 import static com.gui.jhand.pokersession.PokerSessionUtils.normalizeSessionId;
 import static com.gui.jhand.pokersession.SessionType.fromFileName;
-import static java.math.BigDecimal.ZERO;
 
 @Service
 @AllArgsConstructor
@@ -34,6 +32,7 @@ public class HandImportService {
 	public void saveAllHandResultsFromFile(String fileContent, String fileName, String heroName) {
 		String sessionId = normalizeSessionId(fileName);
 		SessionType sessionType = fromFileName(sessionId);
+		SessionCollector sessionCollector = SessionCollector.of(sessionType, heroName);
 		List<HandResult> processedHands = new ArrayList<>();
 
 		for (String rawHand : fileContent.split("(\\r?\\n){2,}")) {
@@ -45,17 +44,14 @@ public class HandImportService {
 			HandResult result = builder.build(actions, sessionId, sessionType, heroName);
 
 			processedHands.add(result);
+			sessionCollector.accept(actions, result);
 		}
 
 		if (!processedHands.isEmpty()) {
 			repository.saveAll(processedHands);
-			pokerSessionService.create(sessionId, sessionType, processedHands.size(), firstHandTime(processedHands),
-					sumNetProfit(processedHands));
+			pokerSessionService
+				.save(sessionCollector.toSession(sessionId, processedHands.size(), firstHandTime(processedHands)));
 		}
-	}
-
-	private static BigDecimal sumNetProfit(List<HandResult> hands) {
-		return hands.stream().map(HandResult::getNetProfit).reduce(ZERO, BigDecimal::add);
 	}
 
 	private static Instant firstHandTime(List<HandResult> hands) {

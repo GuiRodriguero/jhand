@@ -558,4 +558,35 @@ public class HandTemplateLoader {
 				""";
 	}
 
+	public static String heroWinsTournament() {
+		return """
+				PokerStars Hand #262671777747: Tournament #4046412414, $0.45+$0.05 USD Hold'em No Limit - Level XIV (800/1600) - 2026/11/10 20:41:55 BRT [2026/11/10 18:41:55 ET]
+				Table '4046412414 4' 8-max Seat #6 is the button
+				Seat 4: GuiRodri2013 (39589 in chips)
+				Seat 6: villain1 (8411 in chips)
+				GuiRodri2013: posts the ante 200
+				villain1: posts the ante 200
+				villain1: posts small blind 800
+				GuiRodri2013: posts big blind 1600
+				*** HOLE CARDS ***
+				Dealt to GuiRodri2013 [Qh Jh]
+				villain1: raises 6611 to 8211 and is all-in
+				GuiRodri2013: calls 6611
+				*** FLOP *** [Ks Td Ad]
+				*** TURN *** [Ks Td Ad] [7s]
+				*** RIVER *** [Ks Td Ad 7s] [5h]
+				*** SHOW DOWN ***
+				GuiRodri2013: shows [Qh Jh] (a straight, Ten to Ace)
+				villain1: shows [5c 6d] (a pair of Fives)
+				GuiRodri2013 collected 16822 from pot
+				villain1 finished the tournament in 2nd place and received $3.70.
+				GuiRodri2013 wins the tournament and receives $5.67 - congratulations!
+				*** SUMMARY ***
+				Total pot 16822 | Rake 0
+				Board [Ks Td Ad 7s 5h]
+				Seat 4: GuiRodri2013 (big blind) showed [Qh Jh] and won (16822) with a straight, Ten to Ace
+				Seat 6: villain1 (button) (small blind) showed [5c 6d] and lost with a pair of Fives
+				""";
+	}
+
 }
