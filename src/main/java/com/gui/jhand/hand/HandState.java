@@ -28,6 +28,8 @@ public class HandState {
 
 	private BigDecimal blindValue = ZERO;
 
+	private BigDecimal startingStack;
+
 	private boolean vpip;
 
 	private boolean pfr;

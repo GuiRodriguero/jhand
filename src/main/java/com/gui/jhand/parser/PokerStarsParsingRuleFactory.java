@@ -46,8 +46,9 @@ class PokerStarsParsingRuleFactory {
 		rules.add(new ParsingRule(Pattern.compile("^Table '([^']+)'"), (m, ctx, line) -> List
 			.of(Action.of(TABLE_INFO, ctx.getCurrentStreet(), null, m.group(1), ZERO, line))));
 
-		rules.add(new ParsingRule(Pattern.compile("^Seat (\\d+): (.*?) \\(.*?in chips.*?\\)"), (m, ctx, line) -> List
-			.of(Action.of(SEAT_INFO, ctx.getCurrentStreet(), m.group(2), m.group(1), ZERO, line))));
+		rules.add(new ParsingRule(Pattern.compile("^Seat (\\d+): (.*?) \\(\\$?([\\d.]+) in chips.*?\\)"),
+				(m, ctx, line) -> List.of(Action.of(SEAT_INFO, ctx.getCurrentStreet(), m.group(2), m.group(1),
+						ChipsUtils.of(m.group(3)), line))));
 
 		rules.add(new ParsingRule(Pattern.compile("^(.*?): posts the ante (\\$?)([\\d.]+)"),
 				(m, ctx, line) -> List.of(Action.of(POST_ANTE, ctx.getCurrentStreet(), m.group(1),

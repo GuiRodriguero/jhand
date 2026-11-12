@@ -42,6 +42,9 @@ public class HandResult {
 	@Column(precision = 12, scale = 2)
 	private BigDecimal blindValue;
 
+	@Column(precision = 12, scale = 2)
+	private BigDecimal startingStack;
+
 	private boolean vpip;
 
 	private boolean pfr;

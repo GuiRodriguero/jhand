@@ -68,6 +68,13 @@ public class ActionTemplateLoader {
 			.create();
 	}
 
+	public static Action validGuiSeatInfo() {
+		return Instancio.of(Action.class)
+			.set(field(Action::getPlayerName), "GuiRodri2013")
+			.set(field(Action::getType), SEAT_INFO)
+			.create();
+	}
+
 	public static Action validNow() {
 		return Instancio.of(Action.class).set(field(Action::getMainInformation), "2026/02/24 18:11:16").create();
 	}

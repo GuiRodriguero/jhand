@@ -82,12 +82,14 @@ class PokerStarsParserTest {
 			.containsExactly(Action.of(TABLE_INFO, context.getCurrentStreet(), null, "3976713284 1", ZERO, line));
 	}
 
-	@Test
-	void should_parse_seat_info() {
-		String line = "Seat 8: GuiRodri2013 (1448 in chips)";
-
-		assertThat(parser.parse(line))
-			.containsExactly(Action.of(SEAT_INFO, context.getCurrentStreet(), "GuiRodri2013", "8", ZERO, line));
+	@ParameterizedTest
+	@CsvSource(delimiter = '|',
+			value = { "Seat 8: GuiRodri2013 (1448 in chips)|1448", "Seat 8: GuiRodri2013 ($2.24 in chips)|2.24",
+					"Seat 8: GuiRodri2013 (2900 in chips, 9000 bounty)|2900",
+					"Seat 8: GuiRodri2013 (1500 in chips) is sitting out|1500" })
+	void should_parse_seat_info(String line, String expectedStack) {
+		assertThat(parser.parse(line)).containsExactly(Action.of(SEAT_INFO, context.getCurrentStreet(), "GuiRodri2013",
+				"8", ChipsUtils.of(expectedStack), line));
 	}
 
 	@Test

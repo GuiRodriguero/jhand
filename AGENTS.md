@@ -158,6 +158,9 @@ Agents must understand the poker vocabulary to reason about the code correctly.
   and tournaments. A `null`, zero or negative `blindValue` is impossible in a real poker game, so
   `HandState.getNetProfitInBb()` throws `BusinessException` (→ HTTP 422).
 - **totalPot** — the `Total pot` of the summary (before rake, side pots included), `TotalPotHandler`.
+- **startingStack** — the hero's stack at the start of the hand, read from the seat line
+  (`Seat 1: Hero (1500 in chips)` / `($2.24 in chips)`, `SEAT_INFO` → `SeatInfoHandler`). `null` for hands
+  imported before this column existed (re-import to fill it).
 - **handRank** — computed by `HandRankResolver` with the **hero's pocket cards + the final board**, using the
   `evaluator`. Pre-flop-only hands are classified as `PAIR` or `HIGH_CARD`. It is **always set** — including
   when the hero folded (it then means "what the hero would have made").
@@ -185,7 +188,7 @@ com.gui.jhand
 │   └── handler                 # Strategy handlers that fold Actions into HandState
 │       ├── ActionHandler (interface) + ActionHandlerRegistry
 │       └── *Handler (one per concern: Header, Time, BigBlindLevel, PostAnte, Investment, Raise,
-│                       DealtToHero, Board, Collected, UncalledBet, TotalPot, SeatSummary)
+│                       DealtToHero, Board, Collected, UncalledBet, TotalPot, SeatInfo, SeatSummary)
 │
 ├── parser                      # turns raw hand-history text into a List<Action>
 │   ├── PokerStarsParser, ParserContext

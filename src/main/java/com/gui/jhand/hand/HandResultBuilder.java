@@ -41,6 +41,7 @@ class HandResultBuilder {
 			.heroCards(state.getHeroCards())
 			.position(resolvePosition(state))
 			.blindValue(state.getBlindValue())
+			.startingStack(state.getStartingStack())
 			.vpip(state.isVpip())
 			.pfr(state.isPfr())
 			.totalInvested(state.getTotalInvested())
