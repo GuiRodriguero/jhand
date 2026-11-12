@@ -14,14 +14,19 @@ class CashSessionCollector implements SessionCollector {
 
 	private BigDecimal netProfit = ZERO;
 
+	private BigDecimal bigBlind;
+
 	@Override
 	public void accept(List<Action> actions, HandResult hand) {
 		netProfit = netProfit.add(hand.getNetProfit());
+		if (bigBlind == null) {
+			bigBlind = hand.getBlindValue();
+		}
 	}
 
 	@Override
 	public PokerSession toSession(String sessionId, int handCount, Instant startTime, Instant endTime) {
-		return CashPokerSession.of(sessionId, handCount, startTime, endTime, netProfit);
+		return CashPokerSession.of(sessionId, handCount, startTime, endTime, netProfit, bigBlind);
 	}
 
 }

@@ -89,7 +89,7 @@ class HandImportServiceTest extends TestBase {
 		service.saveAllHandResultsFromFile(rawHands, cashFileName, "GuiRodri2013");
 
 		verify(pokerSessionService).save(CashPokerSession.of("HH20260222 Ljuba IV - $0.01-$0.02 - USD No Limit Hold'em",
-				2, firstHandTime, firstHandTime.plusSeconds(60), ChipsUtils.of("0.03")));
+				2, firstHandTime, firstHandTime.plusSeconds(60), ChipsUtils.of("0.03"), ChipsUtils.of("0.02")));
 	}
 
 	@Test

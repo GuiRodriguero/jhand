@@ -13,6 +13,7 @@ class HandResultTemplateLoader {
 		return Instancio.of(HandResult.class)
 			.set(field(HandResult::getNetProfit), ChipsUtils.of(netProfit))
 			.set(field(HandResult::getTime), time)
+			.set(field(HandResult::getBlindValue), ChipsUtils.of("0.02"))
 			.create();
 	}
 

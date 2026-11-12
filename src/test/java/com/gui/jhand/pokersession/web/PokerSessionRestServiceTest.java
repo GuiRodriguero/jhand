@@ -1,6 +1,8 @@
 package com.gui.jhand.pokersession.web;
 
 import com.gui.jhand.core.exception.ResourceNotFoundException;
+import com.gui.jhand.core.utils.ChipsUtils;
+import com.gui.jhand.pokersession.CashPokerSession;
 import com.gui.jhand.pokersession.PokerSessionQuery;
 import com.gui.jhand.pokersession.TournamentPokerSession;
 import org.junit.jupiter.api.Test;
@@ -55,9 +57,14 @@ class PokerSessionRestServiceTest {
 
 	@Test
 	void should_get_sessions_filtered_by_type() throws Exception {
-		when(query.findAllSessions(eq(CASH_GAME), any(Pageable.class))).thenReturn(new PageImpl<>(List.of()));
+		CashPokerSession session = CashPokerSession.of("My Cash", 42, null, null, ChipsUtils.of(1.25),
+				ChipsUtils.of(0.02));
+		when(query.findAllSessions(eq(CASH_GAME), any(Pageable.class))).thenReturn(new PageImpl<>(List.of(session)));
 
-		mockMvc.perform(get("/v1/sessions").param("type", CASH_GAME.name())).andExpect(status().isOk());
+		mockMvc.perform(get("/v1/sessions").param("type", CASH_GAME.name()))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.content[0].bigBlind").value(0.02))
+			.andExpect(jsonPath("$.content[0].buyIn").doesNotExist());
 
 		verify(query).findAllSessions(eq(CASH_GAME), any(Pageable.class));
 	}

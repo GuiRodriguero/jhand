@@ -18,27 +18,28 @@ class PokerSessionResponseTest {
 
 		assertThat(PokerSessionResponse.of(entity))
 			.isEqualTo(new PokerSessionResponse(entity.getSessionId(), entity.getType().name(), entity.getHandCount(),
-					entity.getStartTime(), entity.getEndTime(), entity.getNetProfit(), entity.getBuyIn(),
+					entity.getStartTime(), entity.getEndTime(), entity.getNetProfit(), null, entity.getBuyIn(),
 					entity.getPrize(), entity.getFinishPosition(), entity.getRealMoney()));
 	}
 
 	@Test
-	void should_instantiate_from_cash_session_without_tournament_fields() {
+	void should_instantiate_from_cash_session_with_big_blind_and_without_tournament_fields() {
 		Instant startTime = Instant.ofEpochSecond(1771774381);
 		Instant endTime = startTime.plusSeconds(3600);
-		CashPokerSession entity = CashPokerSession.of("My Cash", 42, startTime, endTime, ChipsUtils.of(1.25));
+		CashPokerSession entity = CashPokerSession.of("My Cash", 42, startTime, endTime, ChipsUtils.of(1.25),
+				ChipsUtils.of(0.02));
 
 		assertThat(PokerSessionResponse.of(entity)).isEqualTo(new PokerSessionResponse("My Cash", "CASH_GAME", 42,
-				startTime, endTime, ChipsUtils.of(1.25), null, null, null, null));
+				startTime, endTime, ChipsUtils.of(1.25), ChipsUtils.of(0.02), null, null, null, null));
 	}
 
 	@Test
 	void should_instantiate_with_null_values() {
 		CashPokerSession entity = valid(CashPokerSession.class);
-		CashPokerSession withNulls = CashPokerSession.of(entity.getSessionId(), null, null, null, null);
+		CashPokerSession withNulls = CashPokerSession.of(entity.getSessionId(), null, null, null, null, null);
 
 		assertThat(PokerSessionResponse.of(withNulls)).isEqualTo(new PokerSessionResponse(entity.getSessionId(),
-				"CASH_GAME", null, null, null, null, null, null, null, null));
+				"CASH_GAME", null, null, null, null, null, null, null, null, null));
 	}
 
 }

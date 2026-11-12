@@ -16,7 +16,8 @@ class CashPokerSessionTest {
 
 		Instant endTime = startTime.plusSeconds(3600);
 
-		CashPokerSession session = CashPokerSession.of("My Cash", 42, startTime, endTime, ChipsUtils.of(1.25));
+		CashPokerSession session = CashPokerSession.of("My Cash", 42, startTime, endTime, ChipsUtils.of(1.25),
+				ChipsUtils.of(0.02));
 
 		assertThat(session.getSessionId()).isEqualTo("My Cash");
 		assertThat(session.getType()).isEqualTo(CASH_GAME);
@@ -24,6 +25,7 @@ class CashPokerSessionTest {
 		assertThat(session.getStartTime()).isEqualTo(startTime);
 		assertThat(session.getEndTime()).isEqualTo(endTime);
 		assertThat(session.getNetProfit()).isEqualTo(ChipsUtils.of(1.25));
+		assertThat(session.getBigBlind()).isEqualTo(ChipsUtils.of(0.02));
 	}
 
 }

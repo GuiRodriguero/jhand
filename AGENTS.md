@@ -228,7 +228,7 @@ com.gui.jhand
     ├── PokerSession            # abstract JPA @Entity (sessionId, type, handCount, startTime, endTime,
     │                           #   netProfit); SINGLE_TABLE inheritance, discriminator = the `type` column.
     │                           #   startTime/endTime = time of the first/last hand of the file
-    ├── CashPokerSession        # netProfit = sum of the hands (dollars)
+    ├── CashPokerSession        # netProfit = sum of the hands (dollars); + bigBlind (of the first hand)
     ├── TournamentPokerSession  # netProfit = prize - buyIn; + buyIn, prize, finishPosition, realMoney
     ├── SessionType             # CASH_GAME / TOURNAMENT, inferred from the file name
     ├── TournamentResult        # record: buy-in, prize, placement, realMoney, finished; netProfit()
@@ -295,7 +295,7 @@ Write and read use cases are separated:
 |---|---|---|
 | `POST /v1/hands/import/batch` | multipart `files[]` + `heroName` | `204 No Content`; one transaction per file |
 | `GET /v1/hands` | paginated hands | filters: `handId`, `sessionId`, `sessionType` (`CASH_GAME`/`TOURNAMENT`; invalid → 400), `heroCards` (space-separated cards), `handRank`; default sort `time,desc`, size 20 |
-| `GET /v1/sessions` | paginated sessions | optional filter `type` (`CASH_GAME`/`TOURNAMENT`; invalid → 400); returns `{sessionId, type, handCount, startTime, endTime, netProfit, buyIn, prize, finishPosition, realMoney}` (the last four are tournament only; `netProfit` is `null` for an unfinished tournament; `endTime` = start of the last hand, `null` for sessions imported before it existed); default sort `startTime,desc`, size 20 |
+| `GET /v1/sessions` | paginated sessions | optional filter `type` (`CASH_GAME`/`TOURNAMENT`; invalid → 400); returns `{sessionId, type, handCount, startTime, endTime, netProfit, bigBlind, buyIn, prize, finishPosition, realMoney}` (`bigBlind` is cash only, `null` for sessions imported before it existed; the last four are tournament only; `netProfit` is `null` for an unfinished tournament; `endTime` = start of the last hand, `null` for sessions imported before it existed); default sort `startTime,desc`, size 20 |
 | `GET /v1/sessions/{sessionId}` | one session | same body as an item of `GET /v1/sessions`; unknown id → 404 (`ProblemDetail`). The id contains spaces/`$`/`'`: the client must URL-encode it |
 | `POST /v1/equity` | heads-up equity | JSON `{heroCards, villainCards, board}` (space-separated cards; `board` empty/absent = pre-flop, else 3/4/5 cards). Returns `{heroEquity, villainEquity, tieProbability, totalScenarios}`. Invalid/duplicated cards → 400. Pre-flop is a Monte Carlo estimate |
 

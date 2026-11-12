@@ -30,13 +30,16 @@ class CashSessionCollectorTest extends TestBase {
 		collector.accept(List.of(), handWithNetProfitAt("150.25", START_TIME));
 		collector.accept(List.of(), handWithNetProfitAt("-50.10", START_TIME.plusSeconds(60)));
 
-		assertThat(collector.toSession("My Cash", 2, START_TIME, END_TIME))
-			.isEqualTo(CashPokerSession.of("My Cash", 2, START_TIME, END_TIME, ChipsUtils.of("100.15")));
+		assertThat(collector.toSession("My Cash", 2, START_TIME, END_TIME)).isEqualTo(CashPokerSession.of("My Cash", 2,
+				START_TIME, END_TIME, ChipsUtils.of("100.15"), ChipsUtils.of("0.02")));
 	}
 
 	@Test
-	void should_build_cash_session_with_zero_net_profit_without_hands() {
-		assertThat(collector.toSession("My Cash", 0, null, null).getNetProfit()).isEqualTo(ZERO);
+	void should_build_cash_session_with_zero_net_profit_and_no_big_blind_without_hands() {
+		CashPokerSession session = (CashPokerSession) collector.toSession("My Cash", 0, null, null);
+
+		assertThat(session.getNetProfit()).isEqualTo(ZERO);
+		assertThat(session.getBigBlind()).isNull();
 	}
 
 }
