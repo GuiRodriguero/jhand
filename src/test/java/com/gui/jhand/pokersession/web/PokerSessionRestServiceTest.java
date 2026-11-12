@@ -1,7 +1,7 @@
 package com.gui.jhand.pokersession.web;
 
-import com.gui.jhand.pokersession.PokerSession;
 import com.gui.jhand.pokersession.PokerSessionQuery;
+import com.gui.jhand.pokersession.TournamentPokerSession;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
@@ -32,7 +32,7 @@ class PokerSessionRestServiceTest {
 
 	@Test
 	void should_get_sessions() throws Exception {
-		PokerSession session = valid(PokerSession.class);
+		TournamentPokerSession session = valid(TournamentPokerSession.class);
 		when(query.findAllSessions(isNull(), any(Pageable.class))).thenReturn(new PageImpl<>(List.of(session)));
 
 		mockMvc.perform(get("/v1/sessions"))
@@ -40,7 +40,11 @@ class PokerSessionRestServiceTest {
 			.andExpect(jsonPath("$.content[0].sessionId").value(session.getSessionId()))
 			.andExpect(jsonPath("$.content[0].type").value(session.getType().name()))
 			.andExpect(jsonPath("$.content[0].handCount").value(session.getHandCount()))
-			.andExpect(jsonPath("$.content[0].startTime").exists());
+			.andExpect(jsonPath("$.content[0].startTime").exists())
+			.andExpect(jsonPath("$.content[0].buyIn").exists())
+			.andExpect(jsonPath("$.content[0].prize").exists())
+			.andExpect(jsonPath("$.content[0].finishPosition").value(session.getFinishPosition()))
+			.andExpect(jsonPath("$.content[0].realMoney").value(session.getRealMoney()));
 
 		verify(query).findAllSessions(isNull(), argThat(pageable -> pageable.getPageSize() == 20
 				&& pageable.getSort().getOrderFor("startTime").getDirection() == DESC));

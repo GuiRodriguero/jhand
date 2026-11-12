@@ -1,28 +1,33 @@
 package com.gui.jhand.pokersession;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.Instant;
 
-import static jakarta.persistence.EnumType.STRING;
-import static lombok.AccessLevel.PACKAGE;
-import static lombok.AccessLevel.PRIVATE;
+import static jakarta.persistence.DiscriminatorType.STRING;
+import static jakarta.persistence.InheritanceType.SINGLE_TABLE;
+import static lombok.AccessLevel.PROTECTED;
 
 @Table
 @Entity
 @Getter
-@Builder
 @EqualsAndHashCode
-@NoArgsConstructor(access = PRIVATE)
-@AllArgsConstructor(staticName = "of", access = PACKAGE)
-public class PokerSession {
+@Inheritance(strategy = SINGLE_TABLE)
+@NoArgsConstructor(access = PROTECTED)
+@AllArgsConstructor(access = PROTECTED)
+@DiscriminatorColumn(name = "type", discriminatorType = STRING)
+public abstract class PokerSession {
 
 	@Id
 	private String sessionId;
 
-	@Enumerated(STRING)
+	@Enumerated(EnumType.STRING)
+	@Column(insertable = false, updatable = false)
 	private SessionType type;
 
 	private Integer handCount;

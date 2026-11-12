@@ -31,7 +31,7 @@ class PokerSessionQueryTest extends TestBase {
 	public void init() {
 		query = new PokerSessionQuery(repository);
 		pageable = PageRequest.of(0, 20);
-		page = new PageImpl<>(List.of(valid(PokerSession.class)), pageable, 1);
+		page = new PageImpl<>(List.of(valid(TournamentPokerSession.class)), pageable, 1);
 	}
 
 	@Test
@@ -47,6 +47,7 @@ class PokerSessionQueryTest extends TestBase {
 
 	@Test
 	void should_find_sessions_by_type() {
+		page = new PageImpl<>(List.of(valid(CashPokerSession.class)), pageable, 1);
 		when(repository.findAllByType(CASH_GAME, pageable)).thenReturn(page);
 
 		assertThat(query.findAllSessions(CASH_GAME, pageable)).isEqualTo(page);

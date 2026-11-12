@@ -19,7 +19,8 @@ The typical flow is:
 3. Each file is split into individual hands and parsed line-by-line into `Action`s.
 4. For every hand a `HandResult` is built (hero cards, position, VPIP/PFR, invested/collected, net profit,
    made hand rank, board) and stored in PostgreSQL.
-5. A `PokerSession` is stored with its type (cash game / tournament) and the **sum of the hands' net profit**.
+5. A `PokerSession` is stored with its type (cash game / tournament) and its result: the **sum of the hands' net
+   profit** for a cash game, **prize − buy-in** for a tournament (see "Tournament session result").
 6. The client lists/filters stored hands (`GET /v1/hands`) and sessions (`GET /v1/sessions`).
 
 There is currently **no authentication** and a single **hero** (the tracked player) is passed explicitly on import.
@@ -125,6 +126,18 @@ Agents must understand the poker vocabulary to reason about the code correctly.
   `src/test/resources/GuiRodri2013/`. The parser handles both; downstream logic is format-agnostic and works
   off parsed `Action`s. ⚠️ Amounts are **dollars** in cash games and **tournament chips** in tournaments, and
   are stored in the same columns — never aggregate money across sessions of different types.
+- **Tournament session result** — a tournament's hands are in chips, but its session `netProfit` is
+  **prize − buy-in**, in the buy-in currency. Both come from the history, as `Action`s:
+  - The buy-in comes from the header (`Tournament #…, $0.45+$0.05 USD` / play money `21250+3750` / bounty
+    `10625+10625+3750`) as `TOURNAMENT_BUY_IN`, the sum of all its parts (prize pool + bounty + rake). Absent
+    means freeroll (0).
+  - The finish line comes as `TOURNAMENT_FINISH` (`X wins the tournament [and receives $5.67] - congratulations!`,
+    `X finished the tournament [in 2nd place] [and received $3.70.]`), with the placement and the prize.
+  - `TournamentSessionCollector` (in `hand`) folds them per file into a `TournamentResult`, from which
+    `TournamentPokerSession.of(...)` derives the result.
+  - `realMoney` = the buy-in or the prize has `$`; play-money results are shown without `$`.
+  - No hero finish line (a tournament still running) → `netProfit` and `prize` are `null`.
+  - Re-entries and bounties won are not accounted for yet.
 - **Ante / Small Blind / Big Blind** — forced bets posted before the deal; tracked as hero investment.
   The big blind **of the level** is stored as `blindValue`; it is read from the hand header (`Level II (30/60)` /
   `($0.01/$0.02 USD)`, `BIG_BLIND_LEVEL` action → `BigBlindLevelHandler`), **not** from the posted BB, which can
@@ -195,6 +208,8 @@ com.gui.jhand
 │   ├── HandState               # mutable accumulator used while building a HandResult
 │   ├── HandResultBuilder       # orchestrates handlers to build a HandResult
 │   ├── HandRankResolver        # hero cards + board -> HandRank (uses evaluator)
+│   ├── SessionCollector        # folds a file's hands into its PokerSession; one impl per SessionType:
+│   │                           #   CashSessionCollector, TournamentSessionCollector
 │   ├── HandImportService       # import use case (write side)
 │   ├── HandResultQuery         # read use case (read side, returns Page<HandResult>)
 │   ├── HandResultFilter        # query criteria record (bound from request params)
@@ -207,8 +222,12 @@ com.gui.jhand
 │       └── HandResultSummaryResponse (response record)
 │
 └── pokersession                # the "PokerSession" aggregate (one imported file)
-    ├── PokerSession            # JPA @Entity (sessionId, type, handCount, startTime, netProfit)
+    ├── PokerSession            # abstract JPA @Entity (sessionId, type, handCount, startTime, netProfit);
+    │                           #   SINGLE_TABLE inheritance, discriminator = the `type` column
+    ├── CashPokerSession        # netProfit = sum of the hands (dollars)
+    ├── TournamentPokerSession  # netProfit = prize - buyIn; + buyIn, prize, finishPosition, realMoney
     ├── SessionType             # CASH_GAME / TOURNAMENT, inferred from the file name
+    ├── TournamentResult        # record: buy-in, prize, placement, realMoney, finished; netProfit()
     ├── PokerSessionService     # write use case (create/overwrite)
     ├── PokerSessionQuery       # read use case (returns Page<PokerSession>)
     ├── PokerSessionRepository
@@ -227,7 +246,8 @@ com.gui.jhand
 - **`parser` depends only on `action` and `core`.** It produces `Action`s and never touches `HandState`,
   JPA, or Spring. It is a plain-Java engine (`PokerStarsParser` is instantiated with `new`, not injected).
 - **`action.handler` depends on `action`, `hand` (HandState), and `core`.** Handlers mutate `HandState`.
-- **`hand` depends on `action`, `parser`, `evaluator`, `pokersession` (service, `SessionType` + `normalizeSessionId` only), and
+- **`hand` depends on `action`, `parser`, `evaluator`, `pokersession` (service, `SessionType`, `normalizeSessionId`, and the session factories
+  `CashPokerSession.of` / `TournamentPokerSession.of` + `TournamentResult`), and
   `core`.** It is the application/persistence layer for hands.
 - **`pokersession` depends on nothing but `core`.** It must not know `hand`.
 - **`*.web` (controllers) depend only on their domain's services/queries and domain objects**, never directly
@@ -237,7 +257,12 @@ com.gui.jhand
 **Normalize at the boundary.** Inputs are normalized once, at the entry of the use case, and passed down
 already clean. Example: `HandImportService` turns the file name into a `sessionId` with
 `PokerSessionUtils.normalizeSessionId`, derives the `SessionType` from it once, and passes both to
-`HandResultBuilder` and `PokerSessionService.create`; none of those re-normalize or re-derive.
+`HandResultBuilder` and `SessionCollector`; none of those re-normalize or re-derive.
+
+**Polymorphism over type checks.** Behaviour that differs between cash games and tournaments lives in a
+per-type class (`CashPokerSession`/`TournamentPokerSession`, `CashSessionCollector`/`TournamentSessionCollector`).
+The only place that branches on `SessionType` is the exhaustive `switch` in `SessionCollector.of`; do not add
+`if (type == TOURNAMENT)` checks or type-specific nullable parameters to shared methods.
 
 **Known dependency debts** (do not copy these patterns; fix them when touching the area):
 
@@ -251,8 +276,9 @@ already clean. Example: `HandImportService` turns the file name into a `sessionI
 
 Write and read use cases are separated:
 
-- **Write side:** `HandImportRestService` → `HandImportService` (`@Transactional`) → `HandResultBuilder` →
-  `HandResultRepository.saveAll(...)` → `PokerSessionService.create(sessionId, sessionType, handCount, startTime, sumOfNetProfit)`.
+- **Write side:** `HandImportRestService` → `HandImportService` (`@Transactional`) → `HandResultBuilder` (+ the
+  file's `SessionCollector`, fed every hand) → `HandResultRepository.saveAll(...)` →
+  `PokerSessionService.save(collector.toSession(sessionId, handCount, startTime))`.
 - **Read side (hands):** `HandResultRestService` → `HandResultQuery` (`@Transactional(readOnly = true)`) →
   `HandResultRepository.findAll(spec, pageable)` (returns `Page<HandResult>`) → the controller maps with
   `HandResultSummaryResponse::of`.
@@ -265,7 +291,7 @@ Write and read use cases are separated:
 |---|---|---|
 | `POST /v1/hands/import/batch` | multipart `files[]` + `heroName` | `204 No Content`; one transaction per file |
 | `GET /v1/hands` | paginated hands | filters: `handId`, `sessionId`, `sessionType` (`CASH_GAME`/`TOURNAMENT`; invalid → 400), `heroCards` (space-separated cards), `handRank`; default sort `time,desc`, size 20 |
-| `GET /v1/sessions` | paginated sessions | optional filter `type` (`CASH_GAME`/`TOURNAMENT`; invalid → 400); returns `{sessionId, type, handCount, startTime, netProfit}`; default sort `startTime,desc`, size 20 |
+| `GET /v1/sessions` | paginated sessions | optional filter `type` (`CASH_GAME`/`TOURNAMENT`; invalid → 400); returns `{sessionId, type, handCount, startTime, netProfit, buyIn, prize, finishPosition, realMoney}` (the last four are tournament only; `netProfit` is `null` for an unfinished tournament); default sort `startTime,desc`, size 20 |
 | `POST /v1/equity` | heads-up equity | JSON `{heroCards, villainCards, board}` (space-separated cards; `board` empty/absent = pre-flop, else 3/4/5 cards). Returns `{heroEquity, villainEquity, tieProbability, totalScenarios}`. Invalid/duplicated cards → 400. Pre-flop is a Monte Carlo estimate |
 
 Dates are returned as UTC `Instant`s (ISO-8601 with `Z`); time-zone conversion is the client's job.
@@ -476,10 +502,15 @@ Tests live under `src/test/java` mirroring the main package structure. **Match t
 
 ### Add a session-level aggregate
 
-1. Compute it on import in `HandImportService` from the built `HandResult`s (like `sumNetProfit`) and pass it
-   to `PokerSessionService.create(...)`, or compute it on read in `PokerSessionQuery`.
-2. Add the column to `PokerSession` and the field to `PokerSessionResponse`.
-3. Remember that cash sessions are in dollars and tournament sessions in chips.
+1. Collect it on import in the `SessionCollector` of the session type(s) it applies to, from the built
+   `HandResult`s (like `CashSessionCollector`) or from the parsed `Action`s (like `TournamentSessionCollector`),
+   and hand it to the session factory in `toSession(...)`; or compute it on read in `PokerSessionQuery`.
+2. Add the column to `PokerSession` if it applies to every type, or to the subclass if it is type-specific; add
+   the field to `PokerSessionResponse` (read it with `instanceof` when it is type-specific).
+3. Remember that cash sessions are in dollars, tournament sessions in the buy-in currency, and tournament hands
+   in chips.
+4. A new `SessionType` needs a `PokerSession` subclass (`@DiscriminatorValue`) and a `SessionCollector`; the
+   `switch` in `SessionCollector.of` will not compile until it is handled.
 
 ---
 
