@@ -51,6 +51,7 @@ class PokerSessionRestServiceTest {
 			.andExpect(jsonPath("$.content[0].prize").exists())
 			.andExpect(jsonPath("$.content[0].finishPosition").value(session.getFinishPosition()))
 			.andExpect(jsonPath("$.content[0].realMoney").value(session.getRealMoney()))
+			.andExpect(jsonPath("$.content[0].outcome").value(session.getOutcome().name()))
 			.andExpect(result -> assertThat(result.getResponse().getContentAsString()).doesNotContain("bigBlind"));
 
 		verify(query).findAllSessions(isNull(), argThat(pageable -> pageable.getPageSize() == 20
@@ -67,7 +68,7 @@ class PokerSessionRestServiceTest {
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("$.content[0].bigBlind").value(0.02))
 			.andExpect(result -> assertThat(result.getResponse().getContentAsString()).doesNotContain("buyIn", "prize",
-					"finishPosition", "realMoney"));
+					"finishPosition", "realMoney", "outcome"));
 
 		verify(query).findAllSessions(eq(CASH_GAME), any(Pageable.class));
 	}

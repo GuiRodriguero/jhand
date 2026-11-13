@@ -138,6 +138,9 @@ Agents must understand the poker vocabulary to reason about the code correctly.
   - `realMoney` = the buy-in or the prize has `$`; play-money results are shown without `$`.
   - No hero finish line (a tournament still running) → `prize` and `finishPosition` are `null` and `netProfit` is
     **−buy-in** (the buy-in is already spent; a freeroll gives 0).
+  - **Outcome** (`TournamentOutcome.of(prize, finishPosition)`, exposed as `TournamentPokerSession.getOutcome()`,
+    no column): `RUNNING` (no finish line, `prize` `null`), `WINNER` (`finishPosition` 1), `IN_THE_MONEY` (ITM:
+    `prize` > 0), `OUT_OF_THE_MONEY` (finished with `prize` 0). Use it instead of re-deriving from prize/placement.
   - Re-entries and bounties won are not accounted for yet.
 - **Ante / Small Blind / Big Blind** — forced bets posted before the deal; tracked as hero investment.
   The big blind **of the level** is stored as `blindValue`; it is read from the hand header (`Level II (30/60)` /
@@ -239,7 +242,8 @@ com.gui.jhand
     │                           #   netProfit); SINGLE_TABLE inheritance, discriminator = the `type` column.
     │                           #   startTime/endTime = time of the first/last hand of the file
     ├── CashPokerSession        # netProfit = sum of the hands (dollars); + bigBlind (of the first hand)
-    ├── TournamentPokerSession  # netProfit = prize - buyIn; + buyIn, prize, finishPosition, realMoney
+    ├── TournamentPokerSession  # netProfit = prize - buyIn; + buyIn, prize, finishPosition, realMoney; getOutcome()
+    ├── TournamentOutcome       # WINNER / IN_THE_MONEY / OUT_OF_THE_MONEY / RUNNING, of(prize, finishPosition)
     ├── SessionType             # CASH_GAME / TOURNAMENT, inferred from the file name
     ├── TournamentResult        # record: buy-in, prize, placement, realMoney, finished; netProfit()
     ├── PokerSessionService     # write use case (create/overwrite)
@@ -317,7 +321,7 @@ Write and read use cases are separated:
 |---|---|---|
 | `POST /v1/hands/import/batch` | multipart `files[]` + `heroName` | `204 No Content`; one transaction per file |
 | `GET /v1/hands` | paginated hands | filters: `handId`, `sessionId`, `sessionType` (`CASH_GAME`/`TOURNAMENT`; invalid → 400), `heroCards` (space-separated cards), `handRank`; default sort `time,desc`, size 20 |
-| `GET /v1/sessions` | paginated sessions | optional filter `type` (`CASH_GAME`/`TOURNAMENT`; invalid → 400); each item has the common fields `{sessionId, type, handCount, startTime, endTime, netProfit}` plus its type's own: cash `{bigBlind}`, tournament `{buyIn, prize, finishPosition, realMoney}` — `type` is the discriminator, a cash item never carries tournament fields and vice versa (`netProfit` is −buy-in and `prize` `null` for an unfinished tournament; `endTime` = start of the last hand); default sort `startTime,desc`, size 20 |
+| `GET /v1/sessions` | paginated sessions | optional filter `type` (`CASH_GAME`/`TOURNAMENT`; invalid → 400); each item has the common fields `{sessionId, type, handCount, startTime, endTime, netProfit}` plus its type's own: cash `{bigBlind}`, tournament `{buyIn, prize, finishPosition, realMoney, outcome}` (`outcome` = `TournamentOutcome` name) — `type` is the discriminator, a cash item never carries tournament fields and vice versa (`netProfit` is −buy-in and `prize` `null` for an unfinished tournament; `endTime` = start of the last hand); default sort `startTime,desc`, size 20 |
 | `GET /v1/sessions/{sessionId}` | one session | same body as an item of `GET /v1/sessions`; unknown id → 404 (`ProblemDetail`). The id contains spaces/`$`/`'`: the client must URL-encode it |
 | `GET /v1/sessions/{sessionId}/hand-stats` | hand-derived stats of one session | `{points[], vpipPercentage, pfrPercentage, bbPer100, bestHand, worstHand, byPosition[]}`. `points` = one per hand ordered by time `{handId, time, netProfit, netProfitInBb, cumulativeNetProfit, cumulativeNetProfitInBb, startingStack, stackInBb}` (`stackInBb` = `startingStack / blindValue` of that hand: the tournament chart in bb; the cumulative bb result is **not** a stack in tournaments, since the blinds grow); best/worst hand by `netProfitInBb` `{handId, time, heroCards, position, handRank, netProfit, netProfitInBb}`; `resultsByPosition` in `Position` order `{position, hands, netProfit, netProfitInBb}`. Amounts in the session's unit (tournament hands: chips). Session without hands → 404. URL-encode the id |
 | `POST /v1/equity` | heads-up equity | JSON `{heroCards, villainCards, board}` (space-separated cards; `board` empty/absent = pre-flop, else 3/4/5 cards). Returns `{heroEquity, villainEquity, tieProbability, totalScenarios}`. Invalid/duplicated cards → 400. Pre-flop is a Monte Carlo estimate |

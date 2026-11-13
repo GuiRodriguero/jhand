@@ -45,8 +45,8 @@ public record SessionHandStats(List<Point> points, BigDecimal vpipPercentage, Bi
 		for (SessionHand hand : hands) {
 			profit = profit.add(hand.netProfit());
 			profitInBb = profitInBb.add(hand.netProfitInBb());
-			points.add(new Point(hand.handId(), hand.time(), hand.netProfit(), hand.netProfitInBb(), profit,
-					profitInBb, hand.startingStack(), hand.startingStack().divide(hand.blindValue(), 2, HALF_UP)));
+			points.add(new Point(hand.handId(), hand.time(), hand.netProfit(), hand.netProfitInBb(), profit, profitInBb,
+					hand.startingStack(), hand.startingStack().divide(hand.blindValue(), 2, HALF_UP)));
 			vpipCount += hand.vpip() ? 1 : 0;
 			pfrCount += hand.pfr() ? 1 : 0;
 		}

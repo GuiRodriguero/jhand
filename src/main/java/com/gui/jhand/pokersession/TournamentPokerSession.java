@@ -44,4 +44,8 @@ public class TournamentPokerSession extends PokerSession {
 		return new TournamentPokerSession(sessionId, handCount, startTime, endTime, result);
 	}
 
+	public TournamentOutcome getOutcome() {
+		return TournamentOutcome.of(prize, finishPosition);
+	}
+
 }

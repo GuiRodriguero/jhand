@@ -46,7 +46,8 @@ public record SessionHandStatsResponse(List<PointResponse> points, BigDecimal vp
 	static SessionHandStatsResponse of(SessionHandStats stats) {
 		return new SessionHandStatsResponse(stats.points().stream().map(PointResponse::of).toList(),
 				stats.vpipPercentage(), stats.pfrPercentage(), stats.bbPer100(), HandResponse.of(stats.bestHand()),
-				HandResponse.of(stats.worstHand()), stats.resultsByPosition().stream().map(PositionResponse::of).toList());
+				HandResponse.of(stats.worstHand()),
+				stats.resultsByPosition().stream().map(PositionResponse::of).toList());
 	}
 
 }

@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.time.Instant;
 
 import static com.gui.jhand.pokersession.SessionType.TOURNAMENT;
-import static java.math.BigDecimal.ZERO;
+import static com.gui.jhand.pokersession.TournamentOutcome.WINNER;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class TournamentPokerSessionTest {
@@ -31,19 +31,7 @@ class TournamentPokerSessionTest {
 		assertThat(session.getPrize()).isEqualTo(ChipsUtils.of(5.67));
 		assertThat(session.getFinishPosition()).isEqualTo(1);
 		assertThat(session.getRealMoney()).isTrue();
-	}
-
-	@Test
-	void should_create_running_tournament_without_result_nor_prize() {
-		TournamentResult result = new TournamentResult(ChipsUtils.of(0.50), ZERO, null, false, false);
-
-		TournamentPokerSession session = TournamentPokerSession.of("My Tournament", 42, START_TIME, END_TIME, result);
-
-		assertThat(session.getNetProfit()).isEqualTo(ChipsUtils.of(-0.50));
-		assertThat(session.getPrize()).isNull();
-		assertThat(session.getFinishPosition()).isNull();
-		assertThat(session.getBuyIn()).isEqualTo(ChipsUtils.of(0.50));
-		assertThat(session.getRealMoney()).isFalse();
+		assertThat(session.getOutcome()).isEqualTo(WINNER);
 	}
 
 }

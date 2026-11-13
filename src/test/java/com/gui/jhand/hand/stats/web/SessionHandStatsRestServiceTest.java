@@ -38,7 +38,8 @@ class SessionHandStatsRestServiceTest {
 			.andExpect(jsonPath("$.points[0].handId").value(stats.points().getFirst().handId()))
 			.andExpect(jsonPath("$.bestHand.handId").value(stats.bestHand().handId()))
 			.andExpect(jsonPath("$.worstHand.handId").value(stats.worstHand().handId()))
-			.andExpect(jsonPath("$.byPosition[0].position").value(stats.resultsByPosition().getFirst().position().name()))
+			.andExpect(
+					jsonPath("$.byPosition[0].position").value(stats.resultsByPosition().getFirst().position().name()))
 			.andExpect(jsonPath("$.vpipPercentage").exists())
 			.andExpect(jsonPath("$.bbPer100").exists());
 
