@@ -1,14 +1,17 @@
 package com.gui.jhand.pokersession.web;
 
+import com.gui.jhand.pokersession.CashPokerSession;
 import com.gui.jhand.pokersession.PokerSession;
+import com.gui.jhand.pokersession.TournamentPokerSession;
 
-import java.math.BigDecimal;
+public sealed interface PokerSessionResponse permits CashSessionResponse, TournamentSessionResponse {
 
-public record PokerSessionResponse(String sessionId, String type, BigDecimal netProfit) {
-
-	public static PokerSessionResponse of(PokerSession entity) {
-		return new PokerSessionResponse(entity.getSessionId(),
-				entity.getType() != null ? entity.getType().name() : null, entity.getNetProfit());
+	static PokerSessionResponse of(PokerSession entity) {
+		return switch (entity) {
+			case CashPokerSession cash -> CashSessionResponse.of(cash);
+			case TournamentPokerSession tournament -> TournamentSessionResponse.of(tournament);
+			default -> throw new IllegalStateException("Unsupported session type: " + entity.getType());
+		};
 	}
 
 }

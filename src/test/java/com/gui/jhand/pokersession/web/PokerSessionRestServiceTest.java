@@ -1,7 +1,10 @@
 package com.gui.jhand.pokersession.web;
 
-import com.gui.jhand.pokersession.PokerSession;
+import com.gui.jhand.core.exception.ResourceNotFoundException;
+import com.gui.jhand.core.utils.ChipsUtils;
+import com.gui.jhand.pokersession.CashPokerSession;
 import com.gui.jhand.pokersession.PokerSessionQuery;
+import com.gui.jhand.pokersession.TournamentPokerSession;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
@@ -13,10 +16,10 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.List;
 
 import static com.gui.jhand.TestBase.valid;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.argThat;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static com.gui.jhand.pokersession.SessionType.CASH_GAME;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.*;
 import static org.springframework.data.domain.Sort.Direction.DESC;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -24,6 +27,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(PokerSessionRestService.class)
 class PokerSessionRestServiceTest {
+
+	private static final String SESSION_ID = "HH20260222 Ljuba IV - $0.01-$0.02 - USD No Limit Hold'em";
 
 	@Autowired
 	private MockMvc mockMvc;
@@ -33,16 +38,73 @@ class PokerSessionRestServiceTest {
 
 	@Test
 	void should_get_sessions() throws Exception {
-		PokerSession session = valid(PokerSession.class);
-		when(query.findAllSessions(any(Pageable.class))).thenReturn(new PageImpl<>(List.of(session)));
+		TournamentPokerSession session = valid(TournamentPokerSession.class);
+		when(query.findAllSessions(isNull(), any(Pageable.class))).thenReturn(new PageImpl<>(List.of(session)));
 
 		mockMvc.perform(get("/v1/sessions"))
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("$.content[0].sessionId").value(session.getSessionId()))
-			.andExpect(jsonPath("$.content[0].type").value(session.getType().name()));
+			.andExpect(jsonPath("$.content[0].type").value(session.getType().name()))
+			.andExpect(jsonPath("$.content[0].handCount").value(session.getHandCount()))
+			.andExpect(jsonPath("$.content[0].startTime").exists())
+			.andExpect(jsonPath("$.content[0].buyIn").exists())
+			.andExpect(jsonPath("$.content[0].prize").exists())
+			.andExpect(jsonPath("$.content[0].finishPosition").value(session.getFinishPosition()))
+			.andExpect(jsonPath("$.content[0].realMoney").value(session.getRealMoney()))
+			.andExpect(jsonPath("$.content[0].outcome").value(session.getOutcome().name()))
+			.andExpect(result -> assertThat(result.getResponse().getContentAsString()).doesNotContain("bigBlind"));
 
-		verify(query).findAllSessions(argThat(pageable -> pageable.getPageSize() == 20
-				&& pageable.getSort().getOrderFor("sessionId").getDirection() == DESC));
+		verify(query).findAllSessions(isNull(), argThat(pageable -> pageable.getPageSize() == 20
+				&& pageable.getSort().getOrderFor("startTime").getDirection() == DESC));
+	}
+
+	@Test
+	void should_get_sessions_filtered_by_type() throws Exception {
+		CashPokerSession session = CashPokerSession.of("My Cash", 42, null, null, ChipsUtils.of(1.25),
+				ChipsUtils.of(0.02));
+		when(query.findAllSessions(eq(CASH_GAME), any(Pageable.class))).thenReturn(new PageImpl<>(List.of(session)));
+
+		mockMvc.perform(get("/v1/sessions").param("type", CASH_GAME.name()))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.content[0].bigBlind").value(0.02))
+			.andExpect(result -> assertThat(result.getResponse().getContentAsString()).doesNotContain("buyIn", "prize",
+					"finishPosition", "realMoney", "outcome"));
+
+		verify(query).findAllSessions(eq(CASH_GAME), any(Pageable.class));
+	}
+
+	@Test
+	void should_get_session_by_id() throws Exception {
+		TournamentPokerSession session = valid(TournamentPokerSession.class);
+		when(query.findById(SESSION_ID)).thenReturn(session);
+
+		mockMvc.perform(get("/v1/sessions/{sessionId}", SESSION_ID))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.sessionId").value(session.getSessionId()))
+			.andExpect(jsonPath("$.type").value(session.getType().name()))
+			.andExpect(jsonPath("$.handCount").value(session.getHandCount()))
+			.andExpect(jsonPath("$.startTime").exists())
+			.andExpect(jsonPath("$.endTime").exists())
+			.andExpect(jsonPath("$.finishPosition").value(session.getFinishPosition()));
+
+		verify(query).findById(SESSION_ID);
+	}
+
+	@Test
+	void should_return_not_found_when_session_does_not_exist() throws Exception {
+		when(query.findById(SESSION_ID))
+			.thenThrow(new ResourceNotFoundException("Session %s not found".formatted(SESSION_ID)));
+
+		mockMvc.perform(get("/v1/sessions/{sessionId}", SESSION_ID))
+			.andExpect(status().isNotFound())
+			.andExpect(jsonPath("$.detail").value("Session %s not found".formatted(SESSION_ID)));
+	}
+
+	@Test
+	void should_return_bad_request_when_type_is_invalid() throws Exception {
+		mockMvc.perform(get("/v1/sessions").param("type", "INVALID")).andExpect(status().isBadRequest());
+
+		verifyNoInteractions(query);
 	}
 
 }

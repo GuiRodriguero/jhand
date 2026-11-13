@@ -4,8 +4,11 @@ import com.gui.jhand.action.Action;
 import com.gui.jhand.core.utils.ChipsUtils;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static com.gui.jhand.action.ActionStreet.*;
@@ -17,19 +20,35 @@ import static org.springframework.util.StringUtils.hasText;
 @NoArgsConstructor(access = PRIVATE)
 class PokerStarsParsingRuleFactory {
 
+	private static final Pattern TOURNAMENT_BUY_IN_PATTERN = Pattern
+		.compile("Tournament #\\d+, (\\$?[\\d.]+(?:\\+\\$?[\\d.]+)*)");
+
 	static List<ParsingRule> create() {
 		List<ParsingRule> rules = new ArrayList<>();
 
-		rules.add(new ParsingRule(
-				Pattern.compile("^PokerStars Hand #(\\d+): .*\\[(\\d{4}/\\d{2}/\\d{2} \\d{1,2}:\\d{2}:\\d{2}) ET]"),
-				(m, ctx, line) -> List.of(Action.of(HEADER, ctx.getCurrentStreet(), null, m.group(1), ZERO, line),
-						Action.of(TIME, ctx.getCurrentStreet(), null, m.group(2), ZERO, line))));
+		rules.add(new ParsingRule(Pattern.compile(
+				"^PokerStars Hand #(\\d+): (?:.*?\\(\\$?[\\d.]+/\\$?([\\d.]+)[^)]*\\))?.*\\[(\\d{4}/\\d{2}/\\d{2} \\d{1,2}:\\d{2}:\\d{2}) ET]"),
+				(m, ctx, line) -> {
+					List<Action> actions = new ArrayList<>();
+					actions.add(Action.of(HEADER, ctx.getCurrentStreet(), null, m.group(1), ZERO, line));
+					actions.add(Action.of(TIME, ctx.getCurrentStreet(), null, m.group(3), ZERO, line));
+					actions.add(Action.of(BIG_BLIND_LEVEL, ctx.getCurrentStreet(), null, m.group(2),
+							ChipsUtils.of(m.group(2)), line));
+
+					Matcher buyIn = TOURNAMENT_BUY_IN_PATTERN.matcher(line);
+					if (buyIn.find()) {
+						actions.add(Action.of(TOURNAMENT_BUY_IN, ctx.getCurrentStreet(), null, buyIn.group(1),
+								sumBuyIn(buyIn.group(1)), line));
+					}
+					return actions;
+				}));
 
 		rules.add(new ParsingRule(Pattern.compile("^Table '([^']+)'"), (m, ctx, line) -> List
 			.of(Action.of(TABLE_INFO, ctx.getCurrentStreet(), null, m.group(1), ZERO, line))));
 
-		rules.add(new ParsingRule(Pattern.compile("^Seat (\\d+): (.*?) \\(.*?in chips.*?\\)"), (m, ctx, line) -> List
-			.of(Action.of(SEAT_INFO, ctx.getCurrentStreet(), m.group(2), m.group(1), ZERO, line))));
+		rules.add(new ParsingRule(Pattern.compile("^Seat (\\d+): (.*?) \\(\\$?([\\d.]+) in chips.*?\\)"),
+				(m, ctx, line) -> List.of(Action.of(SEAT_INFO, ctx.getCurrentStreet(), m.group(2), m.group(1),
+						ChipsUtils.of(m.group(3)), line))));
 
 		rules.add(new ParsingRule(Pattern.compile("^(.*?): posts the ante (\\$?)([\\d.]+)"),
 				(m, ctx, line) -> List.of(Action.of(POST_ANTE, ctx.getCurrentStreet(), m.group(1),
@@ -91,6 +110,16 @@ class PokerStarsParsingRuleFactory {
 							ChipsUtils.of(m.group(3)), line));
 				}));
 
+		rules.add(new ParsingRule(
+				Pattern.compile("^(.+?) wins the tournament(?: and receives \\$?([\\d.]+))? - congratulations!"),
+				(m, ctx, line) -> List.of(Action.of(TOURNAMENT_FINISH, ctx.getCurrentStreet(), m.group(1), "1",
+						ChipsUtils.of(m.group(2)), line))));
+
+		rules.add(new ParsingRule(Pattern.compile(
+				"^(.+?) finished the tournament(?: in (\\d+)(?:st|nd|rd|th) place)?(?: and received \\$?([\\d.]+?))?\\.?$"),
+				(m, ctx, line) -> List.of(Action.of(TOURNAMENT_FINISH, ctx.getCurrentStreet(), m.group(1), m.group(2),
+						ChipsUtils.of(m.group(3)), line))));
+
 		rules.add(new ParsingRule(Pattern.compile("^\\*\\*\\* SUMMARY \\*\\*\\*"), (m, ctx, line) -> {
 			ctx.changeCurrentStreetTo(SUMMARY);
 			return List.of(Action.of(SUMMARY_HEADER, ctx.getCurrentStreet(), null, null, ZERO, line));
@@ -130,6 +159,12 @@ class PokerStarsParsingRuleFactory {
 				}));
 
 		return rules;
+	}
+
+	private static BigDecimal sumBuyIn(String buyIn) {
+		return Arrays.stream(buyIn.split("\\+"))
+			.map(part -> ChipsUtils.of(part.replace("$", "")))
+			.reduce(ZERO, BigDecimal::add);
 	}
 
 }

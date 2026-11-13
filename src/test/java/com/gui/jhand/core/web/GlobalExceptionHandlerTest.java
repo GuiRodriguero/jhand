@@ -1,5 +1,7 @@
 package com.gui.jhand.core.web;
 
+import com.gui.jhand.core.exception.BusinessException;
+import com.gui.jhand.core.exception.ResourceNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.ProblemDetail;
 
@@ -17,6 +19,24 @@ class GlobalExceptionHandlerTest {
 		assertThat(problem.getStatus()).isEqualTo(400);
 		assertThat(problem.getTitle()).isEqualTo("Bad Request");
 		assertThat(problem.getDetail()).isEqualTo("Unknown suit symbol: x");
+	}
+
+	@Test
+	void should_handle_business_exception_as_unprocessable_content() {
+		ProblemDetail problem = handler.handleBusiness(new BusinessException("Hand 123 has no valid big blind value"));
+
+		assertThat(problem.getStatus()).isEqualTo(422);
+		assertThat(problem.getTitle()).isEqualTo("Unprocessable Content");
+		assertThat(problem.getDetail()).isEqualTo("Hand 123 has no valid big blind value");
+	}
+
+	@Test
+	void should_handle_not_found_exception_as_not_found() {
+		ProblemDetail problem = handler.handleNotFound(new ResourceNotFoundException("Session abc not found"));
+
+		assertThat(problem.getStatus()).isEqualTo(404);
+		assertThat(problem.getTitle()).isEqualTo("Resource Not Found");
+		assertThat(problem.getDetail()).isEqualTo("Session abc not found");
 	}
 
 	@Test

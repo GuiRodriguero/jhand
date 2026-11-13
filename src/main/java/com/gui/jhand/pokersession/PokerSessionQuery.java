@@ -1,5 +1,6 @@
 package com.gui.jhand.pokersession;
 
+import com.gui.jhand.core.exception.ResourceNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,8 +14,13 @@ public class PokerSessionQuery {
 
 	private final PokerSessionRepository repository;
 
-	public Page<PokerSession> findAllSessions(Pageable pageable) {
-		return repository.findAll(pageable);
+	public Page<PokerSession> findAllSessions(SessionType type, Pageable pageable) {
+		return type == null ? repository.findAll(pageable) : repository.findAllByType(type, pageable);
+	}
+
+	public PokerSession findById(String sessionId) {
+		return repository.findById(sessionId)
+			.orElseThrow(() -> new ResourceNotFoundException("Session %s not found".formatted(sessionId)));
 	}
 
 }

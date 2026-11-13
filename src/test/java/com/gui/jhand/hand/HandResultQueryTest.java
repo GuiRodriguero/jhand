@@ -2,7 +2,6 @@ package com.gui.jhand.hand;
 
 import com.gui.jhand.TestBase;
 import com.gui.jhand.hand.web.HandResultFilter;
-import com.gui.jhand.hand.web.HandResultSummaryResponse;
 import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 import org.mockito.Mock;
@@ -39,10 +38,22 @@ class HandResultQueryTest extends TestBase {
 
 		when(repository.findAll(any(Specification.class), any(Pageable.class))).thenReturn(page);
 
-		assertThat(query.getHandsPaginated(filter, pageable)).isEqualTo(page.map(HandResultSummaryResponse::of));
+		assertThat(query.getHandsPaginated(filter, pageable)).isEqualTo(page);
 
 		InOrder inOrder = inOrder(repository);
 		inOrder.verify(repository).findAll(any(Specification.class), any(Pageable.class));
+		inOrder.verifyNoMoreInteractions();
+	}
+
+	@Test
+	void should_find_all_hands_of_a_session() {
+		List<HandResult> hands = List.of(valid(HandResult.class));
+		when(repository.findAllBySessionIdOrderByTimeAscHandIdAsc("My Session")).thenReturn(hands);
+
+		assertThat(query.findAllBySessionId("My Session")).isEqualTo(hands);
+
+		InOrder inOrder = inOrder(repository);
+		inOrder.verify(repository).findAllBySessionIdOrderByTimeAscHandIdAsc("My Session");
 		inOrder.verifyNoMoreInteractions();
 	}
 

@@ -1,5 +1,7 @@
 package com.gui.jhand.core.web;
 
+import com.gui.jhand.core.exception.BusinessException;
+import com.gui.jhand.core.exception.ResourceNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -7,8 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import static org.springframework.http.HttpStatus.BAD_REQUEST;
-import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
+import static org.springframework.http.HttpStatus.*;
 
 @Slf4j
 @RestControllerAdvice
@@ -23,6 +24,26 @@ class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 		ProblemDetail problem = ProblemDetail.forStatusAndDetail(BAD_REQUEST, ex.getMessage());
 		problem.setTitle("Bad Request");
+		return problem;
+	}
+
+	@ResponseStatus(UNPROCESSABLE_CONTENT)
+	@ExceptionHandler(BusinessException.class)
+	public ProblemDetail handleBusiness(BusinessException ex) {
+		log.warn("Business rule violated: {}", ex.getMessage());
+
+		ProblemDetail problem = ProblemDetail.forStatusAndDetail(UNPROCESSABLE_CONTENT, ex.getMessage());
+		problem.setTitle("Unprocessable Content");
+		return problem;
+	}
+
+	@ResponseStatus(NOT_FOUND)
+	@ExceptionHandler(ResourceNotFoundException.class)
+	public ProblemDetail handleNotFound(ResourceNotFoundException ex) {
+		log.warn("Resource not found: {}", ex.getMessage());
+
+		ProblemDetail problem = ProblemDetail.forStatusAndDetail(NOT_FOUND, ex.getMessage());
+		problem.setTitle("Resource Not Found");
 		return problem;
 	}
 

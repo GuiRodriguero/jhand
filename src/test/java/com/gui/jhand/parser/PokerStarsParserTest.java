@@ -4,6 +4,8 @@ import com.gui.jhand.action.Action;
 import com.gui.jhand.core.utils.ChipsUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static com.gui.jhand.action.ActionStreet.*;
 import static com.gui.jhand.action.ActionType.*;
@@ -28,7 +30,48 @@ class PokerStarsParserTest {
 
 		assertThat(parser.parse(line)).containsExactly(
 				Action.of(HEADER, context.getCurrentStreet(), null, "259795694323", ZERO, line),
-				Action.of(TIME, context.getCurrentStreet(), null, "2026/02/19 19:29:23", ZERO, line));
+				Action.of(TIME, context.getCurrentStreet(), null, "2026/02/19 19:29:23", ZERO, line),
+				Action.of(BIG_BLIND_LEVEL, context.getCurrentStreet(), null, "30", ChipsUtils.of(30.0), line), Action
+					.of(TOURNAMENT_BUY_IN, context.getCurrentStreet(), null, "$0.92+$0.08", ChipsUtils.of(1.0), line));
+	}
+
+	@ParameterizedTest
+	@CsvSource(delimiter = '|',
+			value = { "$0.45+$0.05 USD Hold'em No Limit|$0.45+$0.05|0.50",
+					"21250+3750 Hold'em No Limit|21250+3750|25000.00",
+					"10625+10625+3750 Hold'em No Limit|10625+10625+3750|25000.00" })
+	void should_parse_tournament_buy_in(String headerBuyIn, String expectedText, String expectedAmount) {
+		String line = "PokerStars Hand #262671777747: Tournament #4046412414, " + headerBuyIn
+				+ " - Level XIV (800/1600) - 2026/11/10 20:41:55 BRT [2026/11/10 18:41:55 ET]";
+
+		assertThat(parser.parse(line)).contains(Action.of(TOURNAMENT_BUY_IN, context.getCurrentStreet(), null,
+				expectedText, ChipsUtils.of(expectedAmount), line));
+	}
+
+	@ParameterizedTest
+	@CsvSource(delimiter = '|', nullValues = "null",
+			value = { "GuiRodri2013 wins the tournament and receives $5.67 - congratulations!|1|5.67",
+					"GuiRodri2013 wins the tournament and receives 153000.00 - congratulations!|1|153000.00",
+					"GuiRodri2013 wins the tournament - congratulations!|1|0.00",
+					"GuiRodri2013 finished the tournament in 2nd place and received $3.70.|2|3.70",
+					"GuiRodri2013 finished the tournament in 2nd place and received 28687.00.|2|28687.00",
+					"GuiRodri2013 finished the tournament in 236th place|236|0.00",
+					"GuiRodri2013 finished the tournament in 21st place|21|0.00",
+					"GuiRodri2013 finished the tournament in 3rd place|3|0.00",
+					"GuiRodri2013 finished the tournament|null|0.00" })
+	void should_parse_tournament_finish(String line, String expectedPosition, String expectedPrize) {
+		assertThat(parser.parse(line)).containsExactly(Action.of(TOURNAMENT_FINISH, context.getCurrentStreet(),
+				"GuiRodri2013", expectedPosition, ChipsUtils.of(expectedPrize), line));
+	}
+
+	@Test
+	void should_parse_cash_game_hand_header() {
+		String line = "PokerStars Hand #259827049572:  Hold'em No Limit ($0.01/$0.02 USD) - 2026/02/22 12:13:29 BRT [2026/02/22 10:13:29 ET]";
+
+		assertThat(parser.parse(line)).containsExactly(
+				Action.of(HEADER, context.getCurrentStreet(), null, "259827049572", ZERO, line),
+				Action.of(TIME, context.getCurrentStreet(), null, "2026/02/22 10:13:29", ZERO, line),
+				Action.of(BIG_BLIND_LEVEL, context.getCurrentStreet(), null, "0.02", ChipsUtils.of(0.02), line));
 	}
 
 	@Test
@@ -39,12 +82,14 @@ class PokerStarsParserTest {
 			.containsExactly(Action.of(TABLE_INFO, context.getCurrentStreet(), null, "3976713284 1", ZERO, line));
 	}
 
-	@Test
-	void should_parse_seat_info() {
-		String line = "Seat 8: GuiRodri2013 (1448 in chips)";
-
-		assertThat(parser.parse(line))
-			.containsExactly(Action.of(SEAT_INFO, context.getCurrentStreet(), "GuiRodri2013", "8", ZERO, line));
+	@ParameterizedTest
+	@CsvSource(delimiter = '|',
+			value = { "Seat 8: GuiRodri2013 (1448 in chips)|1448", "Seat 8: GuiRodri2013 ($2.24 in chips)|2.24",
+					"Seat 8: GuiRodri2013 (2900 in chips, 9000 bounty)|2900",
+					"Seat 8: GuiRodri2013 (1500 in chips) is sitting out|1500" })
+	void should_parse_seat_info(String line, String expectedStack) {
+		assertThat(parser.parse(line)).containsExactly(Action.of(SEAT_INFO, context.getCurrentStreet(), "GuiRodri2013",
+				"8", ChipsUtils.of(expectedStack), line));
 	}
 
 	@Test

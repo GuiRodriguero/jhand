@@ -20,10 +20,6 @@ public class InvestmentHandler implements ActionHandler {
 
 	@Override
 	public void handle(Action action, HandState state) {
-		if (action.getType() == POST_BIG_BLIND) {
-			state.setBlindValue(action.getAmount());
-		}
-
 		if (state.getHeroName().equals(action.getPlayerName())) {
 			state.addTotalInvested(action.getAmount());
 			state.addCurrentStreetInvestment(action.getAmount());

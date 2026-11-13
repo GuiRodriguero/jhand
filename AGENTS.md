@@ -19,18 +19,15 @@ The typical flow is:
 3. Each file is split into individual hands and parsed line-by-line into `Action`s.
 4. For every hand a `HandResult` is built (hero cards, position, VPIP/PFR, invested/collected, net profit,
    made hand rank, board) and stored in PostgreSQL.
-5. A `PokerSession` is stored with its type (cash game / tournament) and the **sum of the hands' net profit**.
+5. A `PokerSession` is stored with its type (cash game / tournament) and its result: the **sum of the hands' net
+   profit** for a cash game, **prize − buy-in** for a tournament (see "Tournament session result").
 6. The client lists/filters stored hands (`GET /v1/hands`) and sessions (`GET /v1/sessions`).
 
 There is currently **no authentication** and a single **hero** (the tracked player) is passed explicitly on import.
 Re-importing the same file overwrites its hands and its session (ids are natural keys).
 
-An **equity calculator** (heads-up, all streets) exists in the `equity` package but is **not yet wired** to any
-use case or endpoint.
-
-Pending/known improvements that were analysed but not implemented are documented in
-[`docs/proposals.md`](docs/proposals.md) (hand rank semantics when the hero folds, position for 9-max tables,
-performance). Read it before touching those areas.
+An **equity calculator** (heads-up, exact hand vs exact hand, all streets) lives in the `equity` package and is
+exposed through `POST /v1/equity`. Villain **ranges** are not supported yet.
 
 ---
 
@@ -118,7 +115,7 @@ Agents must understand the poker vocabulary to reason about the code correctly.
 - **Position** (`Position` in `com.gui.jhand.hand`) — the hero's seat relative to the button:
   `BTN, SB, BB, CO, MP, UTG`. Blinds/button positions are read explicitly from the summary line; other
   positions are inferred from the distance to the button (`PositionUtils.resolvePosition`). This inference is
-  **only accurate for 6-max**; see `docs/proposals.md` §2.
+  **only accurate for 6-max**.
 - **Session** (`PokerSession` in `com.gui.jhand.pokersession`) — one imported file. `SessionType`
   (`CASH_GAME`, `TOURNAMENT`) is inferred from the file name (cash names contain stakes like `$0.01-$0.02`,
   tournament names contain `T<number>`). A name matching neither makes the import fail with
@@ -129,8 +126,26 @@ Agents must understand the poker vocabulary to reason about the code correctly.
   `src/test/resources/GuiRodri2013/`. The parser handles both; downstream logic is format-agnostic and works
   off parsed `Action`s. ⚠️ Amounts are **dollars** in cash games and **tournament chips** in tournaments, and
   are stored in the same columns — never aggregate money across sessions of different types.
+- **Tournament session result** — a tournament's hands are in chips, but its session `netProfit` is
+  **prize − buy-in**, in the buy-in currency. Both come from the history, as `Action`s:
+  - The buy-in comes from the header (`Tournament #…, $0.45+$0.05 USD` / play money `21250+3750` / bounty
+    `10625+10625+3750`) as `TOURNAMENT_BUY_IN`, the sum of all its parts (prize pool + bounty + rake). Absent
+    means freeroll (0).
+  - The finish line comes as `TOURNAMENT_FINISH` (`X wins the tournament [and receives $5.67] - congratulations!`,
+    `X finished the tournament [in 2nd place] [and received $3.70.]`), with the placement and the prize.
+  - `TournamentSessionCollector` (in `hand`) folds them per file into a `TournamentResult`, from which
+    `TournamentPokerSession.of(...)` derives the result.
+  - `realMoney` = the buy-in or the prize has `$`; play-money results are shown without `$`.
+  - No hero finish line (a tournament still running) → `prize` and `finishPosition` are `null` and `netProfit` is
+    **−buy-in** (the buy-in is already spent; a freeroll gives 0).
+  - **Outcome** (`TournamentOutcome.of(prize, finishPosition)`, exposed as `TournamentPokerSession.getOutcome()`,
+    no column): `RUNNING` (no finish line, `prize` `null`), `WINNER` (`finishPosition` 1), `IN_THE_MONEY` (ITM:
+    `prize` > 0), `OUT_OF_THE_MONEY` (finished with `prize` 0). Use it instead of re-deriving from prize/placement.
+  - Re-entries and bounties won are not accounted for yet.
 - **Ante / Small Blind / Big Blind** — forced bets posted before the deal; tracked as hero investment.
-  The big blind amount is stored as `blindValue`.
+  The big blind **of the level** is stored as `blindValue`; it is read from the hand header (`Level II (30/60)` /
+  `($0.01/$0.02 USD)`, `BIG_BLIND_LEVEL` action → `BigBlindLevelHandler`), **not** from the posted BB, which can
+  be a partial all-in.
 - **Equity** — the share of the pot a hand wins on average against a known opponent hand, given the known
   board (`EquityResult`: hero/villain equity, tie probability, scenario counts).
 
@@ -143,10 +158,15 @@ Agents must understand the poker vocabulary to reason about the code correctly.
   current street investment; uncalled bets returned to the hero are subtracted via `UncalledBetHandler`).
 - **totalCollected** — chips the hero won from pots (`CollectedHandler`).
 - **netProfit** — `totalCollected - totalInvested` (computed in `HandState.getNetProfit()`).
+- **netProfitInBb** — `netProfit / blindValue` (scale 2, `HALF_UP`). It is the unit comparable across cash games
+  and tournaments. A `null`, zero or negative `blindValue` is impossible in a real poker game, so
+  `HandState.getNetProfitInBb()` throws `BusinessException` (→ HTTP 422).
+- **totalPot** — the `Total pot` of the summary (before rake, side pots included), `TotalPotHandler`.
+- **startingStack** — the hero's stack at the start of the hand, read from the seat line
+  (`Seat 1: Hero (1500 in chips)` / `($2.24 in chips)`, `SEAT_INFO` → `SeatInfoHandler`).
 - **handRank** — computed by `HandRankResolver` with the **hero's pocket cards + the final board**, using the
   `evaluator`. Pre-flop-only hands are classified as `PAIR` or `HIGH_CARD`. It is **always set** — including
-  when the hero folded (it then means "what the hero would have made"). See `docs/proposals.md` §1 before
-  changing this semantic.
+  when the hero folded (it then means "what the hero would have made").
 - **board** — community cards (may be `null` if the hand ended pre-flop).
 
 ---
@@ -162,6 +182,7 @@ com.gui.jhand
 ├── core                        # cross-cutting, domain-agnostic building blocks
 │   ├── poker                   # pure poker value objects (Card, Rank, Suit, Board, PocketCards, HandRank)
 │   ├── utils                   # ChipsUtils (money/BigDecimal helpers)
+│   ├── exception               # BusinessException (violated poker/business rule), ResourceNotFoundException
 │   ├── web                     # GlobalExceptionHandler (@RestControllerAdvice, ProblemDetail)
 │   └── configuration           # WebConfiguration (CORS, MVC)
 │
@@ -169,8 +190,8 @@ com.gui.jhand
 │   ├── Action, ActionType, ActionStreet
 │   └── handler                 # Strategy handlers that fold Actions into HandState
 │       ├── ActionHandler (interface) + ActionHandlerRegistry
-│       └── *Handler (one per concern: Header, Time, PostAnte, Investment, Raise,
-│                       DealtToHero, Board, Collected, UncalledBet, SeatSummary)
+│       └── *Handler (one per concern: Header, Time, BigBlindLevel, PostAnte, Investment, Raise,
+│                       DealtToHero, Board, Collected, UncalledBet, TotalPot, SeatInfo, SeatSummary)
 │
 ├── parser                      # turns raw hand-history text into a List<Action>
 │   ├── PokerStarsParser, ParserContext
@@ -181,7 +202,8 @@ com.gui.jhand
 │   ├── HandEvaluationResult    # record(score, handRank); lower score = stronger hand
 │   └── HandEvaluatorTables, HandEvaluatorUtils, SenzeeHash  # package-private internals
 │
-├── equity                      # heads-up equity calculator (not yet exposed)
+├── equity                      # heads-up equity calculator
+│   ├── web                     # EquityRestService (POST /v1/equity), EquityRequest, EquityResponse
 │   ├── EquityCalculator        # @Service; picks a strategy by board length
 │   ├── EquityCalculationStrategy (sealed) + PreFlop/Flop/Turn/River*EquityCalculation
 │   ├── ShowdownEvaluator       # evaluates one board+runout scenario (shared by all strategies)
@@ -192,27 +214,46 @@ com.gui.jhand
 │   ├── HandState               # mutable accumulator used while building a HandResult
 │   ├── HandResultBuilder       # orchestrates handlers to build a HandResult
 │   ├── HandRankResolver        # hero cards + board -> HandRank (uses evaluator)
+│   ├── SessionCollector        # folds a file's hands into its PokerSession; one impl per SessionType:
+│   │                           #   CashSessionCollector, TournamentSessionCollector
 │   ├── HandImportService       # import use case (write side)
-│   ├── HandResultQuery         # read use case (read side)
+│   ├── HandResultQuery         # read use case (Page<HandResult>; findAllBySessionId, ordered by time)
+│   ├── HandResultFilter        # query criteria record (bound from request params)
 │   ├── HandResultRepository    # Spring Data JPA repository
 │   ├── HandResultSpecification # dynamic query predicates
 │   ├── Position, PositionUtils
 │   ├── BoardConverter, PocketCardsConverter  # JPA AttributeConverters
-│   └── web                     # REST layer for this domain
-│       ├── HandImportRestService, HandResultRestService  # @RestController(s)
-│       ├── HandResultFilter (request record)
-│       └── HandResultSummaryResponse (response record)
+│   ├── web                     # REST layer for this domain
+│   │   ├── HandImportRestService, HandResultRestService  # @RestController(s)
+│   │   └── HandResultSummaryResponse (response record)
+│   │
+│   └── stats                   # hero statistics of one session, computed on read from its hands
+│       ├── SessionHandStatsQuery   # read use case: HandResultQuery.findAllBySessionId → SessionHandStats
+│       ├── SessionHandStats        # record: chart points (cumulative profit, stack), VPIP/PFR %, bb/100,
+│       │                           #   best/worst hand (in bb), result by position; of(List<SessionHand>)
+│       ├── SessionHand             # read DTO of HandResult (the fields the stats need); of(HandResult)
+│       └── web
+│           ├── SessionHandStatsRestService  # GET /v1/sessions/{sessionId}/hand-stats (here, not in
+│           │                                #   pokersession, because it reads hands)
+│           └── SessionHandStatsResponse     # response record
 │
 └── pokersession                # the "PokerSession" aggregate (one imported file)
-    ├── PokerSession            # JPA @Entity (sessionId, type, netProfit)
+    ├── PokerSession            # abstract JPA @Entity (sessionId, type, handCount, startTime, endTime,
+    │                           #   netProfit); SINGLE_TABLE inheritance, discriminator = the `type` column.
+    │                           #   startTime/endTime = time of the first/last hand of the file
+    ├── CashPokerSession        # netProfit = sum of the hands (dollars); + bigBlind (of the first hand)
+    ├── TournamentPokerSession  # netProfit = prize - buyIn; + buyIn, prize, finishPosition, realMoney; getOutcome()
+    ├── TournamentOutcome       # WINNER / IN_THE_MONEY / OUT_OF_THE_MONEY / RUNNING, of(prize, finishPosition)
     ├── SessionType             # CASH_GAME / TOURNAMENT, inferred from the file name
+    ├── TournamentResult        # record: buy-in, prize, placement, realMoney, finished; netProfit()
     ├── PokerSessionService     # write use case (create/overwrite)
-    ├── PokerSessionQuery       # read use case (returns Page<PokerSession>)
+    ├── PokerSessionQuery       # read use case (Page<PokerSession>; findById → NotFoundException)
     ├── PokerSessionRepository
     ├── PokerSessionUtils       # normalizeSessionId (strip ".txt")
     └── web
-        ├── PokerSessionRestService  # GET /v1/sessions
-        └── PokerSessionResponse     # response record
+        ├── PokerSessionRestService  # GET /v1/sessions, GET /v1/sessions/{sessionId}
+        ├── PokerSessionResponse     # sealed response interface; of(entity) picks the per-type record
+        └── CashSessionResponse, TournamentSessionResponse  # one response record per SessionType
 ```
 
 ### Dependency rules (who knows whom)
@@ -224,8 +265,12 @@ com.gui.jhand
 - **`parser` depends only on `action` and `core`.** It produces `Action`s and never touches `HandState`,
   JPA, or Spring. It is a plain-Java engine (`PokerStarsParser` is instantiated with `new`, not injected).
 - **`action.handler` depends on `action`, `hand` (HandState), and `core`.** Handlers mutate `HandState`.
-- **`hand` depends on `action`, `parser`, `evaluator`, `pokersession` (service + `normalizeSessionId` only), and
+- **`hand` depends on `action`, `parser`, `evaluator`, `pokersession` (service, `SessionType`, `normalizeSessionId`, and the session factories
+  `CashPokerSession.of` / `TournamentPokerSession.of` + `TournamentResult`), and
   `core`.** It is the application/persistence layer for hands.
+- **`hand.stats` depends on `hand` only through its public API** (`HandResultQuery`, `HandResult`, `Position`) and
+  on `core`. `HandResultRepository` stays package-private in `hand`: a sub-package reaches the data through
+  `HandResultQuery`, never by making the repository public.
 - **`pokersession` depends on nothing but `core`.** It must not know `hand`.
 - **`*.web` (controllers) depend only on their domain's services/queries and domain objects**, never directly
   on repositories, the parser, or handlers.
@@ -233,15 +278,16 @@ com.gui.jhand
 
 **Normalize at the boundary.** Inputs are normalized once, at the entry of the use case, and passed down
 already clean. Example: `HandImportService` turns the file name into a `sessionId` with
-`PokerSessionUtils.normalizeSessionId` and passes that `sessionId` to `HandResultBuilder`/`HandState` and to
-`PokerSessionService.create`; none of those re-normalize.
+`PokerSessionUtils.normalizeSessionId`, derives the `SessionType` from it once, and passes both to
+`HandResultBuilder` and `SessionCollector`; none of those re-normalize or re-derive.
+
+**Polymorphism over type checks.** Behaviour that differs between cash games and tournaments lives in a
+per-type class (`CashPokerSession`/`TournamentPokerSession`, `CashSessionCollector`/`TournamentSessionCollector`).
+The only place that branches on `SessionType` is the exhaustive `switch` in `SessionCollector.of`; do not add
+`if (type == TOURNAMENT)` checks or type-specific nullable parameters to shared methods.
 
 **Known dependency debts** (do not copy these patterns; fix them when touching the area):
 
-- `HandResultQuery` / `HandResultSpecification` (package `hand`) import `hand.web.HandResultFilter` and
-  `HandResultSummaryResponse` — the application layer depends on HTTP DTOs (cycle `hand ↔ hand.web`). New
-  queries must follow the `PokerSessionQuery` model instead (return domain objects/criteria owned by the
-  domain package; the controller maps to the response record).
 - `hand ↔ action.handler` cycle: handlers mutate `hand.HandState` while `hand.HandResultBuilder` uses the
   handler registry.
 - `HandRank.fromScore` (in `core.poker`) encodes the Cactus Kev score ranges, which are an `evaluator`
@@ -252,20 +298,33 @@ already clean. Example: `HandImportService` turns the file name into a `sessionI
 
 Write and read use cases are separated:
 
-- **Write side:** `HandImportRestService` → `HandImportService` (`@Transactional`) → `HandResultBuilder` →
-  `HandResultRepository.saveAll(...)` → `PokerSessionService.create(sessionId, sumOfNetProfit)`.
+- **Write side:** `HandImportRestService` → `HandImportService` (`@Transactional`) → `HandResultBuilder` (+ the
+  file's `SessionCollector`, fed every hand) → `HandResultRepository.saveAll(...)` →
+  `PokerSessionService.save(collector.toSession(sessionId, handCount, startTime, endTime))`.
 - **Read side (hands):** `HandResultRestService` → `HandResultQuery` (`@Transactional(readOnly = true)`) →
-  `HandResultRepository.findAll(spec, pageable)` → mapped to `HandResultSummaryResponse`.
-- **Read side (sessions):** `PokerSessionRestService` → `PokerSessionQuery.getSessionsPaginated(pageable)`
+  `HandResultRepository.findAll(spec, pageable)` (returns `Page<HandResult>`) → the controller maps with
+  `HandResultSummaryResponse::of`.
+- **Read side (sessions):** `PokerSessionRestService` → `PokerSessionQuery.findAllSessions(type, pageable)`
   (returns `Page<PokerSession>`) → the controller maps with `PokerSessionResponse::of`.
+- **Read side (session hand stats, `hand.stats`):** `SessionHandStatsRestService` →
+  `SessionHandStatsQuery.getStats(sessionId)` → `HandResultQuery.findAllBySessionId` →
+  `HandResultRepository.findAllBySessionIdOrderByTimeAscHandIdAsc` (returns the `HandResult` entities, backed by
+  the `idx_hand_result_session_id` index) → the query maps them with `SessionHand::of` → `SessionHandStats.of(hands)`
+  → `SessionHandStatsResponse::of`. Repositories return entities; the `*Query` converts them to DTOs.
+  Computed on every request on purpose: a session has hundreds to a few thousand hands, and computing on read
+  means a new stat applies to every session without a re-import. Cache it (evicted on import) before
+  persisting it, and only if a measurement shows it is slow.
 
 ### REST API
 
 | Method & path | Description | Notes |
 |---|---|---|
 | `POST /v1/hands/import/batch` | multipart `files[]` + `heroName` | `204 No Content`; one transaction per file |
-| `GET /v1/hands` | paginated hands | filters: `handId`, `sessionId`, `heroCards` (space-separated cards), `handRank`; default sort `time,desc`, size 20 |
-| `GET /v1/sessions` | paginated sessions | default sort `sessionId,desc` (≈ most recent first, names start with `HHyyyyMMdd`), size 20 |
+| `GET /v1/hands` | paginated hands | filters: `handId`, `sessionId`, `sessionType` (`CASH_GAME`/`TOURNAMENT`; invalid → 400), `heroCards` (space-separated cards), `handRank`; default sort `time,desc`, size 20 |
+| `GET /v1/sessions` | paginated sessions | optional filter `type` (`CASH_GAME`/`TOURNAMENT`; invalid → 400); each item has the common fields `{sessionId, type, handCount, startTime, endTime, netProfit}` plus its type's own: cash `{bigBlind}`, tournament `{buyIn, prize, finishPosition, realMoney, outcome}` (`outcome` = `TournamentOutcome` name) — `type` is the discriminator, a cash item never carries tournament fields and vice versa (`netProfit` is −buy-in and `prize` `null` for an unfinished tournament; `endTime` = start of the last hand); default sort `startTime,desc`, size 20 |
+| `GET /v1/sessions/{sessionId}` | one session | same body as an item of `GET /v1/sessions`; unknown id → 404 (`ProblemDetail`). The id contains spaces/`$`/`'`: the client must URL-encode it |
+| `GET /v1/sessions/{sessionId}/hand-stats` | hand-derived stats of one session | `{points[], vpipPercentage, pfrPercentage, bbPer100, bestHand, worstHand, byPosition[]}`. `points` = one per hand ordered by time `{handId, time, netProfit, netProfitInBb, cumulativeNetProfit, cumulativeNetProfitInBb, startingStack, stackInBb}` (`stackInBb` = `startingStack / blindValue` of that hand: the tournament chart in bb; the cumulative bb result is **not** a stack in tournaments, since the blinds grow); best/worst hand by `netProfitInBb` `{handId, time, heroCards, position, handRank, netProfit, netProfitInBb}`; `resultsByPosition` in `Position` order `{position, hands, netProfit, netProfitInBb}`. Amounts in the session's unit (tournament hands: chips). Session without hands → 404. URL-encode the id |
+| `POST /v1/equity` | heads-up equity | JSON `{heroCards, villainCards, board}` (space-separated cards; `board` empty/absent = pre-flop, else 3/4/5 cards). Returns `{heroEquity, villainEquity, tieProbability, totalScenarios}`. Invalid/duplicated cards → 400. Pre-flop is a Monte Carlo estimate |
 
 Dates are returned as UTC `Instant`s (ISO-8601 with `Z`); time-zone conversion is the client's job.
 
@@ -277,6 +336,11 @@ Dates are returned as UTC `Instant`s (ISO-8601 with `Z`); time-zone conversion i
   4xx status (handled by the superclass).
 - `IllegalArgumentException` → **400**, with the exception message as `detail` (logged at `WARN`). Throw it
   for invalid **client input** only (bad filter value, unparseable card, unknown session file name).
+- `BusinessException` (`core.exception`) → **422 Unprocessable Content**, with the message as `detail` (logged at
+  `WARN`). Throw it when the input is well-formed but violates a poker/business invariant (e.g. a hand whose big
+  blind is missing or zero). Its message must be safe to expose.
+- `ResourceNotFoundException` (`core.exception`) → **404 Not Found**, with the message as `detail` (logged at `WARN`).
+  Throw it from a `*Query` when a resource looked up by id does not exist. Its message must be safe to expose.
 - Any other `Exception` → **500** with a **generic** `detail` (the message is never exposed) and the stack
   trace logged at `ERROR`.
 
@@ -427,6 +491,12 @@ Tests live under `src/test/java` mirroring the main package structure. **Match t
 - Test method names use **`snake_case` starting with `should_`**:
   `should_save_all_hand_results_from_file`, `should_sort_cards_by_rank_descending`,
   `should_handle_with_vpip`.
+- **One test per real scenario, as simple as possible — no filler.** A scenario is a distinct path through the code
+  under test (a branch, a rule, an error), not a different input to the same path. Do not write a second test that
+  only feeds different values (explicit values, nulls, an "unfinished" case) into the same plain mapping: a mapper
+  like `CashSessionResponse.of` is one test — `valid(Entity.class)` + `isEqualTo(new Response(entity.getX(), ...))`.
+  Business rules belong to the test of the class that owns them (e.g. the unfinished-tournament result is
+  `TournamentResultTest`, not the response test). Do cover every branch, including the `default`/error one.
 - Follow the **Arrange / Act / Assert** structure seen in existing tests. Use `InOrder` to assert interaction
   ordering when relevant (`HandImportServiceTest`).
 - Controller tests use `@WebMvcTest` with `MockMvc.perform(...)` and `@MockitoBean` collaborators, asserting
@@ -460,7 +530,8 @@ Tests live under `src/test/java` mirroring the main package structure. **Match t
 ### Add a new query filter
 
 1. Add the field to the **`HandResultFilter`** record.
-2. Add the predicate in **`HandResultSpecification.withFilters(...)`** (guard optional values with `hasText`).
+2. Add the predicate in **`HandResultSpecification.withFilters(...)`** (guard optional values with `hasText` /
+   `!= null`). Typed fields (enums) are bound by Spring; an invalid value becomes a 400.
 3. Cover it in `HandResultQueryTest` / the specification test.
 
 ### Add a new endpoint
@@ -471,10 +542,16 @@ Tests live under `src/test/java` mirroring the main package structure. **Match t
 
 ### Add a session-level aggregate
 
-1. Compute it on import in `HandImportService` from the built `HandResult`s (like `sumNetProfit`) and pass it
-   to `PokerSessionService.create(...)`, or compute it on read in `PokerSessionQuery`.
-2. Add the column to `PokerSession` and the field to `PokerSessionResponse`.
-3. Remember that cash sessions are in dollars and tournament sessions in chips.
+1. Collect it on import in the `SessionCollector` of the session type(s) it applies to, from the built
+   `HandResult`s (like `CashSessionCollector`) or from the parsed `Action`s (like `TournamentSessionCollector`),
+   and hand it to the session factory in `toSession(...)`; or compute it on read in `PokerSessionQuery`.
+2. Add the column to `PokerSession` if it applies to every type, or to the subclass if it is type-specific; add
+   the field to the response record of its type (`CashSessionResponse` / `TournamentSessionResponse`), or to both
+   when it is common. A new `SessionType` also needs its own record in the `permits` of `PokerSessionResponse`.
+3. Remember that cash sessions are in dollars, tournament sessions in the buy-in currency, and tournament hands
+   in chips.
+4. A new `SessionType` needs a `PokerSession` subclass (`@DiscriminatorValue`) and a `SessionCollector`; the
+   `switch` in `SessionCollector.of` will not compile until it is handled.
 
 ---
 
@@ -489,7 +566,6 @@ Tests live under `src/test/java` mirroring the main package structure. **Match t
 - Normalize inputs once at the use-case boundary.
 - Use **AssertJ** for every assertion and **Instancio**/`*TemplateLoader` for fixtures.
 - Name tests `should_...`; controllers `*RestService`; run `spring-javaformat:apply`.
-- Check `docs/proposals.md` before working on hand rank, positions or performance.
 
 **Don't**
 - ❌ Introduce assertion libraries other than AssertJ (no JUnit `assertEquals`, no Hamcrest, no bare `assert`).
