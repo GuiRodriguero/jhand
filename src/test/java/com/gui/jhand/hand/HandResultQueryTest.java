@@ -45,4 +45,16 @@ class HandResultQueryTest extends TestBase {
 		inOrder.verifyNoMoreInteractions();
 	}
 
+	@Test
+	void should_find_all_hands_of_a_session() {
+		List<HandResult> hands = List.of(valid(HandResult.class));
+		when(repository.findAllBySessionIdOrderByTimeAscHandIdAsc("My Session")).thenReturn(hands);
+
+		assertThat(query.findAllBySessionId("My Session")).isEqualTo(hands);
+
+		InOrder inOrder = inOrder(repository);
+		inOrder.verify(repository).findAllBySessionIdOrderByTimeAscHandIdAsc("My Session");
+		inOrder.verifyNoMoreInteractions();
+	}
+
 }

@@ -160,8 +160,7 @@ Agents must understand the poker vocabulary to reason about the code correctly.
   `HandState.getNetProfitInBb()` throws `BusinessException` (→ HTTP 422).
 - **totalPot** — the `Total pot` of the summary (before rake, side pots included), `TotalPotHandler`.
 - **startingStack** — the hero's stack at the start of the hand, read from the seat line
-  (`Seat 1: Hero (1500 in chips)` / `($2.24 in chips)`, `SEAT_INFO` → `SeatInfoHandler`). `null` for hands
-  imported before this column existed (re-import to fill it).
+  (`Seat 1: Hero (1500 in chips)` / `($2.24 in chips)`, `SEAT_INFO` → `SeatInfoHandler`).
 - **handRank** — computed by `HandRankResolver` with the **hero's pocket cards + the final board**, using the
   `evaluator`. Pre-flop-only hands are classified as `PAIR` or `HIGH_CARD`. It is **always set** — including
   when the hero folded (it then means "what the hero would have made").
@@ -180,7 +179,7 @@ com.gui.jhand
 ├── core                        # cross-cutting, domain-agnostic building blocks
 │   ├── poker                   # pure poker value objects (Card, Rank, Suit, Board, PocketCards, HandRank)
 │   ├── utils                   # ChipsUtils (money/BigDecimal helpers)
-│   ├── exception               # BusinessException (violated poker/business rule), NotFoundException
+│   ├── exception               # BusinessException (violated poker/business rule), ResourceNotFoundException
 │   ├── web                     # GlobalExceptionHandler (@RestControllerAdvice, ProblemDetail)
 │   └── configuration           # WebConfiguration (CORS, MVC)
 │
@@ -215,15 +214,25 @@ com.gui.jhand
 │   ├── SessionCollector        # folds a file's hands into its PokerSession; one impl per SessionType:
 │   │                           #   CashSessionCollector, TournamentSessionCollector
 │   ├── HandImportService       # import use case (write side)
-│   ├── HandResultQuery         # read use case (read side, returns Page<HandResult>)
+│   ├── HandResultQuery         # read use case (Page<HandResult>; findAllBySessionId, ordered by time)
 │   ├── HandResultFilter        # query criteria record (bound from request params)
 │   ├── HandResultRepository    # Spring Data JPA repository
 │   ├── HandResultSpecification # dynamic query predicates
 │   ├── Position, PositionUtils
 │   ├── BoardConverter, PocketCardsConverter  # JPA AttributeConverters
-│   └── web                     # REST layer for this domain
-│       ├── HandImportRestService, HandResultRestService  # @RestController(s)
-│       └── HandResultSummaryResponse (response record)
+│   ├── web                     # REST layer for this domain
+│   │   ├── HandImportRestService, HandResultRestService  # @RestController(s)
+│   │   └── HandResultSummaryResponse (response record)
+│   │
+│   └── stats                   # hero statistics of one session, computed on read from its hands
+│       ├── SessionHandStatsQuery   # read use case: HandResultQuery.findAllBySessionId → SessionHandStats
+│       ├── SessionHandStats        # record: chart points (cumulative profit, stack), VPIP/PFR %, bb/100,
+│       │                           #   best/worst hand (in bb), result by position; of(List<SessionHand>)
+│       ├── SessionHand             # read DTO of HandResult (the fields the stats need); of(HandResult)
+│       └── web
+│           ├── SessionHandStatsRestService  # GET /v1/sessions/{sessionId}/hand-stats (here, not in
+│           │                                #   pokersession, because it reads hands)
+│           └── SessionHandStatsResponse     # response record
 │
 └── pokersession                # the "PokerSession" aggregate (one imported file)
     ├── PokerSession            # abstract JPA @Entity (sessionId, type, handCount, startTime, endTime,
@@ -255,6 +264,9 @@ com.gui.jhand
 - **`hand` depends on `action`, `parser`, `evaluator`, `pokersession` (service, `SessionType`, `normalizeSessionId`, and the session factories
   `CashPokerSession.of` / `TournamentPokerSession.of` + `TournamentResult`), and
   `core`.** It is the application/persistence layer for hands.
+- **`hand.stats` depends on `hand` only through its public API** (`HandResultQuery`, `HandResult`, `Position`) and
+  on `core`. `HandResultRepository` stays package-private in `hand`: a sub-package reaches the data through
+  `HandResultQuery`, never by making the repository public.
 - **`pokersession` depends on nothing but `core`.** It must not know `hand`.
 - **`*.web` (controllers) depend only on their domain's services/queries and domain objects**, never directly
   on repositories, the parser, or handlers.
@@ -284,12 +296,20 @@ Write and read use cases are separated:
 
 - **Write side:** `HandImportRestService` → `HandImportService` (`@Transactional`) → `HandResultBuilder` (+ the
   file's `SessionCollector`, fed every hand) → `HandResultRepository.saveAll(...)` →
-  `PokerSessionService.save(collector.toSession(sessionId, handCount, startTime))`.
+  `PokerSessionService.save(collector.toSession(sessionId, handCount, startTime, endTime))`.
 - **Read side (hands):** `HandResultRestService` → `HandResultQuery` (`@Transactional(readOnly = true)`) →
   `HandResultRepository.findAll(spec, pageable)` (returns `Page<HandResult>`) → the controller maps with
   `HandResultSummaryResponse::of`.
 - **Read side (sessions):** `PokerSessionRestService` → `PokerSessionQuery.findAllSessions(type, pageable)`
   (returns `Page<PokerSession>`) → the controller maps with `PokerSessionResponse::of`.
+- **Read side (session hand stats, `hand.stats`):** `SessionHandStatsRestService` →
+  `SessionHandStatsQuery.getStats(sessionId)` → `HandResultQuery.findAllBySessionId` →
+  `HandResultRepository.findAllBySessionIdOrderByTimeAscHandIdAsc` (returns the `HandResult` entities, backed by
+  the `idx_hand_result_session_id` index) → the query maps them with `SessionHand::of` → `SessionHandStats.of(hands)`
+  → `SessionHandStatsResponse::of`. Repositories return entities; the `*Query` converts them to DTOs.
+  Computed on every request on purpose: a session has hundreds to a few thousand hands, and computing on read
+  means a new stat applies to every session without a re-import. Cache it (evicted on import) before
+  persisting it, and only if a measurement shows it is slow.
 
 ### REST API
 
@@ -297,8 +317,9 @@ Write and read use cases are separated:
 |---|---|---|
 | `POST /v1/hands/import/batch` | multipart `files[]` + `heroName` | `204 No Content`; one transaction per file |
 | `GET /v1/hands` | paginated hands | filters: `handId`, `sessionId`, `sessionType` (`CASH_GAME`/`TOURNAMENT`; invalid → 400), `heroCards` (space-separated cards), `handRank`; default sort `time,desc`, size 20 |
-| `GET /v1/sessions` | paginated sessions | optional filter `type` (`CASH_GAME`/`TOURNAMENT`; invalid → 400); each item has the common fields `{sessionId, type, handCount, startTime, endTime, netProfit}` plus its type's own: cash `{bigBlind}` (`null` for sessions imported before it existed), tournament `{buyIn, prize, finishPosition, realMoney}` — `type` is the discriminator, a cash item never carries tournament fields and vice versa (`netProfit` is −buy-in and `prize` `null` for an unfinished tournament; `endTime` = start of the last hand, `null` for sessions imported before it existed); default sort `startTime,desc`, size 20 |
+| `GET /v1/sessions` | paginated sessions | optional filter `type` (`CASH_GAME`/`TOURNAMENT`; invalid → 400); each item has the common fields `{sessionId, type, handCount, startTime, endTime, netProfit}` plus its type's own: cash `{bigBlind}`, tournament `{buyIn, prize, finishPosition, realMoney}` — `type` is the discriminator, a cash item never carries tournament fields and vice versa (`netProfit` is −buy-in and `prize` `null` for an unfinished tournament; `endTime` = start of the last hand); default sort `startTime,desc`, size 20 |
 | `GET /v1/sessions/{sessionId}` | one session | same body as an item of `GET /v1/sessions`; unknown id → 404 (`ProblemDetail`). The id contains spaces/`$`/`'`: the client must URL-encode it |
+| `GET /v1/sessions/{sessionId}/hand-stats` | hand-derived stats of one session | `{points[], vpipPercentage, pfrPercentage, bbPer100, bestHand, worstHand, byPosition[]}`. `points` = one per hand ordered by time `{handId, time, netProfit, netProfitInBb, cumulativeNetProfit, cumulativeNetProfitInBb, startingStack, stackInBb}` (`stackInBb` = `startingStack / blindValue` of that hand: the tournament chart in bb; the cumulative bb result is **not** a stack in tournaments, since the blinds grow); best/worst hand by `netProfitInBb` `{handId, time, heroCards, position, handRank, netProfit, netProfitInBb}`; `resultsByPosition` in `Position` order `{position, hands, netProfit, netProfitInBb}`. Amounts in the session's unit (tournament hands: chips). Session without hands → 404. URL-encode the id |
 | `POST /v1/equity` | heads-up equity | JSON `{heroCards, villainCards, board}` (space-separated cards; `board` empty/absent = pre-flop, else 3/4/5 cards). Returns `{heroEquity, villainEquity, tieProbability, totalScenarios}`. Invalid/duplicated cards → 400. Pre-flop is a Monte Carlo estimate |
 
 Dates are returned as UTC `Instant`s (ISO-8601 with `Z`); time-zone conversion is the client's job.

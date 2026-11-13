@@ -14,13 +14,13 @@ import static jakarta.persistence.EnumType.STRING;
 import static lombok.AccessLevel.PACKAGE;
 import static lombok.AccessLevel.PRIVATE;
 
-@Table
 @Entity
 @Getter
 @Builder
 @EqualsAndHashCode
 @NoArgsConstructor(access = PRIVATE)
 @AllArgsConstructor(staticName = "of", access = PACKAGE)
+@Table(indexes = @Index(name = "idx_hand_result_session_id", columnList = "sessionId"))
 public class HandResult {
 
 	@Id

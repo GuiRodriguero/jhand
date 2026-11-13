@@ -7,6 +7,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 import static com.gui.jhand.hand.HandResultSpecification.withFilters;
 
 @Service
@@ -18,6 +20,10 @@ public class HandResultQuery {
 
 	public Page<HandResult> getHandsPaginated(HandResultFilter filter, Pageable pageable) {
 		return repository.findAll(withFilters(filter), pageable);
+	}
+
+	public List<HandResult> findAllBySessionId(String sessionId) {
+		return repository.findAllBySessionIdOrderByTimeAscHandIdAsc(sessionId);
 	}
 
 }
